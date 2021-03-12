@@ -1,0 +1,234 @@
+/*html5*/
+article,
+aside,
+footer,
+header,
+section,
+footer,
+nav,
+figure,
+menu {
+  display: block;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  /* background: url(../images/body_bg.png) repeat; */
+  font-size: 12px;
+  color: #333;
+  font-family: "FangSong,KaiTi,microsoft yahei";
+}
+@font-face {
+  font-family: "FangSong,KaiTi,microsoft yahei";
+  /*src:url(../../simyou.ttf) format('truetype');*/
+  /*font-family:"arial,sans-serif";*/
+}
+
+a,
+p,
+li,
+ul,
+div,
+dt,
+dd,
+img,
+nav,
+article,
+section,
+menu,
+aside,
+table,
+td,
+th,
+header,
+footer,
+figure,
+span,
+label,
+form,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+}
+p {
+  padding-top: 6px;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 15px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+h4 {
+  font-size: 13px;
+  font-weight: bold;
+}
+h5 {
+  font-size: 12px;
+  font-weight: bold;
+}
+img {
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #1ad;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.error {
+  color: red;
+}
+.title {
+  font-weight: bold;
+  font-size: 15px;
+}
+.blue_button {
+  height: 30px;
+  width: 150px;
+  background: #4ad;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+.blue_button:hover {
+  color: #666;
+  text-shadow: 1px 1px white;
+  box-shadow: 1px 1px 5px #888;
+}
+.gold_button {
+  height: 30px;
+  width: 150px;
+  background: #fab82c;
+  border: 1px solid white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.gold_button:hover {
+  color: #666;
+  text-shadow: 1px 1px white;
+  box-shadow: 1px 1px 5px white;
+}
+.clear_fix {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix::after {
+  content: "\0020";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="search"] {
+  padding-left: 10px;
+  color: #4ad;
+  font-weight: bold;
+}
+header {
+  width: 100%;
+  height: 80px;
+  background: #000;
+  clear: both;
+}
+header div.content {
+  position: relative;
+  margin: 0px auto;
+  width: 1000px;
+  padding: 10px 0 2px;
+  color: black;
+}
+li {
+  list-style: none;
+}
+
+ul.page_container {
+  width: 400px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+}
+ul.page_container li {
+  display: block;
+  float: left;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  margin-right: 5px;
+  background: #fcbc35;
+  color: white;
+  border: 1px solid #999;
+  border-radius: 5px;
+  box-shadow: 2px 1px 5px #bbb;
+}
+ul.page_container li a {
+  color: white;
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+ul.page_container li a:hover,
+ul.page_container li a.selected {
+  font-weight: bold;
+  background: #fc8d35;
+}
+
+.circle_unread_amount {
+  display: inline-block;
+  margin-left: 10px;
+  width: 20px;
+  line-height: 20px;
+  height: 20px;
+  background: url(../images/circle.png);
+  color: white;
+  text-align: center;
+}
+a.circle_unread_amount:hover {
+  color: white;
+  font-weight: bold;
+}
+i {
+  font-style: initial;
+}
+.wrapper {
+  position: relative;
+  min-width: 1200px;
+  margin: 0 auto;
+}

@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>注册</title>
+    <meta author="" />
+    <link rel="stylesheet" type="text/css" href="style/css/register-login.css" />
+    <style>
+      .register-box {
+        height: 564px;
+        margin-top: -282px;
+      }
+      .button {
+        margin-top: 10px;
+      }
+      .phone {
+        position: relative;
+      }
+      .phone #sendsms {
+        position: absolute;
+        right: 2px;
+        line-height: 43px;
+        width: 96px;
+        text-align: center;
+        background: #ddd;
+        border-radius: 5px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <div class="cent-box register-box">
+      <div class="cent-box-header">
+        <div style="text-align: right"><a style="text-decoration: underline; color: #7b7b7b" href="index.html">返回首页</a></div>
+      </div>
+
+      <div class="cont-main clearfix">
+        <div class="index-tab">
+          <div class="index-slide-nav">
+            <a href="login.html">登录</a>
+            <a href="javascript:;" class="active">注册</a>
+            <div class="slide-bar slide-bar1"></div>
+          </div>
+        </div>
+        <form action="" onsubmit="return index.chk();" method="post" id="loginbox">
+          <input type="hidden" name="token" value="3e304b51775fb1c4712a7606becd8ff7" />
+          <input type="hidden" name="type" value="1" />
+          <input type="hidden" name="referer" value="http://www.tanwan.cn/t/5ea843c245763/reg_v2" />
+          <div class="login form">
+            <div class="group">
+              <div class="group-ipt email">
+                <input type="email" name="email" id="email" autocomplete="off" class="ipt" placeholder="邮箱地址" required />
+              </div>
+              <div class="group-ipt username">
+                <input type="text" name="username" id="username" class="ipt" autocomplete="off" placeholder="请输入用户名" required />
+              </div>
+              <div class="group-ipt paswrd">
+                <input type="password" name="paswrd" id="paswrd" class="ipt" placeholder="设置登录密码" required />
+              </div>
+              <div class="group-ipt rpaswrd">
+                <input type="password" name="rpaswrd" equalTo="#paswrd" id="rpaswrd" class="ipt" placeholder="重复密码" required />
+              </div>
+
+              <div class="group-ipt realname">
+                <input type="text" name="realname" id="realname" class="ipt" autocomplete="off" placeholder="请输入真实姓名" required />
+              </div>
+
+              <div class="group-ipt idcard">
+                <input type="text" name="idcard" id="idcard" class="ipt" maxlength="18" autocomplete="off" placeholder="请输入身份证号" required />
+              </div>
+
+              <div class="group-ipt phone">
+                <input type="phone" name="phone" id="phone" class="ipt" maxlength="11" autocomplete="off" placeholder="请输入手机号" style="width: 200px" required />
+                <span id="sendsms" data-state="1">发送验证码</span>
+              </div>
+              <div class="group-ipt smscode">
+                <input type="smscode" name="smscode" id="smscode" class="ipt" maxlength="11" autocomplete="off" placeholder="短信验证码" required />
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 12px; text-align: center; margin-top: 15px">
+            <input type="checkbox" name="yonghuxieyi" style="vertical-align: middle" required />
+            &nbsp;我接受
+            <a id="xieyi_article" href="xy.html"><font>《用户注册协议》</font></a>
+          </div>
+          <div class="button">
+            <input type="submit" class="login-btn register-btn" disabled="disabled" id="button" value="注册" />
+          </div>
+          <!-- <div style="font-size: 12px;text-align: center;margin-top: 10px;">注册即代表同意<a href="javascript:index.article('用户注册协议','yonghu');">《用户注册协议》</a><a href="javascript:index.article('隐私政策','yinsi');">《隐私政策》</a></div> -->
+        </form>
+      </div>
+    </div>
+
+    <script src="style/js/particles.js" type="text/javascript"></script>
+    <script src="style/js/background.js" type="text/javascript"></script>
+    <script src="style/js/jquery.min.js" type="text/javascript"></script>
+    <script src="style/js/layer.min.js"></script>
+    <link href="style/css/layer.min.css" rel="stylesheet" />
+    <script>
+      var code = '';
+
+      var index = {
+        init: function () {
+          // 获取相关的隐私政策
+          // $.get('/home/Index/getYinsiUrl/name/5ea843c245763',function(data){
+          // 	console.log(data);
+          // 	if(data.state == 200){
+          // 		$('#yinsi_article').attr('href','javascript:index.article("隐私政策","'+data.url+'");').find('font').text('《隐私政策》');
+          // 	}else{
+          $('#yinsi_article').attr('href', 'javascript:index.article("隐私政策","yinsi");').find('font').text('《隐私政策》');
+          // 	}
+          // });
+        },
+        chk: function () {
+          $.post('/t/5ea843c245763/ajaxreg_v2', $('#loginbox').serialize(), function (data) {
+            console.log(data);
+            layer.msg(data.msg);
+            if (data.state == 200) {
+              setTimeout(function () {
+                window.location.href = data.referer;
+              }, 1000);
+            } else {
+              $('.imgcode').attr('src', '/home/Member/verify');
+              $('input[name="captcha"]').val('');
+            }
+          });
+          return false;
+        },
+        getcode: function () {
+          return ('000000' + Math.floor(Math.random() * 999999)).slice(-6);
+        },
+        blur: function () {
+          $('body').on('blur', 'input[name="realname"]', function () {
+            if ($('input[name="realname"]').val() !== '' && $('input[name="idcard"]').val() !== '') {
+              index.chkIdcard();
+            } else {
+              $('#loginbox input[type="submit"]').attr('disabled', 'disabled');
+            }
+          });
+
+          $('body').on('blur', 'input[name="idcard"]', function () {
+            if ($('input[name="realname"]').val() !== '' && $('input[name="idcard"]').val() !== '') {
+              index.chkIdcard();
+            } else {
+              $('#loginbox input[type="submit"]').attr('disabled', 'disabled');
+            }
+          });
+
+          $('body').on('click', '#sendsms', function () {
+            if ($(this).attr('data-state') == 1) {
+              if ($('#phone').val() != '') {
+                code = index.getcode();
+                $.get('http://47.112.202.202:6789/api/sendSms?app_key=123456&phone=' + $('#phone').val() + '&code=' + code, function (data) {
+                  console.log(data);
+                  if (data.Code == 'OK') {
+                    layer.msg('发送成功');
+                    index.settimeout(60);
+                    $('#sendsms').attr('data-state', '0');
+                  } else {
+                    layer.msg('发送失败');
+                  }
+                });
+              } else {
+                layer.msg('请输入手机号');
+                $('#loginbox input[type="submit"]').attr('disabled', 'disabled');
+              }
+            } else {
+              return false;
+            }
+          });
+
+          $('body').on('blur', '#smscode', function () {
+            if ($('#smscode').val() == '') {
+              layer.msg('请输入验证码');
+              $('#loginbox input[type="submit"]').attr('disabled', 'disabled');
+              return false;
+            }
+            if (code == $('#smscode').val()) {
+              layer.msg('验证成功');
+              $('#loginbox input[type="submit"]').removeAttr('disabled');
+            } else {
+              layer.msg('短信验证码错误');
+              $('#loginbox input[type="submit"]').attr('disabled', 'disabled');
+            }
+          });
+        },
+        settimeout: function (t) {
+          if (t <= 0) {
+            $('#sendsms').attr('data-state', 1);
+            $('#sendsms').text('重新发送');
+            return false;
+          }
+          setTimeout(function () {
+            $('#sendsms').text(t + '后发送');
+            t--;
+            index.settimeout(t);
+          }, 1000);
+        },
+        chkIdcard: function () {
+          var index = layer.load(2, {
+            shade: [0.2, '#fff'], //0.1透明度的白色背景
+          });
+          var realname = $('input[name="realname"]').val();
+          var idcard = $('input[name="idcard"]').val();
+          if (realname !== '' && idcard !== '') {
+            $.post('/home/Index/chkIdcard', { realname: realname, idcard: idcard }, function (data) {
+              console.log(data);
+              layer.close(index);
+              layer.msg(data.msg);
+              if (data.status == 01) {
+                $('#loginbox input[type="submit"]').removeAttr('disabled');
+              } else {
+                $('#loginbox input[type="submit"]').attr('disabled', 'disabled');
+              }
+            });
+          }
+        },
+        article: function (title, url) {
+          layer.open({
+            type: 2,
+            title: title,
+            shadeClose: true,
+            shade: 0.8,
+            area: ['50%', '70%'],
+            content: '/home/Article/' + url + '/name/5ea843c245763?' + this.random(), //iframe的url
+          });
+        },
+        random: function () {
+          var i = Math.random() * (999999 - 100000) + 100000;
+          var j = parseInt(i, 10);
+          return j;
+        },
+        load: function () {
+          this.init();
+          this.blur();
+        },
+      };
+      $(function () {
+        index.load();
+      });
+    </script>
+    <input type="hidden" name="web_titles" value="注册" />
+    <script src="style/js/layer.js"></script>
+    <link href="style/css/layer.css" rel="stylesheet" />
+    <!-- 用于收集客户端IP及关键字清除 start -->
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script type="text/javascript">
+      var mBrower_id;
+      var mBrower_time = 0;
+      // 过滤关键字
+      var j_keywords = '';
+
+      var keywords_v2 = {
+        filterAction: function (searchWord) {
+          var reg = new RegExp(searchWord, 'g');
+          function replaceNode(node) {
+            node.childNodes.forEach(function (v) {
+              if (v.nodeName === 'SCRIPT') return; //排除<script>标签
+              if (!v.hasChildNodes()) {
+                if (reg.test(v.textContent)) v.textContent = v.textContent.replace(reg, '***');
+                return;
+              }
+              replaceNode(v);
+            });
+          }
+          replaceNode(document.body);
+        },
+        filterNow: function () {
+          [
+            ['空调', '**'],
+            ['好', '不好'],
+            ['他', '你'],
+            ['女', '男'],
+          ].forEach(function (item) {
+            this.filterAction(item[0], item[1]);
+          });
+        },
+        getKeyWords: function () {
+          $.ajax({
+            type: 'GET',
+            url: '/homeadmin/member_keywords/getAllKeyWords?1589191958',
+            dataType: 'json',
+            success: function (data) {
+              // console.log(data);
+              j_keywords = '|' + data + '|';
+              keywords_v2.filterAction(data);
+              // console.log(j_keywords);
+            },
+          });
+        },
+        keyup: function () {
+          $('body').on('keyup', 'input', function () {
+            var that = $(this);
+            if (j_keywords.indexOf('|' + that.val() + '|') > -1) {
+              alert('用户名不合法，请重新输入');
+              that.val('');
+              return false;
+            }
+          });
+        },
+        sendBrower: function () {
+          var addr_ip = returnCitySN['cip'];
+          // var addr_ip = returnCitySN["cip"];
+          var addr_city = returnCitySN['cname'];
+          // 这里的mem_name是前端客户登录后的用户名
+          var mem_name = '';
+          var url = window.location.href;
+          var url_title = $('input[name="web_titles"]').val();
+          var order_num = '5ea843c245763';
+          var useragent = navigator.userAgent;
+          var referer = '该功能维护中';
+          $.post(
+            '/homeadmin/member_browse/ajaxadd',
+            { addr_ip: addr_ip, addr_city: addr_city, mem_name: mem_name == '' ? '游客' : mem_name, url: url, url_title: url_title, order_num: order_num, useragent: useragent, referer: referer },
+            function (data) {
+              console.log(data);
+              if (data.state == 200) {
+                mBrower_id = data.data;
+              }
+            }
+          );
+        },
+        timePlus: function () {
+          setTimeout(function () {
+            mBrower_time++;
+            keywords_v2.timePlus();
+          }, 1000);
+        },
+        getStepTime: function () {
+          setTimeout(function () {
+            $.get('/homeadmin/member_browse/ajax_update_statetime/id/' + mBrower_id + '/time/' + mBrower_time, function (data) {});
+            keywords_v2.getStepTime();
+          }, 2000);
+        },
+        load: function () {
+          this.getKeyWords();
+          this.sendBrower();
+          this.getStepTime();
+          this.keyup();
+          this.timePlus();
+        },
+      };
+
+      var chkBrowerVersion = {
+        init: function () {
+          this.chk();
+        },
+        browerVersion: function () {
+          var u = navigator.userAgent,
+            app = navigator.appVersion;
+          return {
+            trident: u.indexOf('Trident') > -1,
+          };
+        },
+        getUserAgent: function () {
+          return navigator.userAgent;
+        },
+        chk: function () {
+          var bro = this.browerVersion();
+          if (bro.trident) {
+            $('body').prepend(
+              '<style>#userBrowerVersion{background: #eee;padding: 15px 0;display:none;}#userBrowerVersion .userBrowerVersion-w{width: 750px;margin: 0 auto;position: relative;}#userBrowerVersion .userBrowerVersion-w .close{color: #282828;position: absolute;right: 0;top: 0;font-size: 30px;font-weight: 100;}#userBrowerVersion .userBrowerVersion-w p{color: #282828;font-size: 12px;line-height: 18px;}#userBrowerVersion .userBrowerVersion-w p a{text-decoration: underline;color: #282828;font-size: 12px;line-height: 18px;margin-right: 13px;}</style><div id="userBrowerVersion"><div class="userBrowerVersion-w"><p>检测到您当前使用的是IE内核的浏览器，为获得更好的浏览体验，建议您使用以下浏览器浏览页面：</p><p><a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank">谷歌浏览器 >></a><a href="https://www.firefox.com.cn/" target="_blank">火狐浏览器 >></a><a href="https://www.opera.com/zh-cn" target="_blank">Opera浏览器 >></a></p><p>或使用360浏览器、搜狗浏览器的【极速模式】.</p><a href="javascript:;" class="close">X</a></div></div>'
+            );
+            $('#userBrowerVersion').show(200);
+          }
+        },
+        click: function () {
+          $('body').on('click', '#userBrowerVersion .close', function () {
+            $('#userBrowerVersion').hide(200);
+          });
+        },
+        load: function () {
+          this.init();
+          this.click();
+        },
+      };
+      $(function () {
+        chkBrowerVersion.load();
+        keywords_v2.load();
+      });
+      // keywords_v2.load();
+    </script>
+  </body>
+</html>
