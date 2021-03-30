@@ -24,11 +24,22 @@
   z-index: 100;
   text-align: right;
   color: #e7a13b;
-  transition: right 0.3s linear;
-  @media screen and (max-width: 1400px) {
-    right: 5px;
-    transition: right 0.3s linear;
-  }
+  // transition: right 0.2s;
+  // @media screen and (max-width: 1700px) {
+  //   right: -210px;
+  // }
+  // @media screen and (max-width: 1600px) {
+  //   right: -110px;
+  // }
+  // @media screen and (max-width: 1400px) {
+  //   right: -30px;
+  // }
+  // @media screen and (max-width: 1300px) {
+  //   right: 0px;
+  // }
+  // @media screen and (max-width: 1200px) {
+  //   right: 5px;
+  // }
   .navbar-body {
     margin-left: auto;
     overflow: hidden;
@@ -131,6 +142,22 @@
   height: 100px;
   z-index: 10;
   overflow: hidden;
+  // transition: left 0.2s;
+  // @media screen and (max-width: 1700px) {
+  //   left: -210px;
+  // }
+  // @media screen and (max-width: 1600px) {
+  //   left: -110px;
+  // }
+  // @media screen and (max-width: 1400px) {
+  //   left: -30px;
+  // }
+  // @media screen and (max-width: 1300px) {
+  //   left: 0px;
+  // }
+  // @media screen and (max-width: 1200px) {
+  //   left: 5px;
+  // }
   img {
     display: block;
     height: 100%;

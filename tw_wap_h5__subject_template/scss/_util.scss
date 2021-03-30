@@ -266,6 +266,12 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
+.mlauto {
+  margin-left: auto;
+}
+.mrauto {
+  margin-right: auto;
+}
 .mt-5 {
   margin-top: 0.05rem;
 }
@@ -497,6 +503,9 @@ html {
   width: 20%;
   -webkit-box-flex: 20%;
   flex: 20%;
+}
+.flex-1 {
+  flex: 1;
 }
 .jy-flex-wrap {
   flex-wrap: wrap;
