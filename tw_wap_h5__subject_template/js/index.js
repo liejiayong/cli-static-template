@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-03-05 17:36:29
+ * @LastEditTime: 2021-05-07 14:52:17
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  */
 
@@ -268,7 +268,15 @@ var jtool = {
   },
   preload: {
     init: (function () {
-      var $loading = '' + '<!-- preload -->' + '<div class="ploading " id="pagePreload">' + '<div class="progress">' + '<p>loading...</p>' + '<p id="ploadingPro">0%</p>' + '</div>' + '</div>';
+      var $loading =
+        '' +
+        '<!-- preload -->' +
+        '<div class="ploading " id="pagePreload">' +
+        '<div class="progress">' +
+        '<p>loading...</p>' +
+        '<p id="ploadingPro">0%</p>' +
+        '</div>' +
+        '</div>';
       $loading = $($loading);
       $('body').append($loading);
 
