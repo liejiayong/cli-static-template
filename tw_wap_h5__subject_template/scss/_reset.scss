@@ -38,7 +38,8 @@ html {
 body {
   margin-left: auto;
   margin-right: auto;
-  font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, '微软雅黑', Arial, sans-serif;
+  font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC,
+    Hiragino Sans GB, Microsoft YaHei, '微软雅黑', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -104,13 +105,13 @@ i {
 }
 
 /**
- in mobile
+ in mobile 自适应即可，不建议隐藏
 */
 
-::-webkit-scrollbar {
-  display: none;
-  opacity: 0;
-}
+// ::-webkit-scrollbar {
+//   display: none;
+//   opacity: 0;
+// }
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -248,18 +249,22 @@ audio:not([controls]) {
   display: none;
   height: 0;
 }
-video::-internal-media-controls-download-button {
-  display: none;
-}
-video::-webkit-media-controls-panel {
-  width: calc(100% + 30px);
-}
-video::-webkit-media-controls-enclosure {
-  overflow: hidden;
-}
-video::-webkit-media-controls-fullscreen-button {
-  display: none;
-}
+
+/* 
+  正常播放视频不建议隐藏
+*/
+// video::-internal-media-controls-download-button {
+//   display: none;
+// }
+// video::-webkit-media-controls-panel {
+//   width: calc(100% + 30px);
+// }
+// video::-webkit-media-controls-enclosure {
+//   overflow: hidden;
+// }
+// video::-webkit-media-controls-fullscreen-button {
+//   display: none;
+// }
 
 /* Forms
    ========================================================================== */

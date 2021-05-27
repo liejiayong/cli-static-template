@@ -80,18 +80,15 @@
 @mixin scroll_init {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  -webkit-transform: translate3d(0, 0, 0);
 }
 @mixin scroll_static {
   position: static;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  -webkit-transform: translate3d(0, 0, 0);
 }
 @mixin scroll_chaining {
   -ms-scroll-chaining: none;
   overscroll-behavior: contain;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  -webkit-transform: translate3d(0, 0, 0);
 }
