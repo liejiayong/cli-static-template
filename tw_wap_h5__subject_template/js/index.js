@@ -4,8 +4,8 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-05-07 14:52:17
- * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2021-05-28 11:06:49
+ * @FilePath: \tw_wap_h5__subject_template\js\index.js
  */
 
 var logic = null;
@@ -514,7 +514,7 @@ $(function () {
 
   // 弹窗
   // 关闭弹窗
-  $('.jy-pop_btn_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
+  $('.jpop-btn-close,.jpop-btn-ok,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
     jtool.$window.winReset();
     $(this).parents('.jy-pop').fadeOut();
   });
