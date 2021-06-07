@@ -28,7 +28,7 @@
           </div>
           <div class="phone icon-phone-s">
             <div class="iframe-hub-s">
-              <iframe id="mainFrame" src="" width="100%" height="100%" scrolling="no"></iframe>
+              <iframe id="mainFrame" src="" width="100%" height="100%" scrolling="auto"></iframe>
             </div>
           </div>
           <div class="qrcode-content">
@@ -45,7 +45,8 @@
 
     <script>
       (function () {
-        if (document.documentElement.clientHeight >= 976) document.querySelector('.phone-container').style.height = '100vh';
+        if (document.documentElement.clientHeight >= 976)
+          document.querySelector('.phone-container').style.height = '100vh';
         function IsPC() {
           var userAgentInfo = navigator.userAgent;
           var Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];

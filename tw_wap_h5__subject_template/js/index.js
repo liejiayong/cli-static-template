@@ -4,8 +4,8 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-05-28 11:06:49
- * @FilePath: \tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2021-06-07 16:07:54
+ * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  */
 
 var logic = null;
@@ -19,6 +19,7 @@ var jtool = {
     var psw = new Swiper(el, {
       initialSlide: 0,
       direction: 'vertical',
+      height: $(window).height(),
       autoHeight: true,
     });
     this.psw = psw;
@@ -360,13 +361,14 @@ var jtool = {
   },
   // music
   initMusic: function () {
-    var url = this.audioPath + 'bgm.mp3',
+    var url = this.audioPath + 'bgm.mp3?v=0',
       btnAudio = $('.btn-aud'),
       audio = new Audio();
     audio.setAttribute('src', url);
     audio.setAttribute('loop', true);
-    audio.setAttribute('autoplay', true);
-    audio.setAttribute('muted', false);
+    // 静音状态
+    // audio.setAttribute('autoplay', true);
+    // audio.setAttribute('muted', false);
     audio.volume = 0.5;
     audio.style.cssText = ';opacity:.1;height:1px;';
     document.body.appendChild(audio);
