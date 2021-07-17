@@ -1,24 +1,22 @@
-@import "../_const.scss";
-@import "../_mixin.scss";
+@import '../_const.scss';
+@import '../_mixin.scss';
 
-$input-height: .45rem;
+$input-height: 0.45rem;
 $input-width: 4.78rem;
-$input-gutter: .18rem;
-$input-indent: .12rem;
-$input-raduis: .06rem;
+$input-gutter: 0.18rem;
+$input-indent: 0.12rem;
+$input-raduis: 0.06rem;
 $input-bg: #ffe8dd;
 $input-color: #dab791;
 
 $textare-height: 2.1rem;
 
-$fs: .24rem;
+$fs: 0.24rem;
 
-.input_item{
+.input_item {
   line-height: $input-height;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  input{
+  input {
     width: $input-width;
     height: $input-height;
     padding: $input-indent;
@@ -28,7 +26,7 @@ $fs: .24rem;
     border-radius: $input-raduis;
     font-size: $fs;
   }
-  textarea{
+  textarea {
     padding: $input-indent;
     width: $input-width;
     height: $textare-height;
@@ -38,7 +36,7 @@ $fs: .24rem;
     border-radius: $input-raduis;
     font-size: $fs;
   }
-  label{
+  label {
     vertical-align: top;
   }
   &:not(:last-of-type) {

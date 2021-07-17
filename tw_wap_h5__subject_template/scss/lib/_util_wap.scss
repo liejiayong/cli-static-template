@@ -3,8 +3,8 @@
   For wap terminal
 
 **/
-@import "../_const.scss";
-@import "../_mixin.scss";
+@import '../_const.scss';
+@import '../_mixin.scss';
 
 .jy-wrapper {
   margin-left: auto;
@@ -39,8 +39,8 @@
 .jy-section {
   position: relative;
   width: 100%;
-  background: no-repeat top center / $bg-width auto;
   box-sizing: border-box;
+  background: no-repeat top center / $bg-width auto;
 }
 
 .jy-sectionmain {
@@ -51,6 +51,7 @@
   // height: inherit;
   height: 100%;
   box-sizing: border-box;
+  background: no-repeat top center / $bg-width auto;
 }
 
 .jy-sectionmain-auto {
@@ -59,4 +60,5 @@
   margin-right: auto;
   width: $main-width;
   box-sizing: border-box;
+  background: no-repeat top center / $bg-width auto;
 }

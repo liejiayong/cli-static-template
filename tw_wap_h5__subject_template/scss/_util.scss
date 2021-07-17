@@ -31,6 +31,7 @@ body {
 //   overflow: hidden auto;
 //   @include scroll_static();
 // }
+
 html {
   font-size: 24px;
 }
@@ -607,6 +608,43 @@ html {
     object-fit: cover;
   }
 }
+
+/**
+  page preloading
+**/
+.ploading {
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: #a82a26 url('../img/bg2.jpg') no-repeat top center/100% 100%;
+  color: #fff8de;
+  z-index: 1000;
+  .progress {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    line-height: 2;
+    text-align: center;
+  }
+}
+
+// 固定底部 返回首页
+// .btn-winfixed {
+//   position: fixed;
+//   display: inline-block;
+//   padding: 0.1rem 0.25rem;
+//   bottom: 0.12rem;
+//   right: 0;
+//   color: #ff6c88;
+//   background: rgba(255, 255, 255, 0.8);
+//   border: 0.02rem solid #ffabba;
+//   border-radius: 0.3rem 0rem 0rem 0.3rem;
+// }
 
 // 旋转屏幕
 .jy-orient_layer {

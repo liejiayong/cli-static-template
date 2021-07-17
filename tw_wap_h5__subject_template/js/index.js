@@ -4,41 +4,51 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-07-14 17:53:03
- * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2021-07-17 16:21:50
+ * @FilePath: \tw_wap_h5__subject_template\js\index.js
  */
-(function () {
-  var lastTime = 0;
-  var vendors = ['webkit', 'moz', 'ms', 'o'];
-  for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-    window.cancelAnimationFrame =
-      window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
-  }
-  if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = function (callback) {
-      var currTime = new Date().getTime();
-      var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-      var id = window.setTimeout(function () {
-        return callback(currTime + timeToCall);
-      }, timeToCall);
-      lastTime = currTime + timeToCall;
-      return id;
-    };
-  }
-  if (!window.cancelAnimationFrame) {
-    window.cancelAnimationFrame = function (id) {
-      clearTimeout(id);
-    };
-  }
-})();
-var logic = null;
+
+var logic = {
+  extend: function (name, fn) {
+    var t = this;
+    if (fn && typeof fn == 'function') {
+      if (!t[fn]) {
+        return TypeError(JSON.stringify(fn) + 'is existed');
+      } else {
+        t[name] = fn;
+      }
+    } else if (Object.prototype.toString.call(name) === '[object Object]') {
+      for (var key in name) {
+        t[key] = name[key];
+      }
+    }
+  },
+  /* 游戏预备倒计时弹窗 */
+  $readyPop: function () {
+    var $pop =
+      '' +
+      '<!-- pop game ready count -->' +
+      '<div class="jy-pop " id="J_gameReadyPop">' +
+      '<div class="jy-pop_mask"></div>' +
+      '<div class="jy-pop_ready">' +
+      ' <span id="gameReadyCount">3</span>' +
+      '<div class="mt-30 fs-24">温馨提示：点击加速即可为奥运加油！</div' +
+      '</div>' +
+      '</div>';
+    $pop = $($pop);
+    $('body').append($pop);
+  },
+};
 var jtool = {
   imgPath: './img/', // 图片地址
   audioPath: './media/', // 音乐地址
   activeCls: 'active',
   disableCls: 'disable',
   doc: document.documentElement.body || document.body,
+  /**
+   * swiper.js 滚动页面
+   * @param {Element} el
+   */
   swiper: function (el) {
     var psw = new Swiper(el, {
       initialSlide: 0,
@@ -74,8 +84,12 @@ var jtool = {
       true
     );
   },
+  /**
+   * 点击元素复制文本
+   * @param {className} btnCopyCls
+   */
   elementCopy: function (btnCopyCls) {
-    btnCopyCls = btnCopyCls || '.btnpopcode';
+    btnCopyCls = btnCopyCls || '.jbtnpopcode';
     var $tip = $(
       '<div class="jy-copytips" style="display: none; padding: 10px; position: fixed; top: 30%; left: 50%; transform: translateX(-50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); box-shadow: rgb(0, 0, 0) 0px 0px 5px; white-space: nowrap; z-index: 2001;"></div>'
     );
@@ -88,6 +102,9 @@ var jtool = {
       $tip.text('您的手机不支持点击复制，请长按复制！').fadeIn(500).fadeOut(1000);
     });
   },
+  /**
+   * tip pop
+   */
   tip: {
     screen: function () {
       var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
@@ -121,9 +138,18 @@ var jtool = {
       );
     },
   },
+  /**
+   * 随机数
+   * @param {number} min
+   * @param {number} max
+   */
   getRandom: function (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
+  /**
+   * 洗牌
+   * @param {Array} arr
+   */
   shuffle: function (arr) {
     var _arr = arr.slice();
     for (var i = 0; i < _arr.length; i++) {
@@ -134,6 +160,11 @@ var jtool = {
     }
     return _arr;
   },
+  /**
+   * 防抖
+   * @param {Function} fn
+   * @param {number} delay
+   */
   debounce: function (fn, delay) {
     var timer = null;
     return function () {
@@ -145,6 +176,11 @@ var jtool = {
       }, delay);
     };
   },
+  /**
+   * 节流
+   * @param {Function} fn
+   * @param {number} delay
+   */
   throttle: function (fn, delay) {
     if (!delay) delay = 160;
     var timer = null;
@@ -163,18 +199,38 @@ var jtool = {
       }
     };
   },
+  /**
+   * 去除前后空格
+   * @param {String} str
+   */
   trim: function (str) {
     return str.replace(/^\s+|\s+$/g, '');
   },
+  /**
+   *
+   * @param {string} key
+   * @param {string} type search|hash
+   */
   getQueryString: function (key, type) {
     type = type ? type : 'search';
     const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)');
     const value = window.location[type].match(regExp);
     return value && decodeURIComponent(value[1]);
   },
+  /**
+   * 判断数字类型
+   * @param {number} number
+   */
   isNumber: function (number) {
     return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]';
   },
+  /**
+   * 正方形顺时针抽奖装盘
+   * @param {number} index 当前元素索引
+   * @param {number} total 元素总数
+   * @param {Function} cbCurrent 实时回调
+   * @param {Function} cbEnd 结束回调
+   */
   lottery(index, total, cbCurrent, cbEnd) {
     if (!this.isNumber(index)) return new Error('the arguments of index must number!');
     if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!');
@@ -267,13 +323,23 @@ var jtool = {
       });
     },
   },
+  /**
+   * 弹窗展示
+   * @param {Element|String|number} html
+   */
   showTip: function (html) {
     var $tip = $('#J_tipPop');
     $tip.find('#popTipNorm').html(html);
     $tip.fadeIn();
   },
-  navTo: function (cls) {
-    $(cls).addClass(this.activeCls).siblings().removeClass(this.activeCls);
+  /**
+   * 跳转页面
+   * @param {string} cls
+   * @param {string} siblings
+   */
+  navTo: function (cls, siblings) {
+    siblings = siblings || '.jy-section';
+    $(cls).addClass(this.activeCls).siblings(siblings).removeClass(this.activeCls);
   },
   $window: {
     fixed: function (cls) {
@@ -383,143 +449,334 @@ var jtool = {
       });
     },
   },
-  // music
-  initMusic: function () {
-    var url = this.audioPath + 'bgm.mp3?v=0',
-      btnAudio = $('.btn-aud'),
-      audio = new Audio();
+  /**
+   * music
+   * @param {el} btnAudio
+   */
+  initMusic: function (btnAudio) {
+    var url = jtool.audioPath + 'bgm.mp3?v=0',
+      btnAudio = btnAudio || $('.btn-aud'),
+      audio = new Audio(),
+      delay = 2000;
     audio.setAttribute('src', url);
+    audio.setAttribute('preload', 'auto'); /* ios自动缓冲，保险些可以设置audio.load()来加载缓冲 */
     audio.setAttribute('loop', true);
     // 静音状态
     // audio.setAttribute('autoplay', true);
     // audio.setAttribute('muted', false);
     audio.volume = 0.5;
     audio.style.cssText = ';opacity:.1;height:1px;';
-    document.body.appendChild(audio);
+    document.addEventListener('DOMContentLoaded', function () {
+      document.body.appendChild(audio);
+    });
 
-    function play(label) {
+    /* prettier-ignore */
+    window.setTimeout(function(){console.log("audio delay",delay);audio.load();audio.onloadedmetadata=function(){var duration=this.duration;startPlay("audio loadedmetadata total durtion is "+duration)};audio.addEventListener("canplay",function(){startPlay("andio canlpay")});if(typeof WinxinJSBridge=="object"&&typeof WeixinJSBridge.invoke=="function"){startPlay("wechat WeixinJSBridge is invoke")}else{if(document.addEventListener){document.addEventListener("WeixinJSBridgeReady",function(){startPlay("wechat WeixinJSBridgeReady by modernbrower")},false)}else{if(document.attachEvent){document.attachEvent("WeixinJSBridgeReady",function(){startPlay("wechat WeixinJSBridgeReady by iebrower")},false);document.attachEvent("onWeixinJSBridgeReady",function(){startPlay("wechat onWeixinJSBridgeReady by iebrower")},false)}}}$("document").one("click",function(){startPlay("andio awake by document  click")});btnAudio.on("click",function(){play()})},delay);
+    var isPlay = false;
+    function startPlay(notice) {
+      if (isPlay) {
+        return console.log('audio first playing, not ', notice);
+      }
+      audio.play();
+      if (!audio.paused) {
+        isPlay = true;
+      }
+      console.log('audio initial status: ', isPlay, ' and', notice);
+    }
+    function play() {
       if (audio.paused) {
-        audio.play();
-        console.log(label, audio.paused);
-        if (!audio.paused) btnAudio.addClass(jtool.activeCls);
-        else {
-          btnAudio.addClass(jtool.activeCls);
-        }
-      } else {
         btnAudio.addClass(jtool.activeCls);
+        audio.play();
+      } else {
+        btnAudio.removeClass(jtool.activeCls);
+        audio.pause();
       }
     }
-    play('initial');
-    window.setTimeout(function () {
-      audio.addEventListener(
-        'canplay',
-        function () {
-          play('canlpay');
+  },
+  /**
+   * menu compatible
+   * @param {*} parentCls 父元素容器
+   * @param {*} scrollCls 滚动容器
+   * @param {*} menuCls 菜单容器
+   */
+  menusCompat: (function (parentCls, scrollCls, menuCls) {
+    parentCls = parentCls || '#topWrapper';
+    scrollCls = scrollCls || '#mainWrapper';
+    menuCls = menuCls || '#menuWrapper';
+    return function () {
+      var $parent = document.querySelector(parentCls),
+        $scroll = document.querySelector(scrollCls),
+        $menu = document.querySelector(menuCls),
+        wrapperHeight = $parent.offsetHeight - $menu.offsetHeight;
+      $parent.style.position = 'relative';
+      $scroll.style.height = wrapperHeight + 'px';
+      $menu.style.top = wrapperHeight + 'px';
+    };
+  })(),
+  /**
+   * child 滚动到 parent 的相对底部位置
+   * @param {className} parentCls
+   * @param {className} childCls
+   */
+  scrollToBottom: function (parentCls, childCls) {
+    var $p = $(parentCls),
+      $c = $(childCls),
+      pH = $p.height(),
+      cH = $c.height();
+    if (pH < cH) {
+      $p.scrollTop(cH - pH);
+    }
+  },
+  ctxParticle: function () {
+    new particleCanvas(ctxId, [
+      {
+        type: {
+          typeName: 'image',
+          url: './img/particle1.png',
         },
-        false
-      );
-      document.addEventListener(
-        'WeixinJSBridgeReady',
-        function () {
-          play('wechat');
+        number: 5,
+        op: {
+          min: 0.7,
+          max: 1,
         },
-        false
-      );
-      $('document,body').one('click', function () {
-        play('one');
-      });
-      //   需要显示按钮是使用
-      //   if (audio.paused && audio.play() !== undefined) {
-      //     audio.play().catch(function () {
-      //       audio.play();
-      //       console.log('promise', audio.paused);
-      //       if (!audio.paused) btnAudio.addClass(jtool.activeCls);
-      //       else {
-      //         btnAudio.addClass(jtool.activeCls);
-      //       }
-      //     });
-      //   }
-      btnAudio.on('click', function () {
-        if ($(this).hasClass(jtool.activeCls)) {
-          audio.pause();
-          $(this).removeClass(jtool.activeCls);
-        } else {
-          audio.play();
-          $(this).addClass(jtool.activeCls);
-        }
-      });
-    }, 20);
+        size: {
+          min: 15,
+          max: 15,
+        },
+        speed: {
+          min: 1,
+          max: 1,
+        },
+        angle: {
+          value: 0,
+          float: 20,
+        },
+        area: {
+          leftTop: [120, 0],
+          rightBottom: [600, 700],
+        },
+        rota: {
+          value: 0,
+          speed: 2,
+          floatValue: 0,
+          floatSpeed: 3,
+        },
+        zoom: {
+          max: 0,
+          min: 0,
+        },
+        reIn: '',
+      },
+    ]);
   },
 };
-// // 倒计时
-// var jcountdown = {
-//   timer: null,
-//   format: function (num) {
-//     num = Number(num) || 0;
-//     return num < 10 ? '0' + num : num;
-//   },
-//   getTime: function (y, mo, d, h, mi, s) {
-//     return new Date(y, mo-1, d, h, mi, s).getTime();
-//   },
-//   getDate: function (y, mo, d, h, mi, s) {
-//     mo = mo - 1;
-//     var now = new Date().getTime(),
-//       last = new Date(y, mo, d, h, mi, s).getTime(),
-//       diff = (last - now) / 1000,
-//       day = 0,
-//       hour = 0,
-//       min = 0,
-//       sec = 0,
-//       end = true;
 
-//     if (diff > 0) {
-//       day = parseInt(diff / 24 / 60 / 60);
-//       hour = parseInt((diff / 60 / 60) % 24);
-//       min = parseInt((diff / 60) % 60);
-//       sec = parseInt(diff % 60);
-//       end = false;
-//     }
-//     return { end: end, day: this.format(day), hour: this.format(hour), min: this.format(min), sec: this.format(sec) };
-//   },
-//   setTimeDOM: function (y, mo, d, h, mi, s) {
-//     var date = this.getDate(y, mo, d, h, mi, s);
-//     $('#day').text(date.day);
-//     $('#hour').text(date.hour);
-//     $('#minute').text(date.min);
-//     $('#second').text(date.sec);
-//     if (!date.end) {
-//       var t = this;
-//       this.timer = setTimeout(function () {
-//         t.setTimeDOM(y, mo, d, h, mi, s);
-//       }, 1000);
-//     }
-//   },
-//   countDown: function (y, mo, d, h, mi, s) {
-//     clearTimeout(this.timer);
-//     this.setTimeDOM(y, mo, d, h, mi, s);
-//   },
-// };
+// 倒计时
+var jcountdown = {
+  timer: null,
+  format: function (num) {
+    num = Number(num) || 0;
+    return num < 10 ? '0' + num : num;
+  },
+  getTime: function (y, mo, d, h, mi, s) {
+    return new Date(y, mo - 1, d, h, mi, s).getTime();
+  },
+  getDate: function (y, mo, d, h, mi, s) {
+    mo = mo - 1;
+    var now = new Date().getTime(),
+      last = new Date(y, mo, d, h, mi, s).getTime(),
+      diff = (last - now) / 1000,
+      day = 0,
+      hour = 0,
+      min = 0,
+      sec = 0,
+      end = true;
 
+    if (diff > 0) {
+      day = parseInt(diff / 24 / 60 / 60);
+      hour = parseInt((diff / 60 / 60) % 24);
+      min = parseInt((diff / 60) % 60);
+      sec = parseInt(diff % 60);
+      end = false;
+    }
+    return { end: end, day: this.format(day), hour: this.format(hour), min: this.format(min), sec: this.format(sec) };
+  },
+  setTimeDOM: function (y, mo, d, h, mi, s) {
+    var date = this.getDate(y, mo, d, h, mi, s);
+    $('#day').text(date.day);
+    $('#hour').text(date.hour);
+    $('#minute').text(date.min);
+    $('#second').text(date.sec);
+    if (!date.end) {
+      var t = this;
+      this.timer = setTimeout(function () {
+        t.setTimeDOM(y, mo, d, h, mi, s);
+      }, 1000);
+    }
+  },
+  countDown: function (y, mo, d, h, mi, s) {
+    clearTimeout(this.timer);
+    this.setTimeDOM(y, mo, d, h, mi, s);
+  },
+};
 // // 第一波2月11号
 // if (Date.now() < new Date(2021, 02, 11, 20, 00, 00)) {
 //   jcountdown.countDown(2021, 02, 11, 20, 00, 00);
 // }
+
+var OFFSET_STATUS = { ready: 'ready', loading: 'loading', loaded: 'loaded' };
+var SPEED_RATE = [
+  { range: '0-100', value: 0.8 },
+  { range: '100-200', value: 0.6 },
+  { range: '200-300', value: 0.4 },
+  { range: '300-400', value: 0.2 },
+  { range: '400-500', value: 0.1 },
+  { range: '500-600', value: 0.1 },
+  { range: '600-700', value: 0.09 },
+  { range: '700-800', value: 0.08 },
+  { range: '900-1000', value: 0.07 },
+  { range: '1000-3000', value: 0.06 },
+  { range: '3000-6000', value: 0.05 },
+  { range: '6000-10000', value: 0.04 },
+  { range: '10000-100000000', value: 0 },
+];
+/* 速度控制器 */
+var SpeedController = function (opts) {
+  this.time = 0; /* 初始计时 */
+  this.timeover = opts.timeover; /* 结束计时 */
+  this.timestamps = opts.mode ? 10000000 : Date.now(); /* 开始时间戳 */
+  this.mode = opts.mode || false; /*true:开启加速模式 */
+  this.rateOpts = opts.rate || []; /* 速率 */
+};
+SpeedController.prototype = {
+  constructor: SpeedController,
+  setTime: function (time) {
+    this.time = time;
+  },
+  /**
+   * 匀速
+   * @param {Function} cb 回调
+   */
+  constSpeed: function (cb) {
+    var now = Date.now(),
+      rate = (now - this.time) / 1000 / this.timeover;
+    cb && cb(rate);
+    return rate;
+  },
+  /**
+   * 加速
+   * @param {Function} cb 回调
+   */
+  aceSpeed: function (cb) {
+    var now = Date.now(),
+      diff = now - this.timestamps,
+      ace = 0;
+
+    this.rateOpts.forEach(function (item) {
+      var times = item.range.split('-');
+      if (diff > times[0] && diff <= times[1]) {
+        ace = item.value;
+      }
+    });
+
+    this.timestamps = now;
+    cb && cb(ace);
+    return ace;
+  },
+  /**
+   * 速度处理
+   * @param {Function} cb 回调
+   */
+  exce: function (cb) {
+    var ace = 0;
+    if (this.mode) {
+      ace = this.aceSpeed();
+    } else {
+      ace = this.constSpeed();
+    }
+    cb && cb(ace);
+  },
+  loop: function (cb) {
+    var now = Date.now(),
+      diff = now - this.timestamps,
+      ace = 0;
+
+    this.rateOpts.forEach(function (item) {
+      var times = item.range.split('-');
+      if (diff > times[0] && diff <= times[1]) {
+        ace = item.value;
+      }
+    });
+
+    cb && cb(ace);
+    return ace;
+  },
+};
+/* 位移控制器 */
+var OffsetController = function (el, opts) {
+  this.el = el;
+  this.status = OFFSET_STATUS.ready;
+  this.speed = 0;
+  this.ace = 0;
+  this.speeder = new SpeedController(opts.speeder);
+  this.mode = opts.mode || 'default';
+
+  this.init();
+};
+OffsetController.prototype = {
+  constructor: OffsetController,
+  init: function () {
+    this.status = OFFSET_STATUS.loading;
+    this.speeder.setTime(Date.now());
+    this.width = this.el.width();
+    var translate3d = 'translate3d(0,0,0)';
+    this.el.css({ webkitTransform: translate3d, mozTransform: translate3d, transform: translate3d });
+  },
+  move: function (cb) {
+    switch (this.mode) {
+      case 'default':
+        var ace = this.speeder.constSpeed();
+        this.speed = this.width * ace;
+        cb && cb(this.speed);
+        break;
+      default:
+        var ace = this.speeder.aceSpeed();
+        this.speed += ace;
+        cb && cb(this.speed);
+
+        break;
+    }
+  },
+  loop: function (cb) {
+    var ace = this.speeder.loop();
+    this.speed += ace;
+    cb && cb(this.speed);
+  },
+};
+
 // preinstall the code
 $(function () {
-  // jtool.preload.init(jtool.imgPath, [], function () {
-  //   console.log('preload finish...')
-  //   jtool.preload.close();
-  //   // jtool.navTo('.section-1');
-  // }, function (install) {
-  //   var prsnum = install.processNum;
-  //   $('#ploadingPro').html(prsnum + "%");
-  //   console.log('preload process...', prsnum)
-  // });
+  jtool.preload.init(
+    jtool.imgPath,
+    [],
+    function () {
+      console.log('preload finish...');
+      jtool.preload.close();
+      jtool.navTo('.section-1');
+    },
+    function (install) {
+      var prsnum = install.processNum;
+      $('#ploadingPro').html(prsnum + '%');
+      console.log('preload process...', prsnum);
+    }
+  );
   // jtool.swiper('#psw');
   jtool.tip.screen();
   jtool.elementCopy();
   jtool.pop.picker();
   jtool.pop.btnAuth('.jy-pop_input_cell-auth');
+  jtool.menusCompat();
+  // jtool.initMusic();
   var queryTest = window.location.href;
   if (queryTest.indexOf('debug=jylie') > -1) new VConsole();
   // 只复位到顶部
@@ -538,194 +795,17 @@ $(function () {
   //     });
   // })();
 
-  // 弹窗
-  // 关闭弹窗
-  $('.jpop-btn-close,.jpop-btn-ok,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
-    jtool.$window.winReset();
-    $(this).parents('.jy-pop').fadeOut();
-  });
+  //   // test touchMove
+  //   jtool.touchMove.addListener('.section-1')
+  //   // jtool.touchMove.addListener('.section-2')
+  //   setTimeout(() => {
+  //     jtool.touchMove.prevent('.section-1', function (e) {
+  //       console.log('0000000000', e)
+  //     })
+  //   }, 3000);
+  //   setTimeout(() => {
+  //     jtool.touchMove.reset('.section-1', function (e) {
+  //       console.log('111111111', e)
+  //     })
+  //   }, 6000);
 });
-
-// some business logic
-$(function () {
-  // selector
-  $('#jyPopPicker').on('click', 'li', function () {
-    // 业务逻辑
-
-    $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-  });
-  $('#jyCallPicker').on('click', function () {
-    // 业务逻辑
-
-    $('#J_selectorPop').fadeIn();
-  });
-  $('.jy-pop_picker_btn--confirm').on('click', function () {
-    // 业务逻辑
-
-    $(this).parents('.jy-pop').fadeOut();
-    $('#J_gamePop').hide();
-  });
-  // 礼品查看
-  $('.btn-pop-check').on('click', function () {
-    $('#J_codePop').fadeIn();
-  });
-  // 礼品待领取
-  $('.btn-pop-code').on('click', function () {
-    $('#J_codePop').fadeIn();
-  });
-  // 填写信息
-  $('.btn-pop-address').on('click', function () {
-    $('#J_ownPop').fadeIn();
-  });
-  // 待领取
-  $('.btn-pop-get').on('click', function () {
-    $('#J_gamePop').fadeIn();
-  });
-  // 我的奖励
-  $('.btn-mygift').on('click', function () {
-    $('#J_recordPop').fadeIn();
-  });
-  // // 回到首页
-  // $('.btn-pop-nav-home,.btn-nav-home').on('click', function () {
-  //   jtool.navTo('.section-1');
-  // });
-  // // 概率公示
-  // $('.btn-faqs').on('click', function () {
-  //   $('#J_adverPop').fadeIn();
-  // });
-  // // 锦囊
-  // $('.btn-kit').on('click', function () {
-  //   $('#J_rulePop').fadeIn();
-  // });
-  // // 我的奖励
-  // $('.btn-mygift').on('click', function () {
-  //   $('#J_recordPop').fadeIn();
-  // });
-
-  // // 开始游戏
-  // $('.btn-start').on('click', function () {
-  //   navTo('.section-2');
-  //   $('#J_rulePop').fadeIn();
-  // });
-
-  // game logic
-  logic = {
-    isGaming: false,
-    timer: null,
-    time: { DEFAULT: 30, current: 30 },
-    duration: 800,
-    score: { total: 0, current: 0 },
-    // 游戏结束业务
-    gameResult: function () {
-      var t = this,
-        score = logic.score;
-      console.log('card result: ', score);
-
-      // game success
-      if (score.total <= score.current) {
-        showTip('恭喜xxx');
-      }
-      // game fail
-      else {
-        $('#J_tipPop').find('#popTipNorm').text('！再来一次吧~');
-        $('#J_tipPop').fadeIn();
-      }
-    },
-    gameReset: function () {
-      var t = this;
-      t.isGaming = false;
-      t.score.current = 0;
-      t.time.current = t.time.DEFAULT;
-      t.setTime();
-      clearInterval(t.timer);
-    },
-    setTime: function () {
-      var t = this;
-      var $gTime = $('#gTime'),
-        time = t.time.current;
-      $gTime.text(time);
-    },
-    gameTimer: function () {
-      var t = this;
-
-      this.timer = setInterval(function () {
-        if (t.time.current == -1 || t.score.current >= t.score.total) {
-          clearInterval(t.timer);
-          t.gameResult();
-          return;
-        }
-
-        t.setTime();
-        t.time.current--;
-      }, 1000);
-    },
-    run: function () {
-      var t = this;
-      if (t.isGaming) {
-        return;
-      }
-      t.gameReset();
-    },
-    loadGame: function () {
-      var t = this,
-        count = 3,
-        $popReady = $('#J_gameReadyPop'),
-        $count = $popReady.find('#gameReadyCount');
-      jtool.navTo('.section-2');
-      $popReady.fadeIn();
-      $count.text(count);
-
-      t.run();
-
-      var time = setInterval(function () {
-        --count;
-        if (count == -1) {
-          clearInterval(time);
-          return;
-        } else if (count == 0) {
-          $count.text('GO!');
-          $popReady.fadeOut();
-          $('.card-cell').removeClass(activeCls).siblings().removeClass(activeCls);
-          t.delay(function () {
-            t.gameTimer();
-          }, 100);
-        } else {
-          $count.text(count);
-        }
-      }, 1000);
-    },
-    $readyPop: function () {
-      var $pop =
-        '' +
-        '<!-- pop game ready count -->' +
-        '<div class="jy-pop " id="J_gameReadyPop">' +
-        '<div class="jy-pop_mask"></div>' +
-        '<div class="jy-pop_ready">' +
-        ' <span id="gameReadyCount">3</span>' +
-        '</div>' +
-        '</div>';
-      $pop = $($pop);
-      $('body').append($pop);
-    },
-    init: function () {
-      this.$readyPop();
-    },
-  };
-  // logic.init();
-});
-
-// $(function () {
-//   // test touchMove
-//   jtool.touchMove.addListener('.section-1')
-//   // jtool.touchMove.addListener('.section-2')
-//   setTimeout(() => {
-//     jtool.touchMove.prevent('.section-1', function (e) {
-//       console.log('0000000000', e)
-//     })
-//   }, 3000);
-//   setTimeout(() => {
-//     jtool.touchMove.reset('.section-1', function (e) {
-//       console.log('111111111', e)
-//     })
-//   }, 6000);
-// })

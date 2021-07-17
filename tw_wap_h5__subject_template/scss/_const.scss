@@ -2,18 +2,18 @@
 $prefix: '.jy';
 
 // font-size
-$fs-primary: 0.24rem;
+$fs-primary: 0.22rem;
 
 // 背景宽度
 $bg-width: 7.5rem;
 
 // 主要内容宽度
-$main-width: 6.9rem;
+$main-width: 100%;
 
 // color
 // 主题色定义
-$color-theme-bg: #9a3116 linear-gradient(red, orange, yellow, green, blue, pink, purple, red); // 默认主题背景颜色
-$color-theme-txt: #ffecd9; // 默认主题字体颜色,与$color-primary一样
+$color-theme-bg: #700a13 linear-gradient(#700a13); // 默认主题背景颜色
+$color-theme-txt: #ffefb9; // 默认主题字体颜色,与$color-primary一样
 
 // 默认颜色定义
 $color-primary: $color-theme-txt; // 默认字体颜色
@@ -32,3 +32,10 @@ $color-pink: pink;
 $color-blue: blue;
 $color-indigo: indigo; // 靛蓝
 $color-purple: purple;
+
+/* 
+ components style
+*/
+
+/* menus */
+$menus-top: 1.26rem;

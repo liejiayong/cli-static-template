@@ -1,4 +1,5 @@
-@import '../mixin.scss';
+@import '../_const.scss';
+@import '../_mixin.scss';
 
 $panel-width: 7.1rem;
 $panel-height: 4.1rem;
@@ -7,28 +8,13 @@ $msg-height: 0.5rem;
 $msg-gutter: 0.1rem;
 $msg-fs: 0.24rem;
 $msg-color: #dab791;
-$danmu-fs:.3rem;
-
-@import "../_const.scss";
-@import "../_mixin.scss";
+$danmu-fs: 0.3rem;
 
 .danmu_stage {
   position: absolute;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-     -moz-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   left: $panel-gutter;
   right: $panel-gutter;
   top: $panel-gutter;
@@ -60,8 +46,6 @@ $danmu-fs:.3rem;
     padding: 0 $msg-gutter;
     height: $msg-height;
     outline: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     color: $msg-color;
     font-size: $msg-fs;
@@ -70,8 +54,35 @@ $danmu-fs:.3rem;
     vertical-align: top;
     @include inputcolor($msg-color);
   }
-  .danmu-submit {
+  select {
+    padding: 0 $msg-gutter;
+    height: $msg-height;
+    outline: 0;
+    appearance: none;
+    color: $msg-color;
+    font-size: $msg-fs;
+    -moz-border-radius: $msg-gutter;
+    border-radius: $msg-gutter;
+    vertical-align: top;
+    @include inputcolor($msg-color);
+  }
+  .danmu_submit {
     vertical-align: top;
     z-index: 1;
   }
 }
+
+// <!-- 弹幕 -->
+// <div class="danmu_container">
+//   <div id="danmuStage" class="danmu_stage"></div>
+// </div>
+// <div class="danmu_input mauto mt-30">
+//   <div class="i-inp-dm">
+//     <!-- <input placeholder="请选择您好发送的祝福......." type="text"> -->
+//     <select name="" id="">
+//       <option value="请选择您好发送的祝福.......">请选择您好发送的祝福.......</option>
+//       <option value="1111">1111</option>
+//     </select>
+//   </div>
+//   <a href="javascript:;" class="jy-btn danmu_submit ml-20">发送</a>
+// </div>

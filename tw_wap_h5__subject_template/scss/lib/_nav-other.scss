@@ -15,7 +15,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 200;
+  z-index: 10;
 }
 .jy-navbar_other .return {
   position: absolute;
@@ -27,7 +27,7 @@
   font-weight: lighter;
 }
 .jy-navbar_other .return::before {
-  content: "";
+  content: '';
   display: inline-block;
   height: 0.14rem;
   width: 0.14rem;
@@ -42,7 +42,7 @@
   left: 0.3rem;
 }
 .jy-navbar_other::before {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   border: 0.01rem solid #ccc;
