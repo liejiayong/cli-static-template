@@ -4,10 +4,34 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-06-07 16:07:54
+ * @LastEditTime: 2021-07-14 17:53:03
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  */
-
+(function () {
+  var lastTime = 0;
+  var vendors = ['webkit', 'moz', 'ms', 'o'];
+  for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+    window.cancelAnimationFrame =
+      window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+  }
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = function (callback) {
+      var currTime = new Date().getTime();
+      var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+      var id = window.setTimeout(function () {
+        return callback(currTime + timeToCall);
+      }, timeToCall);
+      lastTime = currTime + timeToCall;
+      return id;
+    };
+  }
+  if (!window.cancelAnimationFrame) {
+    window.cancelAnimationFrame = function (id) {
+      clearTimeout(id);
+    };
+  }
+})();
 var logic = null;
 var jtool = {
   imgPath: './img/', // 图片地址
@@ -435,7 +459,7 @@ var jtool = {
 //     return num < 10 ? '0' + num : num;
 //   },
 //   getTime: function (y, mo, d, h, mi, s) {
-//     return new Date(y, mo, d, h, mi, s).getTime();
+//     return new Date(y, mo-1, d, h, mi, s).getTime();
 //   },
 //   getDate: function (y, mo, d, h, mi, s) {
 //     mo = mo - 1;
