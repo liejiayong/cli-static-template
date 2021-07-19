@@ -4,8 +4,8 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-07-17 16:21:50
- * @FilePath: \tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2021-07-19 17:52:48
+ * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  */
 
 var logic = {
@@ -471,24 +471,30 @@ var jtool = {
     });
 
     /* prettier-ignore */
-    window.setTimeout(function(){console.log("audio delay",delay);audio.load();audio.onloadedmetadata=function(){var duration=this.duration;startPlay("audio loadedmetadata total durtion is "+duration)};audio.addEventListener("canplay",function(){startPlay("andio canlpay")});if(typeof WinxinJSBridge=="object"&&typeof WeixinJSBridge.invoke=="function"){startPlay("wechat WeixinJSBridge is invoke")}else{if(document.addEventListener){document.addEventListener("WeixinJSBridgeReady",function(){startPlay("wechat WeixinJSBridgeReady by modernbrower")},false)}else{if(document.attachEvent){document.attachEvent("WeixinJSBridgeReady",function(){startPlay("wechat WeixinJSBridgeReady by iebrower")},false);document.attachEvent("onWeixinJSBridgeReady",function(){startPlay("wechat onWeixinJSBridgeReady by iebrower")},false)}}}$("document").one("click",function(){startPlay("andio awake by document  click")});btnAudio.on("click",function(){play()})},delay);
+    window.setTimeout(function(){console.log('audio delay',delay);function curring(fn){var slice=[].slice,arg=slice.call(arguments,1);return function(){return fn.apply(arguments[0],arg)}}audio.load();btnAudio.on('click',function(){play()});$('document,body').one('click',curring(startPlay,'andio awake by document,body click'));audio.addEventListener('abort',curring(changeStatus,false,'abort'));audio.addEventListener('error',curring(changeStatus,false,'error'));audio.addEventListener('pause',curring(changeStatus,false,'pause'));audio.addEventListener('play',curring(changeStatus,true,'play'));audio.addEventListener('canplay',curring(startPlay,'andio canlpay'));audio.onloadedmetadata=function(){var duration=this.duration;console.log('audio loadedmetadata total durtion is '+duration)};if(typeof WinxinJSBridge=='object'&&typeof WeixinJSBridge.invoke=='function'){startPlay('wechat WeixinJSBridge is invoke')}else{if(document.addEventListener){document.addEventListener('WeixinJSBridgeReady',curring(startPlay,'wechat WeixinJSBridgeReady by modernbrower'),false)}else{if(document.attachEvent){document.attachEvent('WeixinJSBridgeReady',curring(startPlay,'wechat WeixinJSBridgeReady by iebrower'),false);document.attachEvent('onWeixinJSBridgeReady',curring(startPlay,'wechat onWeixinJSBridgeReady by iebrower'),false)}}}},delay);
     var isPlay = false;
+    function changeStatus(flag, sign) {
+      // console.log('audio change status to ', sign);
+      if (flag) {
+        isPlay = true;
+        btnAudio.addClass(jtool.activeCls);
+      } else {
+        isPlay = false;
+        btnAudio.removeClass(jtool.activeCls);
+      }
+    }
     function startPlay(notice) {
+      // console.log('audio initial status: ', isPlay, ' and', notice);
+      this.stopPropagation();
       if (isPlay) {
         return console.log('audio first playing, not ', notice);
       }
       audio.play();
-      if (!audio.paused) {
-        isPlay = true;
-      }
-      console.log('audio initial status: ', isPlay, ' and', notice);
     }
     function play() {
       if (audio.paused) {
-        btnAudio.addClass(jtool.activeCls);
         audio.play();
       } else {
-        btnAudio.removeClass(jtool.activeCls);
         audio.pause();
       }
     }
