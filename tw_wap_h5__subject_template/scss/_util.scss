@@ -539,7 +539,7 @@ html {
 
 .jy-btn {
   cursor: pointer;
-  z-index: 100;
+  z-index: 5;
   text-indent: -9999px;
   font-size: 0;
   line-height: 1;
@@ -556,7 +556,7 @@ html {
 }
 .jy-btn-txt {
   cursor: pointer;
-  z-index: 100;
+  z-index: 5;
   &:active {
     filter: brightness(1.1);
   }
@@ -578,7 +578,7 @@ html {
   cursor: pointer;
   color: $color-btn-txt;
   background-color: $color-btn-bg;
-  z-index: 100;
+  z-index: 5;
 }
 
 .opacity-0 {

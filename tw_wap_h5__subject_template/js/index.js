@@ -4,44 +4,18 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-07-19 18:00:23
- * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2021-07-26 11:49:28
+ * @FilePath: \tw_wap_h5__subject_template\js\index.js
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
-
-var logic = {
-  extend: function (name, fn) {
-    var t = this;
-    if (fn && typeof fn == 'function') {
-      if (!t[fn]) {
-        return TypeError(JSON.stringify(fn) + 'is existed');
-      } else {
-        t[name] = fn;
-      }
-    } else if (Object.prototype.toString.call(name) === '[object Object]') {
-      for (var key in name) {
-        t[key] = name[key];
-      }
-    }
-  },
-  /* 游戏预备倒计时弹窗 */
-  $readyPop: function () {
-    var $pop =
-      '' +
-      '<!-- pop game ready count -->' +
-      '<div class="jy-pop " id="J_gameReadyPop">' +
-      '<div class="jy-pop_mask"></div>' +
-      '<div class="jy-pop_ready">' +
-      ' <span id="gameReadyCount">3</span>' +
-      '<div class="mt-30 fs-24">温馨提示：点击加速即可为奥运加油！</div' +
-      '</div>' +
-      '</div>';
-    $pop = $($pop);
-    $('body').append($pop);
-  },
-};
+/* prettier-ignore */ (function(){if(typeof window==='undefined'){return}var eventTarget;var supportTouch='ontouchstart'in window;if(!document.createTouch){document.createTouch=function(view,target,identifier,pageX,pageY,screenX,screenY){return new Touch(target,identifier,{pageX:pageX,pageY:pageY,screenX:screenX,screenY:screenY,clientX:pageX-window.pageXOffset,clientY:pageY-window.pageYOffset,},0,0)}}if(!document.createTouchList){document.createTouchList=function(){var touchList=TouchList();for(var i=0;i<arguments.length;i++){touchList[i]=arguments[i]}touchList.length=arguments.length;return touchList}}if(!Element.prototype.matches){Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector}if(!Element.prototype.closest){Element.prototype.closest=function(s){var el=this;do{if(el.matches(s))return el;el=el.parentElement||el.parentNode}while(el!==null&&el.nodeType===1);return null}}var Touch=function Touch(target,identifier,pos,deltaX,deltaY){deltaX=deltaX||0;deltaY=deltaY||0;this.identifier=identifier;this.target=target;this.clientX=pos.clientX+deltaX;this.clientY=pos.clientY+deltaY;this.screenX=pos.screenX+deltaX;this.screenY=pos.screenY+deltaY;this.pageX=pos.pageX+deltaX;this.pageY=pos.pageY+deltaY};function TouchList(){var touchList=[];touchList['item']=function(index){return this[index]||null};touchList['identifiedTouch']=function(id){return this[id+1]||null};return touchList}var initiated=false;function onMouse(touchType){return function(ev){if(ev.type==='mousedown'){initiated=true}if(ev.type==='mouseup'){initiated=false}if(ev.type==='mousemove'&&!initiated){return}if(ev.type==='mousedown'||!eventTarget||(eventTarget&&!eventTarget.dispatchEvent)){eventTarget=ev.target}if(eventTarget.closest('[data-no-touch-simulate]')==null){triggerTouch(touchType,ev)}if(ev.type==='mouseup'){eventTarget=null}}}function triggerTouch(eventName,mouseEv){var touchEvent=document.createEvent('Event');touchEvent.initEvent(eventName,true,true);touchEvent.altKey=mouseEv.altKey;touchEvent.ctrlKey=mouseEv.ctrlKey;touchEvent.metaKey=mouseEv.metaKey;touchEvent.shiftKey=mouseEv.shiftKey;touchEvent.touches=getActiveTouches(mouseEv);touchEvent.targetTouches=getActiveTouches(mouseEv);touchEvent.changedTouches=createTouchList(mouseEv);eventTarget.dispatchEvent(touchEvent)}function createTouchList(mouseEv){var touchList=TouchList();touchList.push(new Touch(eventTarget,1,mouseEv,0,0));return touchList}function getActiveTouches(mouseEv){if(mouseEv.type==='mouseup'){return TouchList()}return createTouchList(mouseEv)}function TouchEmulator(){window.addEventListener('mousedown',onMouse('touchstart'),true);window.addEventListener('mousemove',onMouse('touchmove'),true);window.addEventListener('mouseup',onMouse('touchend'),true)}TouchEmulator['multiTouchOffset']=75;if(!supportTouch){new TouchEmulator()}})();
+/* prettier-ignore */ if(typeof Object.assign!=='function'){Object.defineProperty(Object,'assign',{value:function assign(target,varArgs){'use strict';if(target===null||target===undefined){throw new TypeError('Cannot convert undefined or null to object');}var to=Object(target);for(var index=1;index<arguments.length;index++){var nextSource=arguments[index];if(nextSource!==null&&nextSource!==undefined){for(var nextKey in nextSource){if(Object.prototype.hasOwnProperty.call(nextSource,nextKey)){to[nextKey]=nextSource[nextKey]}}}}return to},writable:true,configurable:true,})}
+/* prettier-ignore */ (function(){var lastTime=0;var vendors=['webkit','moz','ms','o'];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+'RequestAnimationFrame'];window.cancelAnimationFrame=window[vendors[x]+'CancelAnimationFrame']||window[vendors[x]+'CancelRequestAnimationFrame']}if(!window.requestAnimationFrame){window.requestAnimationFrame=function(callback){var currTime=new Date().getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){return callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame){window.cancelAnimationFrame=function(id){clearTimeout(id)}}})();
+/* prettier-ignore */ var logic={extend:function(name,fn){var t=this;if(fn&&typeof fn=='function'){if(!t[fn]){return TypeError(JSON.stringify(fn)+'is existed')}else{t[name]=fn}}else if(Object.prototype.toString.call(name)==='[object Object]'){for(var key in name){t[key]=name[key]}}},$readyPop:function(){var $pop='<!-- pop game ready count --><div class="jy-pop " id="J_gameReadyPop"><div class="jy-pop_mask"></div><div class="jy-pop_ready"> <span id="gameReadyCount">3</span><div class="mt-30 fs-24">温馨提示：点击加速即可为奥运加油！</div</div></div>';$pop=$($pop);$('body').append($pop)},};
 var jtool = {
-  imgPath: './img/', // 图片地址
-  audioPath: './media/', // 音乐地址
+  imgPath: './img/', // 默认图片地址，后端请勿修改，需要修改请到index.html修改
+  imgCrossPath: './img/', // 默认跨域图片地址，后端请勿修改，需要修改请到index.html修改
+  mediaPath: './media/', // 默认媒体地址，后端请勿修改，需要修改请到index.html修改
   activeCls: 'active',
   disableCls: 'disable',
   doc: document.documentElement.body || document.body,
@@ -454,7 +428,7 @@ var jtool = {
    * @param {el} btnAudio
    */
   initMusic: function (btnAudio) {
-    var url = jtool.audioPath + 'bgm.mp3?v=0',
+    var url = jtool.mediaPath + 'bgm.mp3?v=0',
       btnAudio = btnAudio || $('.btn-aud'),
       audio = new Audio(),
       delay = 2000;
@@ -509,15 +483,17 @@ var jtool = {
     parentCls = parentCls || '#topWrapper';
     scrollCls = scrollCls || '#mainWrapper';
     menuCls = menuCls || '#menuWrapper';
-    return function () {
+    window.addEventListener('resize', sty);
+    function sty() {
       var $parent = document.querySelector(parentCls),
         $scroll = document.querySelector(scrollCls),
         $menu = document.querySelector(menuCls),
-        wrapperHeight = $parent.offsetHeight - $menu.offsetHeight;
+        wrapperHeight = window.innerHeight - $menu.offsetHeight;
       $parent.style.position = 'relative';
       $scroll.style.height = wrapperHeight + 'px';
       $menu.style.top = wrapperHeight + 'px';
-    };
+    }
+    return sty;
   })(),
   /**
    * child 滚动到 parent 的相对底部位置
@@ -760,22 +736,9 @@ OffsetController.prototype = {
   },
 };
 
+/* @warning: 本页所有内容，后端同学不需要修改，谢谢~ */
 // preinstall the code
 $(function () {
-  jtool.preload.init(
-    jtool.imgPath,
-    [],
-    function () {
-      console.log('preload finish...');
-      jtool.preload.close();
-      jtool.navTo('.section-1');
-    },
-    function (install) {
-      var prsnum = install.processNum;
-      $('#ploadingPro').html(prsnum + '%');
-      console.log('preload process...', prsnum);
-    }
-  );
   // jtool.swiper('#psw');
   jtool.tip.screen();
   jtool.elementCopy();
@@ -814,4 +777,233 @@ $(function () {
   //       console.log('111111111', e)
   //     })
   //   }, 6000);
+
+  /* game logic start */
+  logic.extend({
+    isGaming: false,
+    timer: null,
+    time: { DEFAULT: 20, current: 0, ready: 1 },
+    score: { total: 0, current: 0 },
+    tag: '',
+    /* 游戏初始化 */
+    gameReset: function () {
+      var t = this;
+      t.isGaming = true;
+      t.score.current = 0;
+      t.progress.current = 0;
+      t.progress.role = 0;
+      t.progress.com = 0;
+      t.time.current = t.time.DEFAULT;
+      t.setTime();
+      t.changeTag(t.tag);
+      t.domProgressCom = new OffsetController($('#gpbCom'), {
+        speeder: {
+          rate: SPEED_RATE,
+          mode: false,
+          timeover: t.time.DEFAULT,
+        },
+      });
+      t.domProgressRole = new OffsetController($('#gpbRole'), {
+        mode: 'role',
+        speeder: {
+          rate: SPEED_RATE,
+          mode: true,
+          timeover: t.time.DEFAULT,
+        },
+      });
+      var role1, role2;
+      if (t.tag == 'house') {
+        role1 = '.ico-house-com';
+        role2 = '.ico-house-role';
+        t.role.DEFAULT = $('#track-house').width();
+      } else {
+        role1 = '.ico-swim-com';
+        role2 = '.ico-swim-role';
+        t.role.DEFAULT = $('#track-swim').width();
+      }
+      t.domFigureCom = new OffsetController($(role1), {
+        speeder: {
+          rate: SPEED_RATE,
+          mode: false,
+          timeover: t.time.DEFAULT,
+        },
+      });
+      t.domFigureRole = new OffsetController($(role2), {
+        mode: 'role',
+        speeder: {
+          rate: SPEED_RATE,
+          mode: true,
+          timeover: t.time.DEFAULT,
+        },
+      });
+    },
+    /* 循环事件各状态处理 */
+    loopPlay: function () {
+      var t = this;
+
+      t.domProgressCom.move(function (width) {
+        // console.log('domProgressCom', width);
+        t.progress.com = +width;
+        var translate3d = 'translate3d(' + width + 'px,0,0)';
+        t.domProgressCom.el.css({
+          webkitTransform: translate3d,
+          mozTransform: translate3d,
+          transform: translate3d,
+        });
+      });
+
+      t.domFigureCom.move(function (width) {
+        t.role.com = +width;
+        var translate3d = 'translate3d(' + width + 'px,0,0)';
+        t.domFigureCom.el.css({
+          webkitTransform: translate3d,
+          mozTransform: translate3d,
+          transform: translate3d,
+        });
+      });
+
+      logic.domProgressRole.loop(function (width) {
+        logic.progress.role = +width;
+        if (logic.progress.role >= logic.progress.DEFAULT) {
+          logic.gameResult();
+          return;
+        }
+        var translate3d = 'translate3d(' + width + 'px,0,0)';
+        logic.domProgressRole.el.css({
+          webkitTransform: translate3d,
+          mozTransform: translate3d,
+          transform: translate3d,
+        });
+
+        var progress = logic.progress,
+          role = logic.role,
+          width = (role.DEFAULT * progress.role) / progress.DEFAULT;
+        var translate3d = 'translate3d(' + width + 'px,0,0)';
+        logic.domFigureRole.el.css({
+          webkitTransform: translate3d,
+          mozTransform: translate3d,
+          transform: translate3d,
+        });
+
+        logic.moveBG(-width);
+      });
+    },
+    /* 循环事件 */
+    loop: function () {
+      var t = this;
+
+      function run() {
+        if (t.progress.com >= t.progress.DEFAULT || t.progress.role >= t.progress.DEFAULT || t.time.current == 0) {
+          t.stop();
+
+          return;
+        }
+        t.loopPlay();
+        t.anFrame = requestAnimationFrame(function () {
+          run();
+        });
+      }
+      run();
+    },
+    /* 游戏倒计时 */
+    setTime: function () {
+      var t = this;
+      var $gTime = $('#gTime'),
+        time = t.time.current;
+      $gTime.text(time + 'S');
+    },
+    /* 游戏定时器 */
+    gameTimer: function () {
+      var t = this;
+
+      t.time.current--;
+      this.timer = setTimeout(function () {
+        t.setTime();
+
+        if (t.time.current == 0) {
+          t.stop();
+          return;
+        }
+
+        t.gameTimer();
+      }, 1000);
+    },
+    /* 停止循环 */
+    stop: function () {
+      var t = this;
+      clearTimeout(t.timer);
+      cancelAnimationFrame(t.anFrame);
+
+      t.gameResult();
+    },
+    run: function () {
+      var t = this;
+      if (t.isGaming) {
+        return true;
+      }
+      return false;
+    },
+    loadGame: function () {
+      if (this.run()) {
+        return;
+      }
+
+      var t = this,
+        count = t.time.ready,
+        $popReady = $('#J_gameReadyPop'),
+        $count = $popReady.find('#gameReadyCount');
+      // jtool.navTo('.section-2');
+      $popReady.fadeIn();
+      $count.text(count);
+
+      var time = setInterval(function () {
+        --count;
+        if (count == -1) {
+          clearInterval(time);
+          return;
+        } else if (count == 0) {
+          $count.text('GO!');
+          $popReady.fadeOut();
+          setTimeout(function () {
+            t.gameReset();
+            t.gameTimer();
+            t.loop();
+          }, 100);
+        } else {
+          $count.text(count);
+        }
+      }, 1000);
+    },
+    changeState: function (tag) {
+      if (tag == 'rank') {
+        $('.jy-time').hide();
+      } else {
+        $('.jy-time').show();
+      }
+    },
+    changeTag: function (tag) {
+      var state = {
+        house: {
+          progress: { com: '华安', role: '官人' },
+        },
+        swim: {
+          progress: { com: '石榴', role: '西施' },
+        },
+      };
+      var tag = state[tag].progress,
+        $time = $('.jy-time');
+      $time.find('.i-progress-panel-xb .label').text(tag.com);
+      $time.find('.i-progress-panel-gr .label').text(tag.role);
+    },
+    moveBG: function (width) {
+      var cls = this.tag == 'house' ? '.bg-track' : '.bg-swim';
+      $(cls).css({ 'background-position-x': width });
+    },
+
+    init: function () {
+      this.$readyPop();
+    },
+  });
+  logic.init();
+  /* game logic end */
 });

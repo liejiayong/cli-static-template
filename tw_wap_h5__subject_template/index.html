@@ -21,11 +21,11 @@
     <meta name="x5-page-mode" content="app" label="UCappmode" />
     <!-- prettier-ignore -->
     <meta name="msapplication-tap-highlight" content="no" label="winphone click no highlight" />
-    <meta name="author" content="f_JyLie,d_yb,b_,t_20210717" />
+    <meta name="author" content="f_JyLie,d_,b_,t_2021" />
     <meta name="copyright" content="tanwan" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>一品官老爷</title>
+    <title></title>
     <link rel="stylesheet" href="./css/index.css" />
     <!-- prettier-ignore -->
     <script type="text/javascript">;(function(mode){var rem=function(){var docEl=document.documentElement||document.body;var resizeEvt='orientationchange'in window?'orientationchange':'resize';var reCalc=function(){var clientWidth=docEl.clientWidth,PIX=750;clientWidth=clientWidth>PIX?PIX:clientWidth;var fontSize=100*(clientWidth/PIX);window.baseFontSize=fontSize;docEl.style.fontSize=fontSize+'px'};window.addEventListener(resizeEvt,reCalc,false);document.addEventListener('DOMContentLoaded',reCalc,false)};if(mode=='rem')rem()})('rem');;</script>
@@ -484,6 +484,7 @@
     <script type="text/javascript" src="./js/lower.min.js"></script>
     <script type="text/javascript" src="./js/danmu.js"></script>
     <script type="text/javascript" src="./js/vconsole.min.js?v=3.3.4"></script>
+    <script type="text/javascript" src="./js/qalist.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
 
     <script>
@@ -598,9 +599,6 @@
 
             logic.moveBG(-width);
           });
-
-          // logic.domFigureRole.move(function () {
-          // });
         });
         // 回到首页
         $('.btn-nav-home').on('click', function () {
@@ -613,269 +611,57 @@
         $('.btn-share').on('click', function () {
           $('#J_sharePop').fadeIn();
         });
-
-        /* game logic start */
-        logic.extend({
-          isGaming: false,
-          timer: null,
-          time: { DEFAULT: 20, current: 0 },
-          score: { total: 0, current: 0 },
-          progress: { DEFAULT: $('#gpbCom').width() || 0, role: 0, com: 0, current: 0 },
-          role: { DEFAULT: 0, role: 0, com: 0, current: 0 },
-
-          tag: '',
-          // 游戏结束业务
-          gameResult: function () {
-            var t = this,
-              score = t.score;
-            t.isGaming = false;
-            clearInterval(t.timer);
-            cancelAnimationFrame(t.anFrame);
-            console.log('Game Result: ', JSON.stringify(score), JSON.stringify(t.time), JSON.stringify(t.progress));
-
-            // game success
-            if (t.time.current > 0) {
-              var tagOpts = {
-                  house: '官人赛马',
-                  swim: '西施游泳',
-                },
-                tag = '恭喜' + tagOpts[t.tag] + '获得第一名！';
-              $('#J_tipSucPop').find('#sign').text(tag).parents('.jy-pop').fadeIn();
-
-              // 后端需设置比较所用时间time
-              var time = t.time.DEFAULT - t.time.current;
-            }
-            // game fail
-            else {
-              $('#J_tipErrPop').fadeIn();
-            }
-          },
-          /* 游戏初始化 */
-          gameReset: function () {
-            var t = this;
-            t.isGaming = true;
-            t.score.current = 0;
-            t.progress.current = 0;
-            t.progress.role = 0;
-            t.progress.com = 0;
-            t.time.current = t.time.DEFAULT;
-            t.setTime();
-            t.changeTag(t.tag);
-            t.domProgressCom = new OffsetController($('#gpbCom'), {
-              speeder: {
-                rate: SPEED_RATE,
-                mode: false,
-                timeover: t.time.DEFAULT,
-              },
-            });
-            t.domProgressRole = new OffsetController($('#gpbRole'), {
-              mode: 'role',
-              speeder: {
-                rate: SPEED_RATE,
-                mode: true,
-                timeover: t.time.DEFAULT,
-              },
-            });
-            var role1, role2;
-            if (t.tag == 'house') {
-              role1 = '.ico-house-com';
-              role2 = '.ico-house-role';
-              t.role.DEFAULT = $('#track-house').width();
-            } else {
-              role1 = '.ico-swim-com';
-              role2 = '.ico-swim-role';
-              t.role.DEFAULT = $('#track-swim').width();
-            }
-            t.domFigureCom = new OffsetController($(role1), {
-              speeder: {
-                rate: SPEED_RATE,
-                mode: false,
-                timeover: t.time.DEFAULT,
-              },
-            });
-            t.domFigureRole = new OffsetController($(role2), {
-              mode: 'role',
-              speeder: {
-                rate: SPEED_RATE,
-                mode: true,
-                timeover: t.time.DEFAULT,
-              },
-            });
-          },
-          /* 循环事件各状态处理 */
-          loopPlay: function () {
-            var t = this;
-
-            t.domProgressCom.move(function (width) {
-              // console.log('domProgressCom', width);
-              t.progress.com = +width;
-              var translate3d = 'translate3d(' + width + 'px,0,0)';
-              t.domProgressCom.el.css({
-                webkitTransform: translate3d,
-                mozTransform: translate3d,
-                transform: translate3d,
-              });
-            });
-
-            t.domFigureCom.move(function (width) {
-              t.role.com = +width;
-              var translate3d = 'translate3d(' + width + 'px,0,0)';
-              t.domFigureCom.el.css({
-                webkitTransform: translate3d,
-                mozTransform: translate3d,
-                transform: translate3d,
-              });
-            });
-
-            logic.domProgressRole.loop(function (width) {
-              logic.progress.role = +width;
-              if (logic.progress.role >= logic.progress.DEFAULT) {
-                logic.gameResult();
-                return;
-              }
-              var translate3d = 'translate3d(' + width + 'px,0,0)';
-              logic.domProgressRole.el.css({
-                webkitTransform: translate3d,
-                mozTransform: translate3d,
-                transform: translate3d,
-              });
-
-              var progress = logic.progress,
-                role = logic.role,
-                width = (role.DEFAULT * progress.role) / progress.DEFAULT;
-              var translate3d = 'translate3d(' + width + 'px,0,0)';
-              logic.domFigureRole.el.css({
-                webkitTransform: translate3d,
-                mozTransform: translate3d,
-                transform: translate3d,
-              });
-
-              logic.moveBG(-width);
-            });
-          },
-          /* 循环事件 */
-          loop: function () {
-            var t = this;
-
-            function run() {
-              if (
-                t.progress.com >= t.progress.DEFAULT ||
-                t.progress.role >= t.progress.DEFAULT ||
-                t.time.current == 0
-              ) {
-                t.stop();
-
-                return;
-              }
-              t.loopPlay();
-              t.anFrame = requestAnimationFrame(function () {
-                run();
-              });
-            }
-            run();
-          },
-          /* 游戏倒计时 */
-          setTime: function () {
-            var t = this;
-            var $gTime = $('#gTime'),
-              time = t.time.current;
-            $gTime.text(time + 'S');
-          },
-          /* 游戏定时器 */
-          gameTimer: function () {
-            var t = this;
-
-            t.setTime();
-            this.timer = setTimeout(function () {
-              if (t.time.current == 0) {
-                t.stop();
-                return;
-              }
-
-              t.setTime();
-              t.time.current--;
-              t.gameTimer();
-            }, 1000);
-          },
-          /* 停止循环 */
-          stop: function () {
-            var t = this;
-            clearTimeout(t.timer);
-            cancelAnimationFrame(t.anFrame);
-
-            t.gameResult();
-          },
-          run: function () {
-            var t = this;
-            if (t.isGaming) {
-              return true;
-            }
-            return false;
-          },
-          loadGame: function () {
-            if (this.run()) {
-              return;
-            }
-
-            var t = this,
-              count = 3,
-              $popReady = $('#J_gameReadyPop'),
-              $count = $popReady.find('#gameReadyCount');
-            // jtool.navTo('.section-2');
-            $popReady.fadeIn();
-            $count.text(count);
-
-            var time = setInterval(function () {
-              --count;
-              if (count == -1) {
-                clearInterval(time);
-                return;
-              } else if (count == 0) {
-                $count.text('GO!');
-                $popReady.fadeOut();
-                setTimeout(function () {
-                  t.gameReset();
-                  t.gameTimer();
-                  t.loop();
-                }, 100);
-              } else {
-                $count.text(count);
-              }
-            }, 1000);
-          },
-          changeState: function (tag) {
-            if (tag == 'rank') {
-              $('.jy-time').hide();
-            } else {
-              $('.jy-time').show();
-            }
-          },
-          changeTag: function (tag) {
-            var state = {
-              house: {
-                progress: { com: '华安', role: '官人' },
-              },
-              swim: {
-                progress: { com: '石榴', role: '西施' },
-              },
-            };
-            var tag = state[tag].progress,
-              $time = $('.jy-time');
-            $time.find('.i-progress-panel-xb .label').text(tag.com);
-            $time.find('.i-progress-panel-gr .label').text(tag.role);
-          },
-          moveBG: function (width) {
-            var cls = this.tag == 'house' ? '.bg-track' : '.bg-swim';
-            $(cls).css({ 'background-position-x': width });
-          },
-
-          init: function () {
-            this.$readyPop();
-          },
-        });
-        logic.init();
-        /* game logic end */
       });
+
+      /* 后端须按需修改图片地址 */
+      jtool.imgPath = './img/';
+      /* 后端须按需修改跨域图片地址 */
+      jtool.imgCrossPath = './img/';
+      /* 后端须按需修改媒体地址 */
+      jtool.mediaPath = './img/';
+      /* 游戏结束逻辑 */
+      logic.extend({
+        // 游戏结束业务
+        gameResult: function () {
+          var t = logic,
+            score = t.score;
+          t.isGaming = false;
+          clearInterval(t.timer);
+          cancelAnimationFrame(t.anFrame);
+          console.log('Game Result: ', JSON.stringify(t.time));
+
+          // game success
+          if (t.time.current > 0) {
+            var tagOpts = {
+                house: '官人赛马',
+                swim: '西施游泳',
+              },
+              tag = '恭喜' + tagOpts[t.tag] + '获得第一名！';
+            $('#J_tipSucPop').find('#sign').text(tag).parents('.jy-pop').fadeIn();
+
+            // 后端需设置比较所用时间time
+            var time = t.time.DEFAULT - t.time.current;
+          }
+          // game fail
+          else {
+            $('#J_tipErrPop').fadeIn();
+          }
+        },
+      });
+      jtool.preload.init(
+        jtool.imgPath,
+        [],
+        function () {
+          console.log('preload finish...');
+          jtool.preload.close();
+          jtool.navTo('.section-1');
+        },
+        function (install) {
+          var prsnum = install.processNum;
+          $('#ploadingPro').html(prsnum + '%');
+          console.log('preload process...', prsnum);
+        }
+      );
     </script>
   </body>
 </html>

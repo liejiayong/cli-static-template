@@ -2,8 +2,8 @@
 @import '../_mixin.scss';
 
 $prefixPop: #{$prefix}-pop;
-$bg: url('../img/bg-dialog-com.png') no-repeat center/100% 100%;
-$bg-tit: url('../img/ico_sp.png') no-repeat 0 0 / 6.89rem auto;
+$bg: #8e0d0d linear-gradient(#8e0d0d, #950e0e, #830c0c), url('../img/bg-dialog-com.png') no-repeat center/100% 100%;
+$bg-tit: transparent;
 $bg-norm: rgba(0, 0, 0, 0.2);
 
 $color: #fdf1ae;
@@ -80,7 +80,7 @@ $input-select-cell-radius: 0.12rem;
   }
   // 主体标题
   &_header {
-    $height: 0.63rem;
+    $height: 0.8rem;
 
     position: relative;
     // padding: 0.2rem 0 .2rem;
@@ -161,17 +161,14 @@ $input-select-cell-radius: 0.12rem;
     display: block;
     // padding: $gutter;
     position: absolute;
-    top: -0.24rem;
-    right: -0.26rem;
+    top: -0.4rem;
+    right: 0;
     z-index: 20;
     cursor: pointer;
     width: $width;
     height: $width;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAA9klEQVRIicXXUQ6DIAwG4N/dxRdvwtmnu4TeowtZNYwgtIXGJnuYYr+/Cy5hIiJwTQCuL451OS82FgArgNkZjv3f7AFEFKf/0K92Iprjr+Hwmbl/rC26JxJvHI4BUvg4++cLPAIU4Rz3CHALl/CRAarwHT4iQBOu4T0BRHALtwRI4eZ66SSSACpYiksCqGENXgtggrV4KUCwwhY8D0BW2IqDJ04rWPpYJ9+fmDzfXKHnn7AHTne7KUAvXNqEQ99z6XusDjAKNgUYCaufGw2rnveAxX28YFE/T7jZ1xuu9gefWDZHuBTg78Sy8AUvOA2wsofnTqkAvo4w0Hzsm9+kAAAAAElFTkSuQmCC')
       no-repeat center / $width auto;
-    width: 0.44rem;
-    height: 0.44rem;
-    background: url('../img/ico_sp.png') no-repeat -6.46rem 0 / 6.89rem auto;
     // border-radius: 50%;
     // border: 0.02rem solid #fff;
     @include btnEdgeExpanding($gutter);
@@ -180,7 +177,7 @@ $input-select-cell-radius: 0.12rem;
     }
   }
   &_btn-ok {
-    $height: 0.5rem;
+    $height: 0.4rem;
 
     display: block;
     margin-left: auto;
@@ -314,7 +311,7 @@ $input-select-cell-radius: 0.12rem;
     // height: $input-select-height;
     // border-radius: 0.1rem;
     &:not(:last-of-type) {
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.12rem;
     }
   }
   &_input-label {
