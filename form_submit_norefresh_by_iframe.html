@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>使用iframe代理 form 提交表单不跳转页面</title>
+	</head>
+	<body>
+		<!-- 
+      原生使用form action 提交数据会跳转页面，且form表单没有回调函数，
+      不过可以通过jquery-form.js这个插件来实现回调函数：
+    -->
+		<form id="form" method="POST" action="http://localhost:3888/auth/signin" target="frameName">
+			<input type="text" name="name" />
+			<input type="text" name="password" type="password" />
+			<button type="submit">发送</button>
+		</form>
+		<iframe
+			onclick="onClick"
+			src="./form_submit_norefresh_by_iframe_child.html"
+			target="_blank"
+			frameborder="0"
+			name="frameName"
+		></iframe>
+		<script>
+			/*
+        date:2021-08-14 
+        下面为测试获取iframe的值,尚未成功
+       */
+			var ifr = document.querySelector('iframe');
+			document.querySelector('button[type="submit"]').addEventListener('click', function () {
+				setTimeout(function () {
+					console.log(ifr.contentDocument);
+				}, 1000);
+			});
+			function onClick() {
+				document.querySelector('iframe').onload = reload;
+				document.getElementById('form').submit();
+			}
+
+			function reload() {
+				//提交之后取值
+				//用jQuery找
+				// console.log($(ths).contents().find('body').html())
+				var content = this.contentWindow.document.body.innerHTML; //this代表iframe标签
+				var obj = JSON.parse(content); //转换成json对象
+				console.log('iframe obj', obj);
+			}
+		</script>
+	</body>
+</html>

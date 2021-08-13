@@ -4,14 +4,14 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-07-26 11:49:28
- * @FilePath: \tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2021-08-09 17:11:18
+ * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 /* prettier-ignore */ (function(){if(typeof window==='undefined'){return}var eventTarget;var supportTouch='ontouchstart'in window;if(!document.createTouch){document.createTouch=function(view,target,identifier,pageX,pageY,screenX,screenY){return new Touch(target,identifier,{pageX:pageX,pageY:pageY,screenX:screenX,screenY:screenY,clientX:pageX-window.pageXOffset,clientY:pageY-window.pageYOffset,},0,0)}}if(!document.createTouchList){document.createTouchList=function(){var touchList=TouchList();for(var i=0;i<arguments.length;i++){touchList[i]=arguments[i]}touchList.length=arguments.length;return touchList}}if(!Element.prototype.matches){Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector}if(!Element.prototype.closest){Element.prototype.closest=function(s){var el=this;do{if(el.matches(s))return el;el=el.parentElement||el.parentNode}while(el!==null&&el.nodeType===1);return null}}var Touch=function Touch(target,identifier,pos,deltaX,deltaY){deltaX=deltaX||0;deltaY=deltaY||0;this.identifier=identifier;this.target=target;this.clientX=pos.clientX+deltaX;this.clientY=pos.clientY+deltaY;this.screenX=pos.screenX+deltaX;this.screenY=pos.screenY+deltaY;this.pageX=pos.pageX+deltaX;this.pageY=pos.pageY+deltaY};function TouchList(){var touchList=[];touchList['item']=function(index){return this[index]||null};touchList['identifiedTouch']=function(id){return this[id+1]||null};return touchList}var initiated=false;function onMouse(touchType){return function(ev){if(ev.type==='mousedown'){initiated=true}if(ev.type==='mouseup'){initiated=false}if(ev.type==='mousemove'&&!initiated){return}if(ev.type==='mousedown'||!eventTarget||(eventTarget&&!eventTarget.dispatchEvent)){eventTarget=ev.target}if(eventTarget.closest('[data-no-touch-simulate]')==null){triggerTouch(touchType,ev)}if(ev.type==='mouseup'){eventTarget=null}}}function triggerTouch(eventName,mouseEv){var touchEvent=document.createEvent('Event');touchEvent.initEvent(eventName,true,true);touchEvent.altKey=mouseEv.altKey;touchEvent.ctrlKey=mouseEv.ctrlKey;touchEvent.metaKey=mouseEv.metaKey;touchEvent.shiftKey=mouseEv.shiftKey;touchEvent.touches=getActiveTouches(mouseEv);touchEvent.targetTouches=getActiveTouches(mouseEv);touchEvent.changedTouches=createTouchList(mouseEv);eventTarget.dispatchEvent(touchEvent)}function createTouchList(mouseEv){var touchList=TouchList();touchList.push(new Touch(eventTarget,1,mouseEv,0,0));return touchList}function getActiveTouches(mouseEv){if(mouseEv.type==='mouseup'){return TouchList()}return createTouchList(mouseEv)}function TouchEmulator(){window.addEventListener('mousedown',onMouse('touchstart'),true);window.addEventListener('mousemove',onMouse('touchmove'),true);window.addEventListener('mouseup',onMouse('touchend'),true)}TouchEmulator['multiTouchOffset']=75;if(!supportTouch){new TouchEmulator()}})();
 /* prettier-ignore */ if(typeof Object.assign!=='function'){Object.defineProperty(Object,'assign',{value:function assign(target,varArgs){'use strict';if(target===null||target===undefined){throw new TypeError('Cannot convert undefined or null to object');}var to=Object(target);for(var index=1;index<arguments.length;index++){var nextSource=arguments[index];if(nextSource!==null&&nextSource!==undefined){for(var nextKey in nextSource){if(Object.prototype.hasOwnProperty.call(nextSource,nextKey)){to[nextKey]=nextSource[nextKey]}}}}return to},writable:true,configurable:true,})}
 /* prettier-ignore */ (function(){var lastTime=0;var vendors=['webkit','moz','ms','o'];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+'RequestAnimationFrame'];window.cancelAnimationFrame=window[vendors[x]+'CancelAnimationFrame']||window[vendors[x]+'CancelRequestAnimationFrame']}if(!window.requestAnimationFrame){window.requestAnimationFrame=function(callback){var currTime=new Date().getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){return callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame){window.cancelAnimationFrame=function(id){clearTimeout(id)}}})();
-/* prettier-ignore */ var logic={extend:function(name,fn){var t=this;if(fn&&typeof fn=='function'){if(!t[fn]){return TypeError(JSON.stringify(fn)+'is existed')}else{t[name]=fn}}else if(Object.prototype.toString.call(name)==='[object Object]'){for(var key in name){t[key]=name[key]}}},$readyPop:function(){var $pop='<!-- pop game ready count --><div class="jy-pop " id="J_gameReadyPop"><div class="jy-pop_mask"></div><div class="jy-pop_ready"> <span id="gameReadyCount">3</span><div class="mt-30 fs-24">温馨提示：点击加速即可为奥运加油！</div</div></div>';$pop=$($pop);$('body').append($pop)},};
+/* prettier-ignore */ var logic={extend:function(name,fn){var t=this;if(fn&&typeof fn=='function'){if(!t[fn]){return TypeError(JSON.stringify(fn)+'is existed')}else{t[name]=fn}}else if(Object.prototype.toString.call(name)==='[object Object]'){for(var key in name){t[key]=name[key]}}},$readyPop:function(){var $pop='<!-- pop game ready count --><div class="jy-pop " id="J_gameReadyPop"><div class="jy-pop_mask"></div><div class="jy-pop_ready"> <span id="gameReadyCount">3</span></div></div>';$pop=$($pop);$('body').append($pop)},};
 var jtool = {
   imgPath: './img/', // 默认图片地址，后端请勿修改，需要修改请到index.html修改
   imgCrossPath: './img/', // 默认跨域图片地址，后端请勿修改，需要修改请到index.html修改
@@ -606,6 +606,23 @@ var jcountdown = {
 //   jcountdown.countDown(2021, 02, 11, 20, 00, 00);
 // }
 
+var ProgressController = function (duration) {
+  this.start = 0;
+  this.rfa = null;
+  this.duration = duration || 0;
+};
+ProgressController.prototype.start = function (opts, cb) {
+  if (opts.duration) this.duration = opts.duration;
+  this.start = opts.timestamps || Date.now();
+  cancelAnimationFrame(this.rfa);
+  this.rfa = window.requestAnimationFrame(function () {
+    cb && cb(this.start);
+  });
+};
+ProgressController.prototype.stop = function () {
+  cancelAnimationFrame(this.rfa);
+  this.start = 0;
+};
 var OFFSET_STATUS = { ready: 'ready', loading: 'loading', loaded: 'loaded' };
 var SPEED_RATE = [
   { range: '0-100', value: 0.8 },
@@ -790,9 +807,6 @@ $(function () {
       var t = this;
       t.isGaming = true;
       t.score.current = 0;
-      t.progress.current = 0;
-      t.progress.role = 0;
-      t.progress.com = 0;
       t.time.current = t.time.DEFAULT;
       t.setTime();
       t.changeTag(t.tag);
