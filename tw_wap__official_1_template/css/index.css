@@ -12,7 +12,7 @@ html, body { scroll-behavior: smooth; }
 html { line-height: 1.15; /* 1 */ -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-size-adjust: 100%; /* 2 */ -ms-touch-action: manipulation; touch-action: manipulation; }
 
 /* Sections ========================================================================== */
-body { margin: 0 auto; font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑", Arial, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-overflow-scrolling: touch; }
+body { margin-left: auto; margin-right: auto; font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑", Arial, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-overflow-scrolling: touch; }
 
 /** Remove the margin in all browsers. */
 html, body, iframe, canvas, form, blockquote, fieldset, code, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, table, thead, tbody, td, tr section, menu, nav, header, footer, aside, article, figure, figcaption, hgroup, legend, summary, details, command, progress, dialog { margin: 0; padding: 0; }
@@ -39,7 +39,7 @@ pre { font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ }
 /* Text-level semantics ========================================================================== */
 a { color: inherit; text-decoration: none; background-color: transparent; /** Remove the gray background on active links in IE 10. */ }
 
-a:hover { text-decoration: none; color: unset; }
+a:hover { text-decoration: none; }
 
 /** 1. Remove the bottom border in Chrome 57- 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari. */
 abbr[title] { border-bottom: none; /* 1 */ text-decoration: underline; /* 2 */ -webkit-text-decoration: underline dotted; -moz-text-decoration: underline dotted; text-decoration: underline dotted; /* 2 */ }
@@ -80,7 +80,7 @@ video::-webkit-media-controls-fullscreen-button { display: none; }
 /** 1. Change the font styles in all browsers. 2. Remove the margin in Firefox and Safari. */
 button, input, optgroup, select, textarea { position: relative; font-family: inherit; /* 1 */ font-size: 100%; /* 1 */ margin: 0; /* 2 */ border: 0; outline: 0; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-select { background: url("../img/i-select.png") no-repeat right 10px center/0.3rem auto; }
+select { text-align: center; -moz-text-align-last: center; text-align-last: center; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC") no-repeat right 10px center/8px auto; }
 
 /** Show the overflow in IE. 1. Show the overflow in Edge. */
 button, input { /* 1 */ overflow: visible; }
@@ -452,7 +452,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .fill-100 { width: 100%; height: 100%; }
 
-.jy-btn { cursor: pointer; z-index: 100; text-indent: -9999px; font-size: 0; }
+.jy-btn { cursor: pointer; z-index: 100; text-indent: -9999px; font-size: 0; line-height: 1; overflow: hidden; }
 
 .jy-btn-txt { cursor: pointer; z-index: 100; }
 
@@ -532,25 +532,25 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .swiper-pagination { position: absolute; bottom: 0.3rem; left: 0; width: 100%; text-align: center; z-index: 100; }
 
-.swiper-pagination .swiper-pagination-bullet { margin: 0 0.08rem; display: inline-block; width: 0.2rem; height: 0.2rem; border-radius: 0.2rem; background: #fff; opacity: 0.6; }
+.swiper-pagination .swiper-pagination-bullet { margin: 0 0.08rem; display: inline-block; width: 0.2rem; height: 0.2rem; -webkit-border-radius: 0.2rem; border-radius: 0.2rem; background: #fff; opacity: 0.6; }
 
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active { opacity: 1; }
 
-.swiper-pagination-border { display: inline-block; margin-top: 0.3rem; padding: 0.1rem 0.3rem; text-align: center; z-index: 100; border-radius: 0.5rem; border: 0.02rem solid #fbf8fb; }
+.swiper-pagination-border { display: inline-block; margin-top: 0.3rem; padding: 0.1rem 0.3rem; text-align: center; z-index: 100; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; border: 0.02rem solid #fbf8fb; }
 
-.swiper-pagination-border .swiper-pagination-bullet { margin: 0 0.1rem; display: inline-block; width: 0.2rem; height: 0.2rem; border-radius: 0.2rem; background: #f5f1f9; opacity: 0.6; }
+.swiper-pagination-border .swiper-pagination-bullet { margin: 0 0.1rem; display: inline-block; width: 0.2rem; height: 0.2rem; -webkit-border-radius: 0.2rem; border-radius: 0.2rem; background: #f5f1f9; opacity: 0.6; }
 
 .swiper-pagination-border .swiper-pagination-bullet.swiper-pagination-bullet-active { background: #e6391d; }
 
-.btn-border-red { display: inline-block; width: 1.28rem; height: 0.48rem; line-height: 0.48rem; font-size: 0.28rem; color: #e6391d; text-align: center; border: 0.02rem solid #f3a093; border-radius: 0.04rem; }
+.btn-border-red { display: inline-block; width: 1.28rem; height: 0.48rem; line-height: 0.48rem; font-size: 0.28rem; color: #e6391d; text-align: center; border: 0.02rem solid #f3a093; -webkit-border-radius: 0.04rem; border-radius: 0.04rem; }
 
 .btn-border-red:hover { color: #e6391d; }
 
-.btn-gray { display: inline-block; width: 1.8rem; -webkit-box-flex: 0; -webkit-flex: 0 0 1.8rem; -moz-box-flex: 0; -ms-flex: 0 0 1.8rem; flex: 0 0 1.8rem; height: 0.5rem; line-height: 0.5rem; text-align: center; font-size: 0.24rem; color: #323232; background: #eff0f5; border-radius: 0.04rem; }
+.btn-gray { display: inline-block; width: 1.8rem; -webkit-box-flex: 0; -webkit-flex: 0 0 1.8rem; -moz-box-flex: 0; -ms-flex: 0 0 1.8rem; flex: 0 0 1.8rem; height: 0.5rem; line-height: 0.5rem; text-align: center; font-size: 0.24rem; color: #323232; background: #eff0f5; -webkit-border-radius: 0.04rem; border-radius: 0.04rem; }
 
 .btn-gray.active { color: #fff; background: #4dc369; }
 
-.i-btn-red { display: inline-block; width: 1.42rem; height: 0.56rem; line-height: 0.56rem; font-size: 0.28rem; color: #fff; background-color: #e6391d; text-align: center; border-radius: 0.12rem; }
+.i-btn-red { display: inline-block; width: 1.42rem; height: 0.56rem; line-height: 0.56rem; font-size: 0.28rem; color: #fff; background-color: #e6391d; text-align: center; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; }
 
 .i-btn-red:hover { color: #fff; background-color: #e6391d; }
 
@@ -622,7 +622,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-nav_btn__menu { display: inline-block; cursor: pointer; -webkit-transition: 0.3s; -o-transition: 0.3s; -moz-transition: 0.3s; transition: 0.3s; width: 0.6rem; margin: 0 0.1rem; line-height: 1; font-size: 0; }
 
-.jy-nav_btn__menu .jy-nav_btn__menu--line { position: relative; display: block; width: 0.62rem; height: 0.08rem; margin: 0 auto; background-color: #ff0000; border-radius: 0.08rem; -webkit-transition: 0.3s; -o-transition: 0.3s; -moz-transition: 0.3s; transition: 0.3s; }
+.jy-nav_btn__menu .jy-nav_btn__menu--line { position: relative; display: block; width: 0.62rem; height: 0.08rem; margin: 0 auto; background-color: #ff0000; -webkit-border-radius: 0.08rem; border-radius: 0.08rem; -webkit-transition: 0.3s; -o-transition: 0.3s; -moz-transition: 0.3s; transition: 0.3s; }
 
 .jy-nav_btn__menu .jy-nav_btn__menu--line:nth-of-type(2) { margin: 0.1rem auto; }
 
@@ -660,11 +660,11 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-pop .jy-pop_main--filter { -webkit-filter: grayscale(1); filter: grayscale(1); }
 
-.jy-pop .jy-pop_main { position: fixed; margin-left: -3.15rem; left: 50%; top: 20%; width: 6.3rem; max-height: 7rem; color: #d0eefd; background: #a3e0ff; border-radius: 0.18rem; z-index: 20; }
+.jy-pop .jy-pop_main { position: fixed; margin-left: -3.15rem; left: 50%; top: 20%; width: 6.3rem; max-height: 7rem; color: #d0eefd; background: #a3e0ff; -webkit-border-radius: 0.18rem; border-radius: 0.18rem; z-index: 20; }
 
-.jy-pop .jy-pop_main--mini { position: fixed; margin-left: -3.15rem; left: 50%; top: 20%; width: 6.3rem; max-height: 7rem; color: #d0eefd; background: #a3e0ff; border-radius: 0.18rem; z-index: 20; }
+.jy-pop .jy-pop_main--mini { position: fixed; margin-left: -3.15rem; left: 50%; top: 20%; width: 6.3rem; max-height: 7rem; color: #d0eefd; background: #a3e0ff; -webkit-border-radius: 0.18rem; border-radius: 0.18rem; z-index: 20; }
 
-.jy-pop .jy-pop_main_header { height: 0.85rem; line-height: 0.85rem; text-align: center; font-size: 0.36rem; background: #3f94d4; border-radius: 0.18rem 0.18rem 0 0; }
+.jy-pop .jy-pop_main_header { height: 0.85rem; line-height: 0.85rem; text-align: center; font-size: 0.36rem; background: #3f94d4; -webkit-border-radius: 0.18rem 0.18rem 0 0; border-radius: 0.18rem 0.18rem 0 0; }
 
 .jy-pop .jy-pop_main--header { position: relative; margin-left: auto; margin-right: auto; width: 100%; text-align: center; font-size: 0.32rem; color: #02294e; height: 0.34rem; line-height: 0.34rem; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; }
 
@@ -676,19 +676,19 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-pop .jy-btn_pop_close { position: absolute; top: 0.3rem; right: 0.4rem; z-index: 30; }
 
-.jy-pop .jy-pop_body { margin-left: auto; margin-right: auto; padding: 0 0 0.4rem 0; font-size: 0.3rem; border-radius: 0 0 0.3rem 0.3rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-pop .jy-pop_body { margin-left: auto; margin-right: auto; padding: 0 0 0.4rem 0; font-size: 0.3rem; -webkit-border-radius: 0 0 0.3rem 0.3rem; border-radius: 0 0 0.3rem 0.3rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-.jy-pop .jy-pop_body--sty { margin: 0.4rem auto 0; padding: 0.3rem; width: 5.7rem; background: #3f94d4; border-radius: 0.12rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-pop .jy-pop_body--sty { margin: 0.4rem auto 0; padding: 0.3rem; width: 5.7rem; background: #3f94d4; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .jy-pop .jy-pop_txt { margin: 0.35rem auto 0; }
 
-.jy-pop .jy-pop_btn-ok { display: block; margin: 0.4rem auto 0; width: 2.4rem; padding: 0; height: 0.62rem; line-height: 0.62rem; text-align: center; font-size: 0.36rem; color: #a3e0ff; background: #3f94d4; border-radius: 0.62rem; }
+.jy-pop .jy-pop_btn-ok { display: block; margin: 0.4rem auto 0; width: 2.4rem; padding: 0; height: 0.62rem; line-height: 0.62rem; text-align: center; font-size: 0.36rem; color: #a3e0ff; background: #3f94d4; -webkit-border-radius: 0.62rem; border-radius: 0.62rem; }
 
-.jy-pop .jy-pop_btn-ok-or { display: block; margin: 0.4rem auto 0; width: 2.4rem; padding: 0; height: 0.62rem; line-height: 0.62rem; text-align: center; font-size: 0.36rem; color: #3f94d4; background: #a3e0ff; border-radius: 0.62rem; }
+.jy-pop .jy-pop_btn-ok-or { display: block; margin: 0.4rem auto 0; width: 2.4rem; padding: 0; height: 0.62rem; line-height: 0.62rem; text-align: center; font-size: 0.36rem; color: #3f94d4; background: #a3e0ff; -webkit-border-radius: 0.62rem; border-radius: 0.62rem; }
 
 .jy-pop .jy-pop_scrollbar { position: relative; max-height: 5rem; overflow-x: hidden; overflow-y: auto; }
 
-.jy-pop .jy-pop_select { display: block; position: relative; margin-left: auto; margin-right: auto; padding: 0 0.2rem; width: 4.4rem; height: 0.6rem; line-height: 0.6rem; background-color: #3f94d4; color: #a3e0ff; outline: none; border: 0.02rem solid #3f94d4; border-radius: 0; overflow: hidden; }
+.jy-pop .jy-pop_select { display: block; position: relative; margin-left: auto; margin-right: auto; padding: 0 0.2rem; width: 4.4rem; height: 0.6rem; line-height: 0.6rem; background-color: #3f94d4; color: #a3e0ff; outline: none; border: 0.02rem solid #3f94d4; -webkit-border-radius: 0; border-radius: 0; overflow: hidden; }
 
 .jy-pop .jy-pop_select:not(:last-of-type) { margin-bottom: 0.12rem; }
 
@@ -696,13 +696,13 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-pop .jy-pop_input { margin: 0.2rem auto 0; }
 
-.jy-pop .jy-pop_input_cell { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 0.2rem; margin-left: auto; margin-right: auto; width: 5.2rem; height: 0.6rem; border-radius: 0.1rem; }
+.jy-pop .jy-pop_input_cell { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 0.2rem; margin-left: auto; margin-right: auto; width: 5.2rem; height: 0.6rem; -webkit-border-radius: 0.1rem; border-radius: 0.1rem; }
 
 .jy-pop .jy-pop_input_cell-label { height: 0.6rem; line-height: 0.6rem; font-weight: bold; color: #3f94d4; }
 
 .jy-pop .jy-pop_input_cell-inp { position: relative; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; height: 0.6rem; line-height: 0.6rem; }
 
-.jy-pop .jy-pop_input_cell-inp input { margin-left: 0.1rem; padding: 0 0.2rem; width: 100%; height: 100%; outline: none; border: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; color: #a3e0ff; padding: 0 0.2rem; background: #3f94d4; border-radius: 0.12rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-pop .jy-pop_input_cell-inp input { margin-left: 0.1rem; padding: 0 0.2rem; width: 100%; height: 100%; outline: none; border: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; color: #a3e0ff; padding: 0 0.2rem; background: #3f94d4; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .jy-pop .jy-pop_input_cell-inp input::-webkit-input-placeholder { color: #a3e0ff; }
 
@@ -730,7 +730,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-pop .jy-pop_table_cell1:nth-of-type(1), .jy-pop .jy-pop_table_cell1:nth-of-type(2) { width: 100%; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; }
 
-.jy-pop .jy-pop-table-link { display: inline-block; width: 1.3rem; height: 0.36rem; line-height: 0.36rem; font-size: 0.22rem; color: #fff; border: 0.02rem solid #fff; border-radius: 0.36rem; }
+.jy-pop .jy-pop-table-link { display: inline-block; width: 1.3rem; height: 0.36rem; line-height: 0.36rem; font-size: 0.22rem; color: #fff; border: 0.02rem solid #fff; -webkit-border-radius: 0.36rem; border-radius: 0.36rem; }
 
 .jy-pop .jy-pop-table-link:hover { -webkit-filter: brightness(1.1); filter: brightness(1.1); }
 
@@ -786,7 +786,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-profile { position: relative; padding: 0.3rem; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-align: center; align-items: center; }
 
-.jy-profile-avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.18rem; -moz-box-flex: 0; -ms-flex: 0 0 1.18rem; flex: 0 0 1.18rem; width: 1.18rem; overflow: hidden; border-radius: 0.12rem; }
+.jy-profile-avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.18rem; -moz-box-flex: 0; -ms-flex: 0 0 1.18rem; flex: 0 0 1.18rem; width: 1.18rem; overflow: hidden; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; }
 
 .jy-profile-extral { margin-left: 0.3rem; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; }
 
@@ -802,7 +802,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-hswiper .jy-hgame-item { width: 1.42rem; overflow: hidden; }
 
-.jy-hswiper .jy-hgame-avatar { display: block; width: 1.42rem; height: 1.42rem; border-radius: 0.3rem; }
+.jy-hswiper .jy-hgame-avatar { display: block; width: 1.42rem; height: 1.42rem; -webkit-border-radius: 0.3rem; border-radius: 0.3rem; }
 
 .jy-hswiper .jy-hgame-name { margin-top: 0.24rem; font-size: 0.26rem; color: #1e1b1e; text-align: center; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; }
 
@@ -815,7 +815,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 /** 搜索中心 **/
 .jy-search { padding: 0.25rem 0.3rem; background: #fff; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; overflow: hidden; }
 
-.jy-search-box { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; padding: 0.25rem; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; font-size: 0.28rem; color: #b2b2b2; background: #f5f5f5; border-radius: 0.12rem; }
+.jy-search-box { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; padding: 0.25rem; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; font-size: 0.28rem; color: #b2b2b2; background: #f5f5f5; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; }
 
 .jy-search-inp { margin-left: 0.25rem; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; background: transparent; color: #b2b2b2; }
 
@@ -839,11 +839,11 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-record-item:nth-of-type(1) { margin-top: 0.35rem; }
 
-.jy-record-avatar { display: block; width: 0.9rem; height: 0.9rem; border-radius: 0.16rem; -o-object-fit: cover; object-fit: cover; overflow: hidden; }
+.jy-record-avatar { display: block; width: 0.9rem; height: 0.9rem; -webkit-border-radius: 0.16rem; border-radius: 0.16rem; -o-object-fit: cover; object-fit: cover; overflow: hidden; }
 
 .jy-record-content { margin-left: 0.2rem; }
 
-.jy-record-tag { margin-left: 0.15rem; padding: 0.1rem; display: inline-block; font-size: 0.2rem; background: #fc5534; color: #fff; text-align: center; line-height: 1.15; border-radius: 0 0.15rem 0 0.15rem; }
+.jy-record-tag { margin-left: 0.15rem; padding: 0.1rem; display: inline-block; font-size: 0.2rem; background: #fc5534; color: #fff; text-align: center; line-height: 1.15; -webkit-border-radius: 0 0.15rem 0 0.15rem; border-radius: 0 0.15rem 0 0.15rem; }
 
 .btn-scrollTop { position: fixed; bottom: 0.5rem; right: 0.3rem; z-index: 100; }
 
@@ -856,7 +856,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-new-banner-sty .link { display: block; }
 
-.jy-new-banner-sty .tag { display: inline-block; width: 0.8rem; height: 0.4rem; line-height: 0.4rem; color: #fff; border-radius: 0.04rem; text-align: center; }
+.jy-new-banner-sty .tag { display: inline-block; width: 0.8rem; height: 0.4rem; line-height: 0.4rem; color: #fff; -webkit-border-radius: 0.04rem; border-radius: 0.04rem; text-align: center; }
 
 .jy-new-banner-sty .tag-hot { background: #ff0000; }
 
@@ -864,13 +864,13 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-new-banner a { position: relative; display: block; height: 3.07rem; overflow: hidden; }
 
-.jy-new-banner img { display: block; height: inherit; -o-object-fit: cover; object-fit: cover; border-radius: 0.012rem; }
+.jy-new-banner img { display: block; height: inherit; -o-object-fit: cover; object-fit: cover; -webkit-border-radius: 0.012rem; border-radius: 0.012rem; }
 
 .jy-new-banner .desc { position: absolute; bottom: 0.3rem; left: 0.3rem; right: 0.3rem; overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; font-size: 0.3rem; color: #ffffff; }
 
 .jy-new-thumb .link { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; }
 
-.jy-new-thumb .avatar { width: 2.5rem; -webkit-box-flex: 0; -webkit-flex: 0 0 2.5rem; -moz-box-flex: 0; -ms-flex: 0 0 2.5rem; flex: 0 0 2.5rem; height: 1.6rem; overflow: hidden; -o-object-fit: cover; object-fit: cover; border-radius: 0.12rem; }
+.jy-new-thumb .avatar { width: 2.5rem; -webkit-box-flex: 0; -webkit-flex: 0 0 2.5rem; -moz-box-flex: 0; -ms-flex: 0 0 2.5rem; flex: 0 0 2.5rem; height: 1.6rem; overflow: hidden; -o-object-fit: cover; object-fit: cover; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; }
 
 .jy-new-thumb .profile { margin-left: 0.2rem; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; }
 
@@ -936,7 +936,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-game-list .item { position: relative; padding: 0.3rem; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-align: center; align-items: center; border-bottom: 0.02rem solid #ececec; }
 
-.jy-game-list .item .avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.18rem; -moz-box-flex: 0; -ms-flex: 0 0 1.18rem; flex: 0 0 1.18rem; width: 1.18rem; overflow: hidden; border-radius: 0.12rem; }
+.jy-game-list .item .avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.18rem; -moz-box-flex: 0; -ms-flex: 0 0 1.18rem; flex: 0 0 1.18rem; width: 1.18rem; overflow: hidden; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; }
 
 .jy-game-list .item .extral { margin-left: 0.3rem; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; }
 
@@ -947,7 +947,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 /**个人中心**/
 .jy-account-login { padding: 0.3rem 0.6rem; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.jy-account-login .avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.03rem; -moz-box-flex: 0; -ms-flex: 0 0 1.03rem; flex: 0 0 1.03rem; width: 1.03rem; height: 1.03rem; border-radius: 50%; overflow: hidden; }
+.jy-account-login .avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.03rem; -moz-box-flex: 0; -ms-flex: 0 0 1.03rem; flex: 0 0 1.03rem; width: 1.03rem; height: 1.03rem; -webkit-border-radius: 50%; border-radius: 50%; overflow: hidden; }
 
 .jy-account-login .profile { margin-left: 0.8rem; font-size: 0.32rem; color: #323232; max-width: 4.3rem; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
 
@@ -976,7 +976,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-gifts .profile { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.jy-gifts .profile .avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.2rem; -moz-box-flex: 0; -ms-flex: 0 0 1.2rem; flex: 0 0 1.2rem; width: 1.2rem; height: 1.2rem; border-radius: 0.1rem; overflow: hidden; -o-object-fit: cover; object-fit: cover; }
+.jy-gifts .profile .avatar { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 1.2rem; -moz-box-flex: 0; -ms-flex: 0 0 1.2rem; flex: 0 0 1.2rem; width: 1.2rem; height: 1.2rem; -webkit-border-radius: 0.1rem; border-radius: 0.1rem; overflow: hidden; -o-object-fit: cover; object-fit: cover; }
 
 .jy-gifts .profile .extral { margin-left: 0.2rem; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; }
 
@@ -1064,9 +1064,9 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-bind-tip { margin: 0.1rem auto 0; width: 6.4rem; color: #ccc; font-size: 0.26rem; line-height: 1.5; }
 
-.jy-bind-submit { display: block; margin: 2rem auto 0; width: 6.86rem; height: 0.8rem; line-height: 0.8rem; text-align: center; border-radius: 0.06rem; font-size: 0.34rem; background: #e84228; color: #fff; }
+.jy-bind-submit { display: block; margin: 2rem auto 0; width: 6.86rem; height: 0.8rem; line-height: 0.8rem; text-align: center; -webkit-border-radius: 0.06rem; border-radius: 0.06rem; font-size: 0.34rem; background: #e84228; color: #fff; }
 
-.jy-bind-submit-s { display: block; margin: 1rem auto 0; width: 6.86rem; height: 0.8rem; line-height: 0.8rem; text-align: center; border-radius: 0.06rem; font-size: 0.34rem; background: #e84228; color: #fff; }
+.jy-bind-submit-s { display: block; margin: 1rem auto 0; width: 6.86rem; height: 0.8rem; line-height: 0.8rem; text-align: center; -webkit-border-radius: 0.06rem; border-radius: 0.06rem; font-size: 0.34rem; background: #e84228; color: #fff; }
 
 /**forgot style**/
 .jy-forgot { position: relative; padding: 0.3rem; }
@@ -1077,7 +1077,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-forgot-cell:not(:first-of-type) { margin-top: 0.4rem; }
 
-.jy-forgot-cell input { display: block; padding: 0 0.2rem; width: 100%; height: inherit; color: #cdcdcd; background: #f5f5f5; border-radius: 0.06rem; }
+.jy-forgot-cell input { display: block; padding: 0 0.2rem; width: 100%; height: inherit; color: #cdcdcd; background: #f5f5f5; -webkit-border-radius: 0.06rem; border-radius: 0.06rem; }
 
 .jy-forgot-cell input::-webkit-input-placeholder { color: #cdcdcd; }
 
@@ -1091,7 +1091,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-forgot-cell .content { position: relative; height: inherit; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; }
 
-.jy-forgot-btn { margin-left: 0.14rem; display: inline-block; width: 1.8rem; text-align: center; font-size: 0.28rem; color: #ffffff; background: #ff5a4e; border-radius: 0.12rem; cursor: pointer; }
+.jy-forgot-btn { margin-left: 0.14rem; display: inline-block; width: 1.8rem; text-align: center; font-size: 0.28rem; color: #ffffff; background: #ff5a4e; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; cursor: pointer; }
 
 .jy-forgot-btn:hover { color: #ff5a4e; -webkit-filter: none; filter: none; }
 
@@ -1104,7 +1104,7 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-service-cell:not(:first-of-type) { margin-top: 0.25rem; }
 
-.jy-service-cell input { display: block; padding: 0 0.2rem; width: 100%; height: 0.7rem; line-height: 0.7rem; color: #b2b2b2; border: 0.02rem solid #b2b2b2; border-radius: 0.06rem; }
+.jy-service-cell input { display: block; padding: 0 0.2rem; width: 100%; height: 0.7rem; line-height: 0.7rem; color: #b2b2b2; border: 0.02rem solid #b2b2b2; -webkit-border-radius: 0.06rem; border-radius: 0.06rem; }
 
 .jy-service-cell input::-webkit-input-placeholder { color: #b2b2b2; }
 
@@ -1114,9 +1114,9 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-service-cell input::-moz-placeholder { color: #b2b2b2; }
 
-.jy-service-cell select { display: block; padding: 0 0.2rem; width: 100%; height: 0.7rem; line-height: 0.7rem; color: #b2b2b2; border: 0.02rem solid #b2b2b2; border-radius: 0.06rem; }
+.jy-service-cell select { display: block; padding: 0 0.2rem; width: 100%; height: 0.7rem; line-height: 0.7rem; color: #b2b2b2; border: 0.02rem solid #b2b2b2; -webkit-border-radius: 0.06rem; border-radius: 0.06rem; }
 
-.jy-service-cell textarea { display: block; padding: 0.2rem; width: 100%; color: #b2b2b2; border: 0.02rem solid #b2b2b2; border-radius: 0.06rem; }
+.jy-service-cell textarea { display: block; padding: 0.2rem; width: 100%; color: #b2b2b2; border: 0.02rem solid #b2b2b2; -webkit-border-radius: 0.06rem; border-radius: 0.06rem; }
 
 .jy-service-cell .label { -webkit-box-flex: 0; -webkit-flex: 0 0 1.5rem; -moz-box-flex: 0; -ms-flex: 0 0 1.5rem; flex: 0 0 1.5rem; width: 1.5rem; position: relative; font-size: 0.26rem; }
 
@@ -1146,12 +1146,12 @@ body { margin-left: auto; margin-right: auto; font: 0.28rem/ 1.15 PingFang SC; c
 
 .jy-upload-icon--url { display: block; position: relative; width: 100%; height: 100%; overflow: hidden; }
 
-.jy-upload-icon .btn-upload-del { position: absolute; top: -0.2rem; right: -0.2rem; width: 0.4rem; height: 0.4rem; line-height: 0.4rem; text-align: center; display: block; color: red; border: 0.02rem solid red; border-radius: 50%; z-index: 100; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-transform: capitalize; }
+.jy-upload-icon .btn-upload-del { position: absolute; top: -0.2rem; right: -0.2rem; width: 0.4rem; height: 0.4rem; line-height: 0.4rem; text-align: center; display: block; color: red; border: 0.02rem solid red; -webkit-border-radius: 50%; border-radius: 50%; z-index: 100; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-transform: capitalize; }
 
 /** reply style**/
 .jy-reply { position: relative; padding: 0.3rem; font-size: 0.3rem; }
 
-.jy-reply-cell { padding: 0.3rem 0.25rem; border: 0.02rem solid #b3b3b3; border-radius: 0.06rem; }
+.jy-reply-cell { padding: 0.3rem 0.25rem; border: 0.02rem solid #b3b3b3; -webkit-border-radius: 0.06rem; border-radius: 0.06rem; }
 
 .jy-reply-cell:not(:first-of-type) { margin-top: 0.25rem; }
 

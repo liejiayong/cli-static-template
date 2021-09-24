@@ -2,7 +2,7 @@
 @import '../_mixin.scss';
 
 $prefixPop: #{$prefix}-pop;
-$bg: #8e0d0d linear-gradient(#8e0d0d, #950e0e, #830c0c), url('../img/bg-dialog-com.png') no-repeat center/100% 100%;
+$bg: #8e0d0d linear-gradient(#8e0d0d, #950e0e, #830c0c);
 $bg-tit: transparent;
 $bg-norm: rgba(0, 0, 0, 0.2);
 
@@ -80,10 +80,10 @@ $input-select-cell-radius: 0.12rem;
   }
   // 主体标题
   &_header {
-    $height: 0.8rem;
+    $height: 0.6rem;
 
     position: relative;
-    // padding: 0.2rem 0 .2rem;
+    padding: 0.2rem 0 0;
     // margin: 0 auto 0 auto;
     margin-left: auto;
     margin-right: auto;
@@ -135,7 +135,7 @@ $input-select-cell-radius: 0.12rem;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: ($width - 0.6rem);
+    width: ($width - 0.4rem);
     padding: 0 0 0.5rem;
     // color: inherit;
     // background: #fff0d6;
@@ -146,7 +146,7 @@ $input-select-cell-radius: 0.12rem;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: ($width - 0.6rem);
+    width: ($width - 0.4rem);
     padding: 0 0 0.5rem;
     // color: inherit;
     // background: #fff0d6;
@@ -220,6 +220,7 @@ $input-select-cell-radius: 0.12rem;
   // 滚动态
   &_scrollbar {
     position: static;
+    padding: 0 0.16rem;
     margin-left: auto;
     margin-right: auto;
     max-height: $scrollbar-maxheight;

@@ -39,7 +39,7 @@ pre { font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ }
 /* Text-level semantics ========================================================================== */
 a { color: inherit; text-decoration: none; background-color: transparent; /** Remove the gray background on active links in IE 10. */ }
 
-a:hover { text-decoration: none; color: inherit; }
+a:hover { text-decoration: none; }
 
 /** 1. Remove the bottom border in Chrome 57- 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari. */
 abbr[title] { border-bottom: none; /* 1 */ text-decoration: underline; /* 2 */ -webkit-text-decoration: underline dotted; -moz-text-decoration: underline dotted; text-decoration: underline dotted; /* 2 */ }
@@ -432,7 +432,7 @@ body { margin-left: auto; margin-right: auto; font: 0.2rem/1.15 "fcustom", "х╛ош
 
 .fill-100 { width: 100%; height: 100%; }
 
-.jy-btn { cursor: pointer; z-index: 100; text-indent: -9999px; font-size: 0; }
+.jy-btn { cursor: pointer; z-index: 100; text-indent: -9999px; font-size: 0; line-height: 1; overflow: hidden; }
 
 .jy-btn-txt { cursor: pointer; z-index: 100; }
 
@@ -557,7 +557,7 @@ body { margin-left: auto; margin-right: auto; font: 0.2rem/1.15 "fcustom", "х╛ош
 
 .jy-nav .jy-nav_wrapper { position: relative; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; height: 1.2rem; }
 
-.jy-nav .jy-nav_logo { -moz-border-radius: 0.3rem; margin-bottom: -0.24rem; border-radius: 0.3rem; -webkit-box-flex: 0; -webkit-flex: 0 0 1.27rem; -moz-box-flex: 0; -ms-flex: 0 0 1.27rem; flex: 0 0 1.27rem; width: 1.27rem; }
+.jy-nav .jy-nav_logo { -moz-border-radius: 0.3rem; margin-bottom: -0.24rem; -webkit-border-radius: 0.3rem; border-radius: 0.3rem; -webkit-box-flex: 0; -webkit-flex: 0 0 1.27rem; -moz-box-flex: 0; -ms-flex: 0 0 1.27rem; flex: 0 0 1.27rem; width: 1.27rem; }
 
 .jy-nav .jy-nav_profile { margin-left: 0.15rem; color: #c7c7c7; }
 
@@ -770,7 +770,7 @@ body { margin-left: auto; margin-right: auto; font: 0.2rem/1.15 "fcustom", "х╛ош
 
 .section-2 .jy-sectionmain { padding-top: 0.38rem; }
 
-.section-2 .jy-news-banner { position: relative; width: 100%; }
+.section-2 .jy-news-banner { position: relative; width: 100%; height: auto; }
 
 .section-2 .bg-banner-new { width: 6.9rem; height: 3rem; -o-object-fit: cover; object-fit: cover; overflow: hidden; }
 
