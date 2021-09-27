@@ -7,94 +7,94 @@
 // @import "./lib/_nav-other.scss";
 // @import "./lib/_nav.scss";
 // @import "./lib/_navbar.scss";
-@import './lib/_menu.scss';
+// @import './lib/_menu.scss';
 @import './lib/_pop.scss';
 
-.animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
+// .animated {
+//   animation-duration: 1s;
+//   animation-fill-mode: both;
+// }
 
-.animated.infinite {
-  animation-iteration-count: infinite;
-}
+// .animated.infinite {
+//   animation-iteration-count: infinite;
+// }
 
-.animated.delay-100ms {
-  animation-delay: 100ms;
-}
-.animated.delay-200ms {
-  animation-delay: 200ms;
-}
-.animated.delay-300ms {
-  animation-delay: 300ms;
-}
-.animated.delay-600ms {
-  animation-delay: 600ms;
-}
-.animated.delay-800ms {
-  animation-delay: 800ms;
-}
-.animated.delay-900ms {
-  animation-delay: 900ms;
-}
-.animated.delay-1s {
-  animation-delay: 1s;
-}
-.animated.delay-1s2 {
-  animation-delay: 1.2s;
-}
-.animated.delay-1s5 {
-  animation-delay: 1.5s;
-}
-.animated.delay-1s5 {
-  animation-delay: 1.5s;
-}
-.animated.delay-1s6 {
-  animation-delay: 1.6s;
-}
-.animated.delay-1s8 {
-  animation-delay: 1.8s;
-}
+// .animated.delay-100ms {
+//   animation-delay: 100ms;
+// }
+// .animated.delay-200ms {
+//   animation-delay: 200ms;
+// }
+// .animated.delay-300ms {
+//   animation-delay: 300ms;
+// }
+// .animated.delay-600ms {
+//   animation-delay: 600ms;
+// }
+// .animated.delay-800ms {
+//   animation-delay: 800ms;
+// }
+// .animated.delay-900ms {
+//   animation-delay: 900ms;
+// }
+// .animated.delay-1s {
+//   animation-delay: 1s;
+// }
+// .animated.delay-1s2 {
+//   animation-delay: 1.2s;
+// }
+// .animated.delay-1s5 {
+//   animation-delay: 1.5s;
+// }
+// .animated.delay-1s5 {
+//   animation-delay: 1.5s;
+// }
+// .animated.delay-1s6 {
+//   animation-delay: 1.6s;
+// }
+// .animated.delay-1s8 {
+//   animation-delay: 1.8s;
+// }
 
-.animated.delay-2s {
-  animation-delay: 2s;
-}
-.animated.delay-2s5 {
-  animation-delay: 2.5s;
-}
+// .animated.delay-2s {
+//   animation-delay: 2s;
+// }
+// .animated.delay-2s5 {
+//   animation-delay: 2.5s;
+// }
 
-.animated.delay-3s {
-  animation-delay: 3s;
-}
+// .animated.delay-3s {
+//   animation-delay: 3s;
+// }
 
-.animated.delay-4s {
-  animation-delay: 4s;
-}
+// .animated.delay-4s {
+//   animation-delay: 4s;
+// }
 
-.animated.delay-5s {
-  animation-delay: 5s;
-}
+// .animated.delay-5s {
+//   animation-delay: 5s;
+// }
 
-.animated.fast {
-  animation-duration: 800ms;
-}
+// .animated.fast {
+//   animation-duration: 800ms;
+// }
 
-.animated.faster {
-  animation-duration: 500ms;
-}
+// .animated.faster {
+//   animation-duration: 500ms;
+// }
 
-.animated.slow {
-  animation-duration: 2s;
-}
+// .animated.slow {
+//   animation-duration: 2s;
+// }
 
-.animated.slower {
-  animation-duration: 3s;
-}
+// .animated.slower {
+//   animation-duration: 3s;
+// }
 
-@media (print), (prefers-reduced-motion: reduce) {
-  .animated {
-    animation-duration: 1ms !important;
-    transition-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
+// @media (print), (prefers-reduced-motion: reduce) {
+//   .animated {
+//     animation-duration: 1ms !important;
+//     transition-duration: 1ms !important;
+//     animation-iteration-count: 1 !important;
+//   }
+// }

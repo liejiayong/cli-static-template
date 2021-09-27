@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-08-09 17:11:18
+ * @LastEditTime: 2021-09-27 15:31:12
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -332,7 +332,7 @@ var jtool = {
     },
   },
   preload: {
-    init: (function () {
+    init: function () {
       var $loading =
         '' +
         '<!-- preload -->' +
@@ -359,7 +359,7 @@ var jtool = {
         loader.start();
         jtool.$window.winFixed();
       };
-    })(),
+    },
     open: function () {
       jtool.$window.winFixed();
       $('#pagePreload').fadeIn();
@@ -554,53 +554,53 @@ var jtool = {
 };
 
 // 倒计时
-var jcountdown = {
-  timer: null,
-  format: function (num) {
-    num = Number(num) || 0;
-    return num < 10 ? '0' + num : num;
-  },
-  getTime: function (y, mo, d, h, mi, s) {
-    return new Date(y, mo - 1, d, h, mi, s).getTime();
-  },
-  getDate: function (y, mo, d, h, mi, s) {
-    mo = mo - 1;
-    var now = new Date().getTime(),
-      last = new Date(y, mo, d, h, mi, s).getTime(),
-      diff = (last - now) / 1000,
-      day = 0,
-      hour = 0,
-      min = 0,
-      sec = 0,
-      end = true;
+// var jcountdown = {
+//   timer: null,
+//   format: function (num) {
+//     num = Number(num) || 0;
+//     return num < 10 ? '0' + num : num;
+//   },
+//   getTime: function (y, mo, d, h, mi, s) {
+//     return new Date(y, mo - 1, d, h, mi, s).getTime();
+//   },
+//   getDate: function (y, mo, d, h, mi, s) {
+//     mo = mo - 1;
+//     var now = new Date().getTime(),
+//       last = new Date(y, mo, d, h, mi, s).getTime(),
+//       diff = (last - now) / 1000,
+//       day = 0,
+//       hour = 0,
+//       min = 0,
+//       sec = 0,
+//       end = true;
 
-    if (diff > 0) {
-      day = parseInt(diff / 24 / 60 / 60);
-      hour = parseInt((diff / 60 / 60) % 24);
-      min = parseInt((diff / 60) % 60);
-      sec = parseInt(diff % 60);
-      end = false;
-    }
-    return { end: end, day: this.format(day), hour: this.format(hour), min: this.format(min), sec: this.format(sec) };
-  },
-  setTimeDOM: function (y, mo, d, h, mi, s) {
-    var date = this.getDate(y, mo, d, h, mi, s);
-    $('#day').text(date.day);
-    $('#hour').text(date.hour);
-    $('#minute').text(date.min);
-    $('#second').text(date.sec);
-    if (!date.end) {
-      var t = this;
-      this.timer = setTimeout(function () {
-        t.setTimeDOM(y, mo, d, h, mi, s);
-      }, 1000);
-    }
-  },
-  countDown: function (y, mo, d, h, mi, s) {
-    clearTimeout(this.timer);
-    this.setTimeDOM(y, mo, d, h, mi, s);
-  },
-};
+//     if (diff > 0) {
+//       day = parseInt(diff / 24 / 60 / 60);
+//       hour = parseInt((diff / 60 / 60) % 24);
+//       min = parseInt((diff / 60) % 60);
+//       sec = parseInt(diff % 60);
+//       end = false;
+//     }
+//     return { end: end, day: this.format(day), hour: this.format(hour), min: this.format(min), sec: this.format(sec) };
+//   },
+//   setTimeDOM: function (y, mo, d, h, mi, s) {
+//     var date = this.getDate(y, mo, d, h, mi, s);
+//     $('#day').text(date.day);
+//     $('#hour').text(date.hour);
+//     $('#minute').text(date.min);
+//     $('#second').text(date.sec);
+//     if (!date.end) {
+//       var t = this;
+//       this.timer = setTimeout(function () {
+//         t.setTimeDOM(y, mo, d, h, mi, s);
+//       }, 1000);
+//     }
+//   },
+//   countDown: function (y, mo, d, h, mi, s) {
+//     clearTimeout(this.timer);
+//     this.setTimeDOM(y, mo, d, h, mi, s);
+//   },
+// };
 // // 第一波2月11号
 // if (Date.now() < new Date(2021, 02, 11, 20, 00, 00)) {
 //   jcountdown.countDown(2021, 02, 11, 20, 00, 00);
@@ -761,7 +761,8 @@ $(function () {
   jtool.elementCopy();
   jtool.pop.picker();
   jtool.pop.btnAuth('.jy-pop_input_cell-auth');
-  jtool.menusCompat();
+  // jtool.menusCompat();
+  // jtool.preload()
   // jtool.initMusic();
   var queryTest = window.location.href;
   if (queryTest.indexOf('debug=jylie') > -1) new VConsole();
