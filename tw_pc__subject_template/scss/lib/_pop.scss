@@ -484,6 +484,7 @@ $table-height-overflow: 200px;
     font-size: 18px;
     color: #d79c68;
     &__head {
+      margin-bottom: 10px;
     }
     &__body {
       // margin-top: 14px;
@@ -492,9 +493,9 @@ $table-height-overflow: 200px;
       display: flex;
       align-items: center;
       line-height: 50px;
-      background: #470f08;
+      background: rgba(0, 0, 0, 0.1);
       &:not(:first-of-type) {
-        margin-top: 14px;
+        margin-top: 10px;
       }
     }
     &__td {
