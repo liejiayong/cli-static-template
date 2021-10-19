@@ -1,7 +1,60 @@
+/*
+ * @Description: canvas粒子
+ * @version: 0.0.1
+ * @Author: liejiayong(809206619@qq.com)
+ * @Date: 2021-07-29 10:41:26
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-10-19 17:22:50
+ * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\modules\ctx-particle.js
+ * 可以输入预定的版权声明、个性签名、空行等
+ */
 /**
  * Created by Administrator on 2017/2/10.
  * canvas粒子类动画组件
  * 17.2.20更新:兼容性更新,兼容到ie9.
+ *   
+ * ctxParticle: function () {
+    new particleCanvas(ctxId, [
+      {
+        type: {
+          typeName: 'image',
+          url: './img/particle1.png',
+        },
+        number: 5,
+        op: {
+          min: 0.7,
+          max: 1,
+        },
+        size: {
+          min: 15,
+          max: 15,
+        },
+        speed: {
+          min: 1,
+          max: 1,
+        },
+        angle: {
+          value: 0,
+          float: 20,
+        },
+        area: {
+          leftTop: [120, 0],
+          rightBottom: [600, 700],
+        },
+        rota: {
+          value: 0,
+          speed: 2,
+          floatValue: 0,
+          floatSpeed: 3,
+        },
+        zoom: {
+          max: 0,
+          min: 0,
+        },
+        reIn: '',
+      },
+    ]);
+  },
  */
 
 (function () {

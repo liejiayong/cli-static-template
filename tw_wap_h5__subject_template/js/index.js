@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-09-27 15:31:12
+ * @LastEditTime: 2021-10-19 17:19:17
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -508,48 +508,6 @@ var jtool = {
     if (pH < cH) {
       $p.scrollTop(cH - pH);
     }
-  },
-  ctxParticle: function () {
-    new particleCanvas(ctxId, [
-      {
-        type: {
-          typeName: 'image',
-          url: './img/particle1.png',
-        },
-        number: 5,
-        op: {
-          min: 0.7,
-          max: 1,
-        },
-        size: {
-          min: 15,
-          max: 15,
-        },
-        speed: {
-          min: 1,
-          max: 1,
-        },
-        angle: {
-          value: 0,
-          float: 20,
-        },
-        area: {
-          leftTop: [120, 0],
-          rightBottom: [600, 700],
-        },
-        rota: {
-          value: 0,
-          speed: 2,
-          floatValue: 0,
-          floatSpeed: 3,
-        },
-        zoom: {
-          max: 0,
-          min: 0,
-        },
-        reIn: '',
-      },
-    ]);
   },
 };
 

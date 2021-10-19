@@ -1,25 +1,33 @@
-/* 
-  图片预加载器
-  var imgLoader = new ImgLoader({
-  scale: 1,
-  baseURL: jtool.imgCrossPath,
-  urls: [
-    'bg2.jpg',
-    'ico-role-name.png',
-    'ico-role-avatar-1.png',
-    'ico-role-avatar-2.png',
-    'ico-role-avatar-3.png',
-    'ico-role-avatar-4.png',
-    'ico-role-avatar-5.png',
-    'ico-role-avatar-6.png',
-    'ico-role-avatar-7.png',
-    'logo.png',
-    'p2.png',
-    'qr.png',
-  ],
-});
+/*
+ * @Description: canvas图片加载器
+ * @version: 0.0.1
+ * @Author: liejiayong(809206619@qq.com)
+ * @Date: 2021-10-19 17:07:47
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-10-19 17:23:06
+ * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\modules\imageloader.js
 
-*/
+  var imgLoader = new ImgLoader({
+    scale: 1,
+    baseURL: jtool.imgCrossPath,
+    urls: [
+      'bg2.jpg',
+      'ico-role-name.png',
+      'ico-role-avatar-1.png',
+      'ico-role-avatar-2.png',
+      'ico-role-avatar-3.png',
+      'ico-role-avatar-4.png',
+      'ico-role-avatar-5.png',
+      'ico-role-avatar-6.png',
+      'ico-role-avatar-7.png',
+      'logo.png',
+      'p2.png',
+      'qr.png',
+    ],
+  });
+  
+ */
+
 var isUndef = function isUndef(str) {
   return typeof str == 'undefined';
 };
