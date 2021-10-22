@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2021-10-19 17:07:47
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-10-19 17:23:06
+ * @LastEditTime: 2021-10-22 16:51:30
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\modules\imageloader.js
 
   var imgLoader = new ImgLoader({
@@ -44,18 +44,22 @@ var ImgLoader = function (opts) {
 ImgLoader.prototype.load = function (filename, success) {
   var t = this,
     baseURL = t.baseURL;
-  var img = document.createElement('img'),
+  var img = new Image(),
     url = baseURL + filename + '?t=' + Date.now(),
     fid = t.getName(filename);
   img.id = fid;
   img.src = url;
-  img.crossorigin = 'anonymous';
+  img.setAttribute('crossOrigin', 'Anonymous');
   img.onload = function () {
     var name = fid,
       width = img.width * t.scale,
       height = img.height * t.scale;
     img.width = width;
     img.height = height;
+    if (t.isAppend) {
+      img.style.cssText = 'visibility: hidden; opacity:0; pointer-events: none; position: absolute;';
+      document.body.appendChild(img);
+    }
     success &&
       success({
         name: name,
