@@ -183,7 +183,7 @@ $input-select-cell-radius: 0.12rem;
     margin-left: auto;
     margin-right: auto;
     padding: 0.12rem 0.24rem;
-    width: 2.2rem;
+    width: 2rem;
     // @include lh($height);
     line-height: $height;
     text-align: center;
@@ -196,6 +196,7 @@ $input-select-cell-radius: 0.12rem;
     // font-weight: bold;
     color: #fff;
     background: #d67029 linear-gradient(#a30f0f, #af0909);
+    // background: #ab231f -webkit-radial-gradient(top, #f8cb2f, #d35500, #9d1200);
   }
   &_btn-link {
     $width: 1.3rem;
@@ -209,7 +210,7 @@ $input-select-cell-radius: 0.12rem;
     // border-radius: $height;
     // @include lh($height);
     text-decoration: underline;
-    color: #d67029;
+    color: $color;
     // font-size: 0.22rem;
     cursor: pointer;
     &:active {
@@ -373,7 +374,7 @@ $input-select-cell-radius: 0.12rem;
   }
 
   // table
-  $table-border: #ffa3a3;
+  $table-border: $color;
   $tabel-cell-height: 0.6rem;
   &_table {
     position: relative;
@@ -424,7 +425,7 @@ $input-select-cell-radius: 0.12rem;
     display: flex;
     // align-items: center; // 设置center倘若两个子元素的height不同时会出现元素错乱
     overflow: hidden;
-    color: #fff;
+    // color: #fff;
     // &:nth-of-type(odd) {
     //   background: #3f94d4;
     //   color: #fff;
