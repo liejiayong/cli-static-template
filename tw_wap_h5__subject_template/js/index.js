@@ -334,7 +334,7 @@ var jtool = {
     },
   },
   preload: {
-    init: function () {
+    init: (function () {
       var $loading =
         '' +
         '<!-- preload -->' +
@@ -361,7 +361,7 @@ var jtool = {
         loader.start();
         jtool.$window.winFixed();
       };
-    },
+    })(),
     open: function () {
       jtool.$window.winFixed();
       $('#pagePreload').fadeIn();
