@@ -47,7 +47,7 @@
         <!-- <div class="nickname">18820785794</div> -->
         <!-- <i>|</i> -->
         <!-- <a href="javascript:;" class="jy-btn-txt text-underline btn-logout">注销</a> -->
-        <!-- <a href="javascript:;" class="jy-btn-txt text-underline btn-logout">我的奖励</a> -->
+        <!-- <a href="javascript:;" class="jy-btn-txt text-underline btn-myprize">我的奖励</a> -->
         <a href="javascript:;" class="jy-btn-txt ico-btn-com btn-rule">活动规则</a>
       </div>
 
@@ -98,7 +98,7 @@
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
         <div class="jy-pop_header">
-          <div class="jy-pop_header_sym">概率公示</div>
+          <div class="jy-pop_header__sym">概率公示</div>
         </div>
         <div class="jy-pop_body mt-10">
           <div class="jy-pop_scrollbar lh-15">
@@ -157,7 +157,7 @@
       <div class="jy-pop_mask"></div>
       <div class="jy-pop_main bg-pop-3">
         <a href="javascript:;" class="jy-btn jpop-btn-close jy-pop_btn_close i-pop-close">关闭</a>
-        <div class="jy-pop_header"><div class="jy-pop_header_sym">游戏规则</div></div>
+        <div class="jy-pop_header"><div class="jy-pop_header__sym">游戏规则</div></div>
         <div class="jy-pop_body mt-10">
           <div class="jy-pop_scrollbar lh-15">
             <ul class="ul-decimal">
@@ -188,7 +188,7 @@
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
         <div class="jy-pop_header">
-          <div class="jy-pop_header_sym">我的奖励</div>
+          <div class="jy-pop_header__sym">我的奖励</div>
         </div>
         <div class="jy-pop_body mt-10">
           <!-- 两栏 table -->
@@ -263,7 +263,7 @@
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
         <div class="jy-pop_header">
-          <div class="jy-pop_header_sym">奖品展示</div>
+          <div class="jy-pop_header__sym">奖品展示</div>
         </div>
         <div class="jy-pop_body mt-10">
           <div class="jy-pop_scrollbar">
@@ -308,7 +308,7 @@
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
         <div class="jy-pop_header">
-          <div class="jy-pop_header_sym">个人信息</div>
+          <div class="jy-pop_header__sym">个人信息</div>
         </div>
         <div class="jy-pop_body mt-10">
           <div class="jy-pop_scrollbar lh-15">
@@ -348,12 +348,13 @@
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
         <div class="jy-pop_header">
-          <div class="jy-pop_header_sym">游戏信息</div>
+          <div class="jy-pop_header__sym">游戏信息</div>
         </div>
         <div class="jy-pop_body mt-10">
           <div class="jy-pop_scrollbar">
             <!-- 低版本兼容 -->
             <!-- <div class="jy-pop_input">
+              <div class="jy-pop_input-label tr">区服:</div> 
               <div class="jy-pop_input-inp">
                 <div class="jy-pop_select ico-select-dr ff-normal" id="jyCallPicker">请选择区服</div>
               </div>
@@ -381,7 +382,7 @@
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
         <div class="jy-pop_header">
-          <div class="jy-pop_header_sym">礼包码</div>
+          <div class="jy-pop_header__sym">礼包码</div>
         </div>
         <div class="jy-pop_body mt-10">
           <div class="jy-pop_scrollbar">
@@ -405,7 +406,7 @@
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
         <div class="jy-pop_header">
-          <div class="jy-pop_header_sym">温馨提示</div>
+          <div class="jy-pop_header__sym">温馨提示</div>
         </div>
         <div class="jy-pop_body mt-10">
           <div class="jy-pop_scrollbar lh-20">
@@ -428,6 +429,14 @@
       <div class="jy-pop_mask"></div>
       <div class="pop-ready">5</div>
     </div>
+
+    <!-- pop preload -->
+    <!-- <div class="ploading" id="pagePreload">
+      <div class="progress">
+        <p>loading...</p>
+        <p id="ploadingPro">0%</p>
+      </div>
+    </div> -->
 
     <!-- pop end -->
 
@@ -492,7 +501,7 @@
           $('#J_gamePop').fadeIn();
         });
         // 我的奖励
-        $('.btn-mygift').on('click', function () {
+        $('.btn-myprize').on('click', function () {
           $('#J_recordPop').fadeIn();
         });
         // 活动规则
@@ -534,16 +543,30 @@
         $('.btn-share').on('click', function () {
           $('#J_sharePop').fadeIn();
         });
-
         /* jQuery end */
       });
 
-      /* 后端须按需修改图片地址 */
-      jtool.imgPath = './img/';
-      /* 后端须按需修改跨域图片地址 */
-      jtool.imgCrossPath = './img/';
-      /* 后端须按需修改媒体地址 */
-      jtool.mediaPath = './img/';
+      // /* 后端须按需修改图片地址 */
+      // jtool.imgPath = './img/';
+      // /* 后端须按需修改跨域图片地址 */
+      // jtool.imgCrossPath = './img/';
+      // /* 后端须按需修改媒体地址 */
+      // jtool.mediaPath = './img/';
+      // jtool.preload.init(
+      //   jtool.imgPath,
+      //   [],
+      //   function () {
+      //     console.log('preload finish...');
+      //     jtool.preload.close();
+      //     // jtool.navTo('.section-1');
+      //   },
+      //   function (install) {
+      //     var prsnum = install.processNum;
+      //     $('#ploadingPro').html(prsnum + '%');
+      //     console.log('preload process...', prsnum);
+      //   }
+      // );
+
       /* 游戏结束逻辑 */
       logic.extend({
         // 游戏结束业务
@@ -566,20 +589,6 @@
           }
         },
       });
-      // jtool.preload.init(
-      //   jtool.imgPath,
-      //   [],
-      //   function () {
-      //     console.log('preload finish...');
-      jtool.preload.close();
-      //     // jtool.navTo('.section-1');
-      //   },
-      //   function (install) {
-      //     var prsnum = install.processNum;
-      //     $('#ploadingPro').html(prsnum + '%');
-      //     console.log('preload process...', prsnum);
-      //   }
-      // );
     </script>
   </body>
 </html>

@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-10-27 15:32:41
+ * @LastEditTime: 2021-12-02 17:02:37
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -334,7 +334,8 @@ var jtool = {
     },
   },
   preload: {
-    init: (function () {
+    /* 本版吧不预设 */
+    init: function () {
       var $loading =
         '' +
         '<!-- preload -->' +
@@ -361,7 +362,7 @@ var jtool = {
         loader.start();
         jtool.$window.winFixed();
       };
-    })(),
+    },
     open: function () {
       jtool.$window.winFixed();
       $('#pagePreload').fadeIn();
@@ -371,6 +372,23 @@ var jtool = {
       $('#pagePreload').fadeOut();
     },
   },
+  /* 
+  touchMove 设置阻止指定原素页面默认滚动效果
+
+  // test touchMove
+  jtool.touchMove.addListener('.section-1')
+  // jtool.touchMove.addListener('.section-2')
+  setTimeout(() => {
+    jtool.touchMove.prevent('.section-1', function (e) {
+      console.log('0000000000', e)
+    })
+  }, 3000);
+  setTimeout(() => {
+    jtool.touchMove.reset('.section-1', function (e) {
+      console.log('111111111', e)
+    })
+  }, 6000);  
+    */
   touchMove: {
     $doms: [],
     addListener: function (cls) {
@@ -513,215 +531,6 @@ var jtool = {
   },
 };
 
-// 倒计时
-// var jcountdown = {
-//   timer: null,
-//   format: function (num) {
-//     num = Number(num) || 0;
-//     return num < 10 ? '0' + num : num;
-//   },
-//   getTime: function (y, mo, d, h, mi, s) {
-//     return new Date(y, mo - 1, d, h, mi, s).getTime();
-//   },
-//   getDate: function (y, mo, d, h, mi, s) {
-//     mo = mo - 1;
-//     var now = new Date().getTime(),
-//       last = new Date(y, mo, d, h, mi, s).getTime(),
-//       diff = (last - now) / 1000,
-//       day = 0,
-//       hour = 0,
-//       min = 0,
-//       sec = 0,
-//       end = true;
-
-//     if (diff > 0) {
-//       day = parseInt(diff / 24 / 60 / 60);
-//       hour = parseInt((diff / 60 / 60) % 24);
-//       min = parseInt((diff / 60) % 60);
-//       sec = parseInt(diff % 60);
-//       end = false;
-//     }
-//     return { end: end, day: this.format(day), hour: this.format(hour), min: this.format(min), sec: this.format(sec) };
-//   },
-//   setTimeDOM: function (y, mo, d, h, mi, s) {
-//     var date = this.getDate(y, mo, d, h, mi, s);
-//     $('#day').text(date.day);
-//     $('#hour').text(date.hour);
-//     $('#minute').text(date.min);
-//     $('#second').text(date.sec);
-//     if (!date.end) {
-//       var t = this;
-//       this.timer = setTimeout(function () {
-//         t.setTimeDOM(y, mo, d, h, mi, s);
-//       }, 1000);
-//     }
-//   },
-//   countDown: function (y, mo, d, h, mi, s) {
-//     clearTimeout(this.timer);
-//     this.setTimeDOM(y, mo, d, h, mi, s);
-//   },
-// };
-// // 第一波2月11号
-// if (Date.now() < new Date(2021, 02, 11, 20, 00, 00)) {
-//   jcountdown.countDown(2021, 02, 11, 20, 00, 00);
-// }
-
-// var ProgressController = function (duration) {
-//   this.start = 0;
-//   this.rfa = null;
-//   this.duration = duration || 0;
-// };
-// ProgressController.prototype.start = function (opts, cb) {
-//   if (opts.duration) this.duration = opts.duration;
-//   this.start = opts.timestamps || Date.now();
-//   cancelAnimationFrame(this.rfa);
-//   this.rfa = window.requestAnimationFrame(function () {
-//     cb && cb(this.start);
-//   });
-// };
-// ProgressController.prototype.stop = function () {
-//   cancelAnimationFrame(this.rfa);
-//   this.start = 0;
-// };
-// var OFFSET_STATUS = { ready: 'ready', loading: 'loading', loaded: 'loaded' };
-// var SPEED_RATE = [
-//   { range: '0-100', value: 0.8 },
-//   { range: '100-200', value: 0.6 },
-//   { range: '200-300', value: 0.4 },
-//   { range: '300-400', value: 0.2 },
-//   { range: '400-500', value: 0.1 },
-//   { range: '500-600', value: 0.1 },
-//   { range: '600-700', value: 0.09 },
-//   { range: '700-800', value: 0.08 },
-//   { range: '900-1000', value: 0.07 },
-//   { range: '1000-3000', value: 0.06 },
-//   { range: '3000-6000', value: 0.05 },
-//   { range: '6000-10000', value: 0.04 },
-//   { range: '10000-100000000', value: 0 },
-// ];
-// /* 速度控制器 */
-// var SpeedController = function (opts) {
-//   this.time = 0; /* 初始计时 */
-//   this.timeover = opts.timeover; /* 结束计时 */
-//   this.timestamps = opts.mode ? 10000000 : Date.now(); /* 开始时间戳 */
-//   this.mode = opts.mode || false; /*true:开启加速模式 */
-//   this.rateOpts = opts.rate || []; /* 速率 */
-// };
-// SpeedController.prototype = {
-//   constructor: SpeedController,
-//   setTime: function (time) {
-//     this.time = time;
-//   },
-//   /**
-//    * 匀速
-//    * @param {Function} cb 回调
-//    */
-//   constSpeed: function (cb) {
-//     var now = Date.now(),
-//       rate = (now - this.time) / 1000 / this.timeover;
-//     cb && cb(rate);
-//     return rate;
-//   },
-//   /**
-//    * 加速
-//    * @param {Function} cb 回调
-//    */
-//   aceSpeed: function (cb) {
-//     var now = Date.now(),
-//       diff = now - this.timestamps,
-//       ace = 0;
-
-//     this.rateOpts.forEach(function (item) {
-//       var times = item.range.split('-');
-//       if (diff > times[0] && diff <= times[1]) {
-//         ace = item.value;
-//       }
-//     });
-
-//     this.timestamps = now;
-//     cb && cb(ace);
-//     return ace;
-//   },
-//   /**
-//    * 速度处理
-//    * @param {Function} cb 回调
-//    */
-//   exce: function (cb) {
-//     var ace = 0;
-//     if (this.mode) {
-//       ace = this.aceSpeed();
-//     } else {
-//       ace = this.constSpeed();
-//     }
-//     cb && cb(ace);
-//   },
-//   loop: function (cb) {
-//     var now = Date.now(),
-//       diff = now - this.timestamps,
-//       ace = 0;
-
-//     this.rateOpts.forEach(function (item) {
-//       var times = item.range.split('-');
-//       if (diff > times[0] && diff <= times[1]) {
-//         ace = item.value;
-//       }
-//     });
-
-//     cb && cb(ace);
-//     return ace;
-//   },
-// };
-// /* 位移控制器 */
-// var OffsetController = function (el, opts) {
-//   this.el = el;
-//   this.status = OFFSET_STATUS.ready;
-//   this.speed = 0;
-//   this.ace = 0;
-//   this.speeder = new SpeedController(opts.speeder);
-//   this.mode = opts.mode || 'default';
-
-//   this.init();
-// };
-// OffsetController.prototype = {
-//   constructor: OffsetController,
-//   init: function () {
-//     this.status = OFFSET_STATUS.loading;
-//     this.speeder.setTime(Date.now());
-//     this.width = this.el.width();
-//     var translate3d = 'translate3d(0,0,0)';
-//     this.el.css({ webkitTransform: translate3d, mozTransform: translate3d, transform: translate3d });
-//   },
-//   move: function (cb) {
-//     switch (this.mode) {
-//       case 'default':
-//         var ace = this.speeder.constSpeed();
-//         this.speed = this.width * ace;
-//         cb && cb(this.speed);
-//         break;
-//       default:
-//         var ace = this.speeder.aceSpeed();
-//         this.speed += ace;
-//         cb && cb(this.speed);
-
-//         break;
-//     }
-//   },
-//   loop: function (cb) {
-//     var ace = this.speeder.loop();
-//     this.speed += ace;
-//     cb && cb(this.speed);
-//   },
-// };
-
-// // 公告
-// jQuery('#hbans').slide({
-//   mainCell: '.bd ul',
-//   autoPlay: true,
-//   effect: 'topMarquee',
-//   vis: 5,
-//   interTime: 50,
-// });
-
 /* @warning: 本页所有内容，后端同学不需要修改，谢谢~ */
 // preinstall the code
 $(function () {
@@ -733,7 +542,6 @@ $(function () {
   jtool.pop.btnAuth('.jy-pop_input_cell-auth');
   // jtool.swiper('#psw');
   // jtool.menusCompat();
-  // jtool.preload()
   // jtool.initMusic();
   // 只复位到顶部
   // $("input, textarea, select").on("blur", function () {
@@ -751,20 +559,6 @@ $(function () {
   //     });
   // })();
 
-  //   // test touchMove
-  //   jtool.touchMove.addListener('.section-1')
-  //   // jtool.touchMove.addListener('.section-2')
-  //   setTimeout(() => {
-  //     jtool.touchMove.prevent('.section-1', function (e) {
-  //       console.log('0000000000', e)
-  //     })
-  //   }, 3000);
-  //   setTimeout(() => {
-  //     jtool.touchMove.reset('.section-1', function (e) {
-  //       console.log('111111111', e)
-  //     })
-  //   }, 6000);
-
   /* game logic start */
   logic.extend({
     isGaming: false,
@@ -779,98 +573,10 @@ $(function () {
       t.score.current = 0;
       t.time.current = t.time.DEFAULT;
       t.setTime();
-      t.changeTag(t.tag);
-      t.domProgressCom = new OffsetController($('#gpbCom'), {
-        speeder: {
-          rate: SPEED_RATE,
-          mode: false,
-          timeover: t.time.DEFAULT,
-        },
-      });
-      t.domProgressRole = new OffsetController($('#gpbRole'), {
-        mode: 'role',
-        speeder: {
-          rate: SPEED_RATE,
-          mode: true,
-          timeover: t.time.DEFAULT,
-        },
-      });
-      var role1, role2;
-      if (t.tag == 'house') {
-        role1 = '.ico-house-com';
-        role2 = '.ico-house-role';
-        t.role.DEFAULT = $('#track-house').width();
-      } else {
-        role1 = '.ico-swim-com';
-        role2 = '.ico-swim-role';
-        t.role.DEFAULT = $('#track-swim').width();
-      }
-      t.domFigureCom = new OffsetController($(role1), {
-        speeder: {
-          rate: SPEED_RATE,
-          mode: false,
-          timeover: t.time.DEFAULT,
-        },
-      });
-      t.domFigureRole = new OffsetController($(role2), {
-        mode: 'role',
-        speeder: {
-          rate: SPEED_RATE,
-          mode: true,
-          timeover: t.time.DEFAULT,
-        },
-      });
     },
     /* 循环事件各状态处理 */
     loopPlay: function () {
       var t = this;
-
-      t.domProgressCom.move(function (width) {
-        // console.log('domProgressCom', width);
-        t.progress.com = +width;
-        var translate3d = 'translate3d(' + width + 'px,0,0)';
-        t.domProgressCom.el.css({
-          webkitTransform: translate3d,
-          mozTransform: translate3d,
-          transform: translate3d,
-        });
-      });
-
-      t.domFigureCom.move(function (width) {
-        t.role.com = +width;
-        var translate3d = 'translate3d(' + width + 'px,0,0)';
-        t.domFigureCom.el.css({
-          webkitTransform: translate3d,
-          mozTransform: translate3d,
-          transform: translate3d,
-        });
-      });
-
-      logic.domProgressRole.loop(function (width) {
-        logic.progress.role = +width;
-        if (logic.progress.role >= logic.progress.DEFAULT) {
-          logic.gameResult();
-          return;
-        }
-        var translate3d = 'translate3d(' + width + 'px,0,0)';
-        logic.domProgressRole.el.css({
-          webkitTransform: translate3d,
-          mozTransform: translate3d,
-          transform: translate3d,
-        });
-
-        var progress = logic.progress,
-          role = logic.role,
-          width = (role.DEFAULT * progress.role) / progress.DEFAULT;
-        var translate3d = 'translate3d(' + width + 'px,0,0)';
-        logic.domFigureRole.el.css({
-          webkitTransform: translate3d,
-          mozTransform: translate3d,
-          transform: translate3d,
-        });
-
-        logic.moveBG(-width);
-      });
     },
     /* 循环事件 */
     loop: function () {
@@ -958,32 +664,6 @@ $(function () {
         }
       }, 1000);
     },
-    changeState: function (tag) {
-      if (tag == 'rank') {
-        $('.jy-time').hide();
-      } else {
-        $('.jy-time').show();
-      }
-    },
-    changeTag: function (tag) {
-      var state = {
-        house: {
-          progress: { com: '华安', role: '官人' },
-        },
-        swim: {
-          progress: { com: '石榴', role: '西施' },
-        },
-      };
-      var tag = state[tag].progress,
-        $time = $('.jy-time');
-      $time.find('.i-progress-panel-xb .label').text(tag.com);
-      $time.find('.i-progress-panel-gr .label').text(tag.role);
-    },
-    moveBG: function (width) {
-      var cls = this.tag == 'house' ? '.bg-track' : '.bg-swim';
-      $(cls).css({ 'background-position-x': width });
-    },
-
     init: function () {
       this.$readyPop();
     },

@@ -77,6 +77,31 @@ $input-select-cell-radius: 0.12rem;
     &.brightness {
       filter: brightness(1.1);
     }
+    // &::before {
+    //   content: '';
+    //   display: block;
+    //   margin: 0 auto;
+    //   position: absolute;
+    //   top: -0.4rem;
+    //   left: 0;
+    //   right: 0;
+    //   width: 6.44rem;
+    //   height: 1.04rem;
+    //   background: url('../img/ico-pop-1.png') no-repeat top center / 6.44rem auto;
+    // }
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   margin: 0 auto;
+    //   position: absolute;
+    //   bottom: -0.4rem;
+    //   left: 0;
+    //   right: 0;
+    //   width: 6.44rem;
+    //   height: 1.2rem;
+    //   background: url('../img/ico-pop-3.png') no-repeat top center / 6.44rem auto;
+    //   z-index: -1;
+    // }
   }
   // 主体标题
   &_header {
