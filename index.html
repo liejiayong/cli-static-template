@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=Edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="f_ljy,d_,b_,t_" />
+    <meta name="copyright" content="tanwan" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <!--[if lt IE 11]>
+      <div
+        id="js-ie-tips"
+        style="
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 50px;
+          background: #2fc1c6;
+          text-align: center;
+          line-height: 50px;
+          font-size: 18px;
+          z-index: 2048;
+        "
+      >
+        <a
+          style="color: #fff; text-decoration: underline"
+          href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads"
+          target="_blank"
+        >
+          当前的浏览器版本过低，可能会影响本网页浏览，建议升级到最新版本。
+        </a>
+        <a
+          href="javascript:void(0);"
+          style="color: #fff"
+          id="js-ie-tips-close"
+          onclick="(function () {document.getElementById('js-ie-tips').style.display = 'none';})()"
+        >
+          ×
+        </a>
+      </div>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="jy-wrapper">
+      <!-- header -->
+      <div class="jy-section section-header">
+        <div class="jy-headermain">
+          <!-- section- header -->
+          <div class="navbar">
+            <!-- navbar menu -->
+            <ul class="nav-content">
+              <li class=""><a href="#" class="btn-home jy-btn-brightness">游戏官网</a></li>
+              <li class=""><a href="#" class="btn-dl jy-btn-brightness">微端下载</a></li>
+            </ul>
+
+            <!-- bdshare -->
+            <div class="share-content">
+              <div class="">分享到：</div>
+              <div class="bdsharebuttonbox bdshare-button-style-20 clearfix" data-tag="share_1">
+                <a class="bds_weixin" data-cmd="weixin" href="#" title="微信好友分享" class=""></a>
+                <a class="bds_tsina" data-cmd="tsina" href="#" title="新浪微博分享" class=""></a>
+                <a class="bds_qzone" data-cmd="qzone" href="#" title="QQ空间分享" class=""></a>
+                <a class="bds_sqq" data-cmd="sqq" href="#" title="QQ好友分享" class=""></a>
+                <a class="bds_more" data-cmd="more">更多</a>
+                <a class="bds_count" data-cmd="count"></a>
+              </div>
+            </div>
+
+            <!-- 登录状态：按需使用 -->
+            <div class="user-stat">
+              <!-- 登录前 -->
+              <a href="javascript:void(0);" class="jy-btn-txt btn-login text-underline">登录</a>
+              <a href="javascript:void(0);" class="jy-btn-txt btn-reg text-underline">注册</a>
+              <!-- 登录后 -->
+              <span class="label">欢迎您：809206619</span>
+              <a href="javascript:void(0);" class="jy-btn-txt text-underline btn-logout">退出</a>
+              <a href="javascript:void(0);" class="jy-btn-txt text-underline btn-mygift">我的奖励</a>
+            </div>
+          </div>
+
+          <!-- logo -->
+          <a href="#" class="c-logo"><img src="./img/logo.png" alt="logo" /></a>
+
+          <div class="time ico-time"><span>活动时间：9月13日-9月17日</span></div>
+        </div>
+
+        <!-- 首屏视频：按需使用 -->
+        <!-- <video style="position: absolute;top:0;left:50%;margin-left:-960px;width: 1920px;height: 1084px;object-fit:fill"
+        x5-video-player-fullscreen="true" controlsList="nodownload" muted autoplay loop src="./media/b.mp4"></video> -->
+      </div>
+
+      <!-- section-1 -->
+      <div class="jy-section section-1">
+        <div class="jy-sectionmain"></div>
+      </div>
+
+      <!-- section-2 -->
+      <div class="jy-section section-2">
+        <div class="jy-sectionmain"></div>
+      </div>
+
+      <!-- section-3 -->
+      <div class="jy-section section-3">
+        <div class="jy-sectionmain"></div>
+      </div>
+
+      <!-- section-4 -->
+      <div class="jy-section section-4">
+        <div class="jy-sectionmain"></div>
+      </div>
+
+      <div class="jdot-content">
+        <i class="ico-jlottery"><a href="javascript:void(0);" class="jy-btn btn-dot-i i-dot-6"></a></i>
+        <a href="javascript:void(0);" class="jy-btn-txt btn-jdot active">
+          <i></i>
+          点击摇骰子
+        </a>
+      </div>
+    </div>
+
+    <!-- jtip -->
+    <div
+      class="jy-toast"
+      style="
+        display: none;
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        padding: 0.5em 1em;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 18px;
+        z-index: 2000;
+        transform: translate3d(-50%, 0, 0);
+        -webkit-transform: translate3d(-50%, 0, 0);
+        -moz-transform: translate3d(-50%, 0, 0);
+        -ms-transform: translate3d(-50%, 0, 0);
+      "
+    >
+      复制成功
+    </div>
+    <!-- 弹窗 -->
+    <!-- tip -->
+    <div class="jy-pop" id="J_tipPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">温馨提示</span></div>
+        <div class="jy-pop_body">
+          <div class="lh-20 tc" id="popTipNorm">
+            <p>兑换xxx成功</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 奖品查询 -->
+    <div class="jy-pop" id="J_recordPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">礼包领取记录</span></div>
+        <div class="jy-pop_body">
+          <div class="jy-pop__scrollbar mt-10">
+            <table class="jy-pop__table tc lh15">
+              <thead>
+                <tr>
+                  <td>奖品名称</td>
+                  <td>奖品内容</td>
+                  <td>获奖时间</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+                <tr>
+                  <td>一代宗师称号</td>
+                  <td>贪玩SVIP</td>
+                  <td>2019.04.25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 我的奖励 -->
+    <div class="jy-pop" id="J_mygiftcPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">我的礼包</span></div>
+        <div class="jy-pop_body">
+          <div class="jy-pop__grid">
+            <div class="jy-pop__grid__head">
+              <div class="jy-pop__grid__tr">
+                <div class="jy-pop__grid__td">兑换码</div>
+                <div class="jy-pop__grid__td">有效时间</div>
+              </div>
+            </div>
+            <div class="jy-pop__scrollbar">
+              <div class="jy-pop__grid__body">
+                <div class="jy-pop__grid__tr">
+                  <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+                  <div class="jy-pop__grid__td">
+                    <a href="javascript:void(0);" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a>
+                  </div>
+                </div>
+                <div class="jy-pop__grid__tr">
+                  <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+                  <div class="jy-pop__grid__td">
+                    <a href="javascript:void(0);" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a>
+                  </div>
+                </div>
+                <div class="jy-pop__grid__tr">
+                  <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+                  <div class="jy-pop__grid__td">
+                    <a href="javascript:void(0);" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a>
+                  </div>
+                </div>
+                <div class="jy-pop__grid__tr">
+                  <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+                  <div class="jy-pop__grid__td">
+                    <a href="javascript:void(0);" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="javascript:void(0);" class="jy-btn-txt jy-pop_ok jpop-cancel mt-30">确认</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 我的奖励 -->
+    <div class="jy-pop" id="J_mygiftPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">我的奖励</span></div>
+        <div class="jy-pop_body">
+          <div class="jy-pop__scrollbar">
+            <table class="jy-pop__table lh15">
+              <tbody>
+                <tr>
+                  <td>神秘代言人游戏礼包*1</td>
+                  <td><a href="javascript:void(0);" class="jy-btn-txt jy-pop_link btn-pop-code">查看</a></td>
+                </tr>
+                <tr>
+                  <td>终极竞猜礼包1*1</td>
+                  <td><a href="javascript:void(0);" class="jy-btn-txt jy-pop_link btn-pop-get">待领取</a></td>
+                </tr>
+                <tr>
+                  <td>抱枕被*1</td>
+                  <td><a href="javascript:void(0);" class="jy-btn-txt jy-pop_link btn-pop-address">填写地址</a></td>
+                </tr>
+                <tr>
+                  <td>神秘代言人游戏礼包*1</td>
+                  <td><a href="javascript:void(0);" class="jy-btn-txt jy-pop_link btn-pop-code">查看</a></td>
+                </tr>
+                <tr>
+                  <td>终极竞猜礼包1*1</td>
+                  <td><a href="javascript:void(0);" class="jy-btn-txt jy-pop_link btn-pop-get">待领取</a></td>
+                </tr>
+                <tr>
+                  <td>抱枕被*1</td>
+                  <td><a href="javascript:void(0);" class="jy-btn-txt jy-pop_link btn-pop-address">填写地址</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 兑换成功 -->
+    <div class="jy-pop" id="J_codePop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">激活码</span></div>
+        <div class="jy-pop_body">
+          <input class="jy-pop_body__codetie-body jbtnpopcoptxt mauto" value="QER6 S6BH 6WHH F5W3" />
+          <a
+            href="javascript:void(0);"
+            data-clipboard-text="QER6 S6BH 6WHH F5W3"
+            class="jy-btn-txt jy-pop_ok jpop-cancel jbtnpopcopy mt-30"
+          >
+            一键复制
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 手机验证 -->
+    <div class="jy-pop" id="J_authTelPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">预约首服</span></div>
+        <div class="jy-pop_body">
+          <ul class="jy-pop_inp">
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">手机号码</div>
+              <input placeholder="请输入手机号码" type="tel" class="jy-pop_inp__body" />
+            </li>
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
+              <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__body" />
+            </li>
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
+              <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth" />
+              <a href="javascript:void(0);" class="jy-btn-txt jy-pop_inp__btnauth disable">获取验证码</a>
+            </li>
+          </ul>
+          <a href="javascript:void(0);" class="jy-btn-txt jy-pop_ok jpop-cancel mt-30">确认提交</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 收获地址 -->
+    <div class="jy-pop" id="J_addressPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">收货地址</span></div>
+        <div class="jy-pop_body">
+          <ul class="jy-pop_inp">
+            <!-- <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">区服类型</div>
+              <select class="jy-pop_select">
+                <option value="">--请选择区服类型--</option>
+              </select>
+            </li> -->
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">用户名称</div>
+              <input placeholder="请输入用户名称" type="tel" class="jy-pop_inp__body" />
+            </li>
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">联系手机</div>
+              <input placeholder="请输入联系手机" type="tel" class="jy-pop_inp__body" />
+            </li>
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">收货地址</div>
+              <input placeholder="请输入收货地址" type="tel" class="jy-pop_inp__body" />
+            </li>
+          </ul>
+          <a href="javascript:void(0);" class="jy-btn-txt jy-pop_ok jpop-cancel mt-30">确认提交</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 登记信息 -->
+    <div class="jy-pop" id="J_regPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main">
+        <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+        <div class="jy-pop_head"><span class="jy-pop_head-pad">信息登记</span></div>
+        <div class="jy-pop_body">
+          <ul class="jy-pop_inp">
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">游戏</div>
+              <select class="jy-pop_select">
+                <option value="">--请选择游戏--</option>
+              </select>
+            </li>
+            <li class="jy-pop_inp__cell jy-pop_inp__cell-auto">
+              <div class="jy-pop_inp__label">区服类型</div>
+              <div class="jy-pop_select_seek tl">
+                <div class="jy-pop_select_seek-label">--请选择区服--</div>
+                <div class="jy-pop_select_seek-content">
+                  <div class="jy-pop_select_seek-inp clearfix">
+                    <input placeholder="请输入区服" type="text" class="float_l" />
+                    <a href="javascript:void(0);" class="jy-btn-txt jy-pop_select_seek-inp--btn float_l">搜索</a>
+                  </div>
+                  <div class="jy-pop__scrollbar jy-pop_select_seek-valbox">
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                    <div class="jy-pop_select_seek-val">区服一</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">用户ID</div>
+              <input placeholder="请输入用户ID" type="tel" class="jy-pop_inp__body" />
+            </li>
+            <li class="jy-pop_inp__cell">
+              <div class="jy-pop_inp__label">&nbsp;&nbsp;</div>
+              <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth" />
+              <a href="javascript:void(0);" class="jy-btn-txt jy-pop_inp__btnauth disable">获取角色</a>
+            </li>
+          </ul>
+          <a href="javascript:void(0);" class="jy-btn-txt jy-pop_ok jpop-cancel mt-30">确认提交</a>
+        </div>
+      </div>
+    </div>
+    <!-- 弹窗end -->
+
+    <!-- js -->
+    <script type="text/javascript" src="//image.tanwan.com/jsCommon/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="//image.tanwan.com/jsCommon/tw_nav_public.js"></script> -->
+    <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
+    <!-- <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script> -->
+    <!-- <script type="text/javascript" src="./js/jquery.rotate.min.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script> -->
+    <!-- <script type="text/javascript" src="./js/danmu.js"></script> -->
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('.jy-pop_close,.jpop-cancel,.jy-pop_submit').on('click', function () {
+          $(this).parents('.jy-pop').fadeOut();
+        });
+        // 复制激活码
+        var clipboard = new ClipboardJS('.jbtnpopcopy');
+        clipboard.on('success', function (e) {
+          $('.jy-toast').text('复制成功').fadeIn(200).fadeOut(3500);
+        });
+        clipboard.on('error', function (e) {
+          $('.jy-toast').text('浏览器不支持点击复制，请长按链接复制！').fadeIn(200).fadeOut(3500);
+        });
+
+        // 我的奖励 start
+        // 礼包码
+        $('.btn-pop-code').on('click', function () {
+          $('#J_codePop').fadeIn();
+        });
+        // 填写信息
+        $('.btn-pop-address').on('click', function () {
+          $('#J_addressPop').fadeIn();
+        });
+        // 待领取
+        $('.btn-pop-get').on('click', function () {
+          $('#J_regPop').fadeIn();
+        });
+        // 我的奖励 end
+
+        // pop 区服搜索 start
+        $('.jy-pop_select_seek-label').on('click', function () {
+          var $content = $('.jy-pop_select_seek-content');
+          if ($content.hasClass('active')) {
+            $content.fadeOut().removeClass('active');
+          } else {
+            $content.fadeIn().addClass('active');
+          }
+        });
+        $('.jy-pop_select_seek-val').on('click', function () {
+          $('.jy-pop_select_seek-content').fadeOut().removeClass('active');
+        });
+        // pop 区服搜索 end
+
+        $('.btn-get').on('click', function () {
+          if ($(this).hasClass(jtool.activeCls)) {
+            jtool.showTip('<p>恭喜获得</p>');
+          }
+        });
+        $('.btn-inter').on('click', function () {
+          jtool.showTip('<p>我的积分：0</p>');
+        });
+        $('.btn-record').on('click', function () {
+          $('#J_recordPop').fadeIn();
+        });
+        $('.btn-mygift').on('click', function () {
+          $('#J_mygiftPop').fadeIn();
+        });
+        $('.btn-info').on('click', function () {
+          $('#J_regPop').fadeIn();
+        });
+
+        // // 摇骰子
+        // $('.btn-jdot').on('click', function () {
+        //   var $t = $(this);
+        //   if (!$t.hasClass(jtool.activeCls) || jtool.loading) return;
+        //   $t.removeClass(jtool.activeCls);
+        //   var dissNum = jtool.getRandom(1, 6);
+        //   jtool.diss(dissNum, function () {
+        //     jtool.showTip('恭喜抽到' + dissNum);
+        //     $t.addClass(activeCls);
+        //   });
+        // });
+
+        // //  home page
+        // jQuery("#hnews").slide({
+        //   triggerTime: 0, effect: "fold"
+        // });
+        // jQuery("#hbans").slide({ titCell: '.hd', mainCell: ".bd", autoPage: true, effect: "fade", autoPlay: true });
+
+        // // 轮播图或滚动公告使用
+        // var mySwiper = new Swiper('#rankls', {
+        // 	loop: true,
+        // 	autoplay: true,
+        // 	initialSlide: 0,
+        // 	direction: 'vertical',
+        // 	slidesPerView: 7,
+        // 	slidesPerGroup: 7,
+        // 	observer: true,
+        // 	observeParents: true,
+        // });
+        // function initSwiper() {
+        // 	setTimeout(function () {
+        // 		mySwiper.update();
+        // 	}, 100);
+        // }
+        // initSwiper();
+
+        // // 抽奖
+        // var DEG = 360 / 12;
+        // $('.btn-lottery').rotate({
+        // 	bind: {
+        // 		click: function () {
+        // 			var count = 1;
+        // 			// $.post('/act.php',{},function(){
+        // 			$('.lottery-p').rotate({
+        // 				angle: 0,
+        // 				animateTo: 360 * 8 + (count - 1) * DEG,
+        // 				duration: 3500,
+        // 				center: ['50%', '50%'],
+        // 				callback: function () {
+        // 					jtool.showTip('恭喜');
+        // 				},
+        // 				step: function () {},
+        // 				easing: function (x, t, b, c, d) {
+        // 					return c * (t / d) + b;
+        // 				},
+        // 				getRotateAngle: function () {},
+        // 				stopRotate: function () {},
+        // 			});
+        // 			// },'json');
+        // 		},
+        // 	},
+        // });
+
+        // // 弹幕
+        // //初始的弹幕数据
+        // var danmuData = ['这里是留言弹幕这里是留言弹幕这里是留言弹幕这里是留言弹幕'];
+
+        // //实例化弹幕
+        // var dm = new danMu({
+        // 	device: 'pc', // m代表移动端弹幕,不设置或设为pc代表pc端弹幕
+        // 	stage: $('#danmuStage'),
+        // 	danMuClassName: 'danmu_item',
+        // 	comments: danmuData,
+        // 	danMuHtml: '<span>{comment}</span>',
+        // 	colors: ['#c4aa8d'],
+        // 	flyTime: 10000,
+        // 	timeInterval: 800,
+        // 	randomSort: false,
+        // 	autoplay: true,
+        // 	hSpacing: 0.2,
+        // 	leastNum: 1,
+        // 	mAnimation: 'transform',
+        // 	myDanMuPrefix: '',
+        // });
+        // dm.play();
+
+        // // 发送弹幕
+        // $('.btn-msg').on('click', function () {
+        // 	var msg = $('.danmu-input').val();
+        // 	// 发布的信息上传到服务器，上传成功后直接push到
+        // 	danmuData.push(msg);
+        // 	// 然后调用这个方法发布信息
+        // 	dm.send(msg);
+        // });
+        // // 弹幕end
+
+        // /* 抽奖 */
+        // $('.btn-lottery').rotate({
+        //   bind: {
+        //     click: function () {
+        //       // $.post('/act.php',{},function(){
+        //       $('.lottery-panel').rotate({
+        //         angle: 0,
+        //         animateTo: 360 * 10 + 360 / 15,
+        //         duration: 3500,
+        //         center: ['50%', '50%'],
+        //         callback: function () {
+        //           console.log('click');
+        //         },
+        //         step: function () {},
+        //         easing: function (x, t, b, c, d) {
+        //           return c * (t / d) + b;
+        //         },
+        //         getRotateAngle: function () {},
+        //         stopRotate: function () {},
+        //       });
+        //       // },'json');
+        //     },
+        //   },
+        // });
+      });
+    </script>
+    <!-- 分享 -->
+    <!-- <script>
+      window._bd_share_config = {
+        common: {
+          bdText: '',
+          bdDesc: '',
+          bdUrl: '',
+          bdPic: '',
+          bdSign: '',
+          bdMini: 1,
+          bdMiniList: ['weixin', 'tsina', 'qzone', 'sqq'],
+          onBeforeClick: function (cmd, config) {},
+          onAfterClick: function (cmd) {},
+          bdPopupOffsetLeft: 1,
+          bdPopupOffsetTop: 1,
+        },
+        share: [{ tag: 'share_1', bdSize: 16, bdCustomStyle: '' }],
+        image: [
+          {
+            tag: 'share_1',
+            viewType: 'list',
+            viewPos: 'top',
+            viewColor: 'black',
+            viewSize: '16',
+            viewList: ['weixin', 'tsina', 'qzone', 'sqq'],
+          },
+        ],
+        selectShare: [{ bdSelectMiniList: ['weixin', 'tsina', 'qzone', 'sqq'], bdContainerClass: 'bd_selectShare' }],
+      };
+      with (document)
+        (0)[
+          ((getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src =
+            'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5))
+        ];
+    </script> -->
+  </body>
+</html>
