@@ -559,7 +559,7 @@
         // }
         // initSwiper();
 
-        // // 抽奖
+        // // 转盘抽奖
         // var DEG = 360 / 12;
         // $('.btn-lottery').rotate({
         // 	bind: {
@@ -584,6 +584,21 @@
         // 			// },'json');
         // 		},
         // 	},
+        // });
+        // /* 周旋转抽奖 */
+        // $('.btn-lottery').on('click', function () {
+        //   var index = jtool.getRandom(0, 11);
+        //   jtool.lottery(
+        //     index,
+        //     12,
+        //     function (index) {
+        //       $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+        //     },
+        //     function (index) {
+        //       $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+        //       jtool.showTip('<p>恭喜获得' + index + '</p>');
+        //     }
+        //   );
         // });
 
         // // 弹幕
@@ -618,31 +633,6 @@
         // 	dm.send(msg);
         // });
         // // 弹幕end
-
-        // /* 抽奖 */
-        // $('.btn-lottery').rotate({
-        //   bind: {
-        //     click: function () {
-        //       // $.post('/act.php',{},function(){
-        //       $('.lottery-panel').rotate({
-        //         angle: 0,
-        //         animateTo: 360 * 10 + 360 / 15,
-        //         duration: 3500,
-        //         center: ['50%', '50%'],
-        //         callback: function () {
-        //           console.log('click');
-        //         },
-        //         step: function () {},
-        //         easing: function (x, t, b, c, d) {
-        //           return c * (t / d) + b;
-        //         },
-        //         getRotateAngle: function () {},
-        //         stopRotate: function () {},
-        //       });
-        //       // },'json');
-        //     },
-        //   },
-        // });
       });
     </script>
     <!-- 分享 -->

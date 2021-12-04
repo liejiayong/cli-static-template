@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-12-02 17:02:37
+ * @LastEditTime: 2021-12-04 14:27:44
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -201,6 +201,21 @@ var jtool = {
     return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]';
   },
   /**
+   // 抽奖
+    $('.btn-lottery').on('click', function () {
+      var index = jtool.getRandom(0, 11);
+      jtool.lottery(
+        index,
+        12,
+        function (index) {
+          $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+        },
+        function (index) {
+          $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+          jtool.showTip('<p>恭喜获得' + index + '</p>');
+        }
+      );
+    });
    * 正方形顺时针抽奖装盘
    * @param {number} index 当前元素索引
    * @param {number} total 元素总数

@@ -4,7 +4,7 @@
  * Author: liejiayong(809206619@qq.com)
  * Date: 2020-06-29 16:25:09
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-09-24 15:52:17
+ * @LastEditTime: 2021-12-04 14:29:22
  */
 var jtool = {
   disableCls: 'disable',
@@ -64,6 +64,70 @@ var jtool = {
   getRandom: function (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
+  /**
+   * 判断数字类型
+   * @param {number} number
+   */
+  isNumber: function (number) {
+    return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]';
+  },
+  /**
+   // 抽奖
+    $('.btn-lottery').on('click', function () {
+      var index = jtool.getRandom(0, 11);
+      jtool.lottery(
+        index,
+        12,
+        function (index) {
+          $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+        },
+        function (index) {
+          $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+          jtool.showTip('<p>恭喜获得' + index + '</p>');
+        }
+      );
+    });
+   * 正方形顺时针抽奖装盘
+   * @param {number} index 当前元素索引
+   * @param {number} total 元素总数
+   * @param {Function} cbCurrent 实时回调
+   * @param {Function} cbEnd 结束回调
+   */
+  lottery(index, total, cbCurrent, cbEnd) {
+    if (!this.isNumber(index)) return new Error('the arguments of index must number!');
+    if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!');
+    if (typeof cbCurrent !== 'function') return new Error('the arguments of cbCurrent must function!');
+    var TYPE_SPEED = 0;
+    var TYPE_ADD_SPEED = 20;
+    var TYPE_LAST_SPEED = 500;
+    var TYPE_MAX_INDEX = total;
+    var currSpeed = 0;
+    var totalIndex = 0;
+    var currentIndex = 0;
+    var animate = function () {
+      var timer = setTimeout(function () {
+        totalIndex += 1;
+        currSpeed += TYPE_ADD_SPEED;
+        if (currSpeed > TYPE_LAST_SPEED) {
+          if (currentIndex === index) {
+            clearTimeout(timer);
+            cbEnd(currentIndex);
+          } else {
+            currentIndex = totalIndex % TYPE_MAX_INDEX;
+            clearTimeout(timer);
+            cbCurrent(currentIndex);
+            animate();
+          }
+        } else {
+          currentIndex = totalIndex % TYPE_MAX_INDEX;
+          clearTimeout(timer);
+          cbCurrent(currentIndex);
+          animate();
+        }
+      }, TYPE_SPEED + currSpeed);
+    };
+    animate();
+  },
   // extend: function extend(def, nw) {
   //   for (var key in nw) {
   //     if (def[key] && nw.hasOwnProperty(key)) {
@@ -97,48 +161,3 @@ var jtool = {
   //   }, duration);
   // },
 };
-
-// function SmoothSwing(el, range) {
-//   this.el = document.querySelector(el) || null;
-//   this.preX = 0;
-//   this.preY = 0;
-//   this.nextX = 0;
-//   this.nextY = 0;
-//   this.curX = 0;
-//   this.curY = 0;
-//   this.range = range;
-// }
-// SmoothSwing.prototype.setPosition = function (pos) {
-//   this.nextX = pos.x;
-//   this.nextY = pos.y;
-//   var curX,
-//     curY,
-//     range = this.range;
-//   curX = this.nextX - this.preX;
-//   curX = curX > 0 ? range[1] : range[0];
-//   curY = this.nextY - this.preY;
-//   curY = curY > 0 ? range[1] : range[0];
-//   this.curX = curX;
-//   this.curY = curY;
-//   this.preX = pos.x;
-//   this.preY = pos.y;
-// };
-// SmoothSwing.prototype.listen = function (cb) {
-//   var ever = document.body || document.documentElement,
-//     t = this;
-//   ever.addEventListener('mousemove', function (e) {
-//     t.setPosition({ x: e.clientX, y: e.clientY });
-//     var x = t.curX,
-//       y = t.curY;
-//     t.el.style.cssText = '-webkit-transition: all .2s;transition: all .2s;-webkit-transform:translate(' + x + 'px, ' + y + 'px)' + ';transform:translate(' + x + 'px, ' + y + 'px)';
-//     console.log();
-//   });
-//   this.ever = ever;
-// };
-// SmoothSwing.prototype.remove = function (cb) {
-//   this.ever.removeEventListener('mousemove', cb);
-//   this.ever = null;
-// };
-// // 使用前需要将元素设置固定定位
-// var smoothSwing = new SmoothSwing('.c-logo', [-10, 10]);
-// smoothSwing.listen();
