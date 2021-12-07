@@ -138,23 +138,13 @@ template { display: none; }
 /** Add the correct display in IE 10. */
 [hidden] { display: none; }
 
+@font-face { font-family: 'fcustom'; src: url("../media/fcustom.eot") format("opentype"), url("../media/fcustom.eot?#iefix") format("embedded-opentype"), url("../media/fcustom.woff") format("woff"), url("../media/fcustom.ttf") format("truetype"), url("../media/fcustom.svg#fcustom") format("svg"); }
+
+.ff-custom { font-family: fcustom, sans-serif; }
+
 .ff-normal { font-family: initial; }
 
-.i-dot-1 { display: inline-block; background: url("../img/p-dot.png") no-repeat 0px 0px/207px auto; width: 29px; height: 32px; }
-
-.i-dot-2 { display: inline-block; background: url("../img/p-dot.png") no-repeat -89px 0px/207px auto; width: 29px; height: 32px; }
-
-.i-dot-3 { display: inline-block; background: url("../img/p-dot.png") no-repeat -178px 0px/207px auto; width: 29px; height: 32px; }
-
-.i-dot-4 { display: inline-block; background: url("../img/p-dot.png") no-repeat 0px -92px/207px auto; width: 29px; height: 32px; }
-
-.i-dot-5 { display: inline-block; background: url("../img/p-dot.png") no-repeat -89px -92px/207px auto; width: 29px; height: 32px; }
-
-.i-dot-6 { display: inline-block; background: url("../img/p-dot.png") no-repeat -178px -92px/207px auto; width: 29px; height: 32px; }
-
-.ico-jlottery { display: inline-block; width: 106px; height: 100px; background: url("../img/ico-jlottery.png") no-repeat; }
-
-body { margin-left: auto; margin-right: auto; min-width: 1200px; font: 14px/ 1.15 "fcustom", "Microsoft YaHei", "微软雅黑"; color: #000; background: #ffc0c0; }
+body { margin-left: auto; margin-right: auto; min-width: 1200px; font: 14px/ 1.15 "Microsoft YaHei", "微软雅黑", sans-serif; color: #000; background: #ffc0c0; }
 
 .lh-13 { line-height: 1.3; }
 
@@ -871,7 +861,7 @@ body { margin-left: auto; margin-right: auto; min-width: 1200px; font: 14px/ 1.1
 
 .navbar .navbar-body { margin-left: auto; overflow: hidden; -webkit-transition: all 0.3s ease; -o-transition: all 0.3s ease; -moz-transition: all 0.3s ease; transition: all 0.3s ease; }
 
-.navbar .nav-content { margin-left: auto; position: relative; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -moz-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 180px; font-size: 16px; }
+.navbar .nav-content { margin-left: auto; position: relative; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -moz-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 280px; font-size: 16px; }
 
 .navbar .nav-content li { -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; width: 50%; }
 
@@ -886,6 +876,20 @@ body { margin-left: auto; margin-right: auto; min-width: 1200px; font: 14px/ 1.1
 .c-logo { display: block; position: absolute; top: 15px; left: 10px; width: 100px; height: 100px; z-index: 10; overflow: hidden; /* use by sectionmain max-width range outside 1200px */ }
 
 .c-logo img { display: block; height: 100%; -o-object-fit: cover; object-fit: cover; }
+
+.profiles { text-align: center; line-height: 2; }
+
+.profiles span { color: #ff9600; }
+
+.ico-btn-com { display: -webkit-inline-box; display: -webkit-inline-flex; display: -moz-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: center; -webkit-justify-content: center; -moz-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.ico-btn-com span { padding-bottom: 4px; position: relative; margin-left: 8px; color: #ff9600; }
+
+.ico-btn-com span::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; border-bottom: 1px solid #ff9600; -webkit-transition: all 0.2s linear; -o-transition: all 0.2s linear; -moz-transition: all 0.2s linear; transition: all 0.2s linear; }
+
+.ico-btn-com:hover span { -webkit-transition: all 0.2s linear; -o-transition: all 0.2s linear; -moz-transition: all 0.2s linear; transition: all 0.2s linear; }
+
+.ico-btn-com:hover span::before { content: ''; position: absolute; bottom: -5px; left: 0; right: 0; border-bottom: 1px solid #ff9600; -webkit-transition: all 0.3s linear; -o-transition: all 0.3s linear; -moz-transition: all 0.3s linear; transition: all 0.3s linear; opacity: 0; }
 
 /* section-header */
 .section-header { position: relative; height: 1088px; background-image: url("../img/bgh.jpg"); }
@@ -918,12 +922,4 @@ body { margin-left: auto; margin-right: auto; min-width: 1200px; font: 14px/ 1.1
 
 .section-4 .jy-sectionmain { padding-top: 0px; }
 
-.jdot-content { position: absolute; left: 720px; top: 194px; text-align: center; }
-
-.btn-dot-i { position: absolute; top: 30px; left: 40px; }
-
-.btn-jdot { position: absolute; top: 86px; left: 50%; margin-left: -55px; cursor: not-allowed; }
-
-.btn-jdot i { display: none; }
-
-.btn-jdot.active { cursor: pointer; -webkit-animation: pulse 1s infinite; -moz-animation: pulse 1s infinite; animation: pulse 1s infinite; }
+/* 摇骰子 */

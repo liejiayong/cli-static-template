@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=Edge,chrome=1" />
     <meta name="renderer" content="webkit" />
     <meta name="robots" content="follow" />
-    <meta name="author" content="f_ljy,d_,b_,t_" />
+    <meta name="author" content="f_JyLie,d_,b_,t_" />
     <meta name="copyright" content="tanwan" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <title></title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/index.css?v=0" />
     <!--[if lt IE 11]>
       <div
         id="js-ie-tips"
@@ -118,13 +118,14 @@
         <div class="jy-sectionmain"></div>
       </div>
 
-      <div class="jdot-content">
+      <!-- 摇骰子 -->
+      <!-- <div class="jdot-content">
         <i class="ico-jlottery"><a href="javascript:void(0);" class="jy-btn btn-dot-i i-dot-6"></a></i>
         <a href="javascript:void(0);" class="jy-btn-txt btn-jdot active">
           <i></i>
           点击摇骰子
         </a>
-      </div>
+      </div> -->
     </div>
 
     <!-- jtip -->
@@ -438,14 +439,17 @@
             </li>
 
             <li class="jy-pop_inp__cell">
-              <div class="jy-pop_inp__label">用户ID</div>
-              <input placeholder="请输入用户ID" type="tel" class="jy-pop_inp__body" />
+              <div class="jy-pop_inp__label">角色</div>
+              <select class="jy-pop_select">
+                <option value="">--请选择角色--</option>
+              </select>
+              <!-- <input placeholder="请输入用户" type="tel" class="jy-pop_inp__body" /> -->
             </li>
-            <li class="jy-pop_inp__cell">
+            <!-- <li class="jy-pop_inp__cell">
               <div class="jy-pop_inp__label">&nbsp;&nbsp;</div>
               <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth" />
               <a href="javascript:void(0);" class="jy-btn-txt jy-pop_inp__btnauth disable">获取角色</a>
-            </li>
+            </li> -->
           </ul>
           <a href="javascript:void(0);" class="jy-btn-txt jy-pop_ok jpop-cancel mt-30">确认提交</a>
         </div>
@@ -454,8 +458,8 @@
     <!-- 弹窗end -->
 
     <!-- js -->
-    <script type="text/javascript" src="//image.tanwan.com/jsCommon/jquery.min.js"></script>
-    <!-- <script type="text/javascript" src="//image.tanwan.com/jsCommon/tw_nav_public.js"></script> -->
+    <script type="text/javascript" src="https://image.tanwan.com/jsCommon/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://image.tanwan.com/jsCommon/tw_nav_public.js"></script> -->
     <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
     <!-- <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script> -->
     <!-- <script type="text/javascript" src="./js/jquery.rotate.min.js"></script> -->
@@ -559,7 +563,7 @@
         // }
         // initSwiper();
 
-        // // 抽奖
+        // // 圆周旋转抽奖
         // var DEG = 360 / 12;
         // $('.btn-lottery').rotate({
         // 	bind: {
@@ -585,11 +589,25 @@
         // 		},
         // 	},
         // });
+        // /* 方形抽奖 */
+        // $('.btn-lottery').on('click', function () {
+        //   var index = jtool.getRandom(0, 11);
+        //   jtool.lottery(
+        //     index,
+        //     12,
+        //     function (index) {
+        //       $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+        //     },
+        //     function (index) {
+        //       $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+        //       jtool.showTip('<p>恭喜获得' + index + '</p>');
+        //     }
+        //   );
+        // });
 
-        // // 弹幕
+        // /* 弹幕 */
         // //初始的弹幕数据
         // var danmuData = ['这里是留言弹幕这里是留言弹幕这里是留言弹幕这里是留言弹幕'];
-
         // //实例化弹幕
         // var dm = new danMu({
         // 	device: 'pc', // m代表移动端弹幕,不设置或设为pc代表pc端弹幕
@@ -608,7 +626,6 @@
         // 	myDanMuPrefix: '',
         // });
         // dm.play();
-
         // // 发送弹幕
         // $('.btn-msg').on('click', function () {
         // 	var msg = $('.danmu-input').val();
@@ -618,31 +635,6 @@
         // 	dm.send(msg);
         // });
         // // 弹幕end
-
-        // /* 抽奖 */
-        // $('.btn-lottery').rotate({
-        //   bind: {
-        //     click: function () {
-        //       // $.post('/act.php',{},function(){
-        //       $('.lottery-panel').rotate({
-        //         angle: 0,
-        //         animateTo: 360 * 10 + 360 / 15,
-        //         duration: 3500,
-        //         center: ['50%', '50%'],
-        //         callback: function () {
-        //           console.log('click');
-        //         },
-        //         step: function () {},
-        //         easing: function (x, t, b, c, d) {
-        //           return c * (t / d) + b;
-        //         },
-        //         getRotateAngle: function () {},
-        //         stopRotate: function () {},
-        //       });
-        //       // },'json');
-        //     },
-        //   },
-        // });
       });
     </script>
     <!-- 分享 -->

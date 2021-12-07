@@ -105,7 +105,7 @@
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-    width: 180px;
+    width: 280px;
     font-size: 16px;
     li {
       flex: 1;
@@ -315,46 +315,89 @@
   }
 }
 
-.jdot-content {
-  position: absolute;
-  left: 720px;
-  top: 194px;
-  text-align: center;
-}
-.btn-dot-i {
-  position: absolute;
-  top: 30px;
-  left: 40px;
-}
-.btn-jdot {
-  position: absolute;
-  top: 86px;
-  left: 50%;
-  margin-left: -55px;
-  cursor: not-allowed;
-  i {
-    display: none;
-  }
-  &.active {
-    cursor: pointer;
-    animation: pulse 1s infinite;
-    // i {
-    //   display: block;
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   &::before {
-    //     content: "";
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 50%;
-    //     width: 10px;
-    //     height: 10px;
-    //     margin: -5px 0 0 -5px;
-    //     background: #fff;
-    //     border-radius: 50%;
-    //     animation: redatwinkle 2s ease infinite;
-    //   }
-    // }
-  }
-}
+/* 摇骰子 */
+// .i-dot-1 {
+//   display: inline-block;
+//   background: url('../img/p-dot.png') no-repeat 0px 0px / 207px auto;
+//   width: 29px;
+//   height: 32px;
+// }
+// .i-dot-2 {
+//   display: inline-block;
+//   background: url('../img/p-dot.png') no-repeat -89px 0px / 207px auto;
+//   width: 29px;
+//   height: 32px;
+// }
+// .i-dot-3 {
+//   display: inline-block;
+//   background: url('../img/p-dot.png') no-repeat -178px 0px / 207px auto;
+//   width: 29px;
+//   height: 32px;
+// }
+// .i-dot-4 {
+//   display: inline-block;
+//   background: url('../img/p-dot.png') no-repeat 0px -92px / 207px auto;
+//   width: 29px;
+//   height: 32px;
+// }
+// .i-dot-5 {
+//   display: inline-block;
+//   background: url('../img/p-dot.png') no-repeat -89px -92px / 207px auto;
+//   width: 29px;
+//   height: 32px;
+// }
+// .i-dot-6 {
+//   display: inline-block;
+//   background: url('../img/p-dot.png') no-repeat -178px -92px / 207px auto;
+//   width: 29px;
+//   height: 32px;
+// }
+// .ico-jlottery {
+//   display: inline-block;
+//   width: 106px;
+//   height: 100px;
+//   background: url('../img/ico-jlottery.png') no-repeat;
+// }
+// .jdot-content {
+//   position: absolute;
+//   left: 720px;
+//   top: 194px;
+//   text-align: center;
+// }
+// .btn-dot-i {
+//   position: absolute;
+//   top: 30px;
+//   left: 40px;
+// }
+// .btn-jdot {
+//   position: absolute;
+//   top: 86px;
+//   left: 50%;
+//   margin-left: -55px;
+//   cursor: not-allowed;
+//   i {
+//     display: none;
+//   }
+//   &.active {
+//     cursor: pointer;
+//     animation: pulse 1s infinite;
+//     // i {
+//     //   display: block;
+//     //   position: absolute;
+//     //   top: 50%;
+//     //   left: 50%;
+//     //   &::before {
+//     //     content: "";
+//     //     position: absolute;
+//     //     top: 50%;
+//     //     left: 50%;
+//     //     width: 10px;
+//     //     height: 10px;
+//     //     margin: -5px 0 0 -5px;
+//     //     background: #fff;
+//     //     border-radius: 50%;
+//     //     animation: redatwinkle 2s ease infinite;
+//     //   }
+//     // }
+//   }
+// }
