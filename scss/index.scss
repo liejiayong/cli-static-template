@@ -18,7 +18,8 @@
 
 /* logo */
 .logo {
-  position: fixed;
+  // position: fixed;
+  position: absolute;
   top: 0.22rem;
   left: 0.22rem;
   z-index: 10;
@@ -31,8 +32,8 @@
 
 /* auth status */
 .jy-auth {
-  position: fixed;
-  // position: absolute;
+  // position: fixed;
+  position: absolute;
   top: 0.3rem;
   right: 0.3rem;
   display: flex;

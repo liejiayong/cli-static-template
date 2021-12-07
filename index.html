@@ -162,10 +162,7 @@
           <div class="jy-pop_scrollbar lh-15">
             <ul class="ul-decimal">
               <li>活动时间：7月23日-7月26日</li>
-              <li>
-                官人可任意选择「官人赛马」/「西施游泳」比赛，挑战成功即可获得一份礼包，每个项目最多可领取兑换一次礼包。
-              </li>
-              <li>奥运排行榜前200名将获得「奥运健儿」礼包一份，礼包将于27日0点自动发放，请官人及时查看成绩~</li>
+              <li>奥运排行榜前200名将获得「奥运健儿」礼包一份，礼包将于27日0点自动发放，请官人及时查看成绩</li>
               <li>
                 排行榜规则：
                 <br />
@@ -510,27 +507,27 @@
         });
         /* 弹窗end */
 
-        // 菜单栏
-        $('#menuWrapper').on('click', 'a', function () {
-          if (logic.isGaming) return;
-          var tag = $(this).attr('data-tag');
-          switch (tag) {
-            case 'house':
-              jtool.navTo('.section-2');
-              break;
+        // // 菜单栏
+        // $('#menuWrapper').on('click', 'a', function () {
+        //   if (logic.isGaming) return;
+        //   var tag = $(this).attr('data-tag');
+        //   switch (tag) {
+        //     case 'house':
+        //       jtool.navTo('.section-2');
+        //       break;
 
-            case 'swim':
-              jtool.navTo('.section-3');
-              break;
-            case 'rank':
-              jtool.navTo('.section-4');
-              break;
+        //     case 'swim':
+        //       jtool.navTo('.section-3');
+        //       break;
+        //     case 'rank':
+        //       jtool.navTo('.section-4');
+        //       break;
 
-            default:
-              jtool.navTo('.section-4');
-              break;
-          }
-        });
+        //     default:
+        //       jtool.navTo('.section-4');
+        //       break;
+        //   }
+        // });
 
         // 回到首页
         $('.btn-nav-home').on('click', function () {

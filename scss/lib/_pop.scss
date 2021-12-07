@@ -251,7 +251,7 @@ $input-select-cell-radius: 0.12rem;
     margin-right: auto;
     max-height: $scrollbar-maxheight;
     box-sizing: border-box;
-    overflow: hidden scroll;
+    overflow: hidden auto;
     @include scroll_chaining();
   }
 
