@@ -1,0 +1,409 @@
+{
+  "window.zoomLevel": 0,
+  // icon
+  "workbench.iconTheme": "vscode-icons",
+  "files.eol": "\n",
+  "files.autoSave": "onFocusChange",
+  "files.enableTrash": false,
+  // 在文件底部添加新代码行时，强制所有文件都有一行空格。
+  "files.insertFinalNewline": true,
+  // 比如小程序中的 .wxss 这种文件，会把它作为css文件来处理，提供对应的css的语法提示，css的格式化等等。
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.wpy": "vue",
+    "*.jsx": "javascriptreact",
+    "*.hbs": "javascript"
+  },
+  // VScode进行文件搜索时，不搜索这些区域。注意：vs已经贴心的默认设置了 node_modules 和 bower_components 文件夹
+  "search.exclude": {
+    "**/.git": true,
+    "**/.gitignore": true,
+    "**/.svn": true,
+    "**/.DS_Store": true,
+    "**/.idea": true,
+    "**/.vscode": false,
+    "**/yarn.lock": true,
+    "**/tmp": true,
+    "**/dist": true,
+    "**/build": true
+  },
+  // 断点调试时，遇到断点，自动显示调试视图。
+  "debug.openDebug": "openOnDebugBreak",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "sync.gist": "d6f93d4248267f8875353551c3acef8c",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // default start
+  "editor.tabSize": 2,
+  "editor.lineHeight": 20,
+  "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "none",
+  "editor.fontSize": 16,
+  "editor.cursorBlinking": "smooth",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  // 使用vscode的自动格式化时，有时会把一行过长的代码折行。200表示200个字符处折行
+  "editor.wordWrapColumn": 120,
+  "editor.wordWrap": "off",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": false
+  },
+  "editor.suggestSelection": "first",
+  "editor.formatOnPaste": true,
+  // 开启后可能与eslint冲突引起点击ctrl+s不保存
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true,
+    // For TSLint
+    "source.fixAll.tslint": true,
+    // For Stylelint
+    "source.fixAll.stylelint": true
+  },
+  "path-intellisense.mappings": {
+    "/@": "${workspaceRoot}/src"
+  },
+  // default end
+  // eslint start
+  // 格式化快捷键 shirt+alt+F，有时可能需要多按几次
+  // 因为使用 shirt+alt+F进行格式化时，先执行编辑器的格式化规则，然后才会按照eslint和tslit这样的其他插件去格式化。
+  // 是否启用根据eslint配置文件。文件保存时，根据配置文件进行格式化
+  "eslint.format.enable": true,
+  // eslint配置文件 ,修改为你自己电脑上的文件位置，或者直接删除
+  "eslint.options": {
+    "configFile": "E:/tanwan-file/tool-library/IDE/.eslintrc.js",
+    "plugins": ["html"]
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "html", "vue"],
+  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "markdown"],
+
+  "eslint.alwaysShowStatus": true,
+  "eslint.packageManager": "yarn",
+  // eslint end
+  // emmet start
+  // 这一设置最大作用是：当输入的文本不属于Emmet定义的缩写规则时，依然允许使用Tab键进行缩进。此时会提示我自定义的缩写语句，以及各插件自定义的缩写语句.
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showSuggestionsAsSnippets": true,
+  // 配置emmet对哪种文件类型支持
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "vue-html": "html",
+    "vue": "html",
+    "xml": {
+      "attr_quotes": "single"
+    }
+  },
+  "emmet.includeLanguages": {
+    "jsx-sublime-babel-tags": "javascriptreact",
+    "wxml": "html"
+  },
+  // emmet end
+  // eslint end
+  // vetur start
+  // 自定义高亮
+  "vetur.grammar.customBlocks": {
+    "docs": "md",
+    "i18n": "json"
+  },
+  "vetur.format.options.tabSize": 2,
+  "vetur.format.options.useTabs": false,
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.pug": "prettier",
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.postcss": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "vetur.format.defaultFormatter.less": "prettier",
+  "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "vetur.format.defaultFormatter.sass": "sass-formatter",
+  "vetur.format.defaultFormatterOptions": {
+    "wrap_attributes": "auto",
+    "prettier": {
+      "printWidth": 120,
+      "tabWidth": 2 /* Specify the number of spaces per indentation-level. */,
+      "useTabs": false /* Indent lines with tabs instead of spaces. */,
+      // Print semicolons at the ends of statements.
+      "semi": true,
+      "singleQuote": true,
+      // such as, as-needed: {true: 0,0: 0,'qux-lorem': true};"consistent": 强制执行一致的引用风格需要引用对象字面值属性名称;preserve:保留用户输入
+      "quoteProps": "as-needed",
+      "jsxSingleQuote": true,
+      // es5: Trailing commas where valid in ES5 (objects, arrays, etc.)
+      "trailingComma": "es5",
+      // Print spaces between brackets in object literals. true Example: { foo: bar }.
+      "bracketSpacing": true,
+      // Put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (does not apply to self closing elements).
+      "jsxBracketSameLine": false,
+      // "always" - Always include parens. Example: (x) => x
+      // "avoid" - Omit parens when possible. Example: x => x
+      "arrowParens": "always",
+      /* Range start */
+      "rangeStart": 0,
+      // "rangeEnd": Infinity,
+      /* Range end */
+      // parser:'babylon', /* 默认不打开 */
+      /* 
+          Specify which parser to use.
+          parser: 'None'|'babel',
+          Specify the file name to use to infer which parser to use.
+          filepath: 'None'|<string>,
+          指定某片段格式化。Prettier can restrict itself to only format files that contain a special comment, called a pragma, at the top of the file.
+          */
+      "requirePragma": false,
+      // 指定某个文件已被格式化，配合requirePragma使用。Prettier can insert a special @format marker at the top of files specifying that the file has been formatted with prettier.
+      "insertPragma": false,
+      // 	"always" - Wrap prose if it exceeds the print width.
+      // "never" - Do not wrap prose.
+      // "preserve" - Wrap prose as-is. First available in v1.9.0
+      "proseWrap": "preserve",
+      // "css" - Respect the default value of CSS display property.
+      "htmlWhitespaceSensitivity": "ignore",
+      "vueIndentScriptAndStyle": false,
+      "endOfLine": "lf",
+      // Format embedded code if Prettier can automatically identify it.
+      "embeddedLanguageFormatting": "auto",
+      // for IDE attriubte start
+      "wrap_attributes": "force-aligned",
+      "end_with_newline": true
+      // for IDE attriubte end
+    }
+  },
+  // vetur end
+  // prettier start
+  // "prettier": {
+  //   "printWidth": 120,
+  //   "tabWidth": 2 /* Specify the number of spaces per indentation-level. */,
+  //   "useTabs": false /* Indent lines with tabs instead of spaces. */,
+  //   /* Print semicolons at the ends of statements. */
+  //   "semi": true,
+  //   "singleQuote": true,
+  //   // such as, as-needed: {true: 0,0: 0,'qux-lorem': true};"consistent": 强制执行一致的引用风格需要引用对象字面值属性名称;preserve:保留用户输入
+  //   "quoteProps": "as-needed",
+  //   "jsxSingleQuote": true,
+  //   // es5: Trailing commas where valid in ES5 (objects, arrays, etc.)
+  //   "trailingComma": "es5",
+  //   // Print spaces between brackets in object literals. true Example: { foo: bar }.
+  //   "bracketSpacing": true,
+  //   // Put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (does not apply to self closing elements).
+  //   "jsxBracketSameLine": false,
+  //   // "always" - Always include parens. Example: (x) => x
+  //   // "avoid" - Omit parens when possible. Example: x => x
+  //   "arrowParens": "always",
+  //   /* Range start */
+  //   "rangeStart": 0,
+  //   // "rangeEnd": Infinity,
+  //   /* Range end */
+  //   // parser:'babylon', /* 默认不打开 */
+  //   /*
+  //       Specify which parser to use.
+  //       parser: 'None'|'babel',
+  //       Specify the file name to use to infer which parser to use.
+  //       filepath: 'None'|<string>,
+  //       指定某片段格式化。Prettier can restrict itself to only format files that contain a special comment, called a pragma, at the top of the file.
+  //       */
+  //   "requirePragma": false,
+  //   // 指定某个文件已被格式化，配合requirePragma使用。Prettier can insert a special @format marker at the top of files specifying that the file has been formatted with prettier.
+  //   "insertPragma": false,
+  //   // 	"always" - Wrap prose if it exceeds the print width.
+  //   // "never" - Do not wrap prose.
+  //   // "preserve" - Wrap prose as-is. First available in v1.9.0
+  //   "proseWrap": "preserve",
+  //   // "css" - Respect the default value of CSS display property.
+  //   "htmlWhitespaceSensitivity": "ignore",
+  //   "vueIndentScriptAndStyle": false,
+  //   "endOfLine": "lf",
+  //   // Format embedded code if Prettier can automatically identify it.
+  //   "embeddedLanguageFormatting": "auto",
+  //   // for IDE attriubte start
+  //   "wrap_attributes": "force-aligned",
+  //   "end_with_newline": true
+  //   // for IDE attriubte end
+  // },
+  "prettier.configPath": "E:\\tanwan-file\\tool-library\\IDE\\prettier.config.js" /* tanwanpc-desk */,
+  // prettier end
+  // stylus start
+  "stylusSupremacy.insertColons": false, // 是否插入冒号
+  "stylusSupremacy.insertSemicolons": false, // 是否插入分好
+  "stylusSupremacy.insertBraces": false, // 是否插入大括号
+  "stylusSupremacy.insertNewLineAroundImports": false, // import之后是否换行
+  "stylusSupremacy.insertNewLineAroundBlocks": false, // 两个选择器中是否换行
+  // stylus end
+  // fileheader start
+  // 快捷方式如果没响应则需要在vscode键盘快捷方式搜索cursorTip查看快键键
+  // fileheader 文件头部注释 快捷键：window：ctrl+alt+i,mac：ctrl+cmd+i
+  "fileheader.customMade": {
+    "Description": "",
+    "version": "",
+    "Author": "liejiayong(809206619@qq.com)",
+    "Date": "Do not edit",
+    "LastEditors": "liejiayong(809206619@qq.com)",
+    "LastEditTime": "Do not Edit",
+    "FilePath": "Do not edit", // 设置后，默认生成文件相对于项目的路径
+    "custom_string_obkoro1": "可以输入预定的版权声明、个性签名、空行等"
+  },
+  // fileheader 函数注释 快捷键：window：ctrl+alt+t,mac：ctrl+cmd+t
+  "fileheader.cursorMode": {
+    "description": "",
+    "param": "",
+    "return": "",
+    "author": "liejiayong(809206619@qq.com)",
+    "Date": "Do not edit"
+  },
+  // fileheader 配置项
+  "fileheader.configObj": {
+    "autoAdd": false, // 检测文件没有头部注释，自动添加文件头部注释
+    "autoAddLine": 100, // 文件超过多少行数 不再自动添加头部注释
+    "autoAlready": true, // 只添加插件支持的语言以及用户通过`language`选项自定义的注释
+    // 自动添加头部注释黑名单
+    "prohibitAutoAdd": ["json"],
+    "prohibitItemAutoAdd": ["项目的全称禁止项目自动添加头部注释, 使用快捷键自行添加"],
+    "wideSame": false, // 头部注释等宽设置
+    "wideNum": 13, // 头部注释字段长度 默认为13
+    // 头部注释第几行插入
+    "headInsertLine": {
+      "php": 2 // php文件 插入到第二行
+    },
+    "beforeAnnotation": {}, // 头部注释之前插入内容
+    "afterAnnotation": {}, // 头部注释之后插入内容
+    "specialOptions": {}, // 特殊字段自定义
+    "switch": {
+      "newlineAddAnnotation": true // 默认遇到换行符(\r\n \n \r)添加注释符号
+    },
+    "moveCursor": true, // 自动移动光标到Description所在行
+    "dateFormat": "YYYY-MM-DD HH:mm:ss",
+    "atSymbol": "@", // 更改所有文件的自定义注释中的@符号
+    "atSymbolObj": {
+      "js": "@", // .js文件 去掉@
+      "java": "#" // .java文件 @改为#
+    }, //  更改单独语言/文件的@
+    "colon": ": ", // 更改所有文件的注释冒号
+    "colonObj": {
+      "js": ": " // .js文件 去掉: 留一个空格
+    }, //  更改单独语言/文件的冒号
+    "filePathColon": "路径分隔符替换", // 默认值： mac: / window是: \
+    "showErrorMessage": false, // 是否显示插件错误通知 用于debugger
+    "CheckFileChange": false, // 单个文件保存时进行diff检查
+    "createHeader": false, // 新建文件自动添加头部注释
+    "useWorker": false, // 是否使用工作区设置
+    "designAddHead": false, // 添加注释图案时添加头部注释
+    // 自定义语言注释符号，覆盖插件的注释格式
+    "language": {
+      "java": {
+        "head": "/$$",
+        "middle": " $ @",
+        "end": " $/"
+      },
+      // 一次匹配多种文件后缀文件 不用重复设置
+      "h/hpp/cpp": {
+        "head": "/*** ", // 统一增加几个*号
+        "middle": " * @",
+        "end": " */"
+      },
+      // 针对有特殊要求的文件如：test.blade.php
+      "blade.php": {
+        "head": "<!--",
+        "middle": " * @",
+        "end": "-->"
+      }
+    },
+    // 默认注释  没有匹配到注释符号的时候使用。
+    "annotationStr": {
+      "head": "/*",
+      "middle": " * @",
+      "end": " */",
+      "use": false
+    }
+  },
+  // fileheader end
+  "autoprefixer.formatOnSave": true,
+  "autoprefixer.browsers": ["last 8 versions", "> 0.01%"],
+  // 设置autoprefixer 为zhi有.css 情况下才能保存生成兼容前缀
+  "autoprefixer.ignoreFilesOnSave": [
+    "**/src/**.scss",
+    "**/scss/**.scss",
+    "**/css/**.scss",
+    "**/style/**.scss",
+    "**/assets/**.scss",
+    "**/common/**.scss",
+    "**/src/**.less",
+    "**/scss/**.less",
+    "**/css/**.less",
+    "**/style/**.less",
+    "**/assets/**.less",
+    "**/common/**.less",
+    "**/src/**.sass",
+    "**/scss/**.sass",
+    "**/css/**.sass",
+    "**/style/**.sass",
+    "**/assets/**.sass",
+    "**/common/**.sass",
+    "**/src/**.styl",
+    "**/scss/**.styl",
+    "**/css/**.styl",
+    "**/style/**.styl",
+    "**/assets/**.styl",
+    "**/common/**.styl"
+  ],
+  "minapp-vscode.disableAutoConfig": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsicons.dontShowNewVersionMessage": true,
+  "yaml.format.singleQuote": false,
+  "liveServer.settings.CustomBrowser": "chrome",
+  // liveSassCompile start
+  "liveSassCompile.settings.showOutputWindow": true, // 热更新
+  "liveSassCompile.settings.generateMap": true, // 编译map
+  "liveSassCompile.settings.formats": [
+    // This is Default.
+    {
+      "format": "compact",
+      "extensionName": ".css", // 指定编译完的文件后缀名，.css为普通代码，.min.css为压缩代码
+      "savePath": "~/../css" // 指定编译完的css文件路径
+    }
+    // You can add more
+    // {
+    //   "format": "compressed",
+    //   "extensionName": ".min.css",
+    //   "savePath": "~/../css" // 指定编译完的css文件路径
+    // }
+  ], //指定编译css的样式类型，有这四种 expanded（默认）, compact, compressed or nested
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**", "**/_*.scss"], // 指定忽略的文件,支持正则
+  "liveSassCompile.settings.includeItems": ["**/_index*.scss", "**/index*.scss"],
+  "liveSassCompile.settings.autoprefix": ["> 0.01%", "last 12 versions"], // 添加浏览器兼容性前缀，ie5.5及以上
+  // liveSassCompile end
+  // python
+  "python.jediEnabled": false,
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.languageServer": "Microsoft",
+  // python end
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.port": 5502
+}

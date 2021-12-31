@@ -1,0 +1,274 @@
+/**
+ * @description: size tool for wap terminal
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2021-12-30 11:03:48
+ */
+
+@import '../scss/_const.scss';
+@import '../scss/_mixin.scss';
+
+/* Adaptive response type */
+html {
+  font-size: 24px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 50px;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 56.25px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 58.59375px;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 62.5px;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 64.6875px;
+  }
+}
+@media screen and (min-width: 440px) {
+  html {
+    font-size: 68.75px;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 75px;
+  }
+}
+@media screen and (min-width: 520px) {
+  html {
+    font-size: 81.25px;
+  }
+}
+@media screen and (min-width: 560px) {
+  html {
+    font-size: 87.5px;
+  }
+}
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 93.75px;
+  }
+}
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html {
+    font-size: 106.25px;
+  }
+}
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 112.5px;
+  }
+}
+@media screen and (min-width: 760px) {
+  html {
+    font-size: 118.75px;
+  }
+}
+@media screen and (min-width: 800px) {
+  html {
+    font-size: 125px;
+  }
+}
+@media screen and (min-width: 960px) {
+  html {
+    font-size: 150px;
+  }
+}
+
+/* common fontsize */
+.fs-60 {
+  font-size: 0.6rem;
+}
+.fs-50 {
+  font-size: 0.5rem;
+}
+.fs-40 {
+  font-size: 0.4rem;
+}
+.fs-38 {
+  font-size: 0.38rem;
+}
+.fs-36 {
+  font-size: 0.36rem;
+}
+.fs-34 {
+  font-size: 0.34rem;
+}
+.fs-32 {
+  font-size: 0.32rem;
+}
+.fs-30 {
+  font-size: 0.3rem;
+}
+.fs-28 {
+  font-size: 0.28rem;
+}
+.fs-26 {
+  font-size: 0.26rem;
+}
+.fs-24 {
+  font-size: 0.24rem;
+}
+.fs-22 {
+  font-size: 0.22rem;
+}
+.fs-20 {
+  font-size: 0.2rem;
+}
+.fs-18 {
+  font-size: 0.18rem;
+}
+.fs-16 {
+  font-size: 0.16rem;
+}
+.fs-14 {
+  font-size: 0.14rem;
+}
+.fs-12 {
+  font-size: 0.12rem;
+}
+.fs-10 {
+  font-size: 0.1rem;
+}
+.fs-0 {
+  font-size: 0;
+}
+
+/* the padding and marge of elements */
+.mt-5 {
+  margin-top: 0.05rem;
+}
+.ml-5 {
+  margin-left: 0.05rem;
+}
+.mt-10 {
+  margin-top: 0.1rem;
+}
+.ml-10 {
+  margin-left: 0.1rem;
+}
+.mt-15 {
+  margin-top: 0.15rem;
+}
+.ml-15 {
+  margin-left: 0.15rem;
+}
+.mt-20 {
+  margin-top: 0.2rem;
+}
+.ml-20 {
+  margin-left: 0.2rem;
+}
+.mt-25 {
+  margin-top: 0.25rem;
+}
+.ml-25 {
+  margin-left: 0.25rem;
+}
+.mt-30 {
+  margin-top: 0.3rem;
+}
+.ml-30 {
+  margin-left: 0.3rem;
+}
+.mt-35 {
+  margin-top: 0.35rem;
+}
+.ml-35 {
+  margin-left: 0.35rem;
+}
+.mt-40 {
+  margin-top: 0.4rem;
+}
+.ml-40 {
+  margin-left: 0.4rem;
+}
+.mt-50 {
+  margin-top: 0.5rem;
+}
+.ml-50 {
+  margin-left: 0.5rem;
+}
+.ml-60 {
+  margin-left: 0.6rem;
+}
+.mt-60 {
+  margin-top: 0.6rem;
+}
+.pl-5 {
+  padding-left: 0.05rem;
+}
+.pt-5 {
+  padding-top: 0.05rem;
+}
+.pl-10 {
+  padding-left: 0.1rem;
+}
+.pt-10 {
+  padding-top: 0.1rem;
+}
+.pl-15 {
+  padding-left: 0.15rem;
+}
+.pt-15 {
+  padding-top: 0.15rem;
+}
+.pl-20 {
+  padding-left: 0.2rem;
+}
+.pt-20 {
+  padding-top: 0.2rem;
+}
+.pl-25 {
+  padding-left: 0.25rem;
+}
+.pt-25 {
+  padding-top: 0.25rem;
+}
+.pl-30 {
+  padding-left: 0.3rem;
+}
+.pt-30 {
+  padding-top: 0.3rem;
+}
+.pl-35 {
+  padding-left: 0.35rem;
+}
+.pt-35 {
+  padding-top: 0.35rem;
+}
+.pl-40 {
+  padding-left: 0.4rem;
+}
+.pt-40 {
+  padding-top: 0.4rem;
+}
+.pl-50 {
+  padding-left: 0.5rem;
+}
+.pt-50 {
+  padding-top: 0.5rem;
+}
+.pl-60 {
+  padding-left: 0.6rem;
+}
+.pt-60 {
+  padding-top: 0.6rem;
+}

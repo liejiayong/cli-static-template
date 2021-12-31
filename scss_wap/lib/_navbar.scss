@@ -1,0 +1,208 @@
+/**
+ * @description:  wap navbar style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+
+@import '../../scss/_const.scss';
+@import '../../scss/_mixin.scss';
+
+// <!-- navbar -->
+// <div class="jy-navbar" id="navbar">
+//   <ul class="jy-navbar_wrapper">
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">首 页</a></li>
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">新闻资讯</a></li>
+//     <li class="jy-navbar__item">
+//       <div class="jy-navbar__item__sub jnavbarSubTit">
+//         <a href="javascript:;" class="jy-navbar__item--link"><i>游戏资料</i></a>
+//       </div>
+//       <div class="jy-navbar__item__sub-content jnavbarSubBody">
+//         <a href="" class="jy-navbar__item--link">游戏介绍</a>
+//         <a href="" class="jy-navbar__item--link">游戏图鉴</a>
+//       </div>
+//     </li>
+//     <li class="jy-navbar__item">
+//       <a href="" class="jy-navbar__item--link">游戏攻略</a>
+//     </li>
+//     <li class="jy-navbar__item">
+//       <div class="jy-navbar__item__sub jnavbarSubTit">
+//         <a href="javascript:;" class="jy-navbar__item--link"><i>玩家社区</i></a>
+//       </div>
+//       <div class="jy-navbar__item__sub-content jnavbarSubBody">
+//         <a href="" class="jy-navbar__item--link">玩家故事</a>
+//         <a href="" class="jy-navbar__item--link">精彩视频</a>
+//       </div>
+//     </li>
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">礼包中心</a></li>
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">客服中心</a></li>
+//   </ul>
+// </div>
+
+$width: 100%;
+.jy-navbar {
+  display: none;
+  position: fixed;
+  top: 1.2rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow: hidden auto;
+  text-align: center;
+  color: #fff;
+  font-family: 'fcustom';
+  &.active {
+    display: block;
+    height: auto;
+    transition: height 0.4s linear;
+    // .jy-navbar__item {
+    //   -webkit-transform: translate3d(0, 0, 0);
+    //      -moz-transform: translate3d(0, 0, 0);
+    //           transform: translate3d(0, 0, 0);
+    // }
+  }
+}
+.jy-navbar_wrapper {
+  position: relative;
+  padding: 0.3rem 0.3rem 0.2rem;
+  // width: $width;
+  background-color: rgba(58, 61, 67, 0.94);
+  overflow: hidden;
+}
+.jy-navbar__item {
+  // $bg: #5f2309 linear-gradient(#431909, #5f2309, #7c2d08);
+  margin-bottom: 0.02rem;
+  padding: 0.14rem 0;
+  position: relative;
+  width: $width;
+  line-height: 1.5;
+  // @include lh(0.66rem);
+  border: 0.02rem solid #fff;
+  transition: all 0.3s linear;
+  &:nth-of-type(n + 2) {
+    margin-top: 0.12rem;
+  }
+  // color: #c3b9a4;
+  // font-size: 0.2rem;
+  // text-align: center;
+  // background: $bg;
+  // -webkit-animation: rtol 0.3s ease-in;
+  // animation: rtol 0.3s ease-in;
+  // margin-right: -1.6rem;
+  // -webkit-transform: translate3d(-100%, 0, 0);
+  // -moz-transform: translate3d(-100%, 0, 0);
+  // transform: translate3d(-100%, 0, 0);
+
+  // &:nth-of-type(1) {
+  //   -webkit-animation-delay: 0.2s;
+  //   -moz-animation-delay: 0.2s;
+  //   animation-delay: 0.2s;
+  // }
+  // &:nth-of-type(2) {
+  //   -webkit-animation-delay: 0.4s;
+  //   -moz-animation-delay: 0.4s;
+  //   animation-delay: 0.4s;
+  // }
+  // &:nth-of-type(3) {
+  //   -webkit-animation-delay: 0.6s;
+  //   -moz-animation-delay: 0.6s;
+  //   animation-delay: 0.6s;
+  // }
+  // &:nth-of-type(4) {
+  //   -webkit-animation-delay: 0.8s;
+  //   -moz-animation-delay: 0.8s;
+  //   animation-delay: 0.8s;
+  // }
+  // &:nth-of-type(5) {
+  //   -webkit-animation-delay: 1s;
+  //   -moz-animation-delay: 1s;
+  //   animation-delay: 1s;
+  // }
+  // &:nth-of-type(6) {
+  //   -webkit-animation-delay: 1.2s;
+  //   -moz-animation-delay: 1.2s;
+  //   animation-delay: 1.2s;
+  // }
+  // &:nth-of-type(7) {
+  //   -webkit-animation-delay: 1.4s;
+  //   -moz-animation-delay: 1.4s;
+  //   animation-delay: 1.4s;
+  // }
+  // &:nth-of-type(8) {
+  //   -webkit-animation-delay: 1.6s;
+  //   -moz-animation-delay: 1.6s;
+  //   animation-delay: 1.6s;
+  // }
+}
+.jy-navbar__item__sub {
+  .jy-navbar__item--link {
+    i {
+      display: inline-block;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate3d(120%, 43%, 0);
+        transform-origin: 0.12rem 0.06rem;
+        width: 0;
+        height: 0;
+        line-height: 1;
+        font-size: 0;
+        overflow: hidden;
+        border-width: 0.12rem;
+        border-style: solid dashed dashed dashed;
+        border-color: #fff transparent transparent transparent;
+      }
+    }
+  }
+  &.active {
+    .jy-navbar__item--link {
+      i {
+        &::before {
+          transform: translate3d(120%, 43%, 0) rotate(180deg);
+        }
+      }
+    }
+  }
+}
+.jy-navbar__item__sub-content {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.jy-navbar__item--link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+@-webkit-keyframes rtol {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rtol {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}

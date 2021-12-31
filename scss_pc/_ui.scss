@@ -1,0 +1,54 @@
+/**
+ * @description:  common ui style for pc terminal
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2021-12-30 11:03:48
+ */
+@import '../scss/_const.scss';
+@import '../scss/_mixin.scss';
+
+.jy-wrapper {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+.jy-section {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: $main-width-pc;
+  background: no-repeat top center;
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+.jy-headermain {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  height: 100%;
+  zoom: 1;
+  background: no-repeat top center;
+  box-sizing: border-box;
+}
+.jy-sectionmain {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  height: 100%;
+  zoom: 1;
+  background: no-repeat top center;
+  box-sizing: border-box;
+}
+.jy-sectionmain-x {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  height: 100%;
+  zoom: 1;
+  background: no-repeat top center;
+  box-sizing: border-box;
+}

@@ -1,0 +1,140 @@
+/**
+ * @description:  wap welface page style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+
+@import '../../scss/_const.scss';
+@import '../../scss/_mixin.scss';
+
+// <div class="jy-content_scroll-com">
+//   <div class="jy-weface">
+//     <div class="jy-weface_item">
+//       <h3>情人节礼包</h3>
+//       <p class="desc">
+//         礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，中级强化石*3 绑定，中级强化石*3
+//         绑定，中级强化石*3 绑定
+//       </p>
+//       <div>
+//         剩余95%
+//         <a href="javascript:;" class="jy-weface_btn">领 取</a>
+//       </div>
+//     </div>
+//     <div class="jy-weface_item">
+//       <h3>情人节礼包</h3>
+//       <p class="desc">礼包内容：中级强化石*3 绑定</p>
+//       <div>
+//         剩余95%
+//         <a href="javascript:;" class="jy-weface_btn">领 取</a>
+//       </div>
+//     </div>
+//     <div class="jy-weface_item">
+//       <h3>情人节礼包</h3>
+//       <p class="desc">礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定</p>
+//       <div>
+//         剩余95%
+//         <a href="javascript:;" class="jy-weface_btn">领 取</a>
+//       </div>
+//     </div>
+//     <!-- <div class="jy-weface_item">
+//   <h3>情人节礼包</h3>
+//   <p class="desc">礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定</p>
+//   <p>
+//     剩余95%
+//     <a href="javascript:;" class="jy-weface_btn">领 取</a>
+//   </p>
+// </div> -->
+//   </div>
+// </div>
+
+.jy-weface {
+  // padding: 0.3rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.jy-weface_item {
+  // float: left;
+  padding: 0.2rem;
+  margin: 0 0.1rem 0.3rem 0.1rem;
+  width: 2.8rem;
+  font-size: 0.2rem;
+  color: #636363;
+  background-color: #f3f3f4;
+}
+.jy-weface h3 {
+  width: auto;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: 0.22rem;
+  font-weight: bold;
+  color: #000;
+}
+.jy-weface .desc {
+  margin: 0.08rem 0 0.15rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  min-height: 0.8rem;
+  overflow: hidden;
+}
+.jy-weface .jy-weface_btn {
+  float: right;
+  width: 0.9rem;
+  line-height: 0.3rem;
+  text-align: center;
+  border-top: 1px solid #3890ea;
+  // background: #bb6220 linear-gradient(#a34d24, #bb6220, #ce731d);
+  // background: #2d8cec linear-gradient(#3890ea, #2d8cec, #0c6dd0);
+  font-size: 0.22rem;
+  color: #fff;
+  background: $btn-bg-com;
+}
+.jy-weface_box {
+  margin: 0.1rem auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 5rem;
+}
+.jy-weface_link {
+  padding: 0 0.15rem;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  line-height: 0.36rem;
+  text-align: left;
+  color: #636363;
+  background-color: #fff;
+}
+
+.jy-pop__weface_btn,
+.jy-pop__weface_btn:hover {
+  margin-left: 0.1rem;
+  display: block;
+  flex: 0 0 1.2rem;
+  width: 1.2rem;
+  line-height: 0.35rem;
+  text-align: center;
+  // background-color: #bb6220;
+  // background-image: linear-gradient(#a34d24, #bb6220, #ce731d);
+  // color: #fff;
+  background: #2d8cec linear-gradient(#3890ea, #2d8cec, #0c6dd0);
+  color: #fff;
+  // border-top: 1px solid #bb6220;
+}

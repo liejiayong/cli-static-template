@@ -1,0 +1,28 @@
+/**
+ * @description:  font style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 
+ */
+
+// @font-face {
+//   font-family: 'fcustom';
+//  src: url('../media/fcustom.ttf');
+//  src: url('../media/fcustom.eot?#font-spider') format('embedded-opentype'), url('../media/fcustom.woff2') format('woff2'), url('../media/fcustom.woff') format('woff'), url('../media/fcustom.ttf') format('truetype'), url('../media/fcustom.svg') format('svg');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+// body {
+//   font-family: 'fcustom', Microsoft YaHei, '微软雅黑', Arial, sans-serif;
+// }
+
+.ff-fcustom {
+  font-family: 'fcustom', sans-serif;
+}
+
+.ff-normal {
+  font-family: initial, sans-serif;
+}

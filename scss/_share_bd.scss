@@ -1,0 +1,49 @@
+/**
+ * @description:  pc bdshare style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+
+@import './_const.scss';
+@import './_mixin.scss';
+
+// <!-- bdshare -->
+// <div class="share-content">
+//   <div class="">分享到：</div>
+//   <div class="bdsharebuttonbox bdshare-button-style-20 clearfix" data-tag="share_1">
+//     <a class="bds_weixin" data-cmd="weixin" href="#" title="微信好友分享" class=""></a>
+//     <a class="bds_tsina" data-cmd="tsina" href="#" title="新浪微博分享" class=""></a>
+//     <a class="bds_qzone" data-cmd="qzone" href="#" title="QQ空间分享" class=""></a>
+//     <a class="bds_sqq" data-cmd="sqq" href="#" title="QQ好友分享" class=""></a>
+//     <a class="bds_more" data-cmd="more">更多</a>
+//     <a class="bds_count" data-cmd="count"></a>
+//   </div>
+// </div>
+
+.share-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .bdsharebuttonbox a {
+    position: relative;
+    /* float: none; */
+    margin: 5px 0 0 5px;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    // line-height: 20px;
+    /* background: #371200; */
+    // border-radius: 50%;
+  }
+  .bds_more {
+    display: none;
+  }
+  .bds_count {
+    display: none;
+  }
+}
+/* bdshare style end */

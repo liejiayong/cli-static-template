@@ -1,0 +1,245 @@
+/**
+ * @description:  wap terminal style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+@import './_index.scss';
+
+/* Here is the Business Logic style */
+
+// /* logo */
+// .logo {
+//   position: fixed;
+//   top: 0.22rem;
+//   left: 0.22rem;
+//   z-index: 10;
+
+//   $width: 1.88rem;
+//   width: $width;
+//   height: 0.86rem;
+//   @include bgimg($width, '../img/logo.png');
+// }
+
+// /* auth status */
+// .jy-auth {
+//   position: fixed;
+//   // position: absolute;
+//   top: 0.3rem;
+//   right: 0.3rem;
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: center;
+//   text-align: right;
+//   text-align: right;
+//   font-size: 0.24rem;
+//   white-space: nowrap;
+//   color: #333;
+//   z-index: 10;
+//   .btn-login {
+//     display: inline-block;
+//     vertical-align: middle;
+//   }
+//   .btn-logout {
+//     padding: 0 0.1rem;
+//     display: inline-block;
+//     vertical-align: middle;
+//     color: #ff0000;
+//   }
+//   .nickname {
+//     padding: 0 0.1rem;
+//     display: inline-block;
+//     max-width: 3rem;
+//     overflow: hidden;
+//     text-align: right;
+//     vertical-align: middle;
+//     text-overflow: ellipsis;
+//   }
+//   i {
+//     // padding: 0 0.04rem;
+//     display: none;
+//     // display: inline-block;
+//     // overflow: hidden;
+//     // font-style: normal;
+//     // color: #fff;
+//   }
+// }
+
+/* button style */
+// .ico-btn-com {
+//   display: inline-flex;
+//   justify-content: center;
+//   align-items: center;
+//   span {
+//     padding-bottom: -0.03rem;
+//     position: relative;
+//     margin-left: 0.08rem;
+//     color: #b5925e;
+//     // text-decoration: underline;
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       bottom: 0;
+//       left: 0;
+//       right: 0;
+//       border-bottom: 0.016rem solid #b5925e;
+//       transition: all 0.2s linear;
+//     }
+//   }
+//   &:hover {
+//     span {
+//       transition: all 0.2s linear;
+//       // text-decoration: none;
+//       &::before {
+//         content: '';
+//         position: absolute;
+//         bottom: -0.03rem;
+//         left: 0;
+//         right: 0;
+//         border-bottom: 1px solid #b5925e;
+//         transition: all 0.3s linear;
+//         opacity: 0;
+//       }
+//     }
+//   }
+// }
+
+// .ico-btn-com {
+//   padding: 0.12rem 0.24rem;
+//   display: inline-block;
+//   border-radius: 0.5rem;
+//   font-size: 0.22rem;
+//   font-weight: bold;
+//   color: #ffe7c1;
+//   background: linear-gradient(#6f0a12, #781016, #911e1f, #a82a27);
+// }
+
+// /* spec style */
+// .profiles {
+//   span {
+//     color: #000;
+//   }
+// }
+
+// section-1
+.section-home {
+  // height: 7.365rem;
+  // background-image: url('../img/bg1.jpg');
+  .jy-sectionmain {
+    padding-top: 8.2rem;
+  }
+  .ico-time {
+    position: absolute;
+    top: 6.72rem;
+    left: 0;
+    right: 0;
+    line-height: 0.3rem;
+    text-align: center;
+    color: #f8d596;
+    mask-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#fef9f2), to(#f8d596));
+    font-weight: bold;
+    font-size: 0.24rem;
+  }
+  .ico-tit-news {
+    margin-top: 1.16rem;
+  }
+  // .swiper-slide {
+  //   height: 5.4rem;
+  // }
+}
+
+// section-2
+.section-new {
+  // height: 7.365rem;
+  background-image: url('../img/bg2.jpg');
+  .jy-sectionmain {
+    padding-top: 0.2rem;
+  }
+  .news-container {
+    position: relative;
+    width: 6.9rem;
+    overflow: hidden;
+    color: #fff;
+    .item {
+      padding: 0.3rem 0;
+      border-bottom: 0.02rem dashed #6a7779;
+      .title {
+        font-size: 0.28rem;
+        font-weight: bold;
+      }
+      .content {
+        margin-top: 0.08rem;
+      }
+      .extral {
+        margin-top: 0.14rem;
+        display: flex;
+        align-items: center;
+        font-size: 0.22rem;
+        color: #999;
+        .avatar {
+          position: relative;
+          width: 0.4rem;
+          height: 0.4rem;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+          }
+        }
+        span {
+          margin: 0 0.1rem;
+        }
+      }
+    }
+  }
+}
+
+// section-3
+.section-detail {
+  // height: 7.365rem;
+  // background-image: url('../img/bg3.jpg');
+  line-height: 1.5;
+  .jy-sectionmain {
+    // padding-top: 0.5rem;
+  }
+  .title {
+    font-size: 0.28rem;
+    font-weight: bold;
+  }
+  .extral {
+    padding: 0.1rem 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.22rem;
+    color: #999;
+    .avatar {
+      position: relative;
+      width: 0.4rem;
+      height: 0.4rem;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    span {
+      margin: 0 0.1rem;
+    }
+  }
+  .content {
+    > p,
+    > div {
+      margin-top: 0.1rem;
+    }
+    img {
+      padding: 0.1rem 0;
+      display: block;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,333 @@
+/**
+ * @description:  custom animate style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 
+ */
+
+@charset "UTF-8";
+
+// width from 0 to 100%
+@keyframes width-100 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+// progress bar animate
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 0.8rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+// fadeIn
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes nones {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+// 云朵浮动
+@keyframes floating {
+  0% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    -moz-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0px, 0);
+    -moz-transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0px, 0);
+  }
+}
+.jy-animate-floating {
+  -webkit-animation: floating 3s infinite alternate;
+  -moz-animation: floating 3s infinite alternate;
+  animation: floating 3s infinite alternate;
+}
+
+// 简单二维码上下扫动
+@keyframes an-qr-scale {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 132px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes an-qr-scale-l {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 178px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+// 左右来回滚动
+@keyframes btn-bounce-rcy {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 0);
+  }
+  90% {
+    transform: translate(-10px, 0);
+  }
+}
+
+// 蹦出效果
+// /**
+// .btn-gift {
+//   display: block;
+//   margin: 0 auto;
+//   animation: btn-bounce-rcy ease-in-out 1s infinite;
+//   overflow: initial;
+//   background: url("../img/btn-gift-l.png") no-repeat center;
+//   width: 200px;
+//   height: 208px;
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     display: block;
+//     background: url("../img/btn-gift-l.png") no-repeat center;
+//     width: 200px;
+//     height: 208px;
+//   }
+//   &:hover {
+//     &::before {
+//       animation: btn-scale-opacity 0.6s ease-in-out;
+//     }
+//   }
+// }
+// **/
+@keyframes btn-scale-opacity {
+  0% {
+    opacity: 0.5;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8, 1.8);
+  }
+}
+
+// slide
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+}
+
+@keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  animation-name: slideInUp;
+}
+
+// pulse
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+}
+
+// animated
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.delay-100ms {
+  animation-delay: 100ms;
+}
+.animated.delay-200ms {
+  animation-delay: 200ms;
+}
+.animated.delay-300ms {
+  animation-delay: 300ms;
+}
+.animated.delay-600ms {
+  animation-delay: 600ms;
+}
+.animated.delay-800ms {
+  animation-delay: 800ms;
+}
+.animated.delay-900ms {
+  animation-delay: 900ms;
+}
+.animated.delay-1s {
+  animation-delay: 1s;
+}
+.animated.delay-1s2 {
+  animation-delay: 1.2s;
+}
+.animated.delay-1s5 {
+  animation-delay: 1.5s;
+}
+.animated.delay-1s5 {
+  animation-delay: 1.5s;
+}
+.animated.delay-1s6 {
+  animation-delay: 1.6s;
+}
+.animated.delay-1s8 {
+  animation-delay: 1.8s;
+}
+
+.animated.delay-2s {
+  animation-delay: 2s;
+}
+.animated.delay-2s5 {
+  animation-delay: 2.5s;
+}
+
+.animated.delay-3s {
+  animation-delay: 3s;
+}
+
+.animated.delay-4s {
+  animation-delay: 4s;
+}
+
+.animated.delay-5s {
+  animation-delay: 5s;
+}
+
+.animated.fast {
+  animation-duration: 800ms;
+}
+
+.animated.faster {
+  animation-duration: 500ms;
+}
+
+.animated.slow {
+  animation-duration: 2s;
+}
+
+.animated.slower {
+  animation-duration: 3s;
+}
+
+@media (print), (prefers-reduced-motion: reduce) {
+  .animated {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

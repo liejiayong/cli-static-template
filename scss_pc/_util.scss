@@ -1,0 +1,199 @@
+/**
+ * @description: size tool for pc terminal
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2021-12-30 11:03:48
+ */
+
+@import '../scss/_const.scss';
+@import '../scss/_mixin.scss';
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 1200px;
+  font: #{$fs-primary-pc}/ 1.15 'Microsoft YaHei', '微软雅黑', sans-serif;
+  color: $color-primary;
+  background: $color-theme-bg;
+}
+
+/* common fontsize */
+.fs-60 {
+  font-size: 60px;
+}
+.fs-50 {
+  font-size: 50px;
+}
+.fs-40 {
+  font-size: 40px;
+}
+.fs-38 {
+  font-size: 38px;
+}
+.fs-36 {
+  font-size: 36px;
+}
+.fs-34 {
+  font-size: 34px;
+}
+.fs-32 {
+  font-size: 32px;
+}
+.fs-30 {
+  font-size: 30px;
+}
+.fs-28 {
+  font-size: 28px;
+}
+.fs-26 {
+  font-size: 26px;
+}
+.fs-24 {
+  font-size: 24px;
+}
+.fs-22 {
+  font-size: 22px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-10 {
+  font-size: 10px;
+}
+.fs-0 {
+  font-size: 0;
+}
+
+/* the padding and marge of elements */
+.ml-5 {
+  margin-left: 5px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.ml-15 {
+  margin-left: 15px;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.ml-25 {
+  margin-left: 25px;
+}
+.mt-25 {
+  margin-top: 25px;
+}
+.ml-30 {
+  margin-left: 30px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.ml-35 {
+  margin-left: 35px;
+}
+.mt-35 {
+  margin-top: 35px;
+}
+.ml-40 {
+  margin-left: 40px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.ml-50 {
+  margin-left: 50px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.ml-60 {
+  margin-left: 60px;
+}
+.mt-60 {
+  margin-top: 60px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+.pt-5 {
+  padding-top: 5px;
+}
+.pl-10 {
+  padding-left: 10px;
+}
+.pt-10 {
+  padding-top: 10px;
+}
+.pl-15 {
+  padding-left: 15px;
+}
+.pt-15 {
+  padding-top: 15px;
+}
+.pl-20 {
+  padding-left: 20px;
+}
+.pt-20 {
+  padding-top: 20px;
+}
+.pl-25 {
+  padding-left: 25px;
+}
+.pt-25 {
+  padding-top: 25px;
+}
+.pl-30 {
+  padding-left: 30px;
+}
+.pt-30 {
+  padding-top: 30px;
+}
+.pl-35 {
+  padding-left: 35px;
+}
+.pt-35 {
+  padding-top: 35px;
+}
+.pl-40 {
+  padding-left: 40px;
+}
+.pt-40 {
+  padding-top: 40px;
+}
+.pl-50 {
+  padding-left: 50px;
+}
+.pt-50 {
+  padding-top: 50px;
+}
+.pl-60 {
+  padding-left: 60px;
+}
+.pt-60 {
+  padding-top: 60px;
+}
