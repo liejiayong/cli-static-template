@@ -384,7 +384,7 @@
     {
       "format": "compact",
       "extensionName": ".css", // 指定编译完的文件后缀名，.css为普通代码，.min.css为压缩代码
-      "savePath": "~/../css" // 指定编译完的css文件路径
+      "savePath": "~/../css" // 指定编译完的css文件路径。"~" denotes relative to every sass file.
     }
     // You can add more
     // {

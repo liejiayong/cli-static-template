@@ -4,18 +4,6 @@
  * @Date: 2021-12-30 11:03:48
  */
 
-@import '../scss/_const.scss';
-@import '../scss/_mixin.scss';
-
-body {
-  margin-left: auto;
-  margin-right: auto;
-  min-width: 1200px;
-  font: #{$fs-primary-pc}/ 1.15 'Microsoft YaHei', '微软雅黑', sans-serif;
-  color: $color-primary;
-  background: $color-theme-bg;
-}
-
 /* common fontsize */
 .fs-60 {
   font-size: 60px;

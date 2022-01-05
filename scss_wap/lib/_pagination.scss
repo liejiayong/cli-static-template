@@ -11,8 +11,23 @@
 @import '../../scss/_const.scss';
 @import '../../scss/_mixin.scss';
 
+/* layui v1 */
+// <div class="pagination-container mt-60">
+//   <div class="layui-laypage">
+//     <a href="#">上一页</a>
+//     <a href="#" class="cur">1</a>
+//     <a href="#">2</a>
+//     <a href="#">...</a>
+//     <a href="#">10</a>
+//     <a href="#">下一页</a>
+
+//     <span class="layui-laypage-count">共8页</span>
+//   </div>
+// </div>
+
+/* layui v0 */
 //  <div class="pagination-container mt-60">
-//   <div class="content">
+//   <div class="layui-laypage">
 //     <a href="#">上一页</a>
 //     <a href="#" class="cur">1</a>
 //     <a href="#">2</a>
@@ -20,7 +35,7 @@
 //     <a href="#">10</a>
 //     <a href="#">下一页</a>
 //   </div>
-//   <div class="extral">
+//   <div class="layout-extral">
 //     <span>第1页</span>
 //     <span>共8页</span>
 //   </div>
@@ -35,32 +50,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.pagination-container .content {
-  font-size: 0;
-  line-height: 1;
-}
-.pagination-container .content a {
-  display: inline-block;
-  padding: 0.14rem 0.15rem;
-  margin-left: 0.06rem;
-  // color: #fff;
-  // background-color: #c7c7c7;
-  color: #fff;
-  // background-color: #0b60b7;
-  background: linear-gradient(#155054, #1d6062, #28777a);
-  font-size: 0.2rem;
-}
-.pagination-container .content a:first-of-type {
-  margin-left: 0;
-}
-.pagination-container .content a.cur {
-  // background: #0e73c7;
-  background: linear-gradient(#31d8e4, #1b8386, #45d3d8);
-}
-.pagination-container .extral {
-  // color: #636363;
-}
-.pagination-container .extral span {
-  margin-left: 0.06rem;
+  .layui-extral {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+  }
+  .layui-laypage {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    font-size: 0;
+    span,
+    a {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      vertical-align: middle;
+      padding: 0 8px;
+      height: 24px;
+      line-height: 24px;
+      margin: 0 1px;
+      border: 0;
+      // background-color: #fff;
+      // background-color: #0b60b7;
+      background: linear-gradient(#155054, #1d6062, #28777a);
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .layui-laypage-count {
+      padding: 1px;
+      height: 24px;
+      line-height: 24px;
+      margin: 0 1px;
+      border: 0;
+      background: transparent;
+    }
+    .layui-laypage-curr {
+      // background: #0e73c7;
+      background: linear-gradient(#31d8e4, #1b8386, #45d3d8);
+    }
+    .layui-laypage-prev {
+    }
+    .layui-laypage-next {
+    }
+    .layui-disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      filter: grayscale(1);
+    }
+  }
 }

@@ -6,7 +6,11 @@
 @import '../scss/_const.scss';
 @import '../scss/_mixin.scss';
 
-html,
+html {
+  // height: 100%; /* use in Low-end phone*/
+  // overflow: hidden;
+}
+
 body {
   // height: 100%; /* use in Low-end phone*/
   // overflow: hidden;

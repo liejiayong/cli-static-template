@@ -49,6 +49,7 @@
   }
 }
 
+// select input align center
 @mixin input-align($just) {
   text-align: $just;
   text-align-last: $just;

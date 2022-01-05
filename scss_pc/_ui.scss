@@ -6,6 +6,15 @@
 @import '../scss/_const.scss';
 @import '../scss/_mixin.scss';
 
+body {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 1200px;
+  font: #{$fs-primary-pc}/ 1.15 'Microsoft YaHei', '微软雅黑', sans-serif;
+  color: $color-primary;
+  background: $color-theme-bg;
+}
+
 .jy-wrapper {
   position: relative;
   width: 100%;

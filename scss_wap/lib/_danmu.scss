@@ -11,8 +11,23 @@
 @import '../../scss/_const.scss';
 @import '../../scss/_mixin.scss';
 
+// <!-- 弹幕 -->
+// <div class="danmu_container">
+//   <div id="danmuStage" class="danmu_stage"></div>
+// </div>
+// <div class="danmu_input mauto mt-20">
+//   <div class="i-inp-dm">
+//     <!-- <input placeholder="请选择您好发送的祝福......." type="text" id="danmuInp"> -->
+//     <select name="" id="danmuInp">
+//       <option value="请选择您好发送的祝福.......">请选择您好发送的祝福.......</option>
+//       <option value="恭喜发财">恭喜发财</option>
+//     </select>
+//   </div>
+//   <a href="javascript:;" class="jy-btn danmu_submit ml-10">发送</a>
+// </div>
+
 $panel-width: 7.1rem;
-$panel-height: 4.1rem;
+$panel-height: 3rem;
 $panel-gutter: 0.12rem;
 $msg-height: 0.5rem;
 $msg-gutter: 0.1rem;
@@ -20,6 +35,11 @@ $msg-fs: 0.24rem;
 $msg-color: #dab791;
 $danmu-fs: 0.3rem;
 
+.danmu_container {
+  position: relative;
+  height: $panel-height;
+  background: #f9f9f9;
+}
 .danmu_stage {
   position: absolute;
   display: flex;
@@ -49,7 +69,8 @@ $danmu-fs: 0.3rem;
   }
 }
 .danmu_input {
-  margin-top: 0.2rem;
+  display: flex;
+  align-items: center;
   width: 100%;
   line-height: $msg-height;
   input {
@@ -77,22 +98,13 @@ $danmu-fs: 0.3rem;
     @include inputcolor($msg-color);
   }
   .danmu_submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     vertical-align: top;
-    z-index: 1;
+    width: 2rem;
+    height: $msg-height;
+    text-align: center;
+    background: linear-gradient(#d84949, rgb(236, 196, 17));
   }
 }
-
-// <!-- 弹幕 -->
-// <div class="danmu_container">
-//   <div id="danmuStage" class="danmu_stage"></div>
-// </div>
-// <div class="danmu_input mauto mt-30">
-//   <div class="i-inp-dm">
-//     <!-- <input placeholder="请选择您好发送的祝福......." type="text"> -->
-//     <select name="" id="">
-//       <option value="请选择您好发送的祝福.......">请选择您好发送的祝福.......</option>
-//       <option value="1111">1111</option>
-//     </select>
-//   </div>
-//   <a href="javascript:;" class="jy-btn danmu_submit ml-20">发送</a>
-// </div>
