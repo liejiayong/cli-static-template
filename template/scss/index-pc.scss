@@ -1,0 +1,297 @@
+/**
+ * @description:  pc terminal style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+@import './lib_pc/_index.scss';
+
+/* Here is the Business Logic style */
+
+/* commom style for tanwan */
+// .cyou-top {
+//   display: none;
+// }
+#cyou_bottom {
+  // background: #000 no-repeat center top;
+  a,
+  p {
+    // color: #8e8e8e;
+  }
+  .cyou_bottom_cont p {
+    // color: #8e8e8e;
+  }
+}
+/* commom style for tanwan end */
+
+/* navbar css */
+.navbar {
+  position: absolute;
+  top: 30px;
+  right: -30px;
+  line-height: 30px;
+  z-index: 10;
+  text-align: right;
+  // color: #e7a13b;
+
+  /* use by sectionmain max-width range outside 1200px */
+  // transition: right 0.2s;
+  // @media screen and (max-width: 1700px) {
+  //   right: -210px;
+  // }
+  // @media screen and (max-width: 1600px) {
+  //   right: -110px;
+  // }
+  // @media screen and (max-width: 1500px) {
+  //   right: -80px;
+  // }
+  // @media screen and (max-width: 1400px) {
+  //   right: -30px;
+  // }
+  // @media screen and (max-width: 1300px) {
+  //   right: 5px;
+  // }
+  // @media screen and (max-width: 1200px) {
+  //   right: 10px;
+  // }
+  &--border {
+    padding: 0 10px;
+    border: 1px solid #c8ac8c;
+    border-radius: 30px;
+  }
+  .navbar-body {
+    margin-left: auto;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .nav-content {
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    width: 280px;
+    font-size: 16px;
+    li {
+      flex: 1;
+      width: 50%;
+      a {
+        position: relative;
+        display: block;
+      }
+      &:not(:last-of-type) {
+        a::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 9px;
+          bottom: 9px;
+          right: 0px;
+          border-right: 1px solid #64686d;
+          z-index: 1;
+        }
+      }
+    }
+  }
+  .user-stat {
+    position: relative;
+    white-space: nowrap;
+    text-align: right;
+    * {
+      margin: 0 5px;
+    }
+    // .btn-logout {
+    //   margin: 0 5px;
+    // }
+    // .btn-mygift {
+    //   margin: 0 5px;
+    // }
+  }
+}
+
+.c-logo {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  z-index: 10;
+  overflow: hidden;
+  /* use by sectionmain max-width range outside 1200px */
+  // transition: left 0.2s;
+  // @media screen and (max-width: 1700px) {
+  //   left: -210px;
+  // }
+  // @media screen and (max-width: 1600px) {
+  //   left: -110px;
+  // }
+  // @media screen and (max-width: 1400px) {
+  //   left: -30px;
+  // }
+  // @media screen and (max-width: 1300px) {
+  //   left: 0px;
+  // }
+  // @media screen and (max-width: 1200px) {
+  //   left: 5px;
+  // }
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.profiles {
+  // padding-top: 10px;
+  text-align: center;
+  line-height: 2;
+  span {
+    color: #ff9600;
+  }
+}
+
+.ico-btn-com {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    padding-bottom: 4px;
+    position: relative;
+    margin-left: 8px;
+    color: #ff9600;
+    // text-decoration: underline;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid #ff9600;
+      transition: all 0.2s linear;
+    }
+  }
+  &:hover {
+    span {
+      transition: all 0.2s linear;
+      // text-decoration: none;
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid #ff9600;
+        transition: all 0.3s linear;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+/* section-header */
+.section-header {
+  position: relative;
+  height: 1088px;
+  background-image: url('../img/bgh.jpg');
+  .jy-headermain {
+    position: relative;
+    padding-top: 10px;
+    height: 100%;
+    background: url('../img/bghm.jpg') no-repeat center top;
+
+    .time {
+      position: absolute;
+      top: 300px;
+      left: 300px;
+      // margin: 276px 0 0 515px;
+      // width: 523px;
+      // @include lh(50px);
+      // line-height: 50px;
+      text-align: center;
+      color: #ff0000;
+      font-size: 16px;
+      // @include bgimgc('../img/bg-time.png');
+      z-index: 1;
+      span {
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -30px;
+          display: block;
+          width: 24px;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: -30px;
+          display: block;
+          width: 24px;
+        }
+      }
+    }
+    .btn-rule {
+      display: block;
+      margin: 15px auto 0;
+    }
+  }
+}
+
+// bg1
+.section-1 {
+  position: relative;
+  height: 0px;
+  background-image: url('../img/bg1.jpg');
+  .jy-sectionmain {
+    padding-top: 0px;
+  }
+}
+
+// bg2
+.section-2 {
+  position: relative;
+  height: 0px;
+  background-image: url('../img/bg2.jpg');
+  .jy-sectionmain {
+    padding-top: 0px;
+  }
+}
+
+// bg3
+.section-3 {
+  position: relative;
+  height: 0px;
+  background-image: url('../img/bg3.jpg');
+  .jy-sectionmain {
+    padding-top: 0px;
+  }
+}
+
+// bg4
+.section-4 {
+  position: relative;
+  height: 0px;
+  background-image: url('../img/bg4.jpg');
+  .jy-sectionmain {
+    padding-top: 0px;
+  }
+}
+
+// bg5
+.section-5 {
+  position: relative;
+  height: 0px;
+  background-image: url('../img/bg5.jpg');
+  .jy-sectionmain {
+    padding-top: 0px;
+  }
+}

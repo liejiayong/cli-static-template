@@ -1,0 +1,105 @@
+/**
+ * @description:  wap 分页器 style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+/* layui v1 */
+// <div class="pagination-container mt-60">
+//   <div class="layui-laypage">
+//     <a href="#">上一页</a>
+//     <a href="#" class="cur">1</a>
+//     <a href="#">2</a>
+//     <a href="#">...</a>
+//     <a href="#">10</a>
+//     <a href="#">下一页</a>
+
+//     <span class="layui-laypage-count">共8页</span>
+//   </div>
+// </div>
+
+/* layui v0 */
+//  <div class="pagination-container mt-60">
+//   <div class="layui-laypage">
+//     <a href="#">上一页</a>
+//     <a href="#" class="cur">1</a>
+//     <a href="#">2</a>
+//     <a href="#">...</a>
+//     <a href="#">10</a>
+//     <a href="#">下一页</a>
+//   </div>
+//   <div class="layout-extral">
+//     <span>第1页</span>
+//     <span>共8页</span>
+//   </div>
+// </div>
+
+/* 分页 */
+.pagination-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .layui-extral {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+  }
+  .layui-laypage {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    font-size: 0;
+    span,
+    a {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      vertical-align: middle;
+      padding: 0 8px;
+      height: 24px;
+      line-height: 24px;
+      margin: 0 1px;
+      border: 0;
+      // background-color: #fff;
+      // background-color: #0b60b7;
+      background: linear-gradient(#155054, #1d6062, #28777a);
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .layui-laypage-count {
+      padding: 1px;
+      height: 24px;
+      line-height: 24px;
+      margin: 0 1px;
+      border: 0;
+      background: transparent;
+    }
+    .layui-laypage-curr {
+      // background: #0e73c7;
+      background: linear-gradient(#31d8e4, #1b8386, #45d3d8);
+    }
+    .layui-laypage-prev {
+    }
+    .layui-laypage-next {
+    }
+    .layui-disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      filter: grayscale(1);
+    }
+  }
+}

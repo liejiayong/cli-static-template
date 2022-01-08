@@ -1,0 +1,168 @@
+/**
+ * @description:  wap news-tab-container style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+.jy-news-tabs-content {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  // padding: 0 0.2rem;
+  // border-bottom: 0.02rem solid #e5e5e5;
+  .btn-more {
+    -webkit-box-flex: 0;
+    flex: 0 0 0.46rem;
+  }
+  .jy-news-tabs {
+    position: relative;
+    font-size: 0;
+    text-align: center;
+    .news-tab {
+      position: relative;
+      display: inline-block;
+      width: 1.7rem;
+      @include lh(0.64rem);
+      font-size: 0.28rem;
+      text-align: center;
+      color: #fff;
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: block;
+        width: 0.8rem;
+        height: 0.12rem;
+        background: url('../img/ico-menu.active.png') no-repeat top center / 0.8rem auto;
+        opacity: 0;
+      }
+      &.active {
+        font-weight: bold;
+        color: #1ac9c5;
+        &::before {
+          opacity: 1;
+          transition: opacity 0.3s linear;
+        }
+      }
+    }
+  }
+}
+
+.jy-news-tag-content {
+  margin: 0.12rem auto 0;
+  ul {
+    li {
+      padding: 0.06rem;
+      display: flex;
+      // justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.28rem;
+      color: #666;
+      .tag {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        height: 0.68rem;
+
+        &.active {
+          color: #fff;
+          background: linear-gradient(#0c3637, #103e42, #206063);
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -0.24rem;
+            left: 50%;
+            transform: translate(-50%, 0);
+            display: block;
+            width: 0;
+            height: 0;
+            font-size: 0;
+            line-height: 1;
+            overflow: hidden;
+            border-width: 0.12rem;
+            border-style: solid dashed dashed dashed;
+            border-color: #206063 transparent transparent transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+// news-list-item
+.news-list-item {
+  position: relative;
+  margin: 0 auto;
+  max-width: 6.9rem;
+}
+.news-list-item--link {
+  margin-top: 0.2rem;
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 0.4rem;
+  width: 100%;
+  height: 0.64rem;
+  // line-height: 0.55rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  // font-size: 0.2rem;
+  color: #fff;
+  border-bottom: 0.02rem dashed #6a7779;
+  // &:not(:last-of-type) {
+  //   border-bottom: 0.015rem dashed #e1ded2;
+  // }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    display: block;
+    width: 0.22rem;
+    height: 0.22rem;
+    background: url('../img/ico-rect.png') no-repeat top center / 0.22rem auto;
+  }
+  .sign {
+    // color: #a4579d;
+    // font-size: 0.22rem;
+  }
+  .content {
+    // color: #555;
+    -webkit-box-flex: 1;
+    flex: 1;
+    // margin-left: 0.1rem;
+  }
+  .time {
+    margin-left: 0.2rem;
+    // color: #c7c7c7;
+  }
+  &:hover {
+    .sign {
+      color: #b6a676;
+    }
+    .content {
+      color: #b6a676;
+    }
+  }
+}

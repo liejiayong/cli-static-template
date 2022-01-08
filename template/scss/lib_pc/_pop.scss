@@ -1,0 +1,816 @@
+/**
+ * @description:  wap pop style
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2021-12-11 17:06:29
+ * @FilePath: 
+ * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+ */
+
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+/* jy-pop */
+// bg
+$width-pop: 560px;
+$fs-body: 16px;
+$color-bg: #831c15 linear-gradient(0, #831c15, #61060d);
+$color-border: #600700;
+$color-txt: #fff8cc;
+
+// btn-ok
+$color-btn-txt: #ffde9e;
+$color-btn-bg: #ab231f linear-gradient(0deg, #ab231f, #ab120e, #9d0f0b);
+
+// input
+$input-width: 350px;
+$input-width-label: 90px;
+$input-height: 35px;
+$input-color-bg: rgba(0, 0, 0, 0.4);
+$input-color-bg-deep: rgba(0, 0, 0, 0.6);
+$input-color-txt: #fff8cc;
+$input-color-label: #fff8cc;
+$input-fs-txt: 14px;
+$input-fs-label: 16px;
+$width_btn_input_auth: 100px;
+$btn_input_auth-color-default: #adadad;
+$btn_input_auth-color-active: #07c160;
+$input-seek-border: rgb(34, 34, 34);
+
+// table
+$table-color-border: transparent;
+$table-color-txt: inherit;
+$table-height-overflow: 200px;
+
+.jy-pop {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+  // 激活
+  &.active {
+    display: block;
+  }
+  @-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @keyframes zoom {
+    from {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  // 关闭
+  &_close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 28px;
+    height: 28px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAABM0lEQVRIibXWS0oEMRCA4d8ecSUexXOIg65E29mK4Mq9MILXEJcOCraPEcGLeA4vICNKQRpCyKOqJ127JE2+FJWu7o2/+d4lcAZcAZ+MEy1wC7w1wAWwKwPgYATuFFgAO8BUwGvgF9gCniujgt0DE+AHOBfwBZiNgIaYjJeNW3xyE7XQGPYqC433UFcJTWIhWAPNYjFwHbSIpcAhqArLgRZUjZVADWrCJDYLYI9KPHroEbBtxbRgCp1YMQsYQ3FY6/qwKko11BxwZdnAAoYXZFBz0IIh1rq5lRXV1DCG+TV7CG7vR26zUoYlrHOfNj/Tw6FgCUuhXQ5NgVrMjMZAK2ZCQ3AopkZ9cF1MhfZgLayICnhSGcuh+/Liyx9xbcxHJfrmcCMZvgPfLtOamI8eA1/A3T+1rJJSqo6dygAAAABJRU5ErkJggg==')
+      no-repeat center / 28px 28px;
+    text-indent: -9999px;
+    overflow: hidden;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+    z-index: 100;
+    &:hover {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+  // 蒙版
+  &_mask {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    &__clickable {
+      cursor: pointer;
+    }
+  }
+  // 确认按钮
+  &_ok {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 1em;
+    width: 120px;
+    // margin-top: 18px;
+    border-radius: 6px;
+    // border: 1px solid #eec468;
+    text-align: center;
+    background: $color-btn-bg;
+    color: $color-btn-txt;
+    font-size: 16px;
+    box-sizing: border-box;
+    &:hover {
+      -webkit-filter: brightness(1.1);
+      filter: brightness(1.1);
+    }
+  }
+  &_link {
+    // padding: 4px 12px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  // 主体：主要设置背景
+  &_main {
+    margin: 100px 0px 0px (-$width-pop/2);
+    position: fixed;
+    left: 50%;
+    top: 0;
+    z-index: 20;
+    width: $width-pop;
+    background: $color-bg;
+    color: $color-txt;
+    font-size: $fs-body;
+    border: 2px solid $color-border;
+    -webkit-animation: zoom 0.6s ease;
+    animation: zoom 0.6s ease;
+    border-radius: 12px;
+  }
+  // 主体标题
+  &_head {
+    padding-top: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    &-pad {
+      position: relative;
+      display: inline-block;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -6px;
+        transform: translate(-100%, -50%);
+        width: 116px;
+        height: 23px;
+        background: url('../img/pc_ico_sp.png') no-repeat -660px -875px;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -6px;
+        transform: translate(100%, -50%);
+        width: 116px;
+        height: 23px;
+        background: url('../img/pc_ico_sp.png') no-repeat -836px -875px;
+      }
+    }
+  }
+  // 内容体
+  &_body {
+    padding: 30px 40px 40px;
+    // text-align: center;
+    // 内容体标题
+    &__tit {
+      font-size: 28px;
+      font-weight: bold;
+      color: inherit;
+    }
+    // 兑换码：单行
+    &__code {
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      width: 300px;
+      @include lh(36px);
+      text-align: center;
+      white-space: nowrap;
+      overflow-x: hidden;
+      overflow-y: auto;
+      // background: #f5dfc3;
+      color: inherit;
+    }
+    // 兑换码：与标题并列
+    &__codetie {
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      width: 500px;
+      @include lh($input-height);
+      text-align: center;
+      white-space: nowrap;
+      overflow-x: hidden;
+      overflow-y: auto;
+      // background: #f5dfc3;
+      color: inherit;
+      &-label {
+        padding: 0 10px;
+        width: 100px;
+        text-decoration: underline;
+        font-size: 22px;
+        color: #fff000;
+        cursor: pointer;
+      }
+      &-body {
+        display: block;
+        padding: 0 1em;
+        text-align: center;
+        width: 358px;
+        height: $input-height;
+        font-size: 20px;
+        color: inherit;
+        background: transparent;
+        user-select: all;
+      }
+    }
+  }
+  // input
+  &_inp {
+    position: relative;
+    color: $input-color-label;
+    zoom: 1;
+    &::after {
+      content: '\0020';
+      clear: both;
+      display: block;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+      font-size: 0;
+    }
+    &__cell {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: $input-width;
+      @include lh($input-height);
+      font-size: $input-fs-label;
+      overflow: hidden;
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+    }
+    &__cell-auto {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: $input-width;
+      @include lh($input-height);
+      font-size: $input-fs-label;
+      overflow: inherit;
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+    }
+    &__label {
+      float: left;
+      width: $input-width-label;
+      vertical-align: middle;
+      box-sizing: border-box;
+      text-align: right;
+      padding-right: 10px;
+    }
+    &__body {
+      float: left;
+      padding: 0 1em;
+      border: 0;
+      outline: 0;
+      width: ($input-width - $input-width-label);
+      @include lh(inherit);
+      font-size: $input-fs-txt;
+      @include inputcolor($input-color-txt);
+      background-color: $input-color-bg;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+    }
+
+    &__bodyauth {
+      float: left;
+      padding: 0 1em;
+      border: 0;
+      outline: 0;
+      width: ($input-width - $input-width-label - $width_btn_input_auth);
+      @include lh(inherit);
+      @include inputcolor($input-color-txt);
+      font-size: $input-fs-txt;
+      background-color: $input-color-bg;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+    }
+    &__btnauth {
+      display: block;
+      float: left;
+      padding: 0 10px;
+      outline: 0;
+      border: 0;
+      width: $width_btn_input_auth;
+      background-color: $input-color-bg;
+      color: $btn_input_auth-color-active;
+      // border: 1px solid #8088b0;
+      @include lh(inherit);
+      text-align: center;
+      font-size: 14px;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      &.disable {
+        cursor: no-drop;
+        color: $btn_input_auth-color-default;
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+      }
+    }
+  }
+  // select
+  &_select {
+    float: left;
+    width: ($input-width - $input-width-label);
+    @include lh($input-height);
+    background: $input-color-bg
+      url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC')
+      no-repeat center right 10px;
+    color: $input-color-txt;
+    // border: 1px solid #000;
+    font-size: inherit;
+    vertical-align: middle;
+    padding-left: 1em;
+    border: 0;
+    outline: 0;
+    option {
+      background: #fff;
+      color: #333;
+    }
+  }
+  &_select_seek {
+    float: left;
+    position: relative;
+    border: 0;
+    outline: 0;
+    width: ($input-width - $input-width-label);
+    @include lh(inherit);
+    font-size: $input-fs-txt;
+    color: $input-color-txt;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &-label {
+      padding: 0 1em;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      background: $input-color-bg
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC')
+        no-repeat center right 10px;
+      cursor: pointer;
+    }
+    &-content {
+      display: none;
+      position: absolute;
+      top: $input-height;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      z-index: 200;
+    }
+    &-inp {
+      position: relative;
+      width: 100%;
+      height: $input-height;
+      input {
+        padding: 0 1em;
+        width: ($input-width - $input-width-label - $width_btn_input_auth);
+        height: $input-height;
+        background-color: $input-color-bg;
+        @include inputcolor($input-color-txt);
+        box-sizing: border-box;
+      }
+      &--btn {
+        width: $width_btn_input_auth;
+        text-align: center;
+        cursor: pointer;
+        background-color: $input-color-bg;
+        color: $btn_input_auth-color-default;
+      }
+    }
+    &-valbox {
+      position: relative;
+      width: 100%;
+      border-top: 1px solid $input-seek-border;
+    }
+    &-val {
+      position: relative;
+      padding: 0 1em;
+      @include lh($input-height);
+      border-top: 1px solid $input-seek-border;
+      cursor: pointer;
+    }
+  }
+  // 滚动块
+  &__scrollbar {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: $table-height-overflow;
+    &::-webkit-scrollbar {
+      width: 4px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #4f2d25;
+      border-radius: 4px;
+    }
+  }
+  // 表格
+  &__table {
+    position: relative;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    // border-bottom: 1px solid $table-color-border;
+    // border-right: 1px solid $table-color-border;
+    thead {
+      // border-top: 1px solid $table-color-border;
+      // border-bottom: 1px solid $table-color-border;
+    }
+    tbody {
+      tr {
+        // &:not(:last-of-type) {
+        //   border-bottom: 1px dashed $table-color-border;
+        // }
+        // &:first-child td {
+        // border-top: none;
+        // }
+      }
+    }
+    tr {
+      // &:first-child td {
+      // border-top: none;
+      // }
+    }
+    td {
+      // border-top: 1px solid $table-color-border;
+      // border-left: 1px solid $table-color-border;
+      // font-size: 14px;
+      padding: 0 1em;
+      color: $table-color-txt;
+      line-height: 30px;
+      // text-align: left;
+      // text-indent: 15px;
+      // &:first-child {
+      //   text-align: left;
+      // }
+    }
+  }
+  &__grid {
+    position: relative;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 18px;
+    color: #d79c68;
+    &__head {
+      margin-bottom: 10px;
+    }
+    &__body {
+      // margin-top: 14px;
+    }
+    &__tr {
+      display: flex;
+      align-items: center;
+      line-height: 50px;
+      background: rgba(0, 0, 0, 0.1);
+      &:not(:first-of-type) {
+        margin-top: 10px;
+      }
+    }
+    &__td {
+      flex: 1;
+      padding: 0 14px;
+      &:nth-of-type(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 150px;
+        width: 150px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+//  <!-- 弹窗 -->
+//   <!-- tip -->
+//   <div class="jy-pop " id="J_tipPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main ">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">提示</div>
+//       <div class="jy-pop_body">
+//         <div class="lh-20 tc" id="popTipNorm">
+//           <p>兑换xxx成功</p>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 奖品查询 -->
+//   <div class="jy-pop " id="J_recordPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">礼包领取记录</div>
+//       <div class="jy-pop_body">
+//         <div class="jy-pop__scrollbar mt-10">
+//           <table class="jy-pop__table tc lh15">
+//             <thead>
+//               <tr>
+//                 <td>奖品名称</td>
+//                 <td>奖品内容</td>
+//                 <td>获奖时间</td>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// <!-- 我的奖励 -->
+// <div class="jy-pop " id="J_mygiftcPop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main">
+//     <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//     <div class="jy-pop_head">我的礼包</div>
+//     <div class="jy-pop_body">
+//       <div class="jy-pop__grid">
+//         <div class="jy-pop__grid__head">
+//           <div class="jy-pop__grid__tr">
+//             <div class="jy-pop__grid__td">11</div>
+//             <div class="jy-pop__grid__td">22</div>
+//           </div>
+//         </div>
+//         <div class="jy-pop__scrollbar">
+//           <div class="jy-pop__grid__body">
+//             <div class="jy-pop__grid__tr">
+//               <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+//               <div class="jy-pop__grid__td"><a href="javascript:;" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a></div>
+//             </div>
+//             <div class="jy-pop__grid__tr">
+//               <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+//               <div class="jy-pop__grid__td"><a href="javascript:;" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a></div>
+//             </div>
+//             <div class="jy-pop__grid__tr">
+//               <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+//               <div class="jy-pop__grid__td"><a href="javascript:;" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a></div>
+//             </div>
+//             <div class="jy-pop__grid__tr">
+//               <div class="jy-pop__grid__td">QER4 S6BH 6WHH F5W3</div>
+//               <div class="jy-pop__grid__td"><a href="javascript:;" class="jy-btn ico-btn-pop-copy btn-pop-copy">一键复制</a></div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       <a href="javascript:;" class="jy-btn jy-pop_ok mt-30">确认</a>
+//     </div>
+//   </div>
+// </div>
+//   <!-- 我的奖励 -->
+//   <div class="jy-pop " id="J_mygiftPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">我的奖励</div>
+//       <div class="jy-pop_body">
+//         <div class="jy-pop__scrollbar">
+//           <table class="jy-pop__table lh15">
+//             <tbody>
+
+//               <tr>
+//                 <td>神秘代言人游戏礼包*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_link btn-pop-code">查看</a></td>
+//               </tr>
+//               <tr>
+//                 <td>终极竞猜礼包1*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_link  btn-pop-get">待领取</a></td>
+//               </tr>
+//               <tr>
+//                 <td>抱枕被*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_link  btn-pop-address">填写地址</a></td>
+//               </tr>
+//               <tr>
+//                 <td>神秘代言人游戏礼包*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_link btn-pop-code">查看</a></td>
+//               </tr>
+//               <tr>
+//                 <td>终极竞猜礼包1*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_link  btn-pop-get">待领取</a></td>
+//               </tr>
+//               <tr>
+//                 <td>抱枕被*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_link  btn-pop-address">填写地址</a></td>
+//               </tr>
+
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 兑换成功 -->
+//   <div class="jy-pop " id="J_codePop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main ">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">激活码</div>
+//       <div class="jy-pop_body">
+//         <input class="jy-pop_body__codetie-body btnpopcoptxt mauto" value="sdfasxpswwwww111112sadsa"></input>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok btnpopcop mt-30">一键复制</a>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 手机验证 -->
+//   <div class="jy-pop " id="J_authTelPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">预约首服</div>
+//       <div class="jy-pop_body">
+//         <ul class="jy-pop_inp">
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">手机号码</div>
+//             <input placeholder="请输入手机号码" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
+//             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
+//             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
+//             <a href="javascript:;" class="jy-btn-txt jy-pop_inp__btnauth disable">获取验证码</a>
+//           </li>
+//         </ul>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认提交</a>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 收获地址 -->
+//   <div class="jy-pop " id="J_addressPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">收货地址</div>
+//       <div class="jy-pop_body">
+//         <ul class="jy-pop_inp">
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">区服类型</div>
+//             <select class="jy-pop_select">
+//               <option value="">--请选择区服类型--</option>
+//             </select>
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">用户名称</div>
+//             <input placeholder="请输入用户名称" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">联系手机</div>
+//             <input placeholder="请输入联系手机" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">收货地址</div>
+//             <input placeholder="请输入收货地址" type="tel" class="jy-pop_inp__body">
+//           </li>
+//         </ul>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认提交</a>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 登记信息 -->
+//   <div class="jy-pop " id="J_regPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">信息登记</div>
+//       <div class="jy-pop_body">
+//         <ul class="jy-pop_inp">
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">游戏</div>
+//             <select class="jy-pop_select">
+//               <option value="">--请选择游戏--</option>
+//             </select>
+//           </li>
+//           <li class="jy-pop_inp__cell jy-pop_inp__cell-auto">
+//             <div class="jy-pop_inp__label">区服类型</div>
+//             <div class="jy-pop_select_seek tl">
+//               <div class="jy-pop_select_seek-label">--请选择区服--</div>
+//               <div class="jy-pop_select_seek-content">
+//                 <div class="jy-pop_select_seek-inp clearfix">
+//                   <input placeholder="请输入区服" type="text" class="float_l">
+//                   <a href="javascript:;" class="jy-btn-txt jy-pop_select_seek-inp--btn float_l">搜索</a>
+//                 </div>
+//                 <div class="jy-pop__scrollbar jy-pop_select_seek-valbox">
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                 </div>
+//               </div>
+//             </div>
+//           </li>
+
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">用户ID</div>
+//             <input placeholder="请输入用户ID" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">&nbsp;&nbsp;</div>
+//             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
+//             <a href="javascript:;" class="jy-btn-txt jy-pop_inp__btnauth disable">获取角色</a>
+//           </li>
+//         </ul>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认提交</a>
+//       </div>
+//     </div>
+//   </div>
+//   <!-- 弹窗end -->

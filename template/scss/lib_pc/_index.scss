@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import '../_const.scss';
+@import '../_mixin.scss';
+@import '../_reset.scss';
+@import '../_font.scss';
+@import '../_sprite.scss';
+@import '../__util.scss';
+
+@import '../_animate_custom.scss';
+// @import '../_lib_animate.scss';
+// @import "../_lib_swiper.scss";
+// @import '../_share_bd.scss';
+
+// @import "../lib_pc/_counttime.scss";
+// @import "../lib_pc/_list.scss";
+// @import "../lib_pc/_rank.scss";
+// @import "../lib_pc/_news_sections.scss";
+// @import "../lib_pc/_pagination.scss";
+// @import "../lib_pc/_dot.scss";
+@import './_pop.scss';
+@import './_ui.scss';
