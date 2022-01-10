@@ -5,7 +5,7 @@
 // 		click: function () {
 // 			var count = 1;
 // 			// $.post('/act.php',{},function(){
-// 			$('.lottery-p').rotate({
+// 			$('.lottery-cell').rotate({
 // 				angle: 0,
 // 				animateTo: 360 * 8 + (count - 1) * DEG,
 // 				duration: 3500,

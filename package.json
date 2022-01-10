@@ -6,7 +6,9 @@
   "scripts": {
     "wap": "gulp wap",
     "pc": "gulp pc",
-    "font": "font-spider /template/font/index.html"
+    "sp2pc": "gulp sprite2pc",
+    "sp2wap": "gulp sprite2wap",
+    "font": "font-spider template/fontspide/index.html"
   },
   "keywords": [],
   "author": "JyLie 809206619@qq.com",
@@ -18,15 +20,16 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
-    "gulp-font-spider": "^0.3.6",
     "gulp-if": "^3.0.0",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "5.1.0",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp.spritesmith": "^6.12.1",
     "node-sass": "^6.0.1",
     "postcss-pxtorem": "^6.0.0",
     "postcss-scss": "^4.0.2",
-    "sass": "^1.45.2"
+    "sass": "^1.45.2",
+    "through2": "^4.0.2"
   }
 }

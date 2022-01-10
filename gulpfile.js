@@ -6,6 +6,7 @@
 const { series } = require('gulp');
 const { cpFiles, concatFiles } = require('./script/gen');
 const { compressFont } = require('./script/font');
+const { sprite2pc, sprite2wap } = require('./script/sprite');
 const del = require('del');
 
 // 设置环境变量
@@ -117,14 +118,67 @@ async function genJS() {
   });
 }
 
-// bug:暂时无法使用，编译阶段不断出现乱码
-async function genFont() {
-  await compressFont('./template/font/index.html');
-}
-exports.font = series(genFont);
-
+/* 生成wap端模板 */
 exports.wap = series(exceBefore, setEnvWap, genScss, genScssUtil, genHTML, genMedia, genJS, exceAfter);
-
+/* 生成pc端模板 */
 exports.pc = series(exceBefore, setEnvPc, genScss, genScssUtil, genHTML, genMedia, genJS, exceAfter);
 
-// exports.default = series();
+async function concatSpriteFile(cb) {
+  // scss
+  concatFiles({
+    files: ['spritesmith/.dist/**.scss'],
+    toName: '_sprite.scss',
+    toPath: './src/scss/',
+    isAutoprefixer: true,
+  });
+  // img
+  await cpFiles({
+    inputPath: 'spritesmith/.dist/**.png',
+    outputPath: './src/img/',
+    renameOpts: { prefix: '' },
+    isAutoprefixer: false,
+    isPxtorem: false,
+    isSass: false,
+  });
+  cb();
+}
+/* 生成pc端雪碧图 */
+exports.sprite2pc = series(
+  function (cb) {
+    del('spritesmith/.dist*');
+    cb();
+  },
+  sprite2pc({
+    spriteImgGutter: 60,
+    outputPath: 'spritesmith/.dist/',
+    imgMatchExt: '{jpg,jpeg,png}',
+    imgMatchIgnore: '{sp/}',
+    imgRootPath: 'spritesmith/',
+    imgOutputName: 'sprite.js',
+    cssExt: 'scss',
+  }),
+  concatSpriteFile
+);
+/* 生成wap端雪碧图 */
+exports.sprite2wap = series(
+  function (cb) {
+    del('spritesmith/.dist*');
+    cb();
+  },
+  sprite2wap({
+    spriteImgGutter: 60,
+    outputPath: 'spritesmith/.dist/',
+    imgMatchExt: '{jpg,jpeg,png}',
+    imgMatchIgnore: '{sp/}',
+    imgRootPath: 'spritesmith/',
+    imgOutputName: 'sprite.js',
+    cssExt: 'scss',
+  }),
+  concatSpriteFile
+);
+
+// bug:暂时无法使用，编译阶段不断出现乱码
+exports.font = series(function genFont(cb) {
+  compressFont('template/font/index.html');
+  cb();
+});
