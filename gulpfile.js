@@ -5,6 +5,7 @@
 
 const { series } = require('gulp');
 const { cpFiles, concatFiles } = require('./script/gen');
+const { compressFont } = require('./script/font');
 const del = require('del');
 
 // 设置环境变量
@@ -116,8 +117,14 @@ async function genJS() {
   });
 }
 
+// bug:暂时无法使用，编译阶段不断出现乱码
+async function genFont() {
+  await compressFont('./template/font/index.html');
+}
+exports.font = series(genFont);
+
 exports.wap = series(exceBefore, setEnvWap, genScss, genScssUtil, genHTML, genMedia, genJS, exceAfter);
 
 exports.pc = series(exceBefore, setEnvPc, genScss, genScssUtil, genHTML, genMedia, genJS, exceAfter);
 
-// exports.default = series(genScss, genHTML);
+// exports.default = series();
