@@ -188,7 +188,6 @@ const getImg2CssPC = (data = {}, imgPath = '../img/', isSprite = false) => {
         width:${widthSGL};
         height:${heightSGL};
         background: url("${imgPath}${imgName}") no-repeat top center / contain;
-        background-size: contain;
       }\n`;
     }
 
@@ -212,7 +211,6 @@ var isUnixHiddenPath = function (path) {
   return /(^|\/)\.[^\/\.]/g.test(path);
 };
 
-var through = through2.obj;
 /**
  * 获取目录下所有图片的路径
  * @param {string} currentDirPath 图片root path
@@ -264,6 +262,7 @@ const getFileName = function ({ currentDirPath, outputPath, extMatch, ignorePath
 
   // test
   // // return allPath;
+  // var through = through2.obj;
   // var retStream = through2.obj(onData, onEnd);
   // retStream.js = fileStream;
   // const Stream = require("stream");
