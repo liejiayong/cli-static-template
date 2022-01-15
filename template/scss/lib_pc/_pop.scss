@@ -164,26 +164,26 @@ $table-height-overflow: 200px;
     &-pad {
       position: relative;
       display: inline-block;
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: -6px;
-        transform: translate(-100%, -50%);
-        width: 116px;
-        height: 23px;
-        background: url('../img/pc_ico_sp.png') no-repeat -660px -875px;
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: -6px;
-        transform: translate(100%, -50%);
-        width: 116px;
-        height: 23px;
-        background: url('../img/pc_ico_sp.png') no-repeat -836px -875px;
-      }
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   top: 50%;
+      //   left: -6px;
+      //   transform: translate(-100%, -50%);
+      //   width: 116px;
+      //   height: 23px;
+      //   background: url('../img/pc_ico_sp.png') no-repeat -660px -875px;
+      // }
+      // &::after {
+      //   content: '';
+      //   position: absolute;
+      //   top: 50%;
+      //   right: -6px;
+      //   transform: translate(100%, -50%);
+      //   width: 116px;
+      //   height: 23px;
+      //   background: url('../img/pc_ico_sp.png') no-repeat -836px -875px;
+      // }
     }
   }
   // 内容体

@@ -626,10 +626,18 @@ $input-select-cell-radius: 0.12rem;
     font-size: 17px;
     border-bottom: 0.02rem solid #e5e5e5;
     box-shadow: 0 0 0.15rem #ccc;
+    input {
+      margin: 0 0.1rem;
+      @include input-align(center);
+      @include inputcolor(#ccc);
+      flex: 1;
+      font-size: 14px;
+    }
   }
   &_picker_btn {
     display: block;
     cursor: pointer;
+    white-space: nowrap;
     &--cancel {
       color: #a9a9a9;
       padding-right: 0.5rem;
@@ -1069,6 +1077,7 @@ $input-select-cell-radius: 0.12rem;
 //   <div class="jy-pop_picker_main">
 //     <div class="jy-pop_picker_hd">
 //       <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--cancel">取消</a>
+// <input placeholder="请输入关键字"/>
 //       <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--confirm">确定</a>
 //     </div>
 //     <div class="jy-pop_picker__body">

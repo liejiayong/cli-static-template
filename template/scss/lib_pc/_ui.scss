@@ -26,7 +26,6 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: $main-width-pc;
   background: no-repeat top center;
   box-sizing: border-box;
   /* overflow: hidden; */
@@ -35,7 +34,7 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 1200px;
+  width: $main-width-pc;
   height: 100%;
   zoom: 1;
   background: no-repeat top center;
@@ -45,7 +44,7 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 1200px;
+  width: $main-width-pc;
   height: 100%;
   zoom: 1;
   background: no-repeat top center;
@@ -55,7 +54,7 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: $main-widthx-pc;
   height: 100%;
   zoom: 1;
   background: no-repeat top center;

@@ -12,61 +12,61 @@
 /* Here is the Business Logic style */
 
 // /* logo */
-// .logo {
-//   position: fixed;
-//   top: 0.22rem;
-//   left: 0.22rem;
-//   z-index: 10;
+.logo {
+  position: fixed;
+  top: 0.22rem;
+  left: 0.22rem;
+  z-index: 10;
 
-//   $width: 1.88rem;
-//   width: $width;
-//   height: 0.86rem;
-//   @include bgimg($width, '../img/logo.png');
-// }
+  $width: 1.88rem;
+  width: $width;
+  height: 0.86rem;
+  @include bgimg($width, '../img/logo.png');
+}
 
-// /* auth status */
-// .jy-auth {
-//   position: fixed;
-//   // position: absolute;
-//   top: 0.3rem;
-//   right: 0.3rem;
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   text-align: right;
-//   text-align: right;
-//   font-size: 0.24rem;
-//   white-space: nowrap;
-//   color: #333;
-//   z-index: 10;
-//   .btn-login {
-//     display: inline-block;
-//     vertical-align: middle;
-//   }
-//   .btn-logout {
-//     padding: 0 0.1rem;
-//     display: inline-block;
-//     vertical-align: middle;
-//     color: #ff0000;
-//   }
-//   .nickname {
-//     padding: 0 0.1rem;
-//     display: inline-block;
-//     max-width: 3rem;
-//     overflow: hidden;
-//     text-align: right;
-//     vertical-align: middle;
-//     text-overflow: ellipsis;
-//   }
-//   i {
-//     // padding: 0 0.04rem;
-//     display: none;
-//     // display: inline-block;
-//     // overflow: hidden;
-//     // font-style: normal;
-//     // color: #fff;
-//   }
-// }
+/* auth status */
+.jy-auth {
+  position: fixed;
+  // position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  text-align: right;
+  font-size: 0.24rem;
+  white-space: nowrap;
+  color: #333;
+  z-index: 10;
+  .btn-login {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .btn-logout {
+    padding: 0 0.1rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: #ff0000;
+  }
+  .nickname {
+    padding: 0 0.1rem;
+    display: inline-block;
+    max-width: 3rem;
+    overflow: hidden;
+    text-align: right;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+  }
+  i {
+    // padding: 0 0.04rem;
+    display: none;
+    // display: inline-block;
+    // overflow: hidden;
+    // font-style: normal;
+    // color: #fff;
+  }
+}
 
 /* button style */
 // .ico-btn-com {

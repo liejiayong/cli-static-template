@@ -1,1 +1,0 @@
-[".dist/wap_css.scss",".dist/wap_css_sp.scss",".dist/wap_ico.png","bg1.jpg","bg2.jpg","bgh.jpg","bghm.jpg","ico-lottery-panel.active.png","ico-lottery-panel.png","ico-navbar.png","ico-plate.png","ico-qr.png","ico-role.png","logo.png","p1.png","p2.png"]

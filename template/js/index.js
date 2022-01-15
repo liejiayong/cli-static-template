@@ -4,8 +4,8 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-12-11 17:06:29
- * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2022-01-14 11:01:12
+ * @FilePath: \business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 /* prettier-ignore */ (function(){if(typeof window==='undefined'){return}var eventTarget;var supportTouch='ontouchstart'in window;if(!document.createTouch){document.createTouch=function(view,target,identifier,pageX,pageY,screenX,screenY){return new Touch(target,identifier,{pageX:pageX,pageY:pageY,screenX:screenX,screenY:screenY,clientX:pageX-window.pageXOffset,clientY:pageY-window.pageYOffset,},0,0)}}if(!document.createTouchList){document.createTouchList=function(){var touchList=TouchList();for(var i=0;i<arguments.length;i++){touchList[i]=arguments[i]}touchList.length=arguments.length;return touchList}}if(!Element.prototype.matches){Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector}if(!Element.prototype.closest){Element.prototype.closest=function(s){var el=this;do{if(el.matches(s))return el;el=el.parentElement||el.parentNode}while(el!==null&&el.nodeType===1);return null}}var Touch=function Touch(target,identifier,pos,deltaX,deltaY){deltaX=deltaX||0;deltaY=deltaY||0;this.identifier=identifier;this.target=target;this.clientX=pos.clientX+deltaX;this.clientY=pos.clientY+deltaY;this.screenX=pos.screenX+deltaX;this.screenY=pos.screenY+deltaY;this.pageX=pos.pageX+deltaX;this.pageY=pos.pageY+deltaY};function TouchList(){var touchList=[];touchList['item']=function(index){return this[index]||null};touchList['identifiedTouch']=function(id){return this[id+1]||null};return touchList}var initiated=false;function onMouse(touchType){return function(ev){if(ev.type==='mousedown'){initiated=true}if(ev.type==='mouseup'){initiated=false}if(ev.type==='mousemove'&&!initiated){return}if(ev.type==='mousedown'||!eventTarget||(eventTarget&&!eventTarget.dispatchEvent)){eventTarget=ev.target}if(eventTarget.closest('[data-no-touch-simulate]')==null){triggerTouch(touchType,ev)}if(ev.type==='mouseup'){eventTarget=null}}}function triggerTouch(eventName,mouseEv){var touchEvent=document.createEvent('Event');touchEvent.initEvent(eventName,true,true);touchEvent.altKey=mouseEv.altKey;touchEvent.ctrlKey=mouseEv.ctrlKey;touchEvent.metaKey=mouseEv.metaKey;touchEvent.shiftKey=mouseEv.shiftKey;touchEvent.touches=getActiveTouches(mouseEv);touchEvent.targetTouches=getActiveTouches(mouseEv);touchEvent.changedTouches=createTouchList(mouseEv);eventTarget.dispatchEvent(touchEvent)}function createTouchList(mouseEv){var touchList=TouchList();touchList.push(new Touch(eventTarget,1,mouseEv,0,0));return touchList}function getActiveTouches(mouseEv){if(mouseEv.type==='mouseup'){return TouchList()}return createTouchList(mouseEv)}function TouchEmulator(){window.addEventListener('mousedown',onMouse('touchstart'),true);window.addEventListener('mousemove',onMouse('touchmove'),true);window.addEventListener('mouseup',onMouse('touchend'),true)}TouchEmulator['multiTouchOffset']=75;if(!supportTouch){new TouchEmulator()}})();
@@ -73,7 +73,7 @@ var jtool = {
       $tip.text('复制成功').fadeIn(500).fadeOut(1000);
     });
     clipboard.on('error', function () {
-      $tip.text('您的手机不支持点击复制，请长按复制！').fadeIn(500).fadeOut(1000);
+      $tip.text('您的浏览器不支持点击复制，请长按复制！').fadeIn(500).fadeOut(1000);
     });
   },
   /**
@@ -268,6 +268,7 @@ var jtool = {
         '<div class="jy-pop_picker_main">' +
         ' <div class="jy-pop_picker_hd">' +
         '<a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--cancel">取消</a>' +
+        '<input placeholder="请输入关键字"/>' +
         '<a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--confirm">确定</a>' +
         '</div>' +
         '<div class="jy-pop_picker__body">' +
@@ -314,13 +315,33 @@ var jtool = {
       });
     },
   },
+
   /**
    * 弹窗展示
-   * @param {Element|String|number} html
+    jtool.showTip({
+      content:
+        '<div class="tl"><div>xxx领取成功</div></div>',
+      title: '温馨提示',
+      titlePad: 'span'
+      titleId: '#popTipTit',
+      contentId: '#popTipNorm',
+    });
    */
-  showTip: function (html) {
-    var $tip = $('#J_tipPop');
-    $tip.find('#popTipNorm').html(html);
+  showTip: function (opts) {
+    var content = opts.content,
+      tit = opts.title || '温馨提示',
+      titPad = opts.titlePad || 'span',
+      titId = opts.titleId || '#popTipTit',
+      contentId = opts.contentId || '#popTipNorm',
+      $tip = $('#J_tipPop');
+
+    var titPadCache = titId + ' ' + titPad;
+    if ($tip.find(titPadCache) && $tip.find(titPadCache).length) {
+      $tip.find(titPadCache).html(tit);
+    } else {
+      $tip.find(titId).html(tit);
+    }
+    $tip.find(contentId).html(content);
     $tip.fadeIn();
   },
   /**
@@ -387,77 +408,7 @@ var jtool = {
       $('#pagePreload').fadeOut();
     },
   },
-  /* 
-  touchMove 设置阻止指定原素页面默认滚动效果
 
-  // test touchMove
-  jtool.touchMove.addListener('.section-1')
-  // jtool.touchMove.addListener('.section-2')
-  setTimeout(() => {
-    jtool.touchMove.prevent('.section-1', function (e) {
-      console.log('0000000000', e)
-    })
-  }, 3000);
-  setTimeout(() => {
-    jtool.touchMove.reset('.section-1', function (e) {
-      console.log('111111111', e)
-    })
-  }, 6000);  
-    */
-  touchMove: {
-    $doms: [],
-    addListener: function (cls) {
-      var dom = document.querySelector(cls);
-      this.$doms.push({
-        cls: cls,
-        dom: dom,
-        stat: false, // 不阻止
-      });
-    },
-    has: function (cls) {
-      var ret = null;
-      this.$doms.forEach(function (dom, index) {
-        if (dom.cls == cls) {
-          ret = {
-            stat: dom.stat,
-            cls: dom.cls,
-            dom: dom.dom,
-            index: index,
-          };
-        } else {
-          ret = false;
-        }
-      });
-      return ret;
-    },
-    preventFn: function (e) {
-      e.preventDefault();
-    },
-    prevent: function (cls) {
-      var self = this,
-        clsStat = this.has(cls);
-      if (!clsStat) return;
-      if (clsStat && clsStat.stat) return;
-      self.$doms[clsStat.index].stat = true;
-      // console.log('prevent', this.has(cls), clsStat.dom, self.preventFn)
-      // clsStat.dom.addEventListener('touchmove', function (e) { self.preventFn(e, callback) }, {
-      clsStat.dom.addEventListener('touchmove', self.preventFn, {
-        passive: false,
-      });
-    },
-    reset: function (cls) {
-      var self = this,
-        clsStat = this.has(cls);
-      if (!clsStat) return;
-      if (clsStat && !clsStat.stat) return;
-      self.$doms[clsStat.index].stat = false;
-      // console.log('reset', this.has(cls), clsStat.dom, self.preventFn)
-      // clsStat.dom.removeEventListener('touchmove', function (e) { self.preventFn(e, callback) }, {
-      clsStat.dom.removeEventListener('touchmove', self.preventFn, {
-        passive: false,
-      });
-    },
-  },
   /**
    * music
    * @param {el} btnAudio
@@ -549,30 +500,16 @@ var jtool = {
 /* @warning: 本页所有内容，后端同学不需要修改，谢谢~ */
 // preinstall the code
 $(function () {
-  var queryTest = window.location.href;
-  if (queryTest.indexOf('debug=jylie') > -1) new VConsole();
-  jtool.tip.screen();
+  // var queryTest = window.location.href;
+  // if (queryTest.indexOf('debug=jylie') > -1) new VConsole();
+  // jtool.tip.screen();
   jtool.elementCopy();
-  jtool.pop.picker();
-  jtool.pop.btnAuth('.jy-pop_input_cell-auth');
+  // jtool.pop.picker();
+  // jtool.pop.btnAuth('.jy-pop_input_cell-auth');
   // jtool.swiper('#psw');
-  // jtool.menusCompat();
+
   // jtool.initMusic();
-  // 只复位到顶部
-  // $("input, textarea, select").on("blur", function () {
-  //   window.scroll(0, 0);
-  // });
-  // // 复位到特定情景的顶部
-  // (function () {
-  //   var bfscrolltop = document.body.scrollTop;
-  //   $("input, textarea, select")
-  //     .focus(function () {
-  //       bfscrolltop = document.body.scrollTop;
-  //     })
-  //     .blur(function () {
-  //       document.body.scrollTop = bfscrolltop;
-  //     });
-  // })();
+
 
   /* game logic start */
   logic.extend({

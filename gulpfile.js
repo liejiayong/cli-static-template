@@ -5,8 +5,8 @@
 
 const { series } = require('gulp');
 const { cpFiles, concatFiles } = require('./script/gen');
-const { compressFont } = require('./script/font');
-const { sprite2pc, sprite2wap } = require('./script/sprite');
+const { initPcParams, initWapParams, runSp2pc, runSp2wap } = require('./script/sprite');
+const { mkDir } = require('./script/fs');
 const del = require('del');
 
 // 设置环境变量
@@ -31,6 +31,7 @@ async function delFiles(...files) {
 }
 
 async function exceBefore(cb) {
+  await initSpriteDir();
   await delFiles('./src');
   cb();
 }
@@ -118,6 +119,12 @@ async function genJS() {
   });
 }
 
+/* 生成雪碧图目录 */
+async function initSpriteDir() {
+  await mkDir('spritesmith');
+  await mkDir('spritesmith/sp');
+}
+
 /* 生成wap端模板 */
 exports.wap = series(exceBefore, setEnvWap, genScss, genScssUtil, genHTML, genMedia, genJS, exceAfter);
 /* 生成pc端模板 */
@@ -133,6 +140,14 @@ async function concatSpriteFile(cb) {
   });
   // img
   await cpFiles({
+    inputPath: 'spritesmith/*.{png,jpeg,jpg,gif,webp}',
+    outputPath: './src/img/',
+    renameOpts: { prefix: '' },
+    isAutoprefixer: false,
+    isPxtorem: false,
+    isSass: false,
+  });
+  await cpFiles({
     inputPath: 'spritesmith/.dist/**.png',
     outputPath: './src/img/',
     renameOpts: { prefix: '' },
@@ -146,39 +161,40 @@ async function concatSpriteFile(cb) {
 exports.sprite2pc = series(
   function (cb) {
     del('spritesmith/.dist*');
+    initPcParams({
+      spriteImgGutter: 60,
+      outputPath: 'spritesmith/.dist/',
+      imgMatchExt: '{jpg,jpeg,png}',
+      imgMatchIgnore: '{sp/}',
+      imgRootPath: 'spritesmith/',
+      imgOutputName: 'sprite.js',
+      cssExt: 'scss',
+    });
     cb();
   },
-  sprite2pc({
-    spriteImgGutter: 60,
-    outputPath: 'spritesmith/.dist/',
-    imgMatchExt: '{jpg,jpeg,png}',
-    imgMatchIgnore: '{sp/}',
-    imgRootPath: 'spritesmith/',
-    imgOutputName: 'sprite.js',
-    cssExt: 'scss',
-  }),
+  runSp2pc(),
   concatSpriteFile
 );
 /* 生成wap端雪碧图 */
 exports.sprite2wap = series(
   function (cb) {
     del('spritesmith/.dist*');
+    initWapParams({
+      spriteImgGutter: 60,
+      outputPath: 'spritesmith/.dist/',
+      imgMatchExt: '{jpg,jpeg,png}',
+      imgMatchIgnore: '{sp/}',
+      imgRootPath: 'spritesmith/',
+      imgOutputName: 'sprite.js',
+      cssExt: 'scss',
+    });
     cb();
   },
-  sprite2wap({
-    spriteImgGutter: 60,
-    outputPath: 'spritesmith/.dist/',
-    imgMatchExt: '{jpg,jpeg,png}',
-    imgMatchIgnore: '{sp/}',
-    imgRootPath: 'spritesmith/',
-    imgOutputName: 'sprite.js',
-    cssExt: 'scss',
-  }),
+  runSp2wap(),
   concatSpriteFile
 );
 
-// bug:暂时无法使用，编译阶段不断出现乱码
-exports.font = series(function genFont(cb) {
-  compressFont('template/font/index.html');
+exports.dir = series(async function (cb) {
+  await initSpriteDir();
   cb();
 });

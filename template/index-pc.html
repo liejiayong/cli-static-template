@@ -12,7 +12,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <title></title>
-    <link rel="stylesheet" href="./css/index_pc.css?v=0" />
+    <link rel="stylesheet" href="./css/index-pc.css?v=0" />
     <!--[if lt IE 11]>
       <div
         id="js-ie-tips"
@@ -321,7 +321,7 @@
           <a
             href="javascript:void(0);"
             data-clipboard-text="QER6 S6BH 6WHH F5W3"
-            class="jy-btn-txt jy-pop_ok jpop-cancel jbtnpopcopy mt-30"
+            class="jy-btn-txt jy-pop_ok jpop-cancel jbtnpopcode mt-30"
           >
             一键复制
           </a>
@@ -460,13 +460,7 @@
           $(this).parents('.jy-pop').fadeOut();
         });
         // 复制激活码
-        var clipboard = new ClipboardJS('.jbtnpopcopy');
-        clipboard.on('success', function (e) {
-          $('.jy-toast').text('复制成功').fadeIn(200).fadeOut(3500);
-        });
-        clipboard.on('error', function (e) {
-          $('.jy-toast').text('浏览器不支持点击复制，请长按链接复制！').fadeIn(200).fadeOut(3500);
-        });
+        jtool.elementCopy('.jbtnpopcode');
 
         // 我的奖励 start
         // 礼包码
@@ -499,11 +493,11 @@
 
         $('.btn-get').on('click', function () {
           if ($(this).hasClass(jtool.activeCls)) {
-            jtool.showTip('<p>恭喜获得</p>');
+            jtool.showTip({ content: '<p>恭喜获得</p>' });
           }
         });
         $('.btn-inter').on('click', function () {
-          jtool.showTip('<p>我的积分：0</p>');
+          jtool.showTip({ content: '<p>我的积分：0</p>' });
         });
         $('.btn-record').on('click', function () {
           $('#J_recordPop').fadeIn();
@@ -522,7 +516,7 @@
         //   $t.removeClass(jtool.activeCls);
         //   var dissNum = jtool.getRandom(1, 6);
         //   jtool.diss(dissNum, function () {
-        //     jtool.showTip('恭喜抽到' + dissNum);
+        //     jtool.showTip({content:'恭喜抽到' + dissNum});
         //     $t.addClass(activeCls);
         //   });
         // });
