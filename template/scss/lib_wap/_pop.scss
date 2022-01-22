@@ -113,6 +113,17 @@ $input-select-cell-radius: 0.12rem;
     //   z-index: -1;
     // }
   }
+  &_main--auto {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 20;
+  }
   // 主体标题
   &_header {
     $height: 0.6rem;

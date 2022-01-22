@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-01-14 11:01:12
+ * @LastEditTime: 2022-01-21 18:02:22
  * @FilePath: \business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -19,45 +19,7 @@ var jtool = {
   activeCls: 'active',
   disableCls: 'disable',
   doc: document.documentElement.body || document.body,
-  /**
-   * swiper.js 滚动页面
-   * @param {Element} el
-   */
-  swiper: function (el) {
-    var psw = new Swiper(el, {
-      initialSlide: 0,
-      direction: 'vertical',
-      height: $(window).height(),
-      autoHeight: true,
-    });
-    this.psw = psw;
-    var startScroll, touchStart, touchCurrent;
-    psw.slides.on(
-      'touchstart',
-      function (e) {
-        startScroll = Math.ceil(this.scrollTop);
-        touchStart = e.targetTouches[0].pageY;
-      },
-      true
-    );
-    psw.slides.on(
-      'touchmove',
-      function (e) {
-        touchCurrent = e.targetTouches[0].pageY;
-        var touchesDiff = touchCurrent - touchStart;
-        var slide = this;
-        var onlyScrolling =
-          slide.scrollHeight > slide.offsetHeight && //allow only when slide is scrollable
-          ((touchesDiff < 0 && startScroll === 0) || //start from top edge to scroll bottom
-            (touchesDiff > 0 && startScroll === slide.scrollHeight - slide.offsetHeight) || //start from bottom edge to scroll top
-            (startScroll > 0 && startScroll < slide.scrollHeight - slide.offsetHeight)); //start from the middle
-        if (onlyScrolling) {
-          e.stopPropagation();
-        }
-      },
-      true
-    );
-  },
+  language: (navigator.browserLanguage || navigator.language).toLowerCase(),
   /**
    * 点击元素复制文本
    * @param {className} btnCopyCls
@@ -193,71 +155,6 @@ var jtool = {
     const value = window.location[type].match(regExp);
     return value && decodeURIComponent(value[1]);
   },
-  /**
-   * 判断数字类型
-   * @param {number} number
-   */
-  isNumber: function (number) {
-    return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]';
-  },
-  /**
-   // 抽奖
-    $('.btn-lottery').on('click', function () {
-      var index = jtool.getRandom(0, 11);
-      jtool.lottery(
-        index,
-        12,
-        function (index) {
-          $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-        },
-        function (index) {
-          $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-          jtool.showTip('<p>恭喜获得' + index + '</p>');
-        }
-      );
-    });
-   * 正方形顺时针抽奖装盘
-   * @param {number} index 当前元素索引
-   * @param {number} total 元素总数
-   * @param {Function} cbCurrent 实时回调
-   * @param {Function} cbEnd 结束回调
-   */
-  lottery(index, total, cbCurrent, cbEnd) {
-    if (!this.isNumber(index)) return new Error('the arguments of index must number!');
-    if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!');
-    if (typeof cbCurrent !== 'function') return new Error('the arguments of cbCurrent must function!');
-    var TYPE_SPEED = 0;
-    var TYPE_ADD_SPEED = 20;
-    var TYPE_LAST_SPEED = 500;
-    var TYPE_MAX_INDEX = total;
-    var currSpeed = 0;
-    var totalIndex = 0;
-    var currentIndex = 0;
-    var animate = function () {
-      var timer = setTimeout(function () {
-        totalIndex += 1;
-        currSpeed += TYPE_ADD_SPEED;
-        if (currSpeed > TYPE_LAST_SPEED) {
-          if (currentIndex === index) {
-            clearTimeout(timer);
-            cbEnd(currentIndex);
-          } else {
-            currentIndex = totalIndex % TYPE_MAX_INDEX;
-            clearTimeout(timer);
-            cbCurrent(currentIndex);
-            animate();
-          }
-        } else {
-          currentIndex = totalIndex % TYPE_MAX_INDEX;
-          clearTimeout(timer);
-          cbCurrent(currentIndex);
-          animate();
-        }
-      }, TYPE_SPEED + currSpeed);
-    };
-    animate();
-  },
-  language: (navigator.browserLanguage || navigator.language).toLowerCase(),
   pop: {
     picker: function () {
       var $picker =
@@ -322,7 +219,7 @@ var jtool = {
       content:
         '<div class="tl"><div>xxx领取成功</div></div>',
       title: '温馨提示',
-      titlePad: 'span'
+      titlePad: 'span',
       titleId: '#popTipTit',
       contentId: '#popTipNorm',
     });
@@ -410,78 +307,6 @@ var jtool = {
   },
 
   /**
-   * music
-   * @param {el} btnAudio
-   */
-  initMusic: function (btnAudio) {
-    var url = jtool.mediaPath + 'bgm.mp3?v=0',
-      btnAudio = btnAudio || $('.btn-aud'),
-      audio = new Audio(),
-      delay = 2000;
-    audio.setAttribute('src', url);
-    audio.setAttribute('preload', 'auto'); /* ios自动缓冲，保险些可以设置audio.load()来加载缓冲 */
-    audio.setAttribute('loop', true);
-    // 静音状态
-    // audio.setAttribute('autoplay', true);
-    // audio.setAttribute('muted', false);
-    audio.volume = 0.5;
-    audio.style.cssText = ';opacity:.1;height:1px;';
-    document.addEventListener('DOMContentLoaded', function () {
-      document.body.appendChild(audio);
-    });
-
-    /* prettier-ignore */
-    eval(/* prettier-ignore */ function(p,a,c,k,e,r){/* prettier-ignore */e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'[2-9a-zA-C]'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('window.setTimeout(6(){k.l(\'3 d\',d);6 2(m){n e=[].e,o=e.call(p,1);q 6(){q m.apply(p[0],o)}}3.load();btnAudio.on(\'f\',6(){g()});$(\'4,r\').one(\'f\',2(7,\'s awake 9 4,r f\'));3.5(\'t\',2(a,8,\'t\'));3.5(\'u\',2(a,8,\'u\'));3.5(\'v\',2(a,8,\'v\'));3.5(\'g\',2(a,true,\'g\'));3.5(\'canplay\',2(7,\'s canlpay\'));3.onloadedmetadata=6(){n h=this.h;k.l(\'3 loadedmetadata total durtion w \'+h)};i(x WinxinJSBridge==\'object\'&&x y.z==\'6\'){7(\'b y w z\')}A{i(4.5){4.5(\'c\',2(7,\'b c 9 modernbrower\'),8)}A{i(4.j){4.j(\'c\',2(7,\'b c 9 B\'),8);4.j(\'C\',2(7,\'b C 9 B\'),8)}}}},d);',[],39,'||curring|audio|document|addEventListener|function|startPlay|false|by|changeStatus|wechat|WeixinJSBridgeReady|delay|slice|click|play|duration|if|attachEvent|console|log|fn|var|arg|arguments|return|body|andio|abort|error|pause|is|typeof|WeixinJSBridge|invoke|else|iebrower|onWeixinJSBridgeReady'.split('|'),0,{}));
-    var isPlay = false;
-    function changeStatus(flag, sign) {
-      // console.log('audio change status to ', sign);
-      if (flag) {
-        isPlay = true;
-        btnAudio.addClass(jtool.activeCls);
-      } else {
-        isPlay = false;
-        btnAudio.removeClass(jtool.activeCls);
-      }
-    }
-    function startPlay(notice) {
-      // console.log('audio initial status: ', isPlay, ' and', notice);
-      this.stopPropagation();
-      if (isPlay) {
-        return console.log('audio first playing, not ', notice);
-      }
-      audio.play();
-    }
-    function play() {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    }
-  },
-  /**
-   * menu compatible
-   * @param {*} parentCls 父元素容器
-   * @param {*} scrollCls 滚动容器
-   * @param {*} menuCls 菜单容器
-   */
-  menusCompat: (function (parentCls, scrollCls, menuCls) {
-    parentCls = parentCls || '#topWrapper';
-    scrollCls = scrollCls || '#mainWrapper';
-    menuCls = menuCls || '#menuWrapper';
-    window.addEventListener('resize', sty);
-    function sty() {
-      var $parent = document.querySelector(parentCls),
-        $scroll = document.querySelector(scrollCls),
-        $menu = document.querySelector(menuCls),
-        wrapperHeight = window.innerHeight - $menu.offsetHeight;
-      $parent.style.position = 'relative';
-      $scroll.style.height = wrapperHeight + 'px';
-      $menu.style.top = wrapperHeight + 'px';
-    }
-    return sty;
-  })(),
-  /**
    * child 滚动到 parent 的相对底部位置
    * @param {className} parentCls
    * @param {className} childCls
@@ -506,47 +331,10 @@ $(function () {
   jtool.elementCopy();
   // jtool.pop.picker();
   // jtool.pop.btnAuth('.jy-pop_input_cell-auth');
-  // jtool.swiper('#psw');
-
-  // jtool.initMusic();
-
 
   /* game logic start */
   logic.extend({
-    isGaming: false,
-    timer: null,
-    time: { DEFAULT: 20, current: 0, ready: 1 },
-    score: { total: 0, current: 0 },
-    tag: '',
-    /* 游戏初始化 */
-    gameReset: function () {
-      var t = this;
-      t.isGaming = true;
-      t.score.current = 0;
-      t.time.current = t.time.DEFAULT;
-      t.setTime();
-    },
-    /* 循环事件各状态处理 */
-    loopPlay: function () {
-      var t = this;
-    },
-    /* 循环事件 */
-    loop: function () {
-      var t = this;
-
-      function run() {
-        if (t.progress.com >= t.progress.DEFAULT || t.progress.role >= t.progress.DEFAULT || t.time.current == 0) {
-          t.stop();
-
-          return;
-        }
-        t.loopPlay();
-        t.anFrame = requestAnimationFrame(function () {
-          run();
-        });
-      }
-      run();
-    },
+    score: { game: 0 },
     /* 游戏倒计时 */
     setTime: function () {
       var t = this;
@@ -554,62 +342,23 @@ $(function () {
         time = t.time.current;
       $gTime.text(time + 'S');
     },
-    /* 游戏定时器 */
-    gameTimer: function () {
-      var t = this;
 
-      t.time.current--;
-      this.timer = setTimeout(function () {
-        t.setTime();
-
-        if (t.time.current == 0) {
-          t.stop();
-          return;
-        }
-
-        t.gameTimer();
-      }, 1000);
-    },
-    /* 停止循环 */
-    stop: function () {
-      var t = this;
-      clearTimeout(t.timer);
-      cancelAnimationFrame(t.anFrame);
-
-      t.gameResult();
-    },
-    run: function () {
-      var t = this;
-      if (t.isGaming) {
-        return true;
-      }
-      return false;
-    },
-    loadGame: function () {
-      if (this.run()) {
-        return;
-      }
-
-      var t = this,
-        count = t.time.ready,
+    loadGame: function (opts) {
+      var self = this,
+        count = opts.count || 3,
+        onReady = opts.onReady || function () {},
         $popReady = $('#J_gameReadyPop'),
         $count = $popReady.find('#gameReadyCount');
-      // jtool.navTo('.section-2');
       $popReady.fadeIn();
       $count.text(count);
-
-      var time = setInterval(function () {
+      var timer = setInterval(function () {
         --count;
-        if (count == -1) {
-          clearInterval(time);
-          return;
-        } else if (count == 0) {
+        if (count === 0) {
           $count.text('GO!');
           $popReady.fadeOut();
+          clearInterval(timer);
           setTimeout(function () {
-            t.gameReset();
-            t.gameTimer();
-            t.loop();
+            onReady();
           }, 100);
         } else {
           $count.text(count);

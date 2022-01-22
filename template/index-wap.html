@@ -390,7 +390,7 @@
       <div class="jy-pop_mask"></div>
       <div class="jy-pop_main">
         <a href="javascript:;" class="jy-btn jy-pop_btn_close jpop-btn-close ico-pop-btn-close">关闭</a>
-        <div class="jy-pop_header">
+        <div class="jy-pop_header" id="popTipTit">
           <div class="jy-pop_header__sym">温馨提示</div>
         </div>
         <div class="jy-pop_body mt-20">
@@ -409,19 +409,13 @@
       <div class="bg-tip mlauto"></div>
     </div>
 
-    <!-- pop ready tip -->
-    <div class="jy-pop" id="J_readyPop">
-      <div class="jy-pop_mask"></div>
-      <div class="pop-ready">5</div>
-    </div>
-
     <!-- pop preload -->
-    <div class="ploading" id="pagePreload">
+    <!-- <div class="ploading" id="pagePreload">
       <div class="progress">
         <p>loading...</p>
         <p id="ploadingPro">0%</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- pop end -->
 
@@ -501,7 +495,6 @@
 
         // 回到首页
         $('.btn-nav-home').on('click', function () {
-          $('.jy-time').hide();
           $('.jy-pop').hide();
           $('#J_rulePop').fadeIn();
           jtool.navTo('.section-1');
@@ -538,21 +531,22 @@
       logic.extend({
         // 游戏结束业务
         gameResult: function () {
-          var t = logic,
+          var self = this,
             score = t.score;
-          t.isGaming = false;
-          clearInterval(t.timer);
-          cancelAnimationFrame(t.anFrame);
-          console.log('Game Result: ', JSON.stringify(t.time));
+          console.log('Game Result: ', JSON.stringify(logic));
 
+          var flag = true;
           // game success
-          if (t.time.current > 0) {
-            // 后端需设置比较所用时间time
-            var time = t.time.DEFAULT - t.time.current;
+          if (flag) {
+            jtool.showTip({
+              content: '<div class="tc"><div>游戏success</div></div>',
+            });
           }
           // game fail
           else {
-            $('#J_tipErrPop').fadeIn();
+            jtool.showTip({
+              content: '<div class="tc"><div>游戏fail</div></div>',
+            });
           }
         },
       });

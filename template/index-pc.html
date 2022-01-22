@@ -12,6 +12,11 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <title></title>
+    <script>
+      if (/android|iphone|ipad|ipod|symbian|micromessenger/g.test(navigator.userAgent.toLowerCase())) {
+        window.location.href = 'h5.html';
+      }
+    </script>
     <link rel="stylesheet" href="./css/index-pc.css?v=0" />
     <!--[if lt IE 11]>
       <div
@@ -142,7 +147,7 @@
       <div class="jy-pop_mask"></div>
       <div class="jy-pop_main">
         <a href="javascript:void(0);" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
-        <div class="jy-pop_head"><span class="jy-pop_head-pad">温馨提示</span></div>
+        <div class="jy-pop_head" id="popTipTit"><span class="jy-pop_head-pad">温馨提示</span></div>
         <div class="jy-pop_body">
           <div class="lh-20 tc" id="popTipNorm">
             <p>兑换xxx成功</p>
