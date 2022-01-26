@@ -13,7 +13,8 @@
 
 // /* logo */
 .logo {
-  position: fixed;
+  // position: fixed;
+  position: absolute;
   top: 0.22rem;
   left: 0.22rem;
   z-index: 10;
@@ -26,8 +27,8 @@
 
 /* auth status */
 .jy-auth {
-  position: fixed;
-  // position: absolute;
+  // position: fixed;
+  position: absolute;
   top: 0.3rem;
   right: 0.3rem;
   display: flex;
@@ -37,7 +38,7 @@
   text-align: right;
   font-size: 0.24rem;
   white-space: nowrap;
-  color: #333;
+  // color: #333;
   z-index: 10;
   .btn-login {
     display: inline-block;
@@ -58,14 +59,14 @@
     vertical-align: middle;
     text-overflow: ellipsis;
   }
-  i {
-    // padding: 0 0.04rem;
-    display: none;
-    // display: inline-block;
-    // overflow: hidden;
-    // font-style: normal;
-    // color: #fff;
-  }
+  // i {
+  //   padding: 0 0.04rem;
+  //   display: none;
+  //   display: inline-block;
+  //   overflow: hidden;
+  //   font-style: normal;
+  //   color: #fff;
+  // }
 }
 
 /* button style */
@@ -132,16 +133,17 @@
     padding-top: 8.2rem;
   }
   .ico-time {
+    margin: 0 auto;
     position: absolute;
     top: 6.72rem;
     left: 0;
     right: 0;
     line-height: 0.3rem;
     text-align: center;
-    color: #f8d596;
-    mask-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#fef9f2), to(#f8d596));
     font-weight: bold;
     font-size: 0.24rem;
+    color: #f8d596;
+    @include text-gradient(linear-gradient(#ffc400, #f8d596));
   }
 }
 

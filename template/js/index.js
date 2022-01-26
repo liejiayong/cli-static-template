@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-01-21 18:02:22
+ * @LastEditTime: 2022-01-25 15:43:52
  * @FilePath: \business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -151,8 +151,8 @@ var jtool = {
    */
   getQueryString: function (key, type) {
     type = type ? type : 'search';
-    const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)');
-    const value = window.location[type].match(regExp);
+    var regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)');
+    var value = window.location[type].match(regExp);
     return value && decodeURIComponent(value[1]);
   },
   pop: {
@@ -222,6 +222,11 @@ var jtool = {
       titlePad: 'span',
       titleId: '#popTipTit',
       contentId: '#popTipNorm',
+      btnCloseId: '#popTipClose',
+      btnOkId: '#popTipOk',
+      btnOkText: '确认',
+      showBtnClose: true,
+      showBtnOk: true,
     });
    */
   showTip: function (opts) {
@@ -230,7 +235,15 @@ var jtool = {
       titPad = opts.titlePad || 'span',
       titId = opts.titleId || '#popTipTit',
       contentId = opts.contentId || '#popTipNorm',
+      btnCloseId = opts.btnCloseId || '#popTipClose',
+      btnOkId = opts.btnOkId || '#popTipOk',
+      btnOkText = opts.btnOkText || '确认',
+      showBtnClose = opts.showBtnClose || true,
+      showBtnOk = opts.showBtnOk || true,
       $tip = $('#J_tipPop');
+
+    showBtnClose ? $(btnCloseId).show() : $(btnCloseId).hide();
+    showBtnOk ? $(btnOkId).text(btnOkText).show() : $(btnOkId).hide();
 
     var titPadCache = titId + ' ' + titPad;
     if ($tip.find(titPadCache) && $tip.find(titPadCache).length) {
@@ -238,6 +251,10 @@ var jtool = {
     } else {
       $tip.find(titId).html(tit);
     }
+    if (Object.prototype.toString.call(content) === '[object Array]') {
+      content = content.join('');
+    }
+
     $tip.find(contentId).html(content);
     $tip.fadeIn();
   },
@@ -319,6 +336,15 @@ var jtool = {
     if (pH < cH) {
       $p.scrollTop(cH - pH);
     }
+  },
+  createImage: function (path, cb) {
+    var img = new Image();
+    img.src = path;
+    img.setAttribute('crossOrigin', 'Anonymous');
+    img.onload = function () {
+      cb && cb(img);
+    };
+    return img;
   },
 };
 

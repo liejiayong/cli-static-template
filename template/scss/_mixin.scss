@@ -72,7 +72,7 @@
   overflow: hidden;
 }
 
-/* table border */
+// table border
 @mixin table-border($config: 1px solid #e3ca92) {
   table {
     thead tr {
@@ -100,8 +100,8 @@
     }
   }
 }
-/* 1px border */
-@mixin thinBorder($directionMaps: bottom, $color: #ccc, $position: after) {
+// 1px border
+@mixin border-hairline($directionMaps: bottom, $color: #ccc, $position: after) {
   // 是否只有一个方向
   $isOnlyOneDir: string==type-of($directionMaps);
 
@@ -152,12 +152,12 @@
     }
   }
 }
-/* 生成.border-top-1px等4个单侧边框; */
-@each $dir in (top, right, bottom, left) {
-  .border-#{$dir}-#{1}px {
-    @include thinBorder($dir);
-  }
-}
+// /* 生成.border-top-1px等4个单侧边框; */
+// @each $dir in (top, right, bottom, left) {
+//   .border-#{$dir}-#{1}px {
+//     @include border-hairline($dir);
+//   }
+// }
 
 // 文字行数
 @mixin nowrap {
@@ -174,7 +174,14 @@
   text-overflow: ellipsis;
 }
 
-/* button */
+// text style
+@mixin text-gradient($sty: linear-gradient(yellow, orange) repeat) {
+  background: $sty;
+  background-clip: text; // >=ie9+
+  color: transparent;
+}
+
+// button mixin
 @mixin btnEdgeExpanding($width: 5px, $position: '') {
   @if $position != '' {
     position: $position;
