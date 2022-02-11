@@ -8,7 +8,7 @@ MatterController = function (opts) {
   this.finish = opts.finish;
   this.isTimer = typeof opts.isTimer === 'undefined' ? MatterController.opts.isTimer : opts.isTimer;
   this.time = Object.assign(MatterController.opts.time, opts.time || {});
-  this.duration = opts.duration || MatterController.opts.duration;
+  this.duration = opts.duration === 0 ? 0 : opts.duration ? opts.duration : MatterController.opts.duration;
   this.play = false;
   this.timer = null;
   this.list = [];
@@ -28,14 +28,13 @@ MatterController.prototype.initQA = function (callback) {
 MatterController.prototype.next = function (callback) {
   var t = this;
   ++t.current;
-
   setTimeout(function () {
     if (t.current >= t.total) {
       t.finish && t.finish(t._callbackParams());
       return;
     }
     callback && callback(t._callbackParams());
-  }, this.duration);
+  }, t.duration);
 };
 MatterController.prototype.stop = function (callback) {
   clearTimeout(this.timer);

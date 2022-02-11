@@ -1990,15 +1990,6 @@ gulp-postcss@^9.0.1:
     postcss-load-config "^3.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp-prettier@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.nlark.com/gulp-prettier/download/gulp-prettier-4.0.0.tgz#95e783084d1efbdd588625b2a8214e11d43f2557"
-  integrity sha1-leeDCE0e+91YhiWyqCFOEdQ/JVc=
-  dependencies:
-    plugin-error "^1.0.1"
-    prettier "^2.0.0"
-    through2 "^4.0.2"
-
 gulp-rename@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npm.taobao.org/gulp-rename/download/gulp-rename-1.4.0.tgz#de1c718e7c4095ae861f7296ef4f3248648240bd"
@@ -3672,11 +3663,6 @@ postcss@^8.3.0:
     nanoid "^3.1.30"
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
-
-prettier@^2.0.0:
-  version "2.5.1"
-  resolved "https://registry.npmmirror.com/prettier/download/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
-  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
 
 pretty-hrtime@^1.0.0:
   version "1.0.3"
