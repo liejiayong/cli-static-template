@@ -127,8 +127,8 @@
 
 // section-1
 .section-1 {
-  // height: 7.365rem;
-  // background-image: url('../img/bg1.jpg');
+  height: 7.365rem;
+  background-image: url('../img/bg1.jpg');
   .jy-sectionmain {
     padding-top: 8.2rem;
   }
@@ -154,50 +154,12 @@
   .jy-sectionmain {
     padding-top: 0.2rem;
   }
-  .news-container {
-    position: relative;
-    width: 6.9rem;
-    overflow: hidden;
-    color: #fff;
-    .item {
-      padding: 0.3rem 0;
-      border-bottom: 0.02rem dashed #6a7779;
-      .title {
-        font-size: 0.28rem;
-        font-weight: bold;
-      }
-      .content {
-        margin-top: 0.08rem;
-      }
-      .extral {
-        margin-top: 0.14rem;
-        display: flex;
-        align-items: center;
-        font-size: 0.22rem;
-        color: #999;
-        .avatar {
-          position: relative;
-          width: 0.4rem;
-          height: 0.4rem;
-          overflow: hidden;
-          img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-          }
-        }
-        span {
-          margin: 0 0.1rem;
-        }
-      }
-    }
-  }
 }
 
 // section-3
 .section-3 {
   // height: 7.365rem;
-  // background-image: url('../img/bg3.jpg');
+  background-image: url('../img/bg3.jpg');
   line-height: 1.5;
   .jy-sectionmain {
     // padding-top: 0.5rem;
