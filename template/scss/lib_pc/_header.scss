@@ -1,0 +1,91 @@
+// for pc terminal header
+
+.jy-header {
+  background: url('../img/bg-nav.png') no-repeat top center;
+  text-align: center;
+  font-size: 16px;
+  color: #f3f3f3;
+  &__main {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: $main-widthx-pc;
+    height: 90px;
+    line-height: 90px;
+    zoom: 1;
+  }
+  .brand {
+    display: inline-block;
+    @include flex-width(160px);
+    img {
+      width: 130px;
+    }
+  }
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    height: 100%;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      @include flex-width(150px);
+      height: 100%;
+      line-height: 1.5;
+      overflow: hidden;
+      flex-direction: column;
+      em {
+        display: block;
+        width: 100%;
+        color: #8695ac;
+        font-size: 12px;
+        transform: scale(0.8);
+        text-transform: uppercase;
+      }
+      i {
+        display: inline-block;
+        width: 100%;
+      }
+      &.active {
+        color: #a7a8ab;
+      }
+    }
+  }
+}
+
+// <header class="jy-header">
+//   <div class="jy-header__main">
+//     <a href="./index.html" class="brand"><img src="./img/logo.png" alt="" /></a>
+//     <div class="jy-header__links">
+//       <a href="" class="active">
+//         官网首页
+//         <em>HOME</em>
+//       </a>
+//       <a href="" class="">
+//         游戏介绍
+//         <em>introduce</em>
+//       </a>
+//       <a href="" class="">
+//         新闻资讯
+//         <em>news</em>
+//       </a>
+//       <a href="" class="">
+//         游戏攻略
+//         <em>strategy</em>
+//       </a>
+//       <a href="" class="">
+//         礼包领取
+//         <em>Gift</em>
+//       </a>
+//       <a href="" class="">
+//         客服中心
+//         <em>SERVICE</em>
+//       </a>
+//     </div>
+//   </div>
+// </header>

@@ -1,12 +1,12 @@
 /**
- * @description:  sass minxi util
- * @author: liejiayong(809206619@qq.com)
- * @Date: 2020-06-15 11:27:17
- * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-12-11 17:06:29
- * @FilePath: 
- * @warning: 
- */
+  * @description:  sass minxi util
+  * @author: liejiayong(809206619@qq.com)
+  * @Date: 2020-06-15 11:27:17
+  * @LastEditors: liejiayong(809206619@qq.com)
+  * @LastEditTime: 2021-12-11 17:06:29
+  * @FilePath: 
+  * @warning: 
+  */
 
 @mixin bgimg($width, $url) {
   background: url(#{$url}) no-repeat top center / #{$width} auto;
@@ -226,11 +226,11 @@
   }
 }
 /* 
-@include flex-width();
-@include flex-width(1);
-@include flex-width(auto);
-@include flex-width(20px, 1 1);
-*/
+  @include flex-width();
+  @include flex-width(1);
+  @include flex-width(auto);
+  @include flex-width(20px, 1 1);
+  */
 @mixin flex-width($width: 1, $flex: '') {
   @if $width == 1 {
     flex: 1;
