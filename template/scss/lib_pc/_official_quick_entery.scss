@@ -1,0 +1,77 @@
+//  * @description:  pc 官网游戏资料快速入口
+//  * @author: liejiayong(809206619@qq.com)
+//  * @Date: 2020-06-15 11:27:17
+//  * @LastEditors: liejiayong(809206619@qq.com)
+//  * @LastEditTime: 2021-12-11 17:06:29
+//  * @FilePath:
+
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+.jy-data_entery {
+  position: relative;
+  padding: 36px 20px 30px;
+  &::before {
+    content: '';
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 591px;
+    height: 1px;
+    background: url('../img/ico-line-half.png') no-repeat top center / contain;
+  }
+  &:last-of-type {
+    &::before {
+      opacity: 0;
+    }
+  }
+  &-content {
+    display: flex;
+    height: 52px;
+    .header {
+      padding-right: 14px;
+      flex: none;
+      min-width: 64px;
+      text-align: center;
+      border-right: 2px solid #565a65;
+    }
+    .body {
+      padding-left: 12px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 410px;
+      .item {
+        @include flex-width(72px);
+        text-align: center;
+        line-height: 1.15;
+        &:not(:nth-of-type(5n)) {
+          border-right: 1px solid #d4d2c5;
+        }
+      }
+    }
+  }
+}
+
+// <!-- 游戏资料入口详情 -->
+// <div class="jy-data_entery">
+//   <div class="jy-data_entery-content">
+//     <div class="header">
+//       <div class="ico-book"></div>
+//       <p class="mt-5">常用资料</p>
+//     </div>
+//     <div class="body">
+//       <a href="" class="item">时装系统</a>
+//       <a href="" class="item">称号系统</a>
+//       <a href="" class="item">翅膀系统</a>
+//       <a href="" class="item">任务系统</a>
+//       <a href="" class="item">异火系统</a>
+//       <a href="" class="item">仙盟系统</a>
+//       <a href="" class="item">好友系统</a>
+//       <a href="" class="item">技能系统</a>
+//     </div>
+//   </div>
+// </div>

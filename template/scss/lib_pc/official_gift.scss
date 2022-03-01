@@ -1,0 +1,216 @@
+//  * @description:  pc 礼包中心
+//  * @author: liejiayong(809206619@qq.com)
+//  * @Date: 2020-06-15 11:27:17
+//  * @LastEditors: liejiayong(809206619@qq.com)
+//  * @LastEditTime: 2021-12-11 17:06:29
+//  * @FilePath:
+
+@import './_const.scss';
+@import './_mixin.scss';
+
+.jy-gifts__container {
+  padding: 60px 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.jy-gifts__cells {
+  // float: left;
+  position: relative;
+  margin: 0 30px 60px;
+  padding: 0 20px;
+  width: 260px;
+  height: 160px;
+  // border: 1px solid #252932;
+  font-size: 14px;
+  background: #262e3f;
+  color: #d4d2c5;
+  h3 {
+    padding-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    // color: #c9af6d;
+    // border-bottom: 1px solid #252932;
+  }
+  .content {
+    margin-top: 12px;
+    line-height: 1.3;
+    height: 56px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .total {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #dc8a28;
+  }
+  .jy-gifts__btn {
+    position: absolute;
+    top: 110px;
+    right: 20px;
+    display: block;
+    // width: 62px;
+    // height: 25px;
+    // line-height: 25px;
+    cursor: pointer;
+    text-align: center;
+    // font-size: 14px;
+    color: #e9d39a;
+    background: linear-gradient(#7b0a09, #971715);
+  }
+  .btn-get:hover {
+    opacity: 0.9;
+  }
+}
+
+// <div class="jy-gifts__container">
+//   <div class="jy-gifts__cells">
+//     <h3>情人节礼包</h3>
+//     <p class="content">礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，洗练锁*5 绑定</p>
+//     <div class="total">剩余95%</div>
+//     <a href="javascript:;" class="jy-btn-txt jy-gifts__btn ico-btn-get">领取</a>
+//   </div>
+//   <div class="jy-gifts__cells">
+//     <h3>情人节礼包</h3>
+//     <p class="content">礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，洗练锁*5 绑定</p>
+//     <div class="total">剩余95%</div>
+//     <a href="javascript:;" class="jy-btn-txt jy-gifts__btn ico-btn-get">领取</a>
+//   </div>
+//   <div class="jy-gifts__cells">
+//     <h3>情人节礼包</h3>
+//     <p class="content">礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，洗练锁*5 绑定</p>
+//     <div class="total">剩余95%</div>
+//     <a href="javascript:;" class="jy-btn-txt jy-gifts__btn ico-btn-get">领取</a>
+//   </div>
+//   <div class="jy-gifts__cells">
+//     <h3>情人节礼包</h3>
+//     <p class="content">礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，洗练锁*5 绑定</p>
+//     <div class="total">剩余95%</div>
+//     <a href="javascript:;" class="jy-btn-txt jy-gifts__btn ico-btn-get">领取</a>
+//   </div>
+//   <div class="jy-gifts__cells">
+//     <h3>情人节礼包</h3>
+//     <p class="content">礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，洗练锁*5 绑定</p>
+//     <div class="total">剩余95%</div>
+//     <a href="javascript:;" class="jy-btn-txt jy-gifts__btn ico-btn-get">领取</a>
+//   </div>
+// </div>
+
+.jy-pop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  &.active {
+    display: block;
+  }
+  &__main {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-left: -350px;
+    width: 700px;
+    height: 170px;
+    text-align: center;
+    box-sizing: border-box;
+    border: 6px solid #39455f;
+    background: #262e3f linear-gradient(#262e3f, #2e3f54, #28364a, #253346);
+  }
+  &__btn-close {
+    position: absolute;
+    top: -6px;
+    right: -52px;
+    display: block;
+    cursor: pointer;
+    width: 46px;
+    height: 46px;
+    background: url('data:image/png;base64,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')
+      no-repeat;
+  }
+  &__header {
+    padding-top: 36px;
+    font-size: 24px;
+    color: #b8b8b8;
+  }
+  &__body {
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 580px;
+    .code {
+      padding: 0 10px;
+      width: 430px;
+      height: 36px;
+      line-height: 36px;
+      font-size: 14px;
+      border: 0;
+      outline: 0;
+      background: #fff;
+      @include inputcolor(#362c2d);
+    }
+    .jy-pop__btn__copy {
+      margin-left: 10px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 16px;
+      color: #b8b8b8;
+
+      // display: block;
+      // width: 120px;
+      // height: 36px;
+      // line-height: 36px;
+      // color: #e9d39a;
+      // background: linear-gradient(#7b0a09, #971715);
+
+      width: 120px;
+      height: 36px;
+      line-height: 36px;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAkCAYAAABCKP5eAAACtElEQVR4nO2bUY7jMAiGwfEdVtr774X2LjsvE5uRMTjEdTt9G6zll9I4SR+ifvkBExf//v5FsNBZAdqFuroYcqMEAAgAOa3vKP/59zEOiAAKQyUG244b5OUTEPpxoW7YQSdAOOR4ANZBJYATCAp111YBHYD9SgEnQgFMUBEgt2OBnNWpDe4pDi7tiwI6APvVAAzEQA9A5kZIDBkZNnSoDe6nwC0mVFPQda0enhGOZkhsqRXZkcjAm4Nrg0twQt8zbA7ZFA52LnYwaWhGqZkIEBGQ+j4XqB0uKFzrYAEcNnYpBimV9NEYcd5t54g/G/g8CirNvyMPdxeHg/2KXdr4aNksoTlxuO5cB+ACV/VsxzEP9i07/UXD75BxPuFybDFwS+Rg90KbQhGZnVbWWktlgvt0aHUcgH1LmaUFw0xVn4IrF9PUxQrAvmWh3sxJ2uh4Ywv51TN+nIO5sSFTJO1BV9uPDge7leZbFQq3IlOk1gDJ77g3APvWK255VUHXRTwP+dPKwWX0p/uWuZhaFVZRZG2jm2v5ZcO1z7Nzi9nHC3//SpMBbbMj6Tx4WWKHe7eQ8nnGMVeuu/QEmUly9KF3kPKptrM1YNNjiJ4LrAjR/qWFFk4hGm0na16DFeux9tAcom+tZpqKrNnN4eA9hNNd4s3B37S6wsG+Nb9kWDQ66FpoN7UpA7B/Xe4lWc3RWaKM32pVhnzrZatyLI+le3IOwPvIdrA4ZNslOzPIFdiA7FManl8xzKv5b1+CSeHijVRl4R1O8+EHBw+hdKwXZXjImfBOyDJNA+z0BNhzIcd6wY26g23kNgZ+GIQ8qi9yn0VyRapokBmULqQOpvsIl1snOHLwEF6Qx6n//RfcQBayDc+gVbRKv8CtL3oWvENedHuLJP9TwqlozvO92ichwO6hp1EWAL4A5Gv/F7Dv6D8AAAAASUVORK5CYII=')
+        no-repeat;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+// <div class="jy-pop" id="popGift">
+//   <div class="jy-pop__main">
+//     <a href="javascript:;" class="jy-pop__btn-close"></a>
+//     <div class="jy-pop__header">主界面的福利图标-礼包-输入礼包码-领取奖励</div>
+//     <div class="jy-pop__body">
+//       <input placeholder="复制" data-clipboard-text="123" type="text" id="copytxt" class="code" />
+//       <a href="javascript:;" data-clipboard-target="#copytxt" class="jy-pop__btn__copy jpopcopy ico-btn-get-pop">
+//         复制链接
+//       </a>
+//     </div>
+//   </div>
+// </div>
+
+// <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
+// <script type="text/javascript">
+//   $(function () {
+//     $('.jy-gifts__btn').on('click', function () {
+//       $('#popGift').fadeIn();
+//     });
+//     $('.jy-pop__btn-close').on('click', function () {
+//       $('#popGift').fadeOut();
+//     });
+//     var clipboard = new ClipboardJS('.jpopcopy');
+//     clipboard.on('success', function (e) {
+//       alert('礼包码复制成功');
+//     });
+//     clipboard.on('error', function (e) {
+//       alert('浏览器不支持点击复制，请长按链接复制！');
+//     });
+//   });
+// </script>

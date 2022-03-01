@@ -9,7 +9,7 @@
 body {
   margin-left: auto;
   margin-right: auto;
-  min-width: 1200px;
+  min-width: $main-width-pc;
   font: #{$fs-primary-pc}/ 1.15 'Microsoft YaHei', '微软雅黑', sans-serif;
   color: $color-primary;
   background: $color-theme-bg;
@@ -21,7 +21,73 @@ body {
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
+  background: url('../img/bg.jpg') no-repeat top center;
 }
+.jy-main {
+  padding: 440px 0 100px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 500px;
+  width: $main-width-pc;
+}
+
+.jy-main-ny {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: $main-width-pc;
+  border: 1px solid #403e54;
+  background: #201f2a;
+}
+
+// <div class="jy-title__container">
+//   <div class="label">职业介绍</div>
+//   <a href="" class="jy-btn ico-more"></a>
+// </div>
+.jy-title__container {
+  padding: 0 24px 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include lh(62px);
+  .label {
+    font-size: 28px;
+    color: #ffffdd;
+    font-family: 'fcustom', Microsoft YaHei, '微软雅黑', sans-serif;
+  }
+}
+
+// <div class="jy-title__ny__container">
+//   <div class="label">职业介绍</div>
+//   <a href="" class="jy-btn ico-more"></a>
+// </div>
+.jy-title__ny__container {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include lh(87px);
+  background: url('../img/bg-nav-ny.png') no-repeat top center / contain;
+
+  .label {
+    font-size: 28px;
+    color: #ffffdd;
+    font-family: 'fcustom', Microsoft YaHei, '微软雅黑', sans-serif;
+    &-sub {
+      // font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #b8b8b8;
+    }
+  }
+  .links {
+    span {
+    }
+  }
+}
+
 .jy-section {
   position: relative;
   margin-left: auto;

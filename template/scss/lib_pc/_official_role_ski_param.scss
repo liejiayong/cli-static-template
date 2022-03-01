@@ -1,0 +1,61 @@
+//  * @description:  pc 人物技能参数模块
+//  * @author: liejiayong(809206619@qq.com)
+//  * @Date: 2020-06-15 11:27:17
+//  * @LastEditors: liejiayong(809206619@qq.com)
+//  * @LastEditTime: 2021-12-11 17:06:29
+//  * @FilePath:
+
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+.jy-role_ski {
+  &_param {
+    padding: 15px 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1.15;
+    .label {
+      @include flex-width(40px);
+      color: #d6b19f;
+    }
+    .progress {
+      $width: 230px;
+      position: relative;
+      flex: none;
+      height: 4px;
+      width: $width;
+      overflow: hidden;
+      i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #aa3104, #c6a504);
+      }
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   right: 0;
+      //   bottom: 0;
+      //   width: $width;
+      //   border-radius: 2px;
+      //   background: linear-gradient(90deg, #aa3104, #c6a504);
+      // }
+    }
+    .value {
+      text-align: right;
+      @include flex-width(50px);
+      color: #faf8eb;
+    }
+  }
+}
+
+// <!-- 人物技能属性 -->
+// <div class="jy-role_ski_param">
+//   <div class="label">气血</div>
+//   <div class="progress"><i></i></div>
+//   <div class="value">100%</div>
+// </div>
