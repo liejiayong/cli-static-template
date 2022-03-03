@@ -2,7 +2,7 @@
 @import '../_const.scss';
 @import '../_mixin.scss';
 @import '../_reset.scss';
-@import '../_font.scss';
+// @import '../_font.scss';
 @import '../_sprite.scss';
 @import '../__util.scss';
 
@@ -11,6 +11,7 @@
 // @import '../_lib_swiper.scss';
 // @import '../_share.scss';
 
+@import './_lib_select2.min.scss';
 // @import './_list.scss';
 // @import './_counttime.scss';
 // @import './_field.scss';

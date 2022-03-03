@@ -228,20 +228,21 @@ $input-select-cell-radius: 0.12rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 0.12rem 0.24rem;
-    width: 2rem;
+    padding: 0.1rem 0.12rem;
+    width: 1.6rem;
     // @include lh($height);
-    line-height: 1;
+    line-height: 1.15;
     text-align: center;
-    box-shadow: 0 0 1px #ffa3a3;
+    box-shadow: 0 0 1px #f06868;
     // border: 0.02rem solid #d67029;
     border-radius: $height;
     cursor: pointer;
     box-sizing: border-box;
-    font-size: 0.28rem;
+    white-space: nowrap;
+    font-size: 0.22rem;
     // font-weight: bold;
     color: #fff;
-    background: #d67029 linear-gradient(#a30f0f, #af0909);
+    background: #d67029 linear-gradient(#a30f0f, #be1010, #a30f0f);
     // background: #ab231f -webkit-radial-gradient(top, #f8cb2f, #d35500, #9d1200);
   }
   &_btn-link {
@@ -319,6 +320,7 @@ $input-select-cell-radius: 0.12rem;
     outline: none;
     overflow: hidden;
     box-sizing: border-box;
+    appearance: none;
     cursor: pointer;
     &::before {
       // content: '';

@@ -15,7 +15,7 @@
 // bg
 $width-pop: 560px;
 $fs-body: 16px;
-$color-bg: #831c15 linear-gradient(0, #831c15, #61060d);
+$color-bg: #831c15 linear-gradient(0, #831c15, #61060d, #831c15);
 $color-border: #600700;
 $color-txt: #fff8cc;
 
@@ -363,6 +363,7 @@ $table-height-overflow: 200px;
     padding-left: 1em;
     border: 0;
     outline: 0;
+    appearance: none;
     option {
       background: #fff;
       color: #333;
@@ -377,8 +378,6 @@ $table-height-overflow: 200px;
     @include lh(inherit);
     font-size: $input-fs-txt;
     color: $input-color-txt;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     &-label {
       padding: 0 1em;
@@ -493,7 +492,7 @@ $table-height-overflow: 200px;
     border-collapse: collapse;
     width: 100%;
     font-size: 18px;
-    color: #d79c68;
+    // color: #d79c68;
     &__head {
       margin-bottom: 10px;
     }
