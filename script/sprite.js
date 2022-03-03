@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const { series, parallel, src, dest, task } = require('gulp');
 const spritesmith = require('gulp.spritesmith');
 const through2 = require('through2');
@@ -8,85 +10,124 @@ function mapConcat(from, to) {
     to[key] = from[key];
   }
 }
-// gulp雪碧图插件：根据图片导出图路径
+
+function getOutputImgName(outputName, terminal) {
+  if (!outputName || typeof outputName === 'string') {
+    return `${outputName}_${terminal}`;
+  }
+
+  const { prefix, base, suffix, symbol } = outputName;
+  return `${prefix}${symbol}${base}${symbol}${terminal}${symbol}${suffix}`;
+}
+
+// CONFIG_GETTER弃用，改用为getOutputImgName
 const CONFIG_GETTER = {
-    // 保存合并后对于css样式的地址
-    get cssSpName() {
-      return `css_sp-${this.terminal}.${this.cssExt}`;
+    get outputUniImgName() {
+      const outputName = CONFIG.outputUniImgCssName;
+      if (!outputName || typeof outputName === 'string') {
+        return `${outputName}_${this.terminal}`;
+      }
+
+      const { prefix, base, suffix, symbol } = outputName;
+      return `${prefix}${symbol}${base}${symbol}${this.terminal}${symbol}${suffix}`;
     },
-    get cssSingleName() {
-      return `css-${this.terminal}.${this.cssExt}`;
-    },
-    // 保存合并后图片的地址
-    get imgSpName() {
-      return `ico_sp_${this.terminal}.png`;
-    },
-    get imgSingleName() {
-      return `ico_single_${this.terminal}.png`;
-    },
-    get pathImgSp() {
-      return `${this.imgRootPath}sp/`;
-    },
-    get pathImgSingle() {
-      return `${this.imgRootPath}/`;
+    get outputSpImgName() {
+      const outputName = CONFIG.outputSpImgCssName;
+      if (!outputName || typeof outputName === 'string') {
+        return `${outputName}_${this.terminal}`;
+      }
+
+      const { prefix, base, suffix, symbol } = outputName;
+      return `${prefix}${symbol}${base}${symbol}${this.terminal}${symbol}${suffix}`;
     },
   },
   CONFIG_OPTIONS = {
     cssPath: `../img/`, // 生成css图片的路径
-    // terminal: CONFIG_TERMINAL.pc, // pc or wap
+    cssExt: 'scss' /* css输出格式 */,
+
+    terminal: CONFIG_TERMINAL.pc, // 终端：pc or wap
     spriteImgGutter: 60, // 合并时两个图片的间距
+
     outputPath: 'spritesmith/.dist/',
+    outputImgExt: 'png',
+
     imgMatchExt: '{jpg,jpeg,png}' /* 匹配图片格式 */,
     imgMatchIgnore: '{sp/}' /* img 生成文件名称列表时使用 */,
-    imgRootPath: 'spritesmith/',
+    imgBasePath: 'spritesmith/',
     imgOutputName: 'sprite.js',
-    cssExt: 'scss' /* css输出格式 */,
+    outputUniImgCssName: {
+      prefix: '',
+      base: '',
+      suffix: '',
+      symbol: '',
+    },
+    outputSpImgCssName: {
+      prefix: '',
+      base: '',
+      suffix: '',
+      symbol: '',
+    },
   };
 let CONFIG;
 
-function genSpriteImg2Css() {
-  var isSprite = true,
-    path = `${CONFIG.cssPath}`;
-  return src(`${CONFIG.pathImgSp}*.${CONFIG.imgMatchExt}`)
-    .pipe(
-      spritesmith({
-        cssName: CONFIG.cssSpName,
-        imgName: CONFIG.imgSpName,
-        padding: CONFIG.spriteImgGutter,
-        algorithm: 'binary-tree', // 注释1
-        cssTemplate: function (data) {
-          // 移动端
-          if (CONFIG.terminal == CONFIG_TERMINAL.wap) {
-            return getImg2CssWap(data, path, isSprite);
-          }
-          // PC端
-          else if (CONFIG.terminal == CONFIG_TERMINAL.pc) {
-            return getImg2CssPC(data, path, isSprite);
-          }
-        },
-      })
-    )
-    .pipe(dest(CONFIG.outputPath));
+async function genSpriteImg2Css() {
+  const isSprite = true,
+    { imgBasePath, cssPath, terminal, cssExt, outputImgExt, spriteImgGutter } = CONFIG,
+    rootPath = `${cssPath}`;
+
+  const fileArr = fs.readdirSync(imgBasePath);
+
+  for (let file of fileArr) {
+    const cpath = path.join(imgBasePath, file, '/'),
+      state = fs.statSync(cpath);
+
+    if (state.isDirectory() && cpath.includes('sp')) {
+      let outputName = getOutputImgName(CONFIG.outputSpImgCssName, terminal);
+      outputName = `${outputName}${file}`;
+
+      await src(`${cpath}*.${CONFIG.imgMatchExt}`)
+        .pipe(
+          spritesmith({
+            cssName: `${outputName}.${cssExt}`,
+            imgName: `${outputName}.${outputImgExt}`,
+            padding: spriteImgGutter,
+            algorithm: 'binary-tree', // 注释1
+            cssTemplate: function (data) {
+              // 移动端
+              if (terminal == CONFIG_TERMINAL.wap) {
+                return getImg2CssWap(data, rootPath, isSprite);
+              }
+              // PC端
+              else if (terminal == CONFIG_TERMINAL.pc) {
+                return getImg2CssPC(data, rootPath, isSprite);
+              }
+            },
+          })
+        )
+        .pipe(dest(CONFIG.outputPath));
+    }
+  }
 }
 
 function genSingleImg2Css() {
   var isSprite = false,
-    path = `${CONFIG.cssPath}`;
-  return src(`${CONFIG.pathImgSingle}*.${CONFIG.imgMatchExt}`)
+    { imgBasePath, cssPath, imgMatchExt, terminal, outputUniImgName, cssExt, outputImgExt, spriteImgGutter } = CONFIG,
+    rootPath = `${cssPath}`;
+  return src(`${imgBasePath}*.${imgMatchExt}`)
     .pipe(
       spritesmith({
-        cssName: CONFIG.cssSingleName,
-        imgName: CONFIG.imgSingleName,
-        padding: CONFIG.spriteImgGutter,
+        cssName: `${outputUniImgName}.${cssExt}`,
+        imgName: `${outputUniImgName}.${outputImgExt}`,
+        padding: spriteImgGutter,
         algorithm: 'binary-tree', // 注释1
         cssTemplate: function (data) {
           // 移动端
-          if (CONFIG.terminal == CONFIG_TERMINAL.wap) {
-            return getImg2CssWap(data, path, isSprite);
+          if (terminal == CONFIG_TERMINAL.wap) {
+            return getImg2CssWap(data, rootPath, isSprite);
           }
           // PC端
-          else if (CONFIG.terminal == CONFIG_TERMINAL.pc) {
-            return getImg2CssPC(data, path, isSprite);
+          else if (terminal == CONFIG_TERMINAL.pc) {
+            return getImg2CssPC(data, rootPath, isSprite);
           }
         },
       })
@@ -95,7 +136,7 @@ function genSingleImg2Css() {
       through2.obj(function (file, enc, callback) {
         /* 过滤单图片雪碧图 */
         const filename = file.path;
-        if (!/single/g.test(filename)) {
+        if (!new RegExp(`.*_uni_.*\\.${outputImgExt}`, 'g').test(filename)) {
           this.push(file);
         }
         callback();
@@ -105,10 +146,10 @@ function genSingleImg2Css() {
 }
 
 function spritejs() {
-  return src(`${CONFIG.imgRootPath}*.${CONFIG.imgMatchExt}`)
+  return src(`${CONFIG.imgBasePath}*.${CONFIG.imgMatchExt}`)
     .pipe(
       getFileName({
-        currentDirPath: CONFIG.imgRootPath,
+        currentDirPath: CONFIG.imgBasePath,
         extMatch: CONFIG.imgMatchExt,
         outputPath: CONFIG.imgOutputName,
         ignorePath: CONFIG.imgMatchIgnore,

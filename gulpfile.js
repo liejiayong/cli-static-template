@@ -38,6 +38,13 @@ async function exceBefore(cb) {
 async function exceAfter(cb) {
   cb();
 }
+async function exceSpriteBefore(cb) {
+  await delFiles('./spritesmith/.dist*');
+  cb();
+}
+async function exceSpriteAfter(cb) {
+  cb();
+}
 
 async function genScss(cb) {
   await cpFiles({
@@ -121,8 +128,7 @@ async function genJS() {
 
 /* 生成雪碧图目录 */
 async function initSpriteDir() {
-  await mkDir('spritesmith');
-  await mkDir('spritesmith/sp');
+  await mkDir('./spritesmith');
 }
 
 /* 生成wap端模板 */
@@ -159,39 +165,69 @@ async function concatSpriteFile(cb) {
 }
 /* 生成pc端雪碧图 */
 exports.sprite2pc = series(
-  function (cb) {
-    del('spritesmith/.dist*');
+  exceSpriteBefore,
+  async function (cb) {
     initPcParams({
+      cssPath: `../img/`,
+      cssExt: 'scss',
       spriteImgGutter: 60,
       outputPath: 'spritesmith/.dist/',
+      outputImgExt: 'png',
       imgMatchExt: '{jpg,jpeg,png}',
       imgMatchIgnore: '{sp/}',
-      imgRootPath: 'spritesmith/',
+      imgBasePath: 'spritesmith/',
       imgOutputName: 'sprite.js',
-      cssExt: 'scss',
+      outputUniImgCssName: {
+        prefix: 'ico',
+        base: 'uni',
+        suffix: '',
+        symbol: '_',
+      },
+      outputSpImgCssName: {
+        prefix: 'ico',
+        base: 'sp',
+        suffix: '',
+        symbol: '_',
+      },
     });
     cb();
   },
   runSp2pc(),
-  concatSpriteFile
+  concatSpriteFile,
+  exceSpriteAfter
 );
 /* 生成wap端雪碧图 */
 exports.sprite2wap = series(
-  function (cb) {
-    del('spritesmith/.dist*');
+  exceSpriteBefore,
+  async function (cb) {
     initWapParams({
+      cssPath: `../img/`,
+      cssExt: 'scss',
       spriteImgGutter: 60,
       outputPath: 'spritesmith/.dist/',
+      outputImgExt: 'png',
       imgMatchExt: '{jpg,jpeg,png}',
       imgMatchIgnore: '{sp/}',
-      imgRootPath: 'spritesmith/',
+      imgBasePath: 'spritesmith/',
       imgOutputName: 'sprite.js',
-      cssExt: 'scss',
+      outputUniImgCssName: {
+        prefix: 'ico',
+        base: 'uni',
+        suffix: '',
+        symbol: '_',
+      },
+      outputSpImgCssName: {
+        prefix: 'ico',
+        base: 'sp',
+        suffix: '',
+        symbol: '_',
+      },
     });
     cb();
   },
   runSp2wap(),
-  concatSpriteFile
+  concatSpriteFile,
+  exceSpriteAfter
 );
 
 exports.dir = series(async function (cb) {
