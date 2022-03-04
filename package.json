@@ -8,7 +8,8 @@
     "pc": "gulp pc",
     "sp2pc": "gulp sprite2pc",
     "sp2wap": "gulp sprite2wap",
-    "font": "font-spider template/fontspide/index.html"
+    "dir": "gulp dir",
+    "font": "font-spider ./font/index.html"
   },
   "keywords": [],
   "author": "JyLie 809206619@qq.com",

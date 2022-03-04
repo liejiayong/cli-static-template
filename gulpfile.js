@@ -3,11 +3,12 @@
   如果任务（task）不返回任何内容，则必须使用 callback 来指示任务已完成。不然会报错Did you forget to signal async completion? 
 */
 
-const { series } = require('gulp');
+const { series, task } = require('gulp');
 const { cpFiles, concatFiles } = require('./script/gen');
 const { initPcParams, initWapParams, runSp2pc, runSp2wap } = require('./script/sprite');
 const { mkDir } = require('./script/fs');
 const del = require('del');
+const path = require('path');
 
 // 设置环境变量
 const NODE_ENV_MAP = {
@@ -31,7 +32,7 @@ async function delFiles(...files) {
 }
 
 async function exceBefore(cb) {
-  await initSpriteDir();
+  await initDir();
   await delFiles('./src');
   cb();
 }
@@ -127,8 +128,9 @@ async function genJS() {
 }
 
 /* 生成雪碧图目录 */
-async function initSpriteDir() {
+async function initDir() {
   await mkDir('./spritesmith');
+  await mkDir('./font');
 }
 
 /* 生成wap端模板 */
@@ -231,6 +233,6 @@ exports.sprite2wap = series(
 );
 
 exports.dir = series(async function (cb) {
-  await initSpriteDir();
+  await initDir();
   cb();
 });
