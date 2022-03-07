@@ -21,8 +21,11 @@
 
   $width: 1.88rem;
   width: $width;
-  height: 0.86rem;
-  @include bgimg($width, '../img/logo.png');
+  img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 /* auth status */
