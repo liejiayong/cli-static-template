@@ -9,7 +9,7 @@
     "sp2pc": "gulp sprite2pc",
     "sp2wap": "gulp sprite2wap",
     "dir": "gulp dir",
-    "font": "font-spider ./font/index.html"
+    "font": "font-spider font/index.html"
   },
   "keywords": [],
   "author": "JyLie 809206619@qq.com",

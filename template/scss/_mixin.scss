@@ -175,10 +175,22 @@
 }
 
 // text style
-@mixin text-gradient($sty: linear-gradient(yellow, orange) repeat) {
-  background: $sty;
-  background-clip: text; // >=ie9+
-  color: transparent;
+@mixin text-gradient($color, $sty: linear-gradient(yellow, orange) repeat) {
+  color: $color;
+  @supports (-webkit-background-clip: text) {
+    background: $sty;
+    background-clip: text; // >=ie9+
+    color: transparent;
+  }
+}
+@mixin greyscale {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+  filter: Gray;
+  _filter: none;
 }
 
 // button mixin

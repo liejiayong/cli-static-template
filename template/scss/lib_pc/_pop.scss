@@ -409,6 +409,7 @@ $table-height-overflow: 200px;
         background-color: $input-color-bg;
         @include inputcolor($input-color-txt);
         box-sizing: border-box;
+        border: 0;
       }
       &--btn {
         width: $width_btn_input_auth;

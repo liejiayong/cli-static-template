@@ -1,8 +1,8 @@
 // var DEG = 360 / 12;
-// $('.btn-lottery').rotate({
+// $('.jlottery-btn').rotate({
 //   bind: {
 //     click: function () {
-//       $('.btn-lottery').addClass(jtool.disableCls);
+//       $('.jlottery-btn').addClass(jtool.disableCls);
 //       var count = 1;
 //       // $.post('/act.php',{},function(){
 //       $('.ico-lottery-panel').rotate({
@@ -11,7 +11,7 @@
 //         duration: 3500,
 //         center: ['50%', '50%'],
 //         callback: function () {
-//           $('.btn-lottery').removeClass(jtool.disableCls);
+//           $('.jlottery-btn').removeClass(jtool.disableCls);
 //           jtool.showTip({
 //             content: '<div class="tc"><div>xxx领取成功</div></div>',
 //           });
@@ -29,7 +29,7 @@
 // });
 
 // /* 方形抽奖 */
-// $('.btn-lottery').on('click', function () {
+// $('.jlottery-btn').on('click', function () {
 //   var index = jtool.getRandom(0, 11);
 //   jtool.lottery(
 //     index,
@@ -39,7 +39,7 @@
 //     },
 //     function (index) {
 //       $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//       jtool.showTip('<p>恭喜获得' + index + '</p>');
+//       jtool.showTip({ content: '<p>恭喜获得' + index + '</p>' });
 //     }
 //   );
 // });
@@ -47,7 +47,7 @@
 jtool = {
   /**
    // 抽奖
-    $('.btn-lottery').on('click', function () {
+    $('.jlottery-btn').on('click', function () {
       var index = jtool.getRandom(0, 11);
       jtool.lottery(
         index,
@@ -57,7 +57,7 @@ jtool = {
         },
         function (index) {
           $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-          jtool.showTip('<p>恭喜获得' + index + '</p>');
+          jtool.showTip({ content: '<p>恭喜获得' + index + '</p>' });
         }
       );
     });
