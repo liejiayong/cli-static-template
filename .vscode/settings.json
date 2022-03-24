@@ -1,9 +1,22 @@
 {
+  /* window */
   "window.zoomLevel": 0,
-  // icon
-  "workbench.iconTheme": "vscode-icons",
+
+  /* wordkbench */
+  "workbench.colorTheme": "One Dark Pro", // 主题
+  "workbench.iconTheme": "vscode-icons", // 文件主题
+  "workbench.tree.indent": 16, // 树缩进
+  "workbench.editor.enablePreview": false,
+
+  /* terminal */
+  "terminal.integrated.defaultProfile.windows": "PowerShell", // 默认终端
+  "terminal.integrated.defaultProfile.osx": "zsh", // 默认终端
+  "terminal.integrated.copyOnSelection": true, // 终端选中复制
+  "terminal.integrated.fontSize": 16, // 终端字号
+
+  /* files */
+  "files.autoSave": "onFocusChange", // 自动保存
   "files.eol": "\n",
-  "files.autoSave": "onFocusChange",
   "files.enableTrash": false,
   // 在文件底部添加新代码行时，强制所有文件都有一行空格。
   "files.insertFinalNewline": true,
@@ -16,6 +29,8 @@
     "*.jsx": "javascriptreact",
     "*.hbs": "javascript"
   },
+
+  /* search */
   // VScode进行文件搜索时，不搜索这些区域。注意：vs已经贴心的默认设置了 node_modules 和 bower_components 文件夹
   "search.exclude": {
     "**/.git": true,
@@ -29,55 +44,30 @@
     "**/dist": true,
     "**/build": true
   },
-  // 断点调试时，遇到断点，自动显示调试视图。
-  "debug.openDebug": "openOnDebugBreak",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
-  "sync.gist": "d6f93d4248267f8875353551c3acef8c",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // default start
-  "editor.tabSize": 2,
-  "editor.lineHeight": 20,
-  "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "none",
+
+  /* editor */
+  "editor.formatOnSave": true, // 保存格式化
+  "editor.tabSize": 2, // 一个tab强制转换为2个空格
   "editor.fontSize": 16,
+  "editor.lineHeight": 20,
+  "editor.renderLineHighlight": "all", // 空白字符显示方式
+  "editor.wordWrapColumn": 120,
+  "editor.wordWrap": "on", // 在视区宽度处换行,
+  "editor.smoothScrolling": true, // 滚动时启用动画
+  "editor.bracketPairColorization.enabled": true, // 彩虹🌈括号
+  "editor.renderWhitespace": "none",
   "editor.cursorBlinking": "smooth",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.snippetSuggestions": "top",
   // 使用vscode的自动格式化时，有时会把一行过长的代码折行。200表示200个字符处折行
-  "editor.wordWrapColumn": 120,
-  "editor.wordWrap": "off",
   "editor.quickSuggestions": {
     "other": true,
     "comments": true,
-    "strings": false
+    "strings": true // 在键入字符串时启用建议
   },
   "editor.suggestSelection": "first",
   "editor.formatOnPaste": true,
   // 开启后可能与eslint冲突引起点击ctrl+s不保存
-  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     // For ESLint
     "source.fixAll.eslint": true,
@@ -86,27 +76,125 @@
     // For Stylelint
     "source.fixAll.stylelint": true
   },
-  "path-intellisense.mappings": {
-    "/@": "${workspaceRoot}/src"
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 默认格式化程序
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // default end
-  // eslint start
-  // 格式化快捷键 shirt+alt+F，有时可能需要多按几次
-  // 因为使用 shirt+alt+F进行格式化时，先执行编辑器的格式化规则，然后才会按照eslint和tslit这样的其他插件去格式化。
-  // 是否启用根据eslint配置文件。文件保存时，根据配置文件进行格式化
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  /* yaml */
+  "yaml.format.singleQuote": false,
+
+  /* vsicons */
+  "vsicons.dontShowNewVersionMessage": true,
+
+  /* security */
+  "security.workspace.trust.untrustedFiles": "prompt", // 不显示信任引入提示
+
+  /* explorer */
+  "explorer.confirmDragAndDrop": true, // 控制在资源管理器内拖放移动文件或文件夹时是否进行确认
+  // https://github.com/antfu/vscode-file-nesting-config
+  // 配置文件归类
+  "explorer.experimental.fileNesting.enabled": true,
+  "explorer.experimental.fileNesting.expand": false,
+  "explorer.experimental.fileNesting.patterns": {
+    "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
+    "*.jsx": "$(capture).js",
+    "*.module.ts": "$(capture).resolver.ts, $(capture).controller.ts, $(capture).service.ts",
+    "*.ts": "$(capture).js, $(capture).*.ts",
+    "*.tsx": "$(capture).ts",
+    "*.vue": "$(capture).*.ts, $(capture).*.js",
+    ".env": "*.env, .env.*, env.d.ts",
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "index.d.ts": "*.d.ts",
+    "package.json": ".browserslist*, .circleci*, .codecov, .commitlint*, .editorconfig, .eslint*, .firebase*, .flowconfig, .github*, .gitlab*, .gitpod*, .huskyrc*, .jslint*, .lintstagedrc*, .markdownlint*, .mocha*, .node-version, .nodemon*, .npm*, .nvmrc, .pm2*, .pnp.*, .pnpm*, .prettier*, .releaserc*, .sentry*, .stackblitz*, .styleci*, .stylelint*, .tazerc*, .textlint*, .tool-versions, .travis*, .vscode*, .watchman*, .xo-config*, .yamllint*, .yarnrc*, api-extractor.json, apollo.config.*, appveyor*, ava.config.*, azure-pipelines*, bower.json, build.config.*, commitlint*, crowdin*, cypress.json, dangerfile*, dprint.json, firebase.json, grunt*, gulp*, jasmine.*, jenkins*, jest.config.*, jsconfig.*, karma*, lerna*, lint-staged*, nest-cli.*, netlify*, nodemon*, nx.*, package-lock.json, playwright.config.*, pm2.*, pnpm*, prettier*, pullapprove*, puppeteer.config.*, renovate*, rollup.config.*, stylelint*, tsconfig.*, tsdoc.*, tslint*, tsup.config.*, turbo*, typedoc*, vercel*, vetur.config.*, vitest.config.*, webpack.config.*, workspace.json, xo.config.*, yarn*",
+    "vite.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .htmlnanorc*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, cssnano.config.*, cypress.json, env.d.ts, htmlnanorc.*, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
+    "vue.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .htmlnanorc*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, cssnano.config.*, cypress.json, env.d.ts, htmlnanorc.*, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*"
+  },
+
+  /* debug */
+  // 断点调试时，遇到断点，自动显示调试视图。
+  "debug.openDebug": "openOnDebugBreak",
+
+  // prettier 设置
+  "prettier.semi": false, // 设置分号
+  "prettier.singleQuote": true, // 强制单引号
+  "prettier.trailingComma": "none", // 禁止随时添加逗号
+
+  /* Path Intellisense */
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src",
+    "/": "${workspaceRoot}/"
+  },
+  // 上述配置一般要配合在package.json的同级文件添加jsconfig.json文件，加上以下配置：
+  // {
+  //   "compilerOptions": {
+  //     "target": "ES6",
+  //     "module": "commonjs",
+  //     "allowSyntheticDefaultImports": true,
+  //     "baseUrl": "./",
+  //     "paths": {
+  //       "@/*": [
+  //         "src/*"
+  //       ]
+  //     }
+  //   },
+  //   "exclude": [
+  //     "node_modules"
+  //   ]
+  // }
+
+  /* eslint */
+  "eslint.enable": true,
+  // 自动设定eslint工作区
   "eslint.format.enable": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
   // eslint配置文件 ,修改为你自己电脑上的文件位置，或者直接删除
   "eslint.options": {
     "configFile": "E:/tanwan-file/tool-library/IDE/.eslintrc.js",
     "plugins": ["html"]
   },
-  "eslint.validate": ["javascript", "javascriptreact", "html", "vue"],
-  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "markdown"],
-
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.alwaysShowStatus": true,
   "eslint.packageManager": "yarn",
-  // eslint end
-  // emmet start
+  // 老版本的定义校验的类型
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "vue",
+    "markdown"
+  ],
+  // 新版本的定义校验的类型
+  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "json", "html", "vue", "markdown"],
+
+  /* emmet */
   // 这一设置最大作用是：当输入的文本不属于Emmet定义的缩写规则时，依然允许使用Tab键进行缩进。此时会提示我自定义的缩写语句，以及各插件自定义的缩写语句.
   "emmet.triggerExpansionOnTab": true,
   "emmet.showSuggestionsAsSnippets": true,
@@ -123,10 +211,8 @@
     "jsx-sublime-babel-tags": "javascriptreact",
     "wxml": "html"
   },
-  // emmet end
-  // eslint end
-  // vetur start
-  // 自定义高亮
+
+  /* vetur -> Vue2高亮 */
   "vetur.grammar.customBlocks": {
     "docs": "md",
     "i18n": "json"
@@ -195,67 +281,21 @@
       // for IDE attriubte end
     }
   },
-  // vetur end
-  // prettier start
-  // "prettier": {
-  //   "printWidth": 120,
-  //   "tabWidth": 2 /* Specify the number of spaces per indentation-level. */,
-  //   "useTabs": false /* Indent lines with tabs instead of spaces. */,
-  //   /* Print semicolons at the ends of statements. */
-  //   "semi": true,
-  //   "singleQuote": true,
-  //   // such as, as-needed: {true: 0,0: 0,'qux-lorem': true};"consistent": 强制执行一致的引用风格需要引用对象字面值属性名称;preserve:保留用户输入
-  //   "quoteProps": "as-needed",
-  //   "jsxSingleQuote": true,
-  //   // es5: Trailing commas where valid in ES5 (objects, arrays, etc.)
-  //   "trailingComma": "es5",
-  //   // Print spaces between brackets in object literals. true Example: { foo: bar }.
-  //   "bracketSpacing": true,
-  //   // Put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (does not apply to self closing elements).
-  //   "jsxBracketSameLine": false,
-  //   // "always" - Always include parens. Example: (x) => x
-  //   // "avoid" - Omit parens when possible. Example: x => x
-  //   "arrowParens": "always",
-  //   /* Range start */
-  //   "rangeStart": 0,
-  //   // "rangeEnd": Infinity,
-  //   /* Range end */
-  //   // parser:'babylon', /* 默认不打开 */
-  //   /*
-  //       Specify which parser to use.
-  //       parser: 'None'|'babel',
-  //       Specify the file name to use to infer which parser to use.
-  //       filepath: 'None'|<string>,
-  //       指定某片段格式化。Prettier can restrict itself to only format files that contain a special comment, called a pragma, at the top of the file.
-  //       */
-  //   "requirePragma": false,
-  //   // 指定某个文件已被格式化，配合requirePragma使用。Prettier can insert a special @format marker at the top of files specifying that the file has been formatted with prettier.
-  //   "insertPragma": false,
-  //   // 	"always" - Wrap prose if it exceeds the print width.
-  //   // "never" - Do not wrap prose.
-  //   // "preserve" - Wrap prose as-is. First available in v1.9.0
-  //   "proseWrap": "preserve",
-  //   // "css" - Respect the default value of CSS display property.
-  //   "htmlWhitespaceSensitivity": "ignore",
-  //   "vueIndentScriptAndStyle": false,
-  //   "endOfLine": "lf",
-  //   // Format embedded code if Prettier can automatically identify it.
-  //   "embeddedLanguageFormatting": "auto",
-  //   // for IDE attriubte start
-  //   "wrap_attributes": "force-aligned",
-  //   "end_with_newline": true
-  //   // for IDE attriubte end
-  // },
+
+  /* minapp */
+  "minapp-vscode.disableAutoConfig": true,
+
+  /* prettier */
   "prettier.configPath": "E:\\tanwan-file\\tool-library\\IDE\\prettier.config.js" /* tanwanpc-desk */,
-  // prettier end
-  // stylus start
+
+  /* stylusSupremacy */
   "stylusSupremacy.insertColons": false, // 是否插入冒号
   "stylusSupremacy.insertSemicolons": false, // 是否插入分好
   "stylusSupremacy.insertBraces": false, // 是否插入大括号
   "stylusSupremacy.insertNewLineAroundImports": false, // import之后是否换行
   "stylusSupremacy.insertNewLineAroundBlocks": false, // 两个选择器中是否换行
-  // stylus end
-  // fileheader start
+
+  /* fileheader */
   // 快捷方式如果没响应则需要在vscode键盘快捷方式搜索cursorTip查看快键键
   // fileheader 文件头部注释 快捷键：window：ctrl+alt+i,mac：ctrl+cmd+i
   "fileheader.customMade": {
@@ -341,7 +381,8 @@
       "use": false
     }
   },
-  // fileheader end
+
+  /* autoprefixer -> css */
   "autoprefixer.formatOnSave": true,
   "autoprefixer.browsers": ["last 8 versions", "> 0.01%"],
   // 设置autoprefixer 为zhi有.css 情况下才能保存生成兼容前缀
@@ -371,10 +412,8 @@
     "**/assets/**.styl",
     "**/common/**.styl"
   ],
-  "minapp-vscode.disableAutoConfig": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "vsicons.dontShowNewVersionMessage": true,
-  "yaml.format.singleQuote": false,
+
+  /* liveSassCompile */
   "liveServer.settings.CustomBrowser": "chrome",
   // liveSassCompile start
   "liveSassCompile.settings.showOutputWindow": true, // 热更新
@@ -384,7 +423,7 @@
     {
       "format": "compact",
       "extensionName": ".css", // 指定编译完的文件后缀名，.css为普通代码，.min.css为压缩代码
-      "savePath": "~/../css" // 指定编译完的css文件路径。"~" denotes relative to every sass file.
+      "savePath": "~/../css" // 指定编译完的css文件路径
     }
     // You can add more
     // {
@@ -395,15 +434,20 @@
   ], //指定编译css的样式类型，有这四种 expanded（默认）, compact, compressed or nested
   "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**", "**/_*.scss"], // 指定忽略的文件,支持正则
   "liveSassCompile.settings.includeItems": ["**/_index*.scss", "**/index*.scss"],
-  "liveSassCompile.settings.autoprefix": ["> 0.01%", "last 12 versions"], // 添加浏览器兼容性前缀，ie5.5及以上
-  // liveSassCompile end
-  // python
+  "liveSassCompile.settings.autoprefix": ["> 0.01%", "last 12 versions"],
+
+  /* liveServer */
+  "liveServer.settings.donotShowInfoMsg": true,
+
+  /* git sync */
+  "sync.gist": "d6f93d4248267f8875353551c3acef8c",
+
+  /* language */
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  /* python */
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
-  "python.languageServer": "Microsoft",
-  // python end
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-  "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.port": 5502
+  "python.languageServer": "Default"
 }
