@@ -200,6 +200,7 @@
   "emmet.showSuggestionsAsSnippets": true,
   // 配置emmet对哪种文件类型支持
   "emmet.syntaxProfiles": {
+    "typescript": "jsx",
     "javascript": "jsx",
     "vue-html": "html",
     "vue": "html",
@@ -286,6 +287,8 @@
   "minapp-vscode.disableAutoConfig": true,
 
   /* prettier */
+  "prettier.enable": true,
+  "prettier.prettierPath": ".",
   "prettier.configPath": "E:\\tanwan-file\\tool-library\\IDE\\prettier.config.js" /* tanwanpc-desk */,
 
   /* stylusSupremacy */
@@ -444,6 +447,7 @@
 
   /* language */
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.tsdk": "node_modules/typescript/lib",
 
   /* python */
   "python.jediEnabled": false,
