@@ -27,6 +27,7 @@
     "gulp-sass": "5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp.spritesmith": "^6.12.1",
+    "jest": "^27.5.1",
     "node-sass": "^6.0.1",
     "postcss-pxtorem": "^6.0.0",
     "postcss-scss": "^4.0.2",

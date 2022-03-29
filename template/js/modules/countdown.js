@@ -47,6 +47,6 @@ var jcountdown = {
   },
 };
 // 第一波2月11号
-if (Date.now() < new Date(2021, 02, 11, 20, 00, 00)) {
+if (Date.now() < jcountdown.getTime(2021, 02, 11, 20, 00, 00)) {
   jcountdown.countDown(2021, 02, 11, 20, 00, 00);
 }

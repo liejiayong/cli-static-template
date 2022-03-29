@@ -102,8 +102,6 @@ body {
   @include scroll_init();
 
   font-size: #{$fs-primary-wap};
-  color: $color-theme-txt;
-  background: $color-theme-bg;
 }
 
 /* app container wrapper */
@@ -114,7 +112,8 @@ body {
   width: 100%;
   max-width: 750px;
   // height: 100%;
-  color: $color-primary;
+  color: $color-theme-txt;
+  background: $color-theme-bg;
 
   // overflow: hidden auto;
   @include scroll_static();
@@ -132,6 +131,7 @@ body {
   height: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 

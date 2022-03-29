@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-03-14 15:39:36
+ * @LastEditTime: 2022-03-26 14:35:57
  * @FilePath: \tool-library\business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -371,8 +371,8 @@ $(function () {
 
     loadGame: function (opts) {
       var self = this,
-        count = opts.count || 3,
-        onReady = opts.onReady || function () {},
+        count = (opts && opts.count) || 3,
+        onReady = (opts && opts.onReady) || function () {},
         $popReady = $('#J_gameReadyPop'),
         $count = $popReady.find('#gameReadyCount');
       $popReady.fadeIn();

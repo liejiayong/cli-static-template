@@ -70,6 +70,9 @@ MatterController.opts = {
 };
 
 logic.extend({
+  qaTimes: { DEFAULT: 5, current: 0 }, // 每天答题次数
+  score: 0, // 答题答对次数
+  day: 1, // 共答题三天，第一天为1
   initQa: function (curStatus) {
     var map = {
       0: '一',
@@ -81,47 +84,59 @@ logic.extend({
     var current = curStatus.current,
       curQa = curStatus.list[current];
     var tpl = '';
-    tpl += '<div class="ico-qa-tit qanum"> 第' + map[current] + '题</div>';
-    tpl += '<div class="qatit">' + curQa.title + '？</div>';
-    tpl += '<ul class="qacho">';
     curQa.content.forEach(function (item) {
-      tpl += '<li data-click="false" class="">' + item.label + '.' + item.value + '</li>';
+      tpl += '<li data-click="false" class="cell">' + item.label + '.' + item.value + '</li>';
     });
-    tpl + '</ul>';
-    $('#qaPanel').html(tpl).addClass('active');
-    $('#qaSuc').text(logic.qaNum);
+    $('#qaTit').text(curQa.title);
+    $('#qaNum').text(map[current]);
+    $('#qaContent').html(tpl);
+    $('#qaContainer').addClass('active');
     setTimeout(function () {
-      $('#qaPanel').removeClass('active');
+      $('#qaContainer').removeClass('active');
     }, 400);
   },
-  loadGame: function () {
-    if (this.run()) {
+  resetQa: function () {
+    var self = this;
+
+    $('.qa-ready').hide();
+    $('.qa-wrapper').show();
+    var qaController = new MatterController({
+      total: 5,
+      collect: qalist.slice((self.day - 1) * 5, self.day * 5),
+      finish: logic.gameResult,
+    });
+    qaController.init(function (param) {
+      self.initQa(param);
+    });
+    self.qaController = qaController;
+    self.score = 0;
+  },
+  loadGame: function (opts) {
+    var self = this;
+    if (self.qaTimes.current >= self.qaTimes.DEFAULT) {
       return;
     }
 
-    var t = this,
-      count = t.time.ready,
+    self.qaTimes++;
+
+    var count = (opts && opts.count) || 3,
+      onReady = (opts && opts.onReady) || function () {},
       $popReady = $('#J_gameReadyPop'),
       $count = $popReady.find('#gameReadyCount');
     $popReady.fadeIn();
     $count.text(count);
 
-    $('.start-panel').hide();
-    var qaController = new MatterController({ total: 5, collect: qalist, finish: logic.gameResult });
-    qaController.init(function (param) {
-      t.initQa(param);
-    });
-    this.qaController = qaController;
-    $('#qaPanel').show();
+    self.resetQa();
 
-    var time = setInterval(function () {
+    var timer = setInterval(function () {
       --count;
-      if (count == -1) {
-        clearInterval(time);
-        return;
-      } else if (count == 0) {
+      if (count === 0) {
         $count.text('GO!');
         $popReady.fadeOut();
+        clearInterval(timer);
+        setTimeout(function () {
+          onReady();
+        }, 100);
       } else {
         $count.text(count);
       }
