@@ -1,12 +1,12 @@
-/**
-  * @description:  sass minxi util
-  * @author: liejiayong(809206619@qq.com)
-  * @Date: 2020-06-15 11:27:17
-  * @LastEditors: liejiayong(809206619@qq.com)
-  * @LastEditTime: 2021-12-11 17:06:29
-  * @FilePath: 
-  * @warning: 
-  */
+// /**
+//   * @description:  sass minxi util
+//   * @author: liejiayong(809206619@qq.com)
+//   * @Date: 2020-06-15 11:27:17
+//   * @LastEditors: liejiayong(809206619@qq.com)
+//   * @LastEditTime: 2021-12-11 17:06:29
+//   * @FilePath:
+//   * @warning:
+//   */
 
 @mixin bgimg($width, $url) {
   background: url(#{$url}) no-repeat top center / #{$width} auto;
@@ -58,6 +58,11 @@
 @mixin lh($height) {
   height: $height;
   line-height: $height;
+}
+
+@mixin mauto() {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @mixin triangle($width: 10px) {
@@ -209,7 +214,7 @@
   }
 }
 
-/*status*/
+// status
 // clear float
 @mixin clearfix {
   zoom: 1;
@@ -224,7 +229,7 @@
   }
 }
 // flex layout
-/* example: @include flexs(center, center, wrap); */
+// example: @include flexs(center, center, wrap);
 @mixin flexs($h: '', $v: '', $wrap: '') {
   display: flex;
   @if $h != '' {
@@ -237,12 +242,11 @@
     flex-wrap: $wrap;
   }
 }
-/* 
-  @include flex-width();
-  @include flex-width(1);
-  @include flex-width(auto);
-  @include flex-width(20px, 1 1);
-  */
+
+// @include flex-width();
+// @include flex-width(1);
+// @include flex-width(auto);
+// @include flex-width(20px, 1 1);
 @mixin flex-width($width: 1, $flex: '') {
   @if $width == 1 {
     flex: 1;
@@ -259,7 +263,7 @@
   }
 }
 
-/*scroll*/
+// scroll
 // 滚动卡顿
 @mixin scroll-state($scroll: '') {
   @if $scroll != '' {

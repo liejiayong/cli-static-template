@@ -23,7 +23,7 @@
   top: 0;
   left: 50%;
   width: 7.5rem;
-  @include lh(0.9rem);
+  @include lh($nav-height-other);
   z-index: 10;
   box-sizing: border-box;
   transform: translate3d(-50%, 0, 0);

@@ -1,30 +1,18 @@
-/**
- * @description:  normalize style
- * @author: liejiayong(809206619@qq.com)
- * @Date: 2020-06-15 11:27:17
- * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-12-11 17:06:29
- * @FilePath: 
- * @warning: 
- */
-
-/* 盒子模式 
-html,
-body {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
--ms-scroll-chaining: none;
-overscroll-behavior: contain;
-scroll-behavior: smooth;
-}
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-*/
+// /* 针对盒子模型 */
+// html,
+// body {
+// -webkit-box-sizing: border-box;
+// -moz-box-sizing: border-box;
+// box-sizing: border-box;
+// -ms-scroll-chaining: none;
+// overscroll-behavior: contain;
+// scroll-behavior: smooth;
+// }
+// *:before,
+// *:after {
+//   -webkit-box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   box-sizing: border-box;
 
 /* Document
    ========================================================================== */

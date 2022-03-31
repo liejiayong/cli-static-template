@@ -14,7 +14,7 @@
 // <!-- nav -->
 // <div class="jy-nav">
 //   <div class="jy-nav_wrapper">
-//     <a class="jy-nav_logo logo"></a>
+//     <a class="jy-nav_logo"><img src="./img/logo.png" alt="" /></a>
 //     <div class="jy-nav_profile">
 //       <div class="jy-nav_profile_name">最强王者</div>
 //       <div class="jy-nav_profile_subname">正版小说授权官方手游</div>
@@ -51,15 +51,22 @@
     align-items: center;
     height: $nav-height;
   }
-  .jy-nav_logo {
+ .jy-nav_logo {
     $width: 1.08rem;
-    margin-bottom: -0.16rem;
+    position: relative;
+    margin-bottom: -0.12rem;
     // -moz-border-radius: 0.3rem;
     // border-radius: 0.3rem;
     -webkit-box-flex: 0;
     flex: 0 0 $width;
     width: $width;
+    height: $width;
     align-self: flex-end;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
   .jy-nav_profile {
     // flex: 1;

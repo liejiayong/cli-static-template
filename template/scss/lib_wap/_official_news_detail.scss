@@ -1,0 +1,75 @@
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+// <div class="jy-news__details">
+//   <div class="title">
+//     <h1 class="tsup">新将解析 | 主动体系再增一员，全体加成万金油！</h1>
+//     <p class="tsub">2021-07-23 10:19:26 / 《鸿图之下》攻略作者团</p>
+//   </div>
+//   // <div class="profile">
+//   //   <div class="avatar"><img src="./img/logo.png" alt="" /></div>
+//   //   <span>JyLie</span>
+//   //   <span>2021-07-23 10:19:26 / 《鸿图之下》攻略作者团</span>
+//   // </div>
+//   <div class="content">
+//     <!-- CMS输出内容 -->
+//     <p>
+//       《大唐琉璃梦》是一款的古风官斗手游。游戏展现了古代尔虞我诈的官场智斗，颠覆传统的官斗玩法为你带来一场步步惊心的传奇。十年寒窗苦读，一朝金榜题名，官斗之余府邸小憩，娇妻相伴，金玉满堂，享田园轻趣时光；千古门客尽入门墙，谈笑间位极人臣；联盟争斗步步惊心，联盟战场一决高下。
+//     </p>
+
+//     <p><img src="./img//bn.jpg" alt="" /></p>
+
+//     <p>
+//       《大唐琉璃梦》是一款的古风官斗手游。游戏展现了古代尔虞我诈的官场智斗，颠覆传统的官斗玩法为你带来一场步步惊心的传奇。十年寒窗苦读，一朝金榜题名，官斗之余府邸小憩，娇妻相伴，金玉满堂，享田园轻趣时光；
+//     </p>
+//   </div>
+// </div>
+.jy-news__details {
+  // padding: 0.2rem 0;
+  // height: 7.365rem;
+  // background-image: url('../img/bg3.jpg');
+  line-height: 1.5;
+
+  .title {
+    font-size: 0.26rem;
+    .tsup {
+      font-weight: bold;
+    }
+    .tsub {
+      font-size: 0.2rem;
+    }
+  }
+  .profile {
+    padding: 0.1rem 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.22rem;
+    color: #999;
+    .avatar {
+      position: relative;
+      width: 0.4rem;
+      height: 0.4rem;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    span {
+      margin: 0 0.1rem;
+    }
+  }
+  .content {
+    padding-top: 0.2rem;
+    > p,
+    > div {
+      margin-top: 0.1rem;
+    }
+    img {
+      padding: 0.1rem 0;
+      display: block;
+      width: 100%;
+    }
+  }
+}

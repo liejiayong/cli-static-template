@@ -11,7 +11,7 @@
 @import '../_const.scss';
 @import '../_mixin.scss';
 
-/* layui v1 */
+// /* layui v1 */
 // <div class="pagination-container mt-60">
 //   <div class="layui-laypage">
 //     <a href="#">上一页</a>
@@ -25,7 +25,7 @@
 //   </div>
 // </div>
 
-/* layui v0 */
+// /* layui v0 */
 //  <div class="pagination-container mt-60">
 //   <div class="layui-laypage">
 //     <a href="#">上一页</a>
@@ -41,7 +41,6 @@
 //   </div>
 // </div>
 
-/* 分页 */
 .pagination-container {
   position: relative;
   margin-left: auto;
@@ -75,8 +74,10 @@
       border: 0;
       // background-color: #fff;
       // background-color: #0b60b7;
-      background: linear-gradient(#155054, #1d6062, #28777a);
-      color: #fff;
+      // background: linear-gradient(#155054, #1d6062, #28777a);
+      // color: #fff;
+      background: #a02c12 linear-gradient(#a02c12, rgb(170, 43, 15), #b03a20, #b43e23);
+      color: #d8b7af;
       font-size: 12px;
     }
 
