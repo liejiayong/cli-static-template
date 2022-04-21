@@ -37,7 +37,7 @@
     <div class="jy-wrapper" id="topWrapper">
       <div class="main-wrapper" id="mainWrapper">
         <!-- logo -->
-        <a href="#" class="jy-btn"><img src="./img/logo.png" alt="" /></a>
+        <a href="#" class="jy-btn logo"><img src="./img/logo.png" alt="" /></a>
 
         <div class="jy-auth">
           <!-- 登录前 -->
@@ -506,8 +506,8 @@
       logic.extend({
         // 游戏结束业务
         gameResult: function () {
-          var self = this,
-            score = t.score;
+          var self = logic,
+            score = self.score;
           console.log('Game Result: ', JSON.stringify(logic));
 
           var flag = true;

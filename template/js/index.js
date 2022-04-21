@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-03-26 14:35:57
+ * @LastEditTime: 2022-04-21 17:28:27
  * @FilePath: \tool-library\business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -212,7 +212,6 @@ var jtool = {
       });
     },
   },
-
   /**
    * 弹窗展示
     jtool.showTip({
@@ -227,6 +226,7 @@ var jtool = {
       btnOkText: '确认',
       showBtnClose: true,
       showBtnOk: true,
+      showTitle: true
     });
    */
   showTip: function (opts) {
@@ -240,16 +240,21 @@ var jtool = {
       btnOkText = opts.btnOkText || '确认',
       showBtnClose = typeof opts.showBtnClose === 'boolean' ? opts.showBtnClose : true,
       showBtnOk = typeof opts.showBtnOk === 'boolean' ? opts.showBtnOk : true,
-      $tip = $('#J_tipPop');
+      showTitle = typeof opts.showBtnOk === 'boolean' ? opts.showBtnOk : true;
+    $tip = $('#J_tipPop');
 
     showBtnClose ? $(btnCloseId).show() : $(btnCloseId).hide();
     showBtnOk ? $(btnOkId).text(btnOkText).show() : $(btnOkId).hide();
 
-    var titPadCache = titId + ' ' + titPad;
-    if ($tip.find(titPadCache) && $tip.find(titPadCache).length) {
-      $tip.find(titPadCache).html(tit);
+    if (showTitle) {
+      var titPadCache = titId + ' ' + titPad;
+      if ($tip.find(titPadCache) && $tip.find(titPadCache).length) {
+        $tip.find(titPadCache).html(tit);
+      } else {
+        $tip.find(titId).html(tit);
+      }
     } else {
-      $tip.find(titId).html(tit);
+      $tip.find(titId).hide();
     }
     if (Object.prototype.toString.call(content) === '[object Array]') {
       content = content.join('');
