@@ -102,6 +102,7 @@ logic.extend({
     $('.qa-wrapper').show();
     var qaController = new MatterController({
       total: 5,
+      duration: 500,
       collect: qalist.slice((self.day - 1) * 5, self.day * 5),
       finish: logic.gameResult,
     });
@@ -142,4 +143,24 @@ logic.extend({
       }
     }, 1000);
   },
+});
+logic.$readyPop();
+
+// 开始游戏
+$('.btn-start').on('click', function () {
+  logic.loadGame();
+});
+// 答题
+$('#qaContent').on('click', '.cell', function () {
+  if ($(this).attr('data-click') == '1') return;
+
+  $(this).addClass(jtool.activeCls).attr('data-click', 1).siblings().attr('data-click', 1);
+
+  var qa = logic.qaController,
+    curQa = qa.list[qa.current],
+    index = +$(this).index();
+
+  index == curQa.right && logic.score++;
+
+  logic.qaController.next(logic.initQa);
 });
