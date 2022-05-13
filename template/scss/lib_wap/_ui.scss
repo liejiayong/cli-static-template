@@ -115,7 +115,7 @@ body {
   background: $color-theme-bg;
 
   // overflow: hidden auto;
-  @include scroll_static();
+  @include scroll_init();
 }
 
 /* main wrapper, Usually used when there is a main menubar switch  */

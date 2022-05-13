@@ -1,14 +1,15 @@
 @import '../_const.scss';
 @import '../_mixin.scss';
 
-// <div class="jy-news__tabs__container mt-40">
+// <!-- news container -->
+// <div class="jy-news__tabs__container ">
 //   <div class="jy-news__tabs__wrapper" id="psNewsTabs">
 //     <a href="javascript:;" class="active">最新</a>
 //     <a href="javascript:;" class="">公告</a>
 //     <a href="javascript:;" class="">活动</a>
 //     <a href="javascript:;" class="">攻略</a>
 //   </div>
-//   <a href=".news.html" class="jy-btn ico-btn-more ico-more">更多+</a>
+//   <a href="./news.html" class="jy-btn ico__news__btn--more ico-btn-more">更多+</a>
 // </div>
 // <div class="jy-news__tags">
 //   <a href="javascript:;" class="jy-btn-txt">萌新科普</a>
@@ -81,10 +82,27 @@
 //       psNewsContent.slideTo(currIndex);
 //     });
 
+// // 新闻详细
+// var $psNewsTabs = $('#psNewsTabs');
+// var psNewsContent = new Swiper('#psNewsContent', {
+//   autoplay: false,
+//   on: {
+//     slideChange: function () {
+//       var currIndex = this.activeIndex;
+//       $('#psNewsTabs a').eq(currIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//     },
+//   },
+// });
+// $psNewsTabs.on('click', 'a', function () {
+//   var currIndex = $(this).index();
+//   psNewsContent.slideTo(currIndex);
+// });
+
+$width: 7.2rem;
 .jy-news__tabs__container {
   @include mauto();
   position: relative;
-  width: 7.2rem;
+  width: $width;
   height: 0.7rem;
   color: #888;
   background: #fff;
@@ -97,6 +115,19 @@
     transform: translate3d(0, -50%, 0);
     cursor: pointer;
   }
+}
+.ico__news__btn--more {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 1.1rem;
+  height: 100%;
+  z-index: 1;
+  @include font-arial();
 }
 .jy-news__tabs__wrapper {
   @include mauto();
@@ -163,6 +194,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
   a {
     padding: 0.12rem 0;
     margin: 0.06rem 0.15rem;
@@ -187,7 +219,7 @@
 .jy-news__contents {
   @include mauto();
   position: relative;
-  width: 7.2rem;
+  width: $width;
   height: 3.5rem;
   background-color: #fff;
   .swiper-container {

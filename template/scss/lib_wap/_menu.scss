@@ -24,20 +24,21 @@
 // </div>
 
 .jy-menus {
-  margin: 0 auto;
-  position: fixed;
-  top: calc(100vh - #{$menus-top});
-  left: 0;
-  right: 0;
-  width: 7.5rem;
+  position: relative;
+  height: $menus-top;
   z-index: 10;
   overflow: hidden;
 }
 .jy-menus__wrapper {
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  @include lh(1.26rem);
+  @include lh($menus-top);
   border-top: 0.03rem solid #930c16;
   background: linear-gradient(#6d0912, #791016, #972121, #ae2e29);
 }

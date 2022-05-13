@@ -1,0 +1,93 @@
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+// <!-- banner -->
+// <div class="jy-ban-container">
+//   <div class="swiper-container" id="psBanner">
+//     <div class="swiper-wrapper">
+//       <div class="swiper-slide">
+//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
+//       </div>
+//       <div class="swiper-slide">
+//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
+//       </div>
+//       <div class="swiper-slide">
+//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
+//       </div>
+//       <div class="swiper-slide">
+//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
+//       </div>
+//     </div>
+//   </div>
+//   <div class="jy-ban-tabs fs-18">
+//     <a href="javascript:;" class="item active">传奇世界网页版</a>
+//     <a href="javascript:;" class="item">举报第三方软件</a>
+//     <a href="javascript:;" class="item">贪玩传奇</a>
+//     <a href="javascript:;" class="item">超级大活动</a>
+//   </div>
+// </div>
+
+// // 游戏资讯banner
+// var psBanner = new Swiper('#psBanner', {
+//   autoplay: true,
+//   pagination: {
+//     el: '.swiper-pagination-banner',
+//     clickable: true,
+//   },
+//   lazy: {
+//     loadPrevNext: true,
+//     loadPrevNextAmount: 2,
+//     loadOnTransitionStart: true,
+//   },
+//   on: {
+//     slideChange: function () {
+//       $('.jy-ban-tabs .item')
+//         .eq(this.activeIndex)
+//         .addClass(jtool.activeCls)
+//         .siblings()
+//         .removeClass(jtool.activeCls);
+//     },
+//   },
+// });
+// $('.jy-ban-tabs').on('click', '.item', function () {
+//   var index = $(this).index();
+//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//   psBanner.slideTo(index);
+// });
+
+.jy-ban-container {
+  position: relative;
+  margin: 0 auto 0;
+  width: 7.02rem;
+  .swiper-container {
+    height: 2.9rem;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.jy-ban-tabs {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include lh(0.6rem);
+  background: #411f00;
+  color: #c9a77f;
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+    height: 100%;
+    cursor: pointer;
+    &:not(:first-of-type) {
+      border-left: 0.02rem solid #3b2f24;
+    }
+    &.active {
+      color: #ffd08c;
+      background-color: #8d3200;
+    }
+  }
+}
