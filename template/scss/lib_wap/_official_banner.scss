@@ -29,7 +29,7 @@
 
 // // 游戏资讯banner
 // var psBanner = new Swiper('#psBanner', {
-//   autoplay: true,
+//   autoplay: { disableOnInteraction: false },
 //   pagination: {
 //     el: '.swiper-pagination-banner',
 //     clickable: true,

@@ -1,6 +1,13 @@
 jtool = {
   /**
    * menu compatible
+   * 
+   * 适用结构：
+    <div id="topWrapper">
+      <div id="mainWrapper"></div>
+      <div id="menuWrapper"></div>
+    </div>
+   *
    * @param {*} parentCls 父元素容器
    * @param {*} scrollCls 滚动容器
    * @param {*} menuCls 菜单容器

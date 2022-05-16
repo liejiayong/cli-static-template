@@ -2,7 +2,7 @@
 @import '../_mixin.scss';
 
 // <!-- news container -->
-// <div class="jy-news__tabs__container ">
+// <div class="jy-news__tabs__container w-main">
 //   <div class="jy-news__tabs__wrapper" id="psNewsTabs">
 //     <a href="javascript:;" class="active">最新</a>
 //     <a href="javascript:;" class="">公告</a>
@@ -19,7 +19,7 @@
 //   <a href="javascript:;" class="jy-btn-txt">开荒攻略</a>
 //   <a href="javascript:;" class="jy-btn-txt">系统介绍</a>
 // </div>
-// <div class="jy-news__contents">
+// <div class="jy-news__contents  w-main">
 //   <div class="swiper-container" id="psNewsContent">
 //     <div class="swiper-wrapper">
 //       <div class="swiper-slide">
@@ -98,15 +98,79 @@
 //   psNewsContent.slideTo(currIndex);
 // });
 
-$width: 7.2rem;
+$width-main: 7.02rem;
+$width-fill: 7.3rem;
 .jy-news__tabs__container {
   @include mauto();
   position: relative;
-  width: $width;
   height: 0.7rem;
-  color: #888;
-  background: #fff;
   font-size: 0.24rem;
+  &.w-main {
+    width: $width-main;
+    color: #888;
+    background: #fff;
+    a {
+      // background: url('../img/ico_sp_wap_ico_sp_btn.png') no-repeat -1.69rem -5.51rem / 7.32rem auto;
+      &:not(:last-of-type) {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          transform: translate3d(50%, 0, 0);
+          display: block;
+          width: 0.02rem;
+          // height: 0.12rem;
+          background: #23282f;
+        }
+      }
+      &.active {
+        // font-weight: bold;
+        color: #ffeeca;
+        background-position: 0 -5.51rem;
+      }
+    }
+  }
+  &.w-fill {
+    width: $width-fill;
+    .jy-news__tabs__wrapper {
+      border-bottom: 0.018rem solid #e9e9e9;
+    }
+    a {
+      @include flex-width();
+      &:not(:last-of-type)::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        -webkit-transform: translate3d(50%, -50%, 0);
+        -moz-transform: translate3d(50%, -50%, 0);
+        transform: translate3d(50%, -50%, 0);
+        display: block;
+        width: 0.02rem;
+        height: 0.12rem;
+        background: #cac0bf;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 0.03rem;
+        background: #b59d72;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+      }
+      &.active {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
   .ico-btn-more {
     display: block;
     position: absolute;
@@ -137,7 +201,6 @@ $width: 7.2rem;
   align-items: center;
   width: 6.9rem;
   height: 100%;
-  border-bottom: 0.018rem solid #e9e9e9;
   &--all#{&} {
     a {
       flex: auto;
@@ -155,38 +218,38 @@ $width: 7.2rem;
     flex: 0 0 $width;
     width: $width;
     height: 100%;
-    &:not(:last-of-type) {
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translate3d(50%, -50%, 0);
-        display: block;
-        width: 0.02rem;
-        height: 0.12rem;
-        background: #cac0bf;
-      }
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: block;
-      height: 0.04rem;
-      background: #b59d72;
-      opacity: 0;
-      transition: opacity 0.5s linear;
-    }
-    &.active {
-      font-weight: bold;
-      color: #b59d72;
-      &::after {
-        opacity: 1;
-      }
-    }
+    // &:not(:last-of-type) {
+    //   &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 50%;
+    //     right: 0;
+    //     transform: translate3d(50%, -50%, 0);
+    //     display: block;
+    //     width: 0.02rem;
+    //     height: 0.12rem;
+    //     background: #cac0bf;
+    //   }
+    // }
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    //   display: block;
+    //   height: 0.04rem;
+    //   background: #b59d72;
+    //   opacity: 0;
+    //   transition: opacity 0.5s linear;
+    // }
+    // &.active {
+    //   font-weight: bold;
+    //   color: #b59d72;
+    //   &::after {
+    //     opacity: 1;
+    //   }
+    // }
   }
 }
 .jy-news__tags {
@@ -219,11 +282,27 @@ $width: 7.2rem;
 .jy-news__contents {
   @include mauto();
   position: relative;
-  width: $width;
-  height: 3.5rem;
-  background-color: #fff;
-  .swiper-container {
-    width: 6.9rem;
+  &.w-main {
+    width: $width-main;
+    height: 3.5rem;
+    background-color: #fef4e3;
+    color: #636363;
+    .jy-news__contents__links {
+      height: 0.5rem;
+      &:not(:first-of-type) {
+        border-top: 0.02rem dashed #f6d29a;
+      }
+    }
+    .swiper-container {
+      width: 6.8rem;
+    }
+  }
+  &.w-fill {
+    width: $width-fill;
+    .jy-news__contents__links {
+      padding: 0.2rem 0 0;
+      line-height: 2;
+    }
   }
   &--all {
     height: auto;
@@ -272,7 +351,6 @@ $width: 7.2rem;
     // }
     .content {
       // color: #555;
-      -webkit-box-flex: 1;
       flex: 1;
       @include nowrap();
       max-width: calc(100% - 0.6rem);

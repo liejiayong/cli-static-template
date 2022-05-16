@@ -118,21 +118,21 @@ body {
   @include scroll_init();
 }
 
-/* main wrapper, Usually used when there is a main menubar switch  */
-.main-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  max-width: 750px;
-  height: 100%;
-  box-sizing: border-box;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
+// /* main wrapper, Usually used when there is a main menubar switch  */
+// .main-wrapper {
+//   margin-left: auto;
+//   margin-right: auto;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   max-width: 750px;
+//   height: 100%;
+//   box-sizing: border-box;
+//   overflow-y: scroll;
+//   scroll-behavior: smooth;
+//   -webkit-overflow-scrolling: touch;
+// }
 
 /* content wrapper, usually used when is a new content */
 .jy-content_fill {

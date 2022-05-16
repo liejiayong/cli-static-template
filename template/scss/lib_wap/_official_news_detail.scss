@@ -3,7 +3,7 @@
 
 // <div class="jy-news__details">
 //   <div class="title">
-//     <h1 class="tsup">新将解析 | 主动体系再增一员，全体加成万金油！</h1>
+//     <h1 class="tsup"><span>《原始传奇》200天庆典活动公告</span></h1>
 //     <p class="tsub">2021-07-23 10:19:26 / 《鸿图之下》攻略作者团</p>
 //   </div>
 //   // <div class="profile">
@@ -25,18 +25,37 @@
 //   </div>
 // </div>
 .jy-news__details {
-  // padding: 0.2rem 0;
+  padding: 0 0.2rem 2rem;
   // height: 7.365rem;
   // background-image: url('../img/bg3.jpg');
   line-height: 1.5;
 
   .title {
+    position: relative;
+    margin: 0.6rem 0;
+    text-align: center;
     font-size: 0.26rem;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: 0.018rem solid #f1f1f1;
+    }
     .tsup {
+      margin: 0;
       font-weight: bold;
+      color: #6b3d00;
+      span {
+        display: inline-block;
+        text-align: left;
+      }
     }
     .tsub {
+      margin-top: 0.28rem;
       font-size: 0.2rem;
+      color: #848484;
     }
   }
   .profile {
@@ -61,7 +80,7 @@
     }
   }
   .content {
-    padding-top: 0.2rem;
+    padding-top: 0.6rem;
     > p,
     > div {
       margin-top: 0.1rem;
