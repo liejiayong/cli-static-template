@@ -6,16 +6,7 @@
 //   <div class="swiper-container" id="psBanner">
 //     <div class="swiper-wrapper">
 //       <div class="swiper-slide">
-//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
-//       </div>
-//       <div class="swiper-slide">
-//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
-//       </div>
-//       <div class="swiper-slide">
-//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
-//       </div>
-//       <div class="swiper-slide">
-//         <img data-src="./img/702-290.jpg" class="swiper-lazy" alt="new banner" />
+//         <img data-src="./img/ban.jpg" class="swiper-lazy" alt="new banner" />
 //       </div>
 //     </div>
 //   </div>
@@ -88,6 +79,31 @@
     &.active {
       color: #ffd08c;
       background-color: #8d3200;
+    }
+  }
+}
+
+.swiper-pagination-banner {
+  position: absolute;
+  bottom: 0.38rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  .swiper-pagination-bullet {
+    margin: 0 0.12rem;
+    $width: 0.14rem;
+    display: inline-block;
+    width: $width;
+    height: $width;
+    background-color: #fff;
+    transform: rotate(45deg);
+    cursor: pointer;
+    &-active {
+      background-color: #e8d2a3;
     }
   }
 }

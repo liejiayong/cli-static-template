@@ -12,7 +12,7 @@
 @import '../_mixin.scss';
 
 // <div class="jy-navbar_other">
-//   <a onclick="history.back()" href="javascript:;" class="return">返回首页</a>
+//   <a onclick="history.back()" href="javascript:;" class="lt">返回首页</a>
 //   <span>新闻中心</span>
 // </div>
 
@@ -27,11 +27,11 @@
   z-index: 10;
   box-sizing: border-box;
   transform: translate3d(-50%, 0, 0);
-  // font-size: 0.26rem;
+  font-size: 0.26rem;
   text-align: center;
   font-weight: 700;
   color: #fff;
-  background: $color-theme-bg;
+  background: #2f2f2f;
 }
 .jy-navbar_other .lt {
   position: absolute;

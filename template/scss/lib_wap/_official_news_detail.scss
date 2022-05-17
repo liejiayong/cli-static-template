@@ -17,7 +17,7 @@
 //       《大唐琉璃梦》是一款的古风官斗手游。游戏展现了古代尔虞我诈的官场智斗，颠覆传统的官斗玩法为你带来一场步步惊心的传奇。十年寒窗苦读，一朝金榜题名，官斗之余府邸小憩，娇妻相伴，金玉满堂，享田园轻趣时光；千古门客尽入门墙，谈笑间位极人臣；联盟争斗步步惊心，联盟战场一决高下。
 //     </p>
 
-//     <p><img src="./img//bn.jpg" alt="" /></p>
+//     <p><img src="./img/ban.jpg" alt="" /></p>
 
 //     <p>
 //       《大唐琉璃梦》是一款的古风官斗手游。游戏展现了古代尔虞我诈的官场智斗，颠覆传统的官斗玩法为你带来一场步步惊心的传奇。十年寒窗苦读，一朝金榜题名，官斗之余府邸小憩，娇妻相伴，金玉满堂，享田园轻趣时光；
@@ -32,9 +32,10 @@
 
   .title {
     position: relative;
-    margin: 0.6rem 0;
+    padding: 0.3rem 0;
     text-align: center;
-    font-size: 0.26rem;
+    font-size: 0.24rem;
+    color: #333;
     &::before {
       content: '';
       position: absolute;
@@ -54,6 +55,7 @@
     }
     .tsub {
       margin-top: 0.28rem;
+      text-align: left;
       font-size: 0.2rem;
       color: #848484;
     }
@@ -80,7 +82,7 @@
     }
   }
   .content {
-    padding-top: 0.6rem;
+    padding-top: 0.2rem;
     > p,
     > div {
       margin-top: 0.1rem;

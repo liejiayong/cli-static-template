@@ -1,0 +1,40 @@
+// <!-- breadcrumb container  -->
+// <div class="jy-breadcrumb">
+//   <div class="lt">
+//     <span class="label">礼包中心</span>
+//     <span class="sub">/ GIFTS</span>
+//   </div>
+//   <div class="rt">
+//     您的位置：
+//     <a href="./index.html">官网首页</a>
+//     <i>&nbsp;&gt;&nbsp;</i>
+//     礼包中心
+//   </div>
+// </div>
+
+.jy-breadcrumb {
+  position: relative;
+  padding: 0.94rem 0.2rem 0.36rem;
+  display: flex;
+  overflow: hidden;
+  background-color: #271c18;
+  color: #c7a880;
+  .lt {
+    .label {
+      font-size: 0.3rem;
+      font-weight: bold;
+      @include font-custom();
+    }
+    .sub {
+      text-transform: uppercase;
+      @include font-arial();
+    }
+  }
+  .rt {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex: 1;
+    text-align: right;
+  }
+}

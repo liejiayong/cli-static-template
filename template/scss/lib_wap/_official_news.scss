@@ -2,85 +2,35 @@
 @import '../_mixin.scss';
 
 // <!-- news container -->
-// <div class="jy-news__tabs__container w-main">
-//   <div class="jy-news__tabs__wrapper" id="psNewsTabs">
-//     <a href="javascript:;" class="active">最新</a>
-//     <a href="javascript:;" class="">公告</a>
-//     <a href="javascript:;" class="">活动</a>
-//     <a href="javascript:;" class="">攻略</a>
+// <div class="jy-news__container">
+//   <div class="jy-news__tabs__container w-main">
+//     <div class="jy-news__tabs__wrapper" id="psNewsTabs">
+//       <a href="javascript:;" class="active">最新</a>
+//       <a href="javascript:;" class="">活动</a>
+//       <a href="javascript:;" class="">公告</a>
+//       <a href="javascript:;" class="">新闻</a>
+//       <a href="javascript:;" class="">合服</a>
+//     </div>
+//     <a href="./news.html" class="jy-btn-txt ico__news__btn--more ico-btn-more">more</a>
 //   </div>
-//   <a href="./news.html" class="jy-btn ico__news__btn--more ico-btn-more">更多+</a>
-// </div>
-// <div class="jy-news__tags">
-//   <a href="javascript:;" class="jy-btn-txt">萌新科普</a>
-//   <a href="javascript:;" class="jy-btn-txt">武将培养</a>
-//   <a href="javascript:;" class="jy-btn-txt">城池建设</a>
-//   <a href="javascript:;" class="jy-btn-txt">认识联盟</a>
-//   <a href="javascript:;" class="jy-btn-txt">开荒攻略</a>
-//   <a href="javascript:;" class="jy-btn-txt">系统介绍</a>
-// </div>
-// <div class="jy-news__contents  w-main">
-//   <div class="swiper-container" id="psNewsContent">
-//     <div class="swiper-wrapper">
-//       <div class="swiper-slide">
-//         <a href="" class="jy-news__contents__links--topics">
-//           【最新】六大顶级BOSS问世！《传奇世界》手游八月版本
-//         </a>
-//         <a href="./detail.html" class="jy-news__contents__links">
-//           <!-- <span class="tag">[最新]</span> -->
-//           <span class="content">
-//             公告【开服预告】8月20日11:00新服开启公告公告【开服预告】8月20日11:00新服开启公告
-//           </span>
-//           <span class="time">03-30</span>
-//         </a>
-//         <a href="./detail.html" class="jy-news__contents__links">
-//           <!-- <span class="tag">[最新]</span> -->
-//           <span class="content">
-//             公告【开服预告】8月20日11:00新服开启公告公告【开服预告】8月20日11:00新服开启公告
-//           </span>
-//           <span class="time">03-30</span>
-//         </a>
-//         <a href="./detail.html" class="jy-news__contents__links">
-//           <!-- <span class="tag">[最新]</span> -->
-//           <span class="content">
-//             公告【开服预告】8月20日11:00新服开启公告公告【开服预告】8月20日11:00新服开启公告
-//           </span>
-//           <span class="time">03-30</span>
-//         </a>
-//         <a href="./detail.html" class="jy-news__contents__links">
-//           <!-- <span class="tag">[最新]</span> -->
-//           <span class="content">
-//             公告【开服预告】8月20日11:00新服开启公告公告【开服预告】8月20日11:00新服开启公告
-//           </span>
-//           <span class="time">03-30</span>
-//         </a>
-//         <a href="./detail.html" class="jy-news__contents__links">
-//           <!-- <span class="tag">[最新]</span> -->
-//           <span class="content">
-//             公告【开服预告】8月20日11:00新服开启公告公告【开服预告】8月20日11:00新服开启公告
-//           </span>
-//           <span class="time">03-30</span>
-//         </a>
+//   <div class="jy-news__contents w-main">
+//     <div class="swiper-container" id="psNewsContent">
+//       <div class="swiper-wrapper">
+//         <div class="swiper-slide">
+//           <a href="./detail.html" class="jy-news__contents__links--topics">
+//             <div class="tag">推荐</div>
+//             《贪玩传世》12月1日新服火爆开启火爆开启
+//           </a>
+//           <a href="./detail.html" class="jy-news__contents__links">
+//             <span class="tag">【最新】</span>
+//             <span class="content">《贪玩传世》12月1日新服火爆新服火爆新服</span>
+//             <span class="time">03-30</span>
+//           </a>
+//         </div>
 //       </div>
 //     </div>
 //   </div>
 // </div>
-
-//  // 新闻详细
-//     var $psNewsTabs = $('#psNewsTabs');
-//     var psNewsContent = new Swiper('#psNewsContent', {
-//       autoplay: false,
-//       on: {
-//         slideChange: function () {
-//           var currIndex = this.activeIndex;
-//           $('#psNewsTabs a').eq(currIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//         },
-//       },
-//     });
-//     $psNewsTabs.on('click', 'a', function () {
-//       var currIndex = $(this).index();
-//       psNewsContent.slideTo(currIndex);
-//     });
 
 // // 新闻详细
 // var $psNewsTabs = $('#psNewsTabs');
@@ -89,7 +39,7 @@
 //   on: {
 //     slideChange: function () {
 //       var currIndex = this.activeIndex;
-//       $('#psNewsTabs a').eq(currIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//       $psNewsTabs.children().eq(currIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
 //     },
 //   },
 // });
@@ -98,125 +48,125 @@
 //   psNewsContent.slideTo(currIndex);
 // });
 
-$width-main: 7.02rem;
+$width-main: 6.7rem;
 $width-fill: 7.3rem;
+$color: #c2c4d4;
+$color-active: #e8d2a3;
+.jy-news__container {
+  position: relative;
+  padding: 0.3rem 0 0.4rem;
+  color: $color;
+  background: linear-gradient(#23222a, #32323a);
+}
 .jy-news__tabs__container {
   @include mauto();
   position: relative;
-  height: 0.7rem;
-  font-size: 0.24rem;
+  height: 0.6rem;
+  font-size: 0.28rem;
+  .ico-btn-more {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+  .ico__news__btn--more {
+    // padding: 0.02rem 0.08rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    // width: 1.1rem;
+    // height: 100%;
+    @include flex-width(auto);
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 1;
+    cursor: pointer;
+    @include font-arial();
+    @include btnEdgeExpanding();
+  }
+  &--all#{&} {
+    a {
+      @include flex-width(auto);
+    }
+  }
   &.w-main {
     width: $width-main;
-    color: #888;
-    background: #fff;
-    a {
-      // background: url('../img/ico_sp_wap_ico_sp_btn.png') no-repeat -1.69rem -5.51rem / 7.32rem auto;
-      &:not(:last-of-type) {
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          transform: translate3d(50%, 0, 0);
-          display: block;
-          width: 0.02rem;
-          // height: 0.12rem;
-          background: #23282f;
-        }
-      }
-      &.active {
-        // font-weight: bold;
-        color: #ffeeca;
-        background-position: 0 -5.51rem;
+    border-bottom: 0.02rem solid #434a6b;
+    // color: #888;
+    // background: #fff;
+    .jy-news__tabs__wrapper {
+      a {
+        $width: 0.86rem;
+        @include flex-width($width);
+        // background: url('../img/ico_sp_wap_ico_sp_btn.png') no-repeat -1.69rem -5.51rem / 7.32rem auto;
+        // &:not(:last-of-type) {
+        //   &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 0;
+        //     right: 0;
+        //     bottom: 0;
+        //     transform: translate3d(50%, 0, 0);
+        //     display: block;
+        //     width: 0.02rem;
+        //     // height: 0.12rem;
+        //     background: #23282f;
+        //   }
+        // }
+        // &.active {
+        //   // font-weight: bold;
+        //   color: $color-active;
+        // }
       }
     }
   }
   &.w-fill {
     width: $width-fill;
+    border-bottom: 0.018rem solid #e9e9e9;
     .jy-news__tabs__wrapper {
-      border-bottom: 0.018rem solid #e9e9e9;
-    }
-    a {
-      @include flex-width();
-      &:not(:last-of-type)::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 0;
-        -webkit-transform: translate3d(50%, -50%, 0);
-        -moz-transform: translate3d(50%, -50%, 0);
-        transform: translate3d(50%, -50%, 0);
-        display: block;
-        width: 0.02rem;
-        height: 0.12rem;
-        background: #cac0bf;
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: block;
-        height: 0.03rem;
-        background: #b59d72;
-        opacity: 0;
-        transition: opacity 0.5s linear;
-      }
-      &.active {
+      a {
+        @include flex-width();
+        &:not(:last-of-type)::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          -webkit-transform: translate3d(50%, -50%, 0);
+          -moz-transform: translate3d(50%, -50%, 0);
+          transform: translate3d(50%, -50%, 0);
+          display: block;
+          width: 0.02rem;
+          height: 0.12rem;
+          background: #cac0bf;
+        }
         &::after {
-          opacity: 1;
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: block;
+          height: 0.03rem;
+          background: #b59d72;
+          opacity: 0;
+          transition: opacity 0.5s linear;
+        }
+        &.active {
+          &::after {
+            opacity: 1;
+          }
         }
       }
     }
   }
-  .ico-btn-more {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 0.15rem;
-    transform: translate3d(0, -50%, 0);
-    cursor: pointer;
-  }
-}
-.ico__news__btn--more {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 1.1rem;
-  height: 100%;
-  z-index: 1;
-  @include font-arial();
-}
-.jy-news__tabs__wrapper {
-  @include mauto();
-  position: relative;
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-  width: 6.9rem;
-  height: 100%;
-  &--all#{&} {
-    a {
-      flex: auto;
-      width: auto;
-      font-size: 0.26rem;
-    }
-  }
   a {
-    $width: 1.5rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex: 0 0 $width;
-    width: $width;
     height: 100%;
     // &:not(:last-of-type) {
     //   &::before {
@@ -231,26 +181,35 @@ $width-fill: 7.3rem;
     //     background: #cac0bf;
     //   }
     // }
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    //   bottom: 0;
-    //   left: 0;
-    //   right: 0;
-    //   display: block;
-    //   height: 0.04rem;
-    //   background: #b59d72;
-    //   opacity: 0;
-    //   transition: opacity 0.5s linear;
-    // }
-    // &.active {
-    //   font-weight: bold;
-    //   color: #b59d72;
-    //   &::after {
-    //     opacity: 1;
-    //   }
-    // }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      height: 0.02rem;
+      background: $color-active;
+      opacity: 0;
+      transition: opacity 0.5s linear;
+    }
+    &.active {
+      // font-weight: bold;
+      color: $color-active;
+      &::after {
+        opacity: 1;
+      }
+    }
   }
+}
+.jy-news__tabs__wrapper {
+  @include mauto();
+  position: relative;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .jy-news__tags {
   padding: 0.2rem 0 0;
@@ -282,16 +241,18 @@ $width-fill: 7.3rem;
 .jy-news__contents {
   @include mauto();
   position: relative;
+  font-size: 0.22rem;
   &.w-main {
     width: $width-main;
-    height: 3.5rem;
-    background-color: #fef4e3;
-    color: #636363;
+    height: 4.6rem;
+    // background-color: #fef4e3;
+    // color: #636363;
     .jy-news__contents__links {
-      height: 0.5rem;
-      &:not(:first-of-type) {
-        border-top: 0.02rem dashed #f6d29a;
-      }
+      height: 0.66rem;
+      border-bottom: 0.02rem dashed #44505f;
+      // &:not(:first-of-type) {
+      //   border-top: 0.02rem dashed #f6d29a;
+      // }
     }
     .swiper-container {
       width: 6.8rem;
@@ -310,12 +271,16 @@ $width-fill: 7.3rem;
   }
 
   &__links {
-    margin: 0.2rem 0;
+    // margin: 0.2rem 0;
     position: relative;
     display: flex;
     align-items: center;
     overflow: hidden;
     width: 100%;
+    // color: #d2d2d2;
+    // &:not(:last-of-type) {
+    //   border-bottom: 0.015rem dashed #e1ded2;
+    // }
     @include nowrap();
     &--topics {
       margin: 0.2rem auto 0;
@@ -328,16 +293,41 @@ $width-fill: 7.3rem;
       line-height: 2.2;
       font-size: 0.26rem;
       font-weight: bold;
-      color: #b59d72;
+      color: $color-active;
+      background: #2f303d;
+      .tag {
+        margin-right: 0.08rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        @include flex-width(0.7rem);
+        height: 100%;
+        font-weight: bold;
+        background: #8e3211;
+        color: #fff;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translate3d(100%, -50%, 0);
+          border-top: 0.2rem dashed transparent;
+          border-bottom: 0.2rem dashed transparent;
+          border-left: 0.08rem solid #8e3211;
+          border-right: 0.08rem dashed transparent;
+          height: 0;
+          width: 0;
+          font-size: 0;
+          line-height: 0;
+          overflow: hidden;
+        }
+      }
     }
     span {
-      display: block;
+      display: inline-block;
     }
-    // font-size: 0.2rem;
-    // color: #d2d2d2;
-    // &:not(:last-of-type) {
-    //   border-bottom: 0.015rem dashed #e1ded2;
-    // }
     // .tag {
     //   margin: 0 0.06rem;
     //   display: block;
@@ -356,13 +346,13 @@ $width-fill: 7.3rem;
       max-width: calc(100% - 0.6rem);
     }
     .time {
+      // margin-left: 0.1rem;
       text-align: right;
       min-width: 0.8rem;
-      margin-left: 0.1rem;
-      // color: #c7c7c7;
+      color: #575d77;
     }
     &:hover {
-      color: #ff0000;
+      color: $color-active;
       .sign {
         border-color: inherit;
       }

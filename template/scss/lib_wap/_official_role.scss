@@ -1,0 +1,253 @@
+@import '../_const.scss';
+@import '../_mixin.scss';
+
+// <!-- hero role  -->
+// <div class="role-container">
+//   <div class="role-tabs">
+//     <div class="item ico-role-tab active"><i class="ico-role-tab-1"></i></div>
+//     <div class="item ico-role-tab"><i style="margin-left: 0.04rem" class="ico-role-tab-3"></i></div>
+//     <div class="item ico-role-tab"><i style="margin-left: 0.06rem" class="ico-role-tab-2"></i></div>
+//   </div>
+//   <div class="role-switch">
+//     <a href="javascript:;" class="jy-btn-txt active">男</a>
+//     <a href="javascript:;" class="jy-btn-txt">女</a>
+//   </div>
+//   <div class="role-content">
+//     <div class="swiper-container" id="psRole">
+//       <div class="swiper-wrapper">
+//         <div class="swiper-slide">
+//           <div class="role-avatar">
+//             <img data-src="./img/ico-role-1xy.png" class="swiper-lazy" />
+//             <img data-src="./img/ico-role-1xx.png" class="swiper-lazy" />
+//           </div>
+//           <div class="role-profile">
+//             <div class="name">
+//               战士
+//               <span class="sub">/ 近战</span>
+//             </div>
+//             <div class="exp mt-10">战士具有强壮的体格和较高攻击能力，能产生大量的伤害。</div>
+//             <i class="line"></i>
+//             <div class="lv">操作难度：★★★★</div>
+//             <div class="kinds">人物属性：近战物理攻击</div>
+//           </div>
+//         </div>
+
+//         <div class="swiper-slide">
+//           <div class="role-avatar">
+//             <img data-src="./img/ico-role-3xy.png" class="swiper-lazy" />
+//             <img data-src="./img/ico-role-3xx.png" class="swiper-lazy" />
+//           </div>
+//           <div class="role-profile">
+//             <div class="name">
+//               法师
+//               <span class="sub">/ 远程</span>
+//             </div>
+//             <div class="exp mt-10">
+//               法师是一个远程魔法攻击职业，高伤害及较大的攻击范围，使得法师可以迅速地解决敌人。
+//             </div>
+//             <i class="line"></i>
+//             <div class="lv">操作难度：★★★★</div>
+//             <div class="kinds">人物属性：远程法术攻击</div>
+//           </div>
+//         </div>
+//         <div class="swiper-slide">
+//           <div class="role-avatar">
+//             <img data-src="./img/ico-role-2xy.png" class="swiper-lazy" />
+//             <img data-src="./img/ico-role-2xx.png" class="swiper-lazy" />
+//           </div>
+//           <div class="role-profile">
+//             <div class="name">
+//               道士
+//               <span class="sub">/ 远程</span>
+//             </div>
+//             <div class="exp mt-10">道士以毒和召唤神兽闻名，拥有治疗能力的道士是团战中的重要一员。</div>
+//             <i class="line"></i>
+//             <div class="lv">操作难度：★★★★</div>
+//             <div class="kinds">人物属性：远程道术攻击</div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+// // 技能
+// var psRole = new Swiper('#psRole', {
+//   autoplay: false,
+//   lazy: {
+//     loadPrevNext: true,
+//     loadPrevNextAmount: 2,
+//     loadOnTransitionStart: true,
+//   },
+//   on: {
+//     slideChange: function () {
+//       $('.role-tabs .item')
+//         .eq(this.activeIndex)
+//         .addClass(jtool.activeCls)
+//         .siblings()
+//         .removeClass(jtool.activeCls);
+//       $('#psRole .swiper-slide-active .role-avatar>img').eq(0).show().siblings().hide();
+//       $('.role-switch a').eq(0).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//     },
+//   },
+// });
+// $('.role-tabs').on('click', '.item', function () {
+//   var index = $(this).index();
+//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//   psRole.slideTo(index);
+// });
+// $('.role-switch').on('click', 'a', function () {
+//   var index = $(this).index();
+//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//   $('#psRole .swiper-slide.swiper-slide-active .role-avatar>img').eq(index).fadeIn().siblings().hide();
+// });
+
+.role-container {
+  margin-top: 0.2rem;
+  @include mauto();
+  position: relative;
+  // width: 7.2rem;
+  height: 7.48rem;
+  // background-color: #fff;
+  .swiper-slide {
+    overflow: visible;
+    &-active {
+      .role-profile {
+        animation: fadeInLeft 0.4s linear;
+      }
+      .role-avatar {
+        animation: fadeInRight 0.4s linear;
+      }
+    }
+  }
+  .role-tabs {
+    position: absolute;
+    top: 0.4rem;
+    left: 0.24rem;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    .item {
+      margin-right: 0.06rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      // &::after {
+      //   content: '';
+      //   position: absolute;
+      //   bottom: 0;
+      //   left: 0;
+      //   right: 0;
+      //   display: block;
+      //   height: 0.03rem;
+      //   background: #b59d72;
+      //   opacity: 0;
+      //   transition: opacity 0.5s linear;
+      // }
+      // &.active {
+      //   font-weight: bold;
+      //   color: #b59d72;
+      //   &::after {
+      //     opacity: 1;
+      //   }
+      // }
+    }
+  }
+  .role-content {
+    position: relative;
+    // margin: 0.2rem auto 0;
+    height: 100%;
+  }
+  .role-switch {
+    position: absolute;
+    top: 5.6rem;
+    left: 4.9rem;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1.5rem;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      font-size: 0.29rem;
+      color: #959595;
+      background-color: #853019;
+      transition: all 0.5s linear;
+      &.active {
+        color: #ffead0;
+        background-color: #dd3202;
+      }
+    }
+  }
+
+  .role-profile {
+    position: absolute;
+    top: 2.16rem;
+    left: 0.36rem;
+    width: 2.7rem;
+    line-height: 2;
+    color: #968280;
+    .name {
+      font-size: 0.6rem;
+      font-weight: bold;
+      color: #c7a880;
+      .sub {
+        font-weight: 500;
+        font-size: 0.24rem;
+      }
+    }
+    .exp {
+    }
+    .line {
+      margin: 0.2rem auto;
+      display: block;
+      border-bottom: 0.02rem solid #473b39;
+    }
+  }
+
+  .role-avatar {
+    position: relative;
+    margin-left: auto;
+    display: block;
+    width: 5.1rem;
+    height: 7.22rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
