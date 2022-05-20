@@ -208,7 +208,7 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
+  z-index: 200;
   &.active {
     display: block;
     animation: noFadeIn 2s linear;
@@ -279,7 +279,7 @@ body {
   overflow: hidden;
   background: #a82a26 url('../img/bg.jpg') no-repeat top center/100% 100%;
   color: #fff8de;
-  z-index: 1000;
+  z-index: 200;
   .progress {
     position: absolute;
     bottom: 20%;

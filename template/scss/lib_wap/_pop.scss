@@ -499,13 +499,15 @@ $input-select-cell-radius: 0.12rem;
     // font-weight: bold;
     &:nth-of-type(1) {
       $width: 60%;
-      flex: 0 0 $width;
-      width: $width;
+      // flex: 0 0 $width;
+      // width: $width;
+      @include flex-width($width);
     }
     &:nth-of-type(2) {
       $width: 40%;
-      flex: 0 0 $width;
-      width: $width;
+      // flex: 0 0 $width;
+      // width: $width;
+      @include flex-width($width);
     }
     // &:nth-of-type(3) {
     //   $width: 20%;
@@ -519,12 +521,14 @@ $input-select-cell-radius: 0.12rem;
     &.span5 {
       $width: 50%;
       &:nth-of-type(1) {
-        flex: 0 0 $width;
-        width: $width;
+        // flex: 0 0 $width;
+        // width: $width;
+        @include flex-width($width);
       }
       &:nth-of-type(2) {
-        flex: 0 0 $width;
-        width: $width;
+        // flex: 0 0 $width;
+        // width: $width;
+        @include flex-width($width);
       }
     }
     &_.span10 {

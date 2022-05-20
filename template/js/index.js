@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-04-21 17:28:27
+ * @LastEditTime: 2022-05-20 12:25:30
  * @FilePath: \tool-library\business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -160,7 +160,7 @@ var jtool = {
       var $picker =
         '' +
         '<!-- pop selector  -->' +
-        '<div style="z-index:1001;" class="jy-pop " id="J_selectorPop">' +
+        '<div style="z-index:201;" class="jy-pop " id="J_selectorPop">' +
         '<div div class="jy-pop_mask jy-pop_mask--clickable" ></div>' +
         '<div class="jy-pop_picker_main">' +
         ' <div class="jy-pop_picker_hd">' +
@@ -232,7 +232,7 @@ var jtool = {
   showTip: function (opts) {
     var content = opts.content,
       tit = opts.title || '温馨提示',
-      titPad = opts.titlePad || 'span',
+      titPad = opts.titlePad || '.jy-pop_header__sym',
       titId = opts.titleId || '#popTipTit',
       contentId = opts.contentId || '#popTipNorm',
       btnCloseId = opts.btnCloseId || '#popTipClose',
