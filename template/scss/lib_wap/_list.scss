@@ -48,14 +48,16 @@
         &:nth-of-type(#{$i}) {
           &::before {
             content: '#{$i}.';
-            display: block;
             position: absolute;
             top: 0.05rem;
             left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: $width;
             height: $width;
-            line-height: $width;
-            // text-align: center;
+            line-height: normal;
+            text-align: center;
             // font-size: 0.24rem;
             // color: #fff;
             // background-color: #7491bc;

@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-05-20 12:25:30
+ * @LastEditTime: 2022-05-25 09:21:54
  * @FilePath: \tool-library\business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -240,7 +240,7 @@ var jtool = {
       btnOkText = opts.btnOkText || '确认',
       showBtnClose = typeof opts.showBtnClose === 'boolean' ? opts.showBtnClose : true,
       showBtnOk = typeof opts.showBtnOk === 'boolean' ? opts.showBtnOk : true,
-      showTitle = typeof opts.showBtnOk === 'boolean' ? opts.showBtnOk : true;
+      showTitle = typeof opts.showTitle === 'boolean' ? opts.showTitle : true;
     $tip = $('#J_tipPop');
 
     showBtnClose ? $(btnCloseId).show() : $(btnCloseId).hide();
