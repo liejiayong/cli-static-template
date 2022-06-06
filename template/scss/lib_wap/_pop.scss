@@ -138,7 +138,7 @@ $input-select-cell-radius: 0.12rem;
     align-items: center;
     min-height: $height;
     text-align: center;
-    width: 5.86rem;
+    // width: 5.86rem;
     line-height: $line-height-norm;
     // @include lh($height);
     // @include nowrap();
@@ -231,7 +231,7 @@ $input-select-cell-radius: 0.12rem;
     padding: 0.1rem 0.12rem;
     width: 1.6rem;
     // @include lh($height);
-    line-height: 1.15;
+    line-height: normal;
     text-align: center;
     box-shadow: 0 0 1px #f06868;
     // border: 0.02rem solid #d67029;
@@ -249,15 +249,20 @@ $input-select-cell-radius: 0.12rem;
     $width: 1.3rem;
     $height: 0.36rem;
 
+    // display: inline-flex;
+    // align-items: center;
+    // justify-content: center;
     display: inline-block;
     padding: 0 0.1rem;
     min-width: $width;
     text-align: center;
     // border: 0.02rem solid #fff;
-    // border-radius: $height;
+    // border-radius: $height/2;
+    line-height: normal;
     // @include lh($height);
     text-decoration: underline;
     color: $color;
+    // background-color: #d8052e;
     // font-size: 0.22rem;
     cursor: pointer;
     &:active {
@@ -387,7 +392,7 @@ $input-select-cell-radius: 0.12rem;
     height: 100%;
     input {
       $color: #fff;
-      $bg: rgba(0, 0, 0, 0.2);
+      $bg: $bg-norm;
 
       padding: 0 1em;
       width: 100%;
