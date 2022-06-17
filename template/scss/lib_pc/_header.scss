@@ -13,15 +13,15 @@
     justify-content: flex-start;
     align-items: center;
     width: $main-widthx-pc;
-    height: 90px;
-    line-height: 90px;
+    @include lh(80px);
     zoom: 1;
   }
   .brand {
+    position: relative;
     display: inline-block;
     @include flex-width(160px);
     img {
-      width: 130px;
+      width: contain;
     }
   }
   &__links {
@@ -46,6 +46,7 @@
         font-size: 12px;
         transform: scale(0.8);
         text-transform: uppercase;
+        // opacity: 0.5;
       }
       i {
         display: inline-block;

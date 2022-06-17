@@ -23,22 +23,53 @@
   .swiper-pagination-com {
     padding: 4px 8px;
     position: absolute;
-    right: 12px;
-    bottom: 12px;
-    border-radius: 20px;
-    text-align: right;
+    left: 20px;
+    bottom: 20px;
+    // border-radius: 20px;
+    // text-align: right;
     line-height: 1;
-    background-color: rgba(43, 49, 61, 0.63);
+    // background-color: rgba(43, 49, 61, 0.63);
     z-index: 1;
     .swiper-pagination-bullet {
-      margin: 0 2px;
+      position: relative;
+      // // 圆形
+      // $width: 14px;
+      // margin: 0 2px;
+      // display: inline-block;
+      // width: $width;
+      // height: $width;
+      // border-radius: 7px;
+      // cursor: pointer;
+      // background-color: #7a7f85;
+      // &-active {
+      //   background-color: #ffe400;
+      // }
+      // 正方形
+      $width: 12px;
+      margin-right: 5px;
       display: inline-block;
-      width: 14px;
-      height: 14px;
-      border-radius: 7px;
-      background-color: #7a7f85;
+      width: $width;
+      height: $width;
+      cursor: pointer;
+      // border-radius: 7px;
+      background-color: #fff;
+      &::before {
+        $width: 8px;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        width: $width;
+        height: $width;
+        background-color: #140000;
+        animation: fadeIn 0.6s linear;
+      }
       &-active {
-        background-color: #ffe400;
+        // background-color: #ffe400;
+        &::before {
+          background-color: #fff;
+        }
       }
     }
   }
