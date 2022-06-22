@@ -101,6 +101,7 @@
 //   speed: 666,
 //   autoplay: true,
 //   // effect: 'fade',
+//   // @>v3
 //   lazy: {
 //     loadPrevNext: true,
 //     loadPrevNextAmount: 2,
@@ -110,4 +111,10 @@
 //     el: '.swiper-pagination-com',
 //     clickable: true,
 //   },
+// // @v3
+// // lazyLoading: true,
+// // lazyLoadingInPrevNext: true,
+// // lazyLoadingInPrevNextAmount: 2,
+// // pagination: '.swiper-pagination-com',
+// // paginationClickable: true,
 // });

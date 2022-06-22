@@ -5,11 +5,11 @@
 //  * @LastEditTime: 2021-12-11 17:06:29
 //  * @FilePath:
 
-@import './_const.scss';
-@import './_mixin.scss';
+@import '../_const.scss';
+@import '../_mixin.scss';
 
 .jy-gifts__container {
-  padding: 60px 30px 0;
+  // padding: 60px 30px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -17,14 +17,14 @@
 .jy-gifts__cells {
   // float: left;
   position: relative;
-  margin: 0 30px 60px;
+  margin: 0 10px 20px;
   padding: 0 20px;
-  width: 260px;
+  width: 216px;
   height: 160px;
   // border: 1px solid #252932;
   font-size: 14px;
-  background: #262e3f;
-  color: #d4d2c5;
+  background: #273c54;
+  color: #fff;
   h3 {
     padding-top: 12px;
     font-size: 18px;
@@ -46,20 +46,22 @@
   .total {
     margin-top: 20px;
     font-size: 12px;
-    color: #dc8a28;
+    color: #cf1212;
   }
   .jy-gifts__btn {
     position: absolute;
     top: 110px;
     right: 20px;
     display: block;
+    padding: 2px 12px;
     // width: 62px;
-    // height: 25px;
-    // line-height: 25px;
+    // @include lh(25px);
+    line-height: normal;
     cursor: pointer;
     text-align: center;
     // font-size: 14px;
-    color: #e9d39a;
+    // color: #e9d39a;
+    color: #fff;
     background: linear-gradient(#7b0a09, #971715);
   }
   .btn-get:hover {
@@ -123,6 +125,7 @@
     box-sizing: border-box;
     border: 6px solid #39455f;
     background: #262e3f linear-gradient(#262e3f, #2e3f54, #28364a, #253346);
+    color: #fff;
   }
   &__btn-close {
     position: absolute;
@@ -138,7 +141,7 @@
   &__header {
     padding-top: 36px;
     font-size: 24px;
-    color: #b8b8b8;
+    // color: #b8b8b8;
   }
   &__body {
     margin: 20px auto 0;
@@ -162,7 +165,7 @@
       cursor: pointer;
       text-align: center;
       font-size: 16px;
-      color: #b8b8b8;
+      // color: #b8b8b8;
 
       // display: block;
       // width: 120px;
@@ -213,4 +216,5 @@
 //       alert('浏览器不支持点击复制，请长按链接复制！');
 //     });
 //   });
+
 // </script>

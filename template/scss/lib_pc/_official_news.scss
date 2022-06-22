@@ -20,12 +20,12 @@
 }
 
 .jy-news__tabs {
+  // padding: 0 10px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   // background-color: #1d1f27;
-  // padding: 0 10px;
   &-content {
     position: relative;
     display: flex;
@@ -274,10 +274,14 @@ $color-active: #d1be89;
 //   speed: 666,
 //   // autoplay: true,
 //   // effect: 'fade',
-//   on: {
-//     slideChange: function () {
+// >v3
+// on: {
+//   slideChange: function () {
 //       $('#psNewsTabs a').eq(this.activeIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
 //     },
+// v3
+// onSlideChangeEnd: function (swiper, event) {
+//       $('#psNewsTabs a').eq(swiper.activeIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
 //   },
 // });
 // $('#psNewsTabs').on('click', 'a', function () {
