@@ -16,10 +16,10 @@
     <!-- prettier-ignore -->
     <meta name="HandheldFriendly" content="true" label="Optimized for handheld devices, mainly for older browsers that don't recognize viewport, like BlackBerry  " />
     <meta name="MobileOptimized" content="320" label="micro old brower" />
-    <meta name="full-screen" content="yes" label="UC" />
     <meta name="x5-fullscreen" content="true" label="QQ" />
-    <meta name="browsermode" content="application" label="UCappmode" />
     <meta name="x5-page-mode" content="app" label="UCappmode" />
+    <meta name="full-screen" content="yes" label="UC" />
+    <meta name="browsermode" content="application" label="UCappmode" />
     <!-- prettier-ignore -->
     <meta name="msapplication-tap-highlight" content="no" label="winphone click no highlight" />
     <meta name="author" content="f_JyLie,d_,b_,t_2022" />
@@ -29,7 +29,7 @@
     <title></title>
     <link rel="stylesheet" href="./css/index-wap.css?v=0" />
     <!-- prettier-ignore -->
-    <script type="text/javascript">;(function(mode){var rem=function(){var docEl=document.documentElement||document.body;var resizeEvt='orientationchange'in window?'orientationchange':'resize';var reCalc=function(){var clientWidth=docEl.clientWidth,PIX=750;clientWidth=clientWidth>PIX?PIX:clientWidth;var fontSize=100*(clientWidth/PIX);window.baseFontSize=fontSize;docEl.style.fontSize=fontSize+'px'};window.addEventListener(resizeEvt,reCalc,false);document.addEventListener('DOMContentLoaded',reCalc,false)};if(mode=='rem')rem()})('rem');;</script>
+    <script type="text/javascript">;(function(mode){var rem=function(){var docEl=document.documentElement||document.body;var resizeEvt='orientationchange'in window?'orientationchange':'resize';var reCalc=function(){var clientWidth=docEl.clientWidth,PIX=750;clientWidth=clientWidth>PIX?PIX:clientWidth;var fontSize=100*(clientWidth/PIX);window.baseFontSize=fontSize;docEl.style.fontSize=fontSize+'px'};window.addEventListener(resizeEvt,reCalc,false);document.addEventListener('DOMContentLoaded',reCalc,false)};if(mode=='rem')rem()})('rem');</script>
   </head>
 
   <body ontouchstart>
@@ -394,87 +394,87 @@
       $(function () {
         /* 弹窗start */
         // 关闭弹窗
-        $('.jpop-btn-close,.jpop-btn-ok,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
+        $(".jpop-btn-close,.jpop-btn-ok,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel").on("click", function () {
           jtool.$window.winReset();
-          $(this).parents('.jy-pop').fadeOut();
+          $(this).parents(".jy-pop").fadeOut();
         });
 
         /* custom selector start */
-        var selectorx = $('#popSelectArea').select2({
-          placeholder: '选择区服',
+        var selectorx = $("#popSelectArea").select2({
+          placeholder: "选择区服",
           allowClear: true,
-          width: '100%',
+          width: "100%",
         });
         // select item
-        $('#jyPopPicker').on('click', 'li', function () {
+        $("#jyPopPicker").on("click", "li", function () {
           // 业务逻辑
 
           $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
         });
         // wake up the custom selector
-        $('#jyCallPicker').on('click', function () {
+        $("#jyCallPicker").on("click", function () {
           // 业务逻辑
 
-          $('#J_selectorPop').fadeIn();
+          $("#J_selectorPop").fadeIn();
         });
         // comfirm button
-        $('.jy-pop_picker_btn--confirm').on('click', function () {
+        $(".jy-pop_picker_btn--confirm").on("click", function () {
           // 业务逻辑
 
-          $(this).parents('.jy-pop').fadeOut();
-          $('#J_gamePop').hide();
+          $(this).parents(".jy-pop").fadeOut();
+          $("#J_gamePop").hide();
         });
         /* custom selector end */
 
         // 礼品查看
-        $('.btn-pop-check').on('click', function () {
-          $('#J_codePop').fadeIn();
+        $(".btn-pop-check").on("click", function () {
+          $("#J_codePop").fadeIn();
         });
         // 礼品待领取
-        $('.btn-pop-code').on('click', function () {
-          $('#J_codePop').fadeIn();
+        $(".btn-pop-code").on("click", function () {
+          $("#J_codePop").fadeIn();
         });
         // 填写信息
-        $('.btn-pop-address').on('click', function () {
-          $('#J_ownPop').fadeIn();
+        $(".btn-pop-address").on("click", function () {
+          $("#J_ownPop").fadeIn();
         });
         // 待领取
-        $('.btn-pop-get').on('click', function () {
-          $('#J_gamePop').fadeIn();
+        $(".btn-pop-get").on("click", function () {
+          $("#J_gamePop").fadeIn();
         });
         // 我的奖励
-        $('.btn-myprize').on('click', function () {
-          $('#J_recordPop').fadeIn();
+        $(".btn-myprize").on("click", function () {
+          $("#J_recordPop").fadeIn();
         });
         // 活动规则
-        $('.btn-rule').on('click', function () {
+        $(".btn-rule").on("click", function () {
           var content = [
             '<ul class="ul-decimal tl">',
-            '<li>规则1</li>',
-            '<li>规则2</li>',
-            '<li>规则3</li>',
-            '<li>规则4</li>',
-            '<li>规则5</li>',
-            '<li>规则6</li>',
-            '</ul>',
+            "<li>规则1</li>",
+            "<li>规则2</li>",
+            "<li>规则3</li>",
+            "<li>规则4</li>",
+            "<li>规则5</li>",
+            "<li>规则6</li>",
+            "</ul>",
           ];
-          jtool.showTip({ content: content, title: '活动规则', btnOkText: '已阅读' });
+          jtool.showTip({ content: content, title: "活动规则", btnOkText: "已阅读" });
         });
         // 领取
-        $('.btn-get').on('click', function () {
-          jtool.showTip({ content: '<div>xxx领取成功</div>' });
+        $(".btn-get").on("click", function () {
+          jtool.showTip({ content: "<div>xxx领取成功</div>" });
         });
         /* 弹窗end */
 
         // 回到首页
-        $('.btn-nav-home').on('click', function () {
-          $('.jy-pop').hide();
-          $('#J_rulePop').fadeIn();
-          jtool.navTo('.section-1');
+        $(".btn-nav-home").on("click", function () {
+          $(".jy-pop").hide();
+          $("#J_rulePop").fadeIn();
+          jtool.navTo(".section-1");
         });
         // 回到首页
-        $('.btn-share').on('click', function () {
-          $('#J_sharePop').fadeIn();
+        $(".btn-share").on("click", function () {
+          $("#J_sharePop").fadeIn();
         });
         /* jQuery end */
       });
@@ -506,7 +506,7 @@
         gameResult: function () {
           var self = logic,
             score = self.score;
-          console.log('Game Result: ', JSON.stringify(logic));
+          console.log("Game Result: ", JSON.stringify(logic));
 
           var flag = true;
           // game success
