@@ -11,17 +11,56 @@
 @import '../_const.scss';
 @import '../_mixin.scss';
 
-// <!-- menu -->
-// <div class="jy-menus">
-//   <ul class="jy-menus__wrapper">
-//     <li class="jy-menus__item active"><a href="" class="jy-menus__item__link">首页</a></li>
-//     <li class="jy-menus__item"><a href="" class="jy-menus__item__link">资讯</a></li>
-//     <li class="jy-menus__item"><a href="" class="jy-menus__item__link">攻略</a></li>
-//     <li class="jy-menus__item"><a href="" class="jy-menus__item__link">福利</a></li>
-//     <li class="jy-menus__item"><a href="" class="jy-menus__item__link">社区</a></li>
-//     <li class="jy-menus__item"><a href="" class="jy-menus__item__link">客服</a></li>
-//   </ul>
+// <div class="jy-wrapper" id="topWrapper">
+//   <div class="jy-section section-1 jpage" id="p1"></div>
+//   <div class="jy-section section-1 jpage" id="p2"></div>
+//   <div class="jy-section section-1 jpage" id="p3"></div>
+//   <div class="jy-section section-1 jpage" id="p4"></div>
+//   <div class="jy-section section-1 jpage" id="p5"></div>
+//   <div class="jy-section section-1 jpage" id="p6"></div>
+//   <!-- menu -->
+//   <div class="jy-menus">
+//     <ul class="jy-menus__wrapper">
+//       <li class="jy-menus__item active"><a href="#p1" class="jy-menus__item__link">首页</a></li>
+//       <li class="jy-menus__item"><a href="#p2" class="jy-menus__item__link">资讯</a></li>
+//       <li class="jy-menus__item"><a href="#p3" class="jy-menus__item__link">攻略</a></li>
+//       <li class="jy-menus__item"><a href="#p4" class="jy-menus__item__link">福利</a></li>
+//       <li class="jy-menus__item"><a href="#p5" class="jy-menus__item__link">社区</a></li>
+//       <li class="jy-menus__item"><a href="#p6" class="jy-menus__item__link">客服</a></li>
+//     </ul>
+//   </div>
 // </div>
+
+// js
+// $(".jy-menus").on("click", ".jy-menus__item", function () {
+//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+// });
+
+// $(window).scroll(
+//   jtool.debounce(function () {
+//     var pagePos = [];
+//     $(".jpage").each(function (i, el) {
+//       var pos = $(el).position(),
+//         height = $(el).height();
+//       pagePos.push([pos.top, pos.top + height]);
+//     });
+//     var top =
+//         document.documentElement.scrollTop /* 标准 */ ||
+//         window.pageYOffset /* Safari */ ||
+//         document.body.scrollTop,
+//       winHeight = $(window).height(),
+//       mainHeight = $(".jy-wrapper").height() - winHeight;
+//     pagePos.forEach(function (pos, i) {
+//       if (top >= pos[0] && top < pos[1]) {
+//         $(".jy-menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//       } else {
+//         if (top >= mainHeight - 150) {
+//           $(".jy-menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//         }
+//       }
+//     });
+//   }, 200)
+// );
 
 $color: #ffdca9;
 $color-active: #ee9b1e;
