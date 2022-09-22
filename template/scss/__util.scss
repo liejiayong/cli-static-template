@@ -480,6 +480,11 @@
       filter: none;
     }
   }
+    &.disable {
+    filter: grayscale(1);
+    pointer-events: none;
+    opacity: 0.9;
+  }
 }
 .jy-btn-txt {
   cursor: pointer;
@@ -492,6 +497,11 @@
     &:active {
       filter: none;
     }
+  }
+  &.disable {
+    filter: grayscale(1);
+    pointer-events: none;
+    opacity: 0.9;
   }
 }
 .jy-btn-brightness {
