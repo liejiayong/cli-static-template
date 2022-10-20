@@ -7,7 +7,7 @@
  * @FilePath: 
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
-
+@use "sass:math";
 @import '../_const.scss';
 @import '../_mixin.scss';
 
@@ -141,7 +141,7 @@ $table-height-overflow: 200px;
   }
   // 主体：主要设置背景
   &_main {
-    margin: 100px 0px 0px (-$width-pop/2);
+    margin: 100px 0px 0px math.div(-$width-pop, 2);
     position: fixed;
     left: 50%;
     top: 0;
