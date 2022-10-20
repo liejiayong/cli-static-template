@@ -29,17 +29,19 @@
 // });
 
 // /* 方形抽奖 */
-// $('.jlottery-btn').on('click', function () {
-//   var index = jtool.getRandom(0, 11);
+// $(".jlottery-btn").on("click", function () {
+//   $(".jlottery-btn").addClass(jtool.disableCls);
+//   var index = jtool.getRandom(0, 7);
 //   jtool.lottery(
 //     index,
-//     12,
+//     8,
 //     function (index) {
-//       $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//       $(".lottery-item").eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
 //     },
 //     function (index) {
-//       $('.lottery-item').eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//       jtool.showTip({ content: '<p>恭喜获得' + index + '</p>' });
+//       $(".lottery-item").eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//       jtool.showTip({ content: "<p>恭喜获得" + index + "</p>" });
+//       $(".jlottery-btn").removeClass(jtool.disableCls);
 //     }
 //   );
 // });
