@@ -85,7 +85,7 @@ $color-active: #e8d2a3;
     z-index: 1;
     cursor: pointer;
     @include font-arial();
-    @include btnEdgeExpanding();
+    @include btnedage-expanding();
   }
   &--all#{&} {
     a {

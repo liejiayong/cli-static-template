@@ -98,7 +98,7 @@ html {
 body {
   // height: 100%; /* use in Low-end phone*/
   // overflow: hidden;
-  @include scroll_init();
+  @include scroll-init();
 
   font-size: #{$fs-primary-wap};
 }
@@ -115,7 +115,7 @@ body {
   background: $color-theme-bg;
 
   // overflow: hidden auto;
-  @include scroll_init();
+  @include scroll-init();
 }
 
 // /* main wrapper, Usually used when there is a main menubar switch  */

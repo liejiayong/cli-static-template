@@ -217,7 +217,7 @@ $input-select-cell-radius: 0.12rem;
       no-repeat center / $width auto;
     // border-radius: 50%;
     // border: 0.02rem solid #fff;
-    @include btnEdgeExpanding($gutter);
+    @include btnedage-expanding($gutter);
     &:hover {
       filter: brightness(1.1);
     }

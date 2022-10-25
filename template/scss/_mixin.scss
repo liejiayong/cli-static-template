@@ -26,10 +26,10 @@
   &::-moz-placeholder {
     color: $color;
   }
-  &::-ms-input-placeholder {
+  &::-o-input-placeholder {
     color: $color;
   }
-  &::-moz-placeholder {
+  &::-ms-placeholder {
     color: $color;
   }
 }
@@ -41,10 +41,11 @@
   &::-moz-placeholder {
     background-color: $color;
   }
-  &::-ms-input-placeholder {
+  &::-o-placeholder {
     background-color: $color;
   }
-  &::-moz-placeholder {
+  
+  &::-ms-placeholder {
     background-color: $color;
   }
 }
@@ -106,16 +107,16 @@
   }
 }
 // 1px border
-@mixin border-hairline($directionMaps: bottom, $color: #ccc, $position: after) {
+@mixin border-hairline($directions: bottom, $color: #ccc, $position: after) {
   // 是否只有一个方向
-  $isOnlyOneDir: string==type-of($directionMaps);
+  $only-direction: string==type-of($directions);
 
-  @if ($isOnlyOneDir) {
-    $directionMaps: ($directionMaps);
+  @if ($only-direction) {
+    $directions: ($directions);
   }
 
-  @each $directionMap in $directionMaps {
-    border-#{$directionMap}: 1px solid $color;
+  @each $direction in $directions {
+    border-#{$direction}: 1px solid $color;
   }
 
   @media only screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -123,8 +124,8 @@
       position: relative;
 
       // 删除1像素密度比下的边框
-      @each $directionMap in $directionMaps {
-        border-#{$directionMap}: none;
+      @each $direction in $directions {
+        border-#{$direction}: none;
       }
     }
 
@@ -143,8 +144,8 @@
       pointer-events: none;
       border: 0 solid $color;
 
-      @each $directionMap in $directionMaps {
-        border-#{$directionMap}-width: 1px;
+      @each $direction in $directions {
+        border-#{$direction}-width: 1px;
       }
     }
   }
@@ -194,12 +195,12 @@
   -ms-filter: grayscale(100%);
   -o-filter: grayscale(100%);
   filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* ie */
-  filter: gray; /* ie6~ie9 */
+  filter: gray; /* ie6-ie9 */
   _filter: none;
 }
 
 // button mixin
-@mixin btnEdgeExpanding($width: 5px, $position: '') {
+@mixin btnedage-expanding($width: 5px, $position: '') {
   @if $position != '' {
     position: $position;
   }
@@ -267,24 +268,24 @@
 // 滚动卡顿
 @mixin scroll-state($scroll: '') {
   @if $scroll != '' {
-    -ms-scroll-chaining: none;
     overscroll-behavior: contain;
+    -ms-scroll-chaining: non  e;
   }
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-@mixin scroll_init {
+@mixin scroll-init {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-@mixin scroll_static {
+@mixin scroll-static {
   position: static;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-@mixin scroll_chaining {
-  -ms-scroll-chaining: none;
+@mixin scroll-chaining {
   overscroll-behavior: contain;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  -ms-scroll-chaining: none;
 }
