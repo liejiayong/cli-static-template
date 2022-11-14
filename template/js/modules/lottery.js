@@ -1,31 +1,26 @@
-// var DEG = 360 / 12;
-// $('.jlottery-btn').rotate({
-//   bind: {
-//     click: function () {
-//       $('.jlottery-btn').addClass(jtool.disableCls);
-//       var count = 1;
-//       // $.post('/act.php',{},function(){
-//       $('.ico-lottery-panel').rotate({
-//         angle: 0,
-//         animateTo: 360 * 8 + (count - 1) * DEG,
-//         duration: 3500,
-//         center: ['50%', '50%'],
-//         callback: function () {
-//           $('.jlottery-btn').removeClass(jtool.disableCls);
-//           jtool.showTip({
-//             content: '<div class="tc"><div>xxx领取成功</div></div>',
-//           });
-//         },
-//         step: function () {},
-//         easing: function (x, t, b, c, d) {
-//           return c * (t / d) + b;
-//         },
-//         getRotateAngle: function () {},
-//         stopRotate: function () {},
+
+// $(".ico-lottery-btn").click(function () {
+//   $(".ico-lottery-btn").addClass(jtool.disableCls);
+//   var DEG = 360 / 6;
+//   var count = jtool.getRandom(0, 5);
+//   $(".jlottery-btn").rotate({
+//     angle: 0,
+//     animateTo: 360 * 8 + count * DEG - DEG / 2,
+//     duration: 3500,
+//     center: ["50%", "1.12rem"],
+//     callback: function () {
+//       $(".ico-lottery-btn").removeClass(jtool.disableCls);
+//       jtool.showTip({
+//         content: '<div class="tc"><div>恭喜您获得X积分</div><div>请前往【积分商城】兑换奖励</div></div>',
 //       });
-//       // },'json');
 //     },
-//   },
+//     step: function () {},
+//     easing: function (x, t, b, c, d) {
+//       return c * (t / d) + b;
+//     },
+//     getRotateAngle: function () {},
+//     stopRotate: function () {},
+//   });
 // });
 
 // /* 方形抽奖 */
