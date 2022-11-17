@@ -6,7 +6,7 @@ var dm = new danMu({
   danMuClassName: "danmu_item",
   comments: danmuData,
   danMuHtml: "<span>{comment}</span>",
-  colors: ["#f24b77", "#d900d1", "#bc2204", "#1ca900", "#ffba34", "#bc2204", "#e100c4"],
+  colors: ["#f8dbae"],
   flyTime: 10000,
   timeInterval: 500,
   randomSort: true,
@@ -16,16 +16,18 @@ var dm = new danMu({
   mAnimation: "transform",
   myDanMuPrefix: "",
   cookieExp: 1,
-  cookieName: "dm_JyLie",
+  cookieName: "dm_JyLie_20221116110000",
 });
 dm.play();
-
 // 发送弹幕
-$(".btn-send").on("click", function () {
-  var msg = $(".danmu-input").val();
+$("#danmuBtn").on("click", function () {
+  var msg = $("#danmuInput input").val();
   // 发布的信息上传到服务器，上传成功后直接push到
   danmuData.push(msg);
   // 然后调用这个方法发布信息
   dm.send(msg);
+  setTimeout(function () {
+    $("#danmuInput input").val("");
+  }, 30);
 });
 // 弹幕end
