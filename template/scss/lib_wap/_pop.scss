@@ -36,6 +36,30 @@ $input-select-height: 0.6rem;
 $input-select-cell-gutter: 0.16rem;
 $input-select-cell-radius: 0.12rem;
 
+/* jQuery select2 plugin */
+.select2-container--default {
+  .select2-selection--single {
+    padding: 0 1em;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    .select2-selection__rendered {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .select2-selection__rendered {
+      color: #fff !important;
+    }
+    .select2-selection__clear {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 100% !important;
+      line-height: 1.15;
+    }
+  }
+}
+
 // 外框
 #{$prefixPop} {
   display: none;

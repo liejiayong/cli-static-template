@@ -21,13 +21,14 @@ var dm = new danMu({
 dm.play();
 // 发送弹幕
 $("#danmuBtn").on("click", function () {
-  var msg = $("#danmuInput input").val();
+  var msg = $("#danmuInput select option:selected").val();
+  // var msg = $("#danmuInput input").val();
+  // setTimeout(function () {
+  //   $("#danmuInput input").val("");
+  // }, 30);
   // 发布的信息上传到服务器，上传成功后直接push到
   danmuData.push(msg);
   // 然后调用这个方法发布信息
   dm.send(msg);
-  setTimeout(function () {
-    $("#danmuInput input").val("");
-  }, 30);
 });
 // 弹幕end
