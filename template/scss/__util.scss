@@ -380,22 +380,30 @@
   display: flex;
 }
 .jy-flex-c {
+  display: flex;
   -webkit-box-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
 }
 .jy-flex-vc {
+  display: flex;
   -webkit-box-align: center;
   align-items: center;
 }
 .jy-flex-hc {
+  display: flex;
   -webkit-box-pack: center;
   justify-content: center;
 }
 .jy-flex-hspace {
+  display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
+}
+.jy-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
 }
 .jy-flex-g5 {
   width: 50%;
