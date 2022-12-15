@@ -378,13 +378,13 @@
     <script type="text/javascript" src="./js/jquery.min.js?v=1.1.4"></script>
     <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
     <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script>
-    <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script>
-    <script type="text/javascript" src="./js/imagesLoader.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.rotate.min.js"></script>
-    <script type="text/javascript" src="./js/lower.min.js"></script>
-    <script type="text/javascript" src="./js/danmu.js"></script>
-    <script type="text/javascript" src="./js/vconsole.min.js?v=3.3.4"></script>
-    <script type="text/javascript" src="./js/qalist.js"></script>
+    <!-- <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script> -->
+    <!-- <script type="text/javascript" src="./js/imagesLoader.min.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/jquery.rotate.min.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/lower.min.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/danmu.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/vconsole.min.js?v=3.3.4"></script> -->
+    <!-- <script type="text/javascript" src="./js/qalist.js"></script> -->
     <script type="text/javascript" src="./js/index.js"></script>
 
     <script type="text/javascript" src="./js/select2.min.js"></script>
@@ -405,25 +405,6 @@
           allowClear: true,
           width: "100%",
         });
-        // select item
-        $("#jyPopPicker").on("click", "li", function () {
-          // 业务逻辑
-
-          $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-        });
-        // wake up the custom selector
-        $("#jyCallPicker").on("click", function () {
-          // 业务逻辑
-
-          $("#J_selectorPop").fadeIn();
-        });
-        // comfirm button
-        $(".jy-pop_picker_btn--confirm").on("click", function () {
-          // 业务逻辑
-
-          $(this).parents(".jy-pop").fadeOut();
-          $("#J_gamePop").hide();
-        });
         /* custom selector end */
 
         // 礼品查看
@@ -442,6 +423,7 @@
         $(".btn-pop-get").on("click", function () {
           $("#J_gamePop").fadeIn();
         });
+
         // 我的奖励
         $(".btn-myprize").on("click", function () {
           $("#J_recordPop").fadeIn();
@@ -460,6 +442,7 @@
           ];
           jtool.showTip({ content: content, title: "活动规则", btnOkText: "已阅读" });
         });
+        
         // 领取
         $(".btn-get").on("click", function () {
           jtool.showTip({ content: "<div>xxx领取成功</div>" });

@@ -100,7 +100,7 @@ $input-select-cell-radius: 0.12rem;
     z-index: 20;
     width: $width;
     min-height: $min-height;
-    border: 0.03rem solid rgba(0, 0, 0, 0.3);
+    border: 0.06rem solid rgba(0, 0, 0, 0.3);
     border-radius: $main-border-radius;
     font-size: $fs;
     color: $color;
@@ -232,7 +232,7 @@ $input-select-cell-radius: 0.12rem;
     // padding: $gutter;
     position: absolute;
     top: -0.4rem;
-    right: 0;
+    right: -0.06rem;
     z-index: 20;
     cursor: pointer;
     width: $width;
@@ -266,7 +266,7 @@ $input-select-cell-radius: 0.12rem;
     font-size: 0.22rem;
     // font-weight: bold;
     color: #fff;
-    background: #d67029 linear-gradient(#a30f0f, #be1010, #a30f0f);
+    background: #a30f0f linear-gradient(#a30f0f, #930406);
     // background: #ab231f -webkit-radial-gradient(top, #f8cb2f, #d35500, #9d1200);
   }
   &_btn-link {

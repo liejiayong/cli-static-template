@@ -15,7 +15,7 @@
 // bg
 $width-pop: 560px;
 $fs-body: 16px;
-$color-bg: #831c15 linear-gradient(0, #831c15, #61060d, #831c15);
+$color-bg: #831c15 linear-gradient(0, #831c15, #811a13, #831c15);
 $color-border: #600700;
 $color-txt: #fff8cc;
 
@@ -116,7 +116,7 @@ $table-height-overflow: 200px;
     padding: 10px 1em;
     width: 120px;
     // margin-top: 18px;
-    border-radius: 6px;
+    // border-radius: 6px;
     // border: 1px solid #eec468;
     text-align: center;
     background: $color-btn-bg;
@@ -150,10 +150,10 @@ $table-height-overflow: 200px;
     background: $color-bg;
     color: $color-txt;
     font-size: $fs-body;
-    border: 2px solid $color-border;
+    border: 6px solid $color-border;
     -webkit-animation: zoom 0.6s ease;
     animation: zoom 0.6s ease;
-    border-radius: 12px;
+    // border-radius: 12px;
   }
   // 主体标题
   &_head {

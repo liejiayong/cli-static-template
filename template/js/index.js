@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-05-25 09:21:54
+ * @LastEditTime: 2022-12-15 16:46:47
  * @FilePath: \tool-library\business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -30,6 +30,9 @@ var jtool = {
       '<div class="jy-copytips" style="display: none; padding: 10px; position: fixed; top: 30%; left: 50%; transform: translateX(-50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); box-shadow: rgb(0, 0, 0) 0px 0px 5px; white-space: nowrap; z-index: 2001;"></div>'
     );
     $('body').append($tip);
+    window.$showTip = function (str) {
+      $tip.text(str).fadeIn(500).fadeOut(1000);
+    };
     var clipboard = new ClipboardJS(btnCopyCls);
     clipboard.on('success', function () {
       $tip.text('复制成功').fadeIn(500).fadeOut(1000);
@@ -37,6 +40,82 @@ var jtool = {
     clipboard.on('error', function () {
       $tip.text('您的浏览器不支持点击复制，请长按复制！').fadeIn(500).fadeOut(1000);
     });
+  },
+    /**
+   * 弹窗展示
+    jtool.showTip({
+      content:
+        '<div class="tl"><div>xxx领取成功</div></div>',
+      title: '温馨提示',
+      titlePad: 'span',
+      titleId: '#popTipTit',
+      contentId: '#popTipNorm',
+      btnCloseId: '#popTipClose',
+      btnOkId: '#popTipOk',
+      btnOkText: '确认',
+      showBtnClose: true,
+      showBtnOk: true,
+      showTitle: true
+    });
+   */
+  showTip: function (opts) {
+    var content = opts.content,
+      tit = opts.title || '温馨提示',
+      titPad = opts.titlePad || '.jy-pop_header__sym',
+      titId = opts.titleId || '#popTipTit',
+      contentId = opts.contentId || '#popTipNorm',
+      btnCloseId = opts.btnCloseId || '#popTipClose',
+      btnOkId = opts.btnOkId || '#popTipOk',
+      btnOkText = opts.btnOkText || '确认',
+      showBtnClose = typeof opts.showBtnClose === 'boolean' ? opts.showBtnClose : true,
+      showBtnOk = typeof opts.showBtnOk === 'boolean' ? opts.showBtnOk : true,
+      showTitle = typeof opts.showTitle === 'boolean' ? opts.showTitle : true;
+    $tip = $('#J_tipPop');
+
+    showBtnClose ? $(btnCloseId).show() : $(btnCloseId).hide();
+    showBtnOk ? $(btnOkId).text(btnOkText).show() : $(btnOkId).hide();
+
+    if (showTitle) {
+      var titPadCache = titId + ' ' + titPad;
+      if ($tip.find(titPadCache) && $tip.find(titPadCache).length) {
+        $tip.find(titPadCache).html(tit);
+      } else {
+        $tip.find(titId).html(tit);
+      }
+    } else {
+      $tip.find(titId).hide();
+    }
+    if (Object.prototype.toString.call(content) === '[object Array]') {
+      content = content.join('');
+    }
+
+    $tip.find(contentId).html(content);
+    $tip.fadeIn();
+  },
+  $window: {
+    fixed: function (cls) {
+      cls = cls || '.jy-content';
+      $(cls).css({ 'overflow-y': 'hidden' });
+    },
+    reset: function (cls) {
+      cls = cls || '.jy-content';
+      $(cls).css({ 'overflow-y': 'auto' });
+    },
+    winReset: function () {
+      document.querySelector('body').style.overflow = '';
+    },
+    winFixed: function () {
+      document.querySelector('body').style.overflow = 'hidden';
+    },
+  },  
+  /**
+   * 跳转页面
+   * @param {string} cls
+   * @param {string} siblings
+   */
+  navTo: function (cls, siblings) {
+    siblings = siblings || '.jy-section';
+    $(cls).addClass(this.activeCls).siblings(siblings).removeClass(this.activeCls);
   },
   /**
    * tip pop
@@ -156,6 +235,28 @@ var jtool = {
     return value && decodeURIComponent(value[1]);
   },
   pop: {
+  /* 
+    wap端区服选择器
+    // select item
+    $("#jyPopPicker").on("click", "li", function () {
+      // 业务逻辑
+
+      $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+    });
+    // wake up the custom selector
+    $("#jyCallPicker").on("click", function () {
+      // 业务逻辑
+
+      $("#J_selectorPop").fadeIn();
+    });
+    // comfirm button
+    $(".jy-pop_picker_btn--confirm").on("click", function () {
+      // 业务逻辑
+
+      $(this).parents(".jy-pop").fadeOut();
+      $("#J_gamePop").hide();
+    });
+  */
     picker: function () {
       var $picker =
         '' +
@@ -210,82 +311,6 @@ var jtool = {
         }
         count();
       });
-    },
-  },
-  /**
-   * 弹窗展示
-    jtool.showTip({
-      content:
-        '<div class="tl"><div>xxx领取成功</div></div>',
-      title: '温馨提示',
-      titlePad: 'span',
-      titleId: '#popTipTit',
-      contentId: '#popTipNorm',
-      btnCloseId: '#popTipClose',
-      btnOkId: '#popTipOk',
-      btnOkText: '确认',
-      showBtnClose: true,
-      showBtnOk: true,
-      showTitle: true
-    });
-   */
-  showTip: function (opts) {
-    var content = opts.content,
-      tit = opts.title || '温馨提示',
-      titPad = opts.titlePad || '.jy-pop_header__sym',
-      titId = opts.titleId || '#popTipTit',
-      contentId = opts.contentId || '#popTipNorm',
-      btnCloseId = opts.btnCloseId || '#popTipClose',
-      btnOkId = opts.btnOkId || '#popTipOk',
-      btnOkText = opts.btnOkText || '确认',
-      showBtnClose = typeof opts.showBtnClose === 'boolean' ? opts.showBtnClose : true,
-      showBtnOk = typeof opts.showBtnOk === 'boolean' ? opts.showBtnOk : true,
-      showTitle = typeof opts.showTitle === 'boolean' ? opts.showTitle : true;
-    $tip = $('#J_tipPop');
-
-    showBtnClose ? $(btnCloseId).show() : $(btnCloseId).hide();
-    showBtnOk ? $(btnOkId).text(btnOkText).show() : $(btnOkId).hide();
-
-    if (showTitle) {
-      var titPadCache = titId + ' ' + titPad;
-      if ($tip.find(titPadCache) && $tip.find(titPadCache).length) {
-        $tip.find(titPadCache).html(tit);
-      } else {
-        $tip.find(titId).html(tit);
-      }
-    } else {
-      $tip.find(titId).hide();
-    }
-    if (Object.prototype.toString.call(content) === '[object Array]') {
-      content = content.join('');
-    }
-
-    $tip.find(contentId).html(content);
-    $tip.fadeIn();
-  },
-  /**
-   * 跳转页面
-   * @param {string} cls
-   * @param {string} siblings
-   */
-  navTo: function (cls, siblings) {
-    siblings = siblings || '.jy-section';
-    $(cls).addClass(this.activeCls).siblings(siblings).removeClass(this.activeCls);
-  },
-  $window: {
-    fixed: function (cls) {
-      cls = cls || '.jy-content';
-      $(cls).css({ 'overflow-y': 'hidden' });
-    },
-    reset: function (cls) {
-      cls = cls || '.jy-content';
-      $(cls).css({ 'overflow-y': 'auto' });
-    },
-    winReset: function () {
-      document.querySelector('body').style.overflow = '';
-    },
-    winFixed: function () {
-      document.querySelector('body').style.overflow = 'hidden';
     },
   },
   preload: {
@@ -356,10 +381,11 @@ var jtool = {
 /* @warning: 本页所有内容，后端同学不需要修改，谢谢~ */
 // preinstall the code
 $(function () {
+  jtool.elementCopy();
+  
   // var queryTest = window.location.href;
   // if (queryTest.indexOf('debug=jylie') > -1) new VConsole();
   // jtool.tip.screen();
-  jtool.elementCopy();
   // jtool.pop.picker();
   // jtool.pop.btnAuth('.jy-pop_input_cell-auth');
 
@@ -373,7 +399,6 @@ $(function () {
         time = t.time.current;
       $gTime.text(time + 'S');
     },
-
     loadGame: function (opts) {
       var self = this,
         count = (opts && opts.count) || 3,

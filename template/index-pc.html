@@ -499,6 +499,7 @@
         $('.btn-get').on('click', function () {
           if ($(this).hasClass(jtool.activeCls)) {
             jtool.showTip({ content: '<p>恭喜获得</p>' });
+            $(this).addClass(jtool.activeCls);
           }
         });
         $('.btn-inter').on('click', function () {
