@@ -7,6 +7,7 @@
 //  * @FilePath:
 //  * @warning:
 //  */
+@use "sass:math";
 
 .swiper-container {
   margin-left: auto;
@@ -143,7 +144,7 @@
     display: inline-block;
     width: $width;
     height: $width;
-    border-radius: ($width/ 2);
+    border-radius: math.div($width, 2);
     overflow: visible;
     background-color: #82affe;
     box-sizing: border-box;

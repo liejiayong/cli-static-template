@@ -8,8 +8,8 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
 .paginations {
   padding: 60px 0;
@@ -26,7 +26,7 @@
       color: #fff;
       background-color: #b11519;
     }
-    &:not([type*='prevnext']) {
+    &:not([type*="prevnext"]) {
       margin: 0 2px;
     }
   }
@@ -45,32 +45,32 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-.paginations {
-  padding: 60px 0;
-  // font-size: 0;
-  a {
-    // padding: 4px 10px;
-    // line-height: 1.15;
-    // border-radius: 2px;
-    // font-size: 16px;
-    // border: 1px solid #b11519;
-    // color: #b11519;
-    &:hover,
-    &.active {
-      color: #fff;
-      background-color: #b11519;
-    }
-    &:not([type*='prevnext']) {
-      margin: 0 2px;
-    }
-  }
-  .stat {
-    padding: 0 10px;
-  }
-}
+// .paginations {
+//   padding: 60px 0;
+//   // font-size: 0;
+//   a {
+//     // padding: 4px 10px;
+//     // line-height: 1.15;
+//     // border-radius: 2px;
+//     // font-size: 16px;
+//     // border: 1px solid #b11519;
+//     // color: #b11519;
+//     &:hover,
+//     &.active {
+//       color: #fff;
+//       background-color: #b11519;
+//     }
+//     &:not([type*="prevnext"]) {
+//       margin: 0 2px;
+//     }
+//   }
+//   .stat {
+//     padding: 0 10px;
+//   }
+// }
 
 // <div class="paginations tc">
 // <a href="javascript:;" class="jy-btn-txt ico-btn-ny-com" target="_self" type="prevnext">上一页</a>
@@ -81,4 +81,115 @@
 // <a href="javascript:;" target="_self">5</a>
 // <a href="javascript:;" class="jy-btn-txt ico-btn-ny-com ml-60" target="_self" type="prevnext">下一页</a>
 // <span class="stat">第1页 共8页</span>
+// </div>
+
+.ny-page {
+  &.pagination {
+    position: relative;
+    padding: 50px 0 80px;
+    text-align: center;
+    letter-spacing: 7px;
+    color: #b0a68f;
+    a {
+      padding: 0 5px;
+      // margin-right: 10px;
+      display: inline-block;
+      // width: 46px;
+      line-height: 28px;
+      // height: 46px;
+      box-sizing: border-box;
+      color: inherit;
+      // border: 2px solid #c9c9cb;
+      &:hover {
+        filter: brightness(1.15);
+      }
+    }
+    span {
+      padding: 0 5px;
+      // margin-right: 10px;
+      display: inline-block;
+      // width: 46px;
+      line-height: 28px;
+      // height: 46px;
+      box-sizing: border-box;
+      color: #fff;
+      border: 2px solid #3460f4;
+      background: #3460f4;
+    }
+    .ny-y-all {
+      padding: 0 10px;
+      display: inline-block;
+      // width: auto;
+      line-height: 28px;
+      // height: 46px;
+      color: inherit;
+      border: 0;
+      background: transparent;
+    }
+    .pagination-btn-prev {
+      position: relative;
+      // padding-left: 40px;
+      display: inline-block;
+      // width: 154px;
+      text-align: center;
+      line-height: 28px;
+      // height: 46px;
+      // border: 2px solid #c9c9cb;
+      box-sizing: border-box;
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   left: 30px;
+      //   top: 50%;
+      //   width: 10px;
+      //   height: 20px;
+      //   transform: translate(0, -50%);
+      //   background: url("../imgs/ico-arrow-new.png") no-repeat left center/22px auto;
+      //   transition: transform 0.5s linear;
+      // }
+      // &:hover {
+      //   &::before {
+      //     transform: translate(-50%, -50%);
+      //   }
+      // }
+    }
+    .pagination-btn-next {
+      position: relative;
+      // padding-right: 40px;
+      display: inline-block;
+      // width: 154px;
+      text-align: center;
+      line-height: 28px;
+      // height: 46px;
+      // border: 2px solid #c9c9cb;
+      // color: #7c7c7c;
+      box-sizing: border-box;
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   right: 30px;
+      //   top: 50%;
+      //   width: 10px;
+      //   height: 20px;
+      //   transform: translate(0, -50%);
+      //   background: url("../imgs/ico-arrow-new.png") no-repeat right center/22px auto;
+      //   transition: transform 0.5s linear;
+      // }
+      // &:hover {
+      //   &::before {
+      //     transform: translate(50%, -50%);
+      //   }
+      // }
+    }
+  }
+}
+
+// 默认模板
+// <div class="ny-page pagination ">
+//   <a class="pagination-btn-prev" href="index_2.html">上一页</a>
+//   [1]
+//   <a href="index_2.html">2</a>
+
+//   <span class="ny-y-all">共6条</span>
+//   <a class="pagination-btn-next" href="index_2.html">下一页</a>
 // </div>
