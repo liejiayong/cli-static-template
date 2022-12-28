@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2022-12-15 16:46:47
+ * @LastEditTime: 2022-12-28 17:48:41
  * @FilePath: \tool-library\business-logic\template\js\index.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
@@ -24,23 +24,25 @@ var jtool = {
    * 点击元素复制文本
    * @param {className} btnCopyCls
    */
-  elementCopy: function (btnCopyCls) {
-    btnCopyCls = btnCopyCls || '.jbtnpopcode';
+  elementCopy: (function () {
     var $tip = $(
-      '<div class="jy-copytips" style="display: none; padding: 10px; position: fixed; top: 30%; left: 50%; transform: translateX(-50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); box-shadow: rgb(0, 0, 0) 0px 0px 5px; white-space: nowrap; z-index: 2001;"></div>'
+      '<div class="jy-copytips" style="display: none; padding:12px 20px; position: fixed; top: 30%; left: 50%; transform: translateX(-50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); font-size: 18px;box-shadow: rgb(0, 0, 0) 0px 0px 5px; white-space: nowrap; z-index: 2001;"></div>'
     );
-    $('body').append($tip);
+    $("body").append($tip);
     window.$showTip = function (str) {
       $tip.text(str).fadeIn(500).fadeOut(1000);
     };
-    var clipboard = new ClipboardJS(btnCopyCls);
-    clipboard.on('success', function () {
-      $tip.text('复制成功').fadeIn(500).fadeOut(1000);
-    });
-    clipboard.on('error', function () {
-      $tip.text('您的浏览器不支持点击复制，请长按复制！').fadeIn(500).fadeOut(1000);
-    });
-  },
+    return function (btnCopyCls) {
+      btnCopyCls = btnCopyCls || ".jbtnpopcode";
+      var clipboard = new ClipboardJS(btnCopyCls);
+      clipboard.on("success", function () {
+        window.$showTip("复制成功");
+      });
+      clipboard.on("error", function () {
+        window.$showTip("您的浏览器不支持点击复制，请长按复制！");
+      });
+    };
+  })(),
     /**
    * 弹窗展示
     jtool.showTip({
