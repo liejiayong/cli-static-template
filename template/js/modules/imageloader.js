@@ -4,8 +4,8 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2021-10-19 17:07:47
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-10-22 16:51:30
- * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\modules\imageloader.js
+ * @LastEditTime: 2023-01-11 20:06:25
+ * @FilePath: \tool-library\business-logic\template\js\modules\imageloader.js
 
   var imgLoader = new ImgLoader({
     scale: 1,
@@ -57,7 +57,7 @@ ImgLoader.prototype.load = function (filename, success) {
     img.width = width;
     img.height = height;
     if (t.isAppend) {
-      img.style.cssText = 'visibility: hidden; opacity:0; pointer-events: none; position: absolute;';
+      img.style.cssText = 'visibility: hidden; opacity:0; width: 1px; height: 1px;pointer-events: none; position: absolute;';
       document.body.appendChild(img);
     }
     success &&

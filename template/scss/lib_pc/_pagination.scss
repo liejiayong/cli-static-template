@@ -11,43 +11,6 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-.paginations {
-  padding: 60px 0;
-  // font-size: 0;
-  a {
-    // padding: 4px 10px;
-    // line-height: 1.15;
-    // border-radius: 2px;
-    // font-size: 16px;
-    // border: 1px solid #b11519;
-    // color: #b11519;
-    &:hover,
-    &.active {
-      color: #fff;
-      background-color: #b11519;
-    }
-    &:not([type*="prevnext"]) {
-      margin: 0 2px;
-    }
-  }
-  .stat {
-    padding: 0 10px;
-  }
-}
-
-/**
- * @description:  pc paginations style
- * @author: liejiayong(809206619@qq.com)
- * @Date: 2020-06-15 11:27:17
- * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-12-11 17:06:29
- * @FilePath: 
- * @warning: 本页所有内容，后端同学不需要修改，谢谢~
- */
-
-@import "../_const.scss";
-@import "../_mixin.scss";
-
 // .paginations {
 //   padding: 60px 0;
 //   // font-size: 0;
