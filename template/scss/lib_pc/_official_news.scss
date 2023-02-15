@@ -274,12 +274,13 @@ $color-active: #d1be89;
 //   speed: 666,
 //   // autoplay: true,
 //   // effect: 'fade',
-// >v3
+// // >v3
 // on: {
 //   slideChange: function () {
 //       $('#psNewsTabs a').eq(this.activeIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
 //     },
-// v3
+// },
+// // v3
 // onSlideChangeEnd: function (swiper, event) {
 //       $('#psNewsTabs a').eq(swiper.activeIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
 //   },

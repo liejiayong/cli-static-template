@@ -18,35 +18,40 @@
   background: url(#{$url}) repeat / #{$width} auto;
 }
 
-@mixin inputcolor($color) {
+@mixin inputcolor($color, $placeholder: #959595) {
   color: $color;
+
+  $_placeholder: $placeholder;
+  @if $placeholder == $color {
+    $_placeholder: $color;
+  }
   &::-webkit-input-placeholder {
-    color: $color;
+    color: $placeholder;
   }
   &::-moz-placeholder {
-    color: $color;
+    color: $placeholder;
   }
   &::-o-input-placeholder {
-    color: $color;
+    color: $placeholder;
   }
   &::-ms-placeholder {
-    color: $color;
+    color: $placeholder;
   }
 }
 @mixin inputbg($color) {
   background-color: $color;
   &::-webkit-input-placeholder {
-    background-color: $color;
+    background-color: transparent;
   }
   &::-moz-placeholder {
-    background-color: $color;
+    background-color: transparent;
   }
   &::-o-placeholder {
-    background-color: $color;
+    background-color: transparent;
   }
-  
+
   &::-ms-placeholder {
-    background-color: $color;
+    background-color: transparent;
   }
 }
 

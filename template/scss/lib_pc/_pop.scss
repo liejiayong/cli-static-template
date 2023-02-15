@@ -438,12 +438,12 @@ $table-height-overflow: 200px;
     overflow-y: auto;
     max-height: $table-height-overflow;
     &::-webkit-scrollbar {
-      width: 4px;
+      width: 2px;
       background: rgba(0, 0, 0, 0.3);
     }
     &::-webkit-scrollbar-thumb {
-      background: #4f2d25;
-      border-radius: 4px;
+      background: #b13417;
+      border-radius: 1px;
     }
   }
   // 表格
