@@ -1,36 +1,38 @@
 // @charset "UTF-8";
-@import '../_const.scss';
-@import '../_mixin.scss';
-@import '../_reset.scss';
-// @import '../_font.scss';
-@import '../_sprite.scss';
-@import '../__util.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
+@import "../_reset.scss";
+@import "../_font.scss";
+@import "../_sprite.scss";
+@import "../__util.scss";
 
 // @import '../_animate_custom.scss';
 // @import '../_lib_animate.scss';
 // @import '../_lib_swiper.scss';
 // @import '../_share.scss';
 
-@import './_lib_select2.min.scss';
-// @import './_lottery-square.scss';
-// @import './_list.scss';
-// @import './_counttime.scss';
-// @import './_field.scss';
-// @import './_danmu.scss';
-// @import './_nav-other.scss';
-// @import './_nav.scss';
-// @import './_navbar.scss';
-// @import './_official_banner.scss';
-// @import './_official_feture_banner.scss';
-// @import './_official_news.scss';
-// @import './_official_news_detail.scss';
-// @import './_official_welface.scss';
-// @import './_official_role.scss';
-// @import './_official_breadcrumb.scss';
-// @import './_pagination.scss';
-// @import './_menu.scss';
-// @import './_qa.scss';
+// @import "./_list.scss";
 // @import "./_rank.scss";
+// @import "./_counttime.scss";
+// @import "./_lottery.scss";
+// @import "./_danmu.scss";
+// @import "./_field.scss";
+// @import "./_qa.scss";
 
-@import './_ui.scss';
-@import './_pop.scss';
+// @import "./_official_banner.scss";
+// @import "./_official_feture_banner.scss";
+// @import "./_official_news.scss";
+// @import "./_official_ebook.scss";
+// @import "./_official_gift.scss";
+// @import "./_official_role.scss";
+// @import "./_official_breadcrumb.scss";
+// @import "./_pagination.scss";
+
+// @import "./_nav-other.scss";
+// @import "./_nav.scss";
+// @import "./_dropdow_menu.scss.scss";
+// @import "./_menu.scss";
+@import "./_lib_select2.min.scss";
+
+@import "./_ui.scss";
+@import "./_pop.scss";

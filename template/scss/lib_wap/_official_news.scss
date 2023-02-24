@@ -1,106 +1,70 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-// <!-- news container -->
-// <div class="jy-news__container">
-//   <div class="jy-news__tabs__container w-main">
-//     <div class="jy-news__tabs__wrapper" id="psNewsTabs">
-//       <a href="javascript:;" class="active">最新</a>
-//       <a href="javascript:;" class="">活动</a>
-//       <a href="javascript:;" class="">公告</a>
-//       <a href="javascript:;" class="">新闻</a>
-//       <a href="javascript:;" class="">合服</a>
-//     </div>
-//     <a href="./news.html" class="jy-btn-txt ico__news__btn--more ico-btn-more">more</a>
-//   </div>
-//   <div class="jy-news__contents w-main">
-//     <div class="swiper-container" id="psNewsContent">
-//       <div class="swiper-wrapper">
-//         <div class="swiper-slide">
-//           <a href="./detail.html" class="jy-news__contents__links--topics">
-//             <div class="tag">推荐</div>
-//             《贪玩传世》12月1日新服火爆开启火爆开启
-//           </a>
-//           <a href="./detail.html" class="jy-news__contents__links">
-//             <span class="tag">【最新】</span>
-//             <span class="content">《贪玩传世》12月1日新服火爆新服火爆新服</span>
-//             <span class="time">03-30</span>
-//           </a>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-// // 新闻详细
-// var $psNewsTabs = $('#psNewsTabs');
-// var psNewsContent = new Swiper('#psNewsContent', {
-//   autoplay: false,
-//   on: {
-//     slideChange: function () {
-//       var currIndex = this.activeIndex;
-//       $psNewsTabs.children().eq(currIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//     },
-//   },
-// });
-// $psNewsTabs.on('click', 'a', function () {
-//   var currIndex = $(this).index();
-//   psNewsContent.slideTo(currIndex);
-// });
-
 $width-main: 6.7rem;
 $width-fill: 7.3rem;
+
 $color: #c2c4d4;
 $color-active: #e8d2a3;
-.jy-news__container {
+.news__unit {
   @include mauto();
   position: relative;
   padding: 0.3rem 0 0.4rem;
   color: $color;
   background: linear-gradient(#23222a, #32323a);
 }
-.jy-news__tabs__container {
+.news__btn__more {
+  // padding: 0.02rem 0.08rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate3d(0, -50%, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  // width: 1.1rem;
+  // height: 100%;
+  @include flex-width(auto);
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+  cursor: pointer;
+  @include font-arial();
+  @include btnedage-expanding();
+  &.ico-btn-more {
+  }
+}
+.news__tabs__content {
   @include mauto();
   position: relative;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.news__tabs {
+  @include mauto();
+  position: relative;
+  display: flex;
+  align-items: center;
   height: 0.6rem;
   font-size: 0.28rem;
-  .ico-btn-more {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate3d(0, -50%, 0);
-  }
-  .ico__news__btn--more {
-    // padding: 0.02rem 0.08rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    // width: 1.1rem;
-    // height: 100%;
-    @include flex-width(auto);
-    text-transform: uppercase;
-    white-space: nowrap;
-    z-index: 1;
-    cursor: pointer;
-    @include font-arial();
-    @include btnedage-expanding();
-  }
+
   &--all#{&} {
     a {
       @include flex-width(auto);
     }
   }
-  &.w-main {
+  &.w__main {
     width: $width-main;
     border-bottom: 0.02rem solid #434a6b;
     // color: #888;
     // background: #fff;
-    .jy-news__tabs__wrapper {
+    .news__tabs__content {
       a {
-        $width: 0.86rem;
-        @include flex-width($width);
+        @include flex-width(0.86rem);
         // background: url('../img/ico_sp_wap_ico_sp_btn.png') no-repeat -1.69rem -5.51rem / 7.32rem auto;
         // &:not(:last-of-type) {
         //   &::before {
@@ -123,10 +87,10 @@ $color-active: #e8d2a3;
       }
     }
   }
-  &.w-fill {
+  &.w__fill {
     width: $width-fill;
     border-bottom: 0.018rem solid #e9e9e9;
-    .jy-news__tabs__wrapper {
+    .news__tabs__content {
       // display: flex;
       // justify-content: space-between;
       // width: 100%;
@@ -148,7 +112,7 @@ $color-active: #e8d2a3;
         &::after {
           content: "";
           position: absolute;
-          bottom: 0;
+          bottom: -0.01rem;
           left: 0;
           right: 0;
           display: block;
@@ -206,16 +170,8 @@ $color-active: #e8d2a3;
     }
   }
 }
-.jy-news__tabs__wrapper {
-  @include mauto();
-  position: relative;
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-.jy-news__tags {
+
+.news__tags {
   @include mauto();
   padding: 0.2rem 0 0;
   display: flex;
@@ -243,16 +199,16 @@ $color-active: #e8d2a3;
   }
 }
 
-.jy-news__contents {
+.news__content {
   @include mauto();
   position: relative;
   font-size: 0.22rem;
-  &.w-main {
+  &.w__main {
     width: $width-main;
     height: 4.6rem;
     // background-color: #fef4e3;
     // color: #636363;
-    .jy-news__contents__links {
+    .news__link {
       height: 0.66rem;
       border-bottom: 0.02rem dashed #44505f;
       // &:not(:first-of-type) {
@@ -263,9 +219,9 @@ $color-active: #e8d2a3;
       width: 6.8rem;
     }
   }
-  &.w-fill {
+  &.w__fill {
     width: $width-fill;
-    .jy-news__contents__links {
+    .news__link {
       padding: 0.2rem 0 0;
       line-height: 2;
     }
@@ -274,96 +230,144 @@ $color-active: #e8d2a3;
     height: auto;
     line-height: 2;
   }
-
-  &__links {
-    // margin: 0.2rem 0;
+}
+.news__topics {
+  margin: 0.2rem auto 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  @include nowrap();
+  line-height: 2.2;
+  font-size: 0.26rem;
+  font-weight: bold;
+  color: $color-active;
+  background: #2f303d;
+  .tag {
+    margin-right: 0.08rem;
     position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
-    overflow: hidden;
-    width: 100%;
-    // color: #d2d2d2;
-    // &:not(:last-of-type) {
-    //   border-bottom: 0.015rem dashed #e1ded2;
-    // }
-    @include nowrap();
-    &--topics {
-      margin: 0.2rem auto 0;
-      position: relative;
-      display: flex;
-      align-items: center;
+    text-align: center;
+    @include flex-width(0.7rem);
+    height: 100%;
+    font-weight: bold;
+    background: #8e3211;
+    color: #fff;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate3d(100%, -50%, 0);
+      border-top: 0.2rem dashed transparent;
+      border-bottom: 0.2rem dashed transparent;
+      border-left: 0.08rem solid #8e3211;
+      border-right: 0.08rem dashed transparent;
+      height: 0;
+      width: 0;
+      font-size: 0;
+      line-height: 0;
       overflow: hidden;
-      width: 100%;
-      @include nowrap();
-      line-height: 2.2;
-      font-size: 0.26rem;
-      font-weight: bold;
-      color: $color-active;
-      background: #2f303d;
-      .tag {
-        margin-right: 0.08rem;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        @include flex-width(0.7rem);
-        height: 100%;
-        font-weight: bold;
-        background: #8e3211;
-        color: #fff;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translate3d(100%, -50%, 0);
-          border-top: 0.2rem dashed transparent;
-          border-bottom: 0.2rem dashed transparent;
-          border-left: 0.08rem solid #8e3211;
-          border-right: 0.08rem dashed transparent;
-          height: 0;
-          width: 0;
-          font-size: 0;
-          line-height: 0;
-          overflow: hidden;
-        }
-      }
-    }
-    span {
-      display: inline-block;
-    }
-    // .tag {
-    //   margin: 0 0.06rem;
-    //   display: block;
-    //   width: 0.2rem;
-    //   height: 0.2rem;
-    //   border: 0.02rem solid #9b9b9b;
-    //   transform: rotate(45deg);
-    //   overflow: hidden;
-    //   // color: #a4579d;
-    //   // font-size: 0.22rem;
-    // }
-    .content {
-      // color: #555;
-      flex: 1;
-      @include nowrap();
-      max-width: calc(100% - 0.6rem);
-    }
-    .time {
-      // margin-left: 0.1rem;
-      text-align: right;
-      min-width: 0.8rem;
-      color: #575d77;
-    }
-    &:hover {
-      color: $color-active;
-      .sign {
-        border-color: inherit;
-      }
-      .content {
-        color: inherit;
-      }
     }
   }
 }
+.news__link {
+  // margin: 0.2rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  // color: #d2d2d2;
+  // &:not(:last-of-type) {
+  //   border-bottom: 0.015rem dashed #e1ded2;
+  // }
+  @include nowrap();
+
+  span {
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  // .tag {
+  //   margin: 0 0.06rem;
+  //   display: block;
+  //   width: 0.2rem;
+  //   height: 0.2rem;
+  //   border: 0.02rem solid #9b9b9b;
+  //   transform: rotate(45deg);
+  //   overflow: hidden;
+  //   // color: #a4579d;
+  //   // font-size: 0.22rem;
+  // }
+  .content {
+    // color: #555;
+    flex: 1;
+    @include nowrap();
+    max-width: calc(100% - 0.6rem);
+  }
+  .time {
+    margin-left: 0.2em;
+    text-align: right;
+    min-width: 0.8rem;
+    color: #575d77;
+  }
+  &:hover {
+    color: $color-active;
+    .sign {
+      border-color: inherit;
+    }
+    .content {
+      color: inherit;
+    }
+  }
+}
+
+// <!-- news container -->
+// <div class="news__unit">
+//   <div class="news__tabs w__main">
+//     <div class="news__tabs__content" id="psNewsTabs">
+//       <a href="javascript:;" class="active">最新</a>
+//       <a href="javascript:;" class="">活动</a>
+//       <a href="javascript:;" class="">公告</a>
+//       <a href="javascript:;" class="">新闻</a>
+//       <a href="javascript:;" class="">合服</a>
+//     </div>
+//     <a href="./news.html" class="jy-btn-txt news__btn__more ico-btn-more">＋</a>
+//   </div>
+//   <div class="news__content w__main">
+//     <div class="swiper-container" id="spNewsContent">
+//       <div class="swiper-wrapper">
+//         <div class="swiper-slide">
+//           <a href="./detail.html" class="news__topics">
+//             <div class="tag">推荐</div>
+//             《贪玩传世》12月1日新服火爆开启火爆开启
+//           </a>
+//           <a href="./detail.html" class="news__link">
+//             <span class="tag">【最新】</span>
+//             <span class="content">《贪玩传世》12月1日新服火爆新服火爆新服</span>
+//             <span class="time">03-30</span>
+//           </a>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+// // 新闻详细
+// var $psNewsTabs = $('#psNewsTabs');
+// var spNewsContent = new Swiper('#spNewsContent', {
+//   autoplay: false,
+//   on: {
+//     slideChange: function () {
+//       var currIndex = this.activeIndex;
+//       $psNewsTabs.children().eq(currIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//     },
+//   },
+// });
+// $psNewsTabs.on('click', 'a', function () {
+//   var currIndex = $(this).index();
+//   spNewsContent.slideTo(currIndex);
+// });

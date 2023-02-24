@@ -7,7 +7,7 @@
  * @FilePath: 
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
-@import './lib_pc/_index.scss';
+@import "./lib_pc/_index.scss";
 
 /* Here is the Business Logic style */
 
@@ -85,7 +85,7 @@
       }
       &:not(:last-of-type) {
         a::before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           top: 9px;
@@ -165,7 +165,7 @@
     color: #ff9600;
     // text-decoration: underline;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -179,7 +179,7 @@
       transition: all 0.2s linear;
       // text-decoration: none;
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -5px;
         left: 0;
@@ -201,12 +201,12 @@
 .section-header {
   position: relative;
   height: 1088px;
-  background-image: url('../img/bgh.jpg');
+  background-image: url("../img/bgh.jpg");
   .jy-headermain {
     position: relative;
     padding-top: 10px;
     height: 100%;
-    background: url('../img/bghm.jpg') no-repeat center top;
+    background: url("../img/bghm.jpg") no-repeat center top;
 
     .time {
       position: absolute;
@@ -224,7 +224,7 @@
       span {
         position: relative;
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           left: -30px;
@@ -232,7 +232,7 @@
           width: 24px;
         }
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           right: -30px;
@@ -252,7 +252,7 @@
 .section-1 {
   position: relative;
   height: 0px;
-  background-image: url('../img/bg1.jpg');
+  background-image: url("../img/bg1.jpg");
   .jy-sectionmain {
     padding-top: 0px;
   }
@@ -262,7 +262,7 @@
 .section-2 {
   position: relative;
   height: 0px;
-  background-image: url('../img/bg2.jpg');
+  background-image: url("../img/bg2.jpg");
   .jy-sectionmain {
     padding-top: 0px;
   }
@@ -272,7 +272,7 @@
 .section-3 {
   position: relative;
   height: 0px;
-  background-image: url('../img/bg3.jpg');
+  background-image: url("../img/bg3.jpg");
   .jy-sectionmain {
     padding-top: 0px;
   }
@@ -282,7 +282,7 @@
 .section-4 {
   position: relative;
   height: 0px;
-  background-image: url('../img/bg4.jpg');
+  background-image: url("../img/bg4.jpg");
   .jy-sectionmain {
     padding-top: 0px;
   }
@@ -292,7 +292,7 @@
 .section-5 {
   position: relative;
   height: 0px;
-  background-image: url('../img/bg5.jpg');
+  background-image: url("../img/bg5.jpg");
   .jy-sectionmain {
     padding-top: 0px;
   }

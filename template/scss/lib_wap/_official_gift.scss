@@ -11,51 +11,36 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-// <div class="jy-content_scroll-com" id="mainWrapper">
-//   <div class="jy-gifts__container">
-//     <div class="jy-gifts__cells">
-//       <h3>情人节礼包</h3>
-//       <p class="desc">
-//         礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，中级强化石*3 绑定，中级强化石*3
-//         绑定，中级强化石*3 绑定
-//       </p>
-//       <div>
-//         剩余95%
-//         <a href="javascript:;" class="jy-ico__gifts__btn btn-get">领 取</a>
-//       </div>
-//     </div>
-//     <div class="jy-gifts__cells">
-//       <h3>情人节礼包</h3>
-//       <p class="desc">
-//         礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，中级强化石*3 绑定，中级强化石*3
-//         绑定，中级强化石*3 绑定
-//       </p>
-//       <div>
-//         剩余95%
-//         <a href="javascript:;" class="jy-ico__gifts__btn btn-get">领 取</a>
-//       </div>
-//     </div>
-//     <div class="jy-gifts__cells">
-//       <h3>情人节礼包</h3>
-//       <p class="desc">
-//         礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，中级强化石*3 绑定，中级强化石*3
-//         绑定，中级强化石*3 绑定
-//       </p>
-//       <div>
-//         剩余95%
-//         <a href="javascript:;" class="jy-ico__gifts__btn btn-get">领 取</a>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-.jy-gifts__container {
+.gifts__unit {
   padding: 0.3rem 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  .ico__btn {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    $width: 0.9rem;
+    flex: 0 0 $width;
+    width: $width;
+    height: 0.36rem;
+    line-height: normal;
+    // @include lh(0.35rem);
+    // border-top: 1px solid #ffbf64;
+    // background: #bb6220 linear-gradient(#a34d24, #bb6220, #ce731d);
+    // background: #2d8cec linear-gradient(#3890ea, #2d8cec, #0c6dd0);
+    font-size: 0.22rem;
+    background: #a02c12 linear-gradient(#a02c12, rgb(170, 43, 15), #b03a20, #b43e23);
+    color: #fffbcf;
+    // background: $btn-bg-com;
+    &:active {
+      filter: brightness(1.2);
+    }
+  }
 }
-.jy-gifts__cells {
+.gifts__item {
   // float: left;
   padding: 0.2rem;
   margin: 0 0.12rem 0.3rem 0.12rem;
@@ -75,7 +60,7 @@
     font-weight: bold;
     color: #000;
   }
-  .desc {
+  .gifts__desc {
     margin: 0.08rem 0 0.15rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -87,50 +72,65 @@
     overflow: hidden;
   }
 }
-.jy-ico__gifts__btn {
-  float: right;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  $width: 0.9rem;
-  flex: 0 0 $width;
-  width: $width;
-  @include lh(0.35rem);
-  // border-top: 1px solid #ffbf64;
-  // background: #bb6220 linear-gradient(#a34d24, #bb6220, #ce731d);
-  // background: #2d8cec linear-gradient(#3890ea, #2d8cec, #0c6dd0);
-  font-size: 0.22rem;
-  background: #a02c12 linear-gradient(#a02c12, rgb(170, 43, 15), #b03a20, #b43e23);
-  color: #fffbcf;
-  // background: $btn-bg-com;
-  &:active {
-    filter: brightness(1.2);
-  }
-}
 
-//  <div class="jy-pop" id="welfacePop">
-//     <div class="jy-pop_main">
-//       <a href="javascript:;" class="btn_pop-close jpopclose">关闭</a>
-//       <div class="jy-pop_body">
-//         <p class="fs-24">主界面的福利图标-礼包-输入礼包码-领取奖励</p>
-//         <div class="jy-pop__gifts__cp">
-//           <div class="jy-pop__gifts__cp--link" id="copyTxt">4f7e23459d7fa1cb</div>
-//           <a
-//             data-clipboard-action="copy"
-//             data-clipboard-target="#copyTxt"
-//             href="javascript:;"
-//             class="jy-pop__gifts__cp--btn jpopcp"
-//           >
-//             一键复制
-//           </a>
-//         </div>
+// <div class="gifts__unit">
+//   <div class="gifts__item">
+//     <h3>情人节礼包</h3>
+//     <p class="gifts__desc">
+//       礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，中级强化石*3 绑定，中级强化石*3
+//       绑定，中级强化石*3 绑定
+//     </p>
+//     <div>
+//       剩余95%
+//       <a href="javascript:;" class="ico__btn btn-get">领 取</a>
+//     </div>
+//   </div>
+//   <div class="gifts__item">
+//     <h3>情人节礼包</h3>
+//     <p class="gifts__desc">
+//       礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，中级强化石*3 绑定，中级强化石*3
+//       绑定，中级强化石*3 绑定
+//     </p>
+//     <div>
+//       剩余95%
+//       <a href="javascript:;" class="ico__btn btn-get">领 取</a>
+//     </div>
+//   </div>
+//   <div class="gifts__item">
+//     <h3>情人节礼包</h3>
+//     <p class="gifts__desc">
+//       礼包内容：99朵玫瑰*1 绑定，紫色洗练石*10 绑定，中级强化石*3 绑定，中级强化石*3 绑定，中级强化石*3
+//       绑定，中级强化石*3 绑定
+//     </p>
+//     <div>
+//       剩余95%
+//       <a href="javascript:;" class="ico__btn btn-get">领 取</a>
+//     </div>
+//   </div>
+// </div>
+
+// <div class="pops" id="popGift">
+//   <div class="pops__main">
+//     <a href="javascript:;" class="pops__btn-close jpopclose">关闭</a>
+//     <div class="pops__body">
+//       <p class="fs-24">主界面的福利图标-礼包-输入礼包码-领取奖励</p>
+//       <div class="pops__gifts">
+//         <div class="pops__gifts__code" id="copyTxt">8008 AAAA 2222 AAAA</div>
+//         <a
+//           data-clipboard-action="copy"
+//           data-clipboard-target="#copyTxt"
+//           href="javascript:;"
+//           class="pops__btn__copy jpopcopy"
+//         >
+//           一键复制
+//         </a>
 //       </div>
 //     </div>
 //   </div>
+// </div>
 
 // $(function () {
-//   var copy = new ClipboardJS('.jpopcp');
+//   var copy = new ClipboardJS('.jpopcopy');
 //   copy.on('success', function (e) {
 //     e.clearSelection();
 //     alert('复制成功。');
@@ -140,15 +140,15 @@
 //   });
 
 //   $('.btn-get').on('click', function () {
-//     $('#welfacePop').fadeIn();
+//     $('#popGift').fadeIn();
 //   });
 //   $('.jpopclose').on('click', function () {
-//     $(this).parents('.jy-pop').fadeOut();
+//     $(this).parents('.pops').fadeOut();
 //   });
 // });
 
 /* pop style */
-.jy-pop {
+.pops {
   display: none;
   position: fixed;
   top: 0;
@@ -162,7 +162,7 @@
     display: block;
     opacity: 1;
   }
-  .jy-pop_main {
+  .pops__main {
     width: 6.12rem;
     position: fixed;
     left: 50%;
@@ -175,13 +175,13 @@
     -webkit-transform: translate(-50%, -50%);
     background: #f3f3f4;
   }
-  .jy-pop_body {
+  .pops__body {
     padding: 0.3rem;
     background: #f3f3f4;
     border: 0.04rem solid #fff;
     text-align: center;
   }
-  .btn_pop-close {
+  .pops__btn-close {
     position: absolute;
     top: 0;
     right: -0.46rem;
@@ -199,21 +199,24 @@
   }
 }
 
-.jy-pop__gifts__cp {
+.pops__gifts {
   width: 5rem;
   margin: 0.1rem auto;
   display: flex;
 }
-.jy-pop__gifts__cp--link {
+.pops__gifts__code {
+  padding: 0 0.15rem;
   flex: 1;
-  color: #636363;
-  background-color: #fff;
   line-height: 0.35rem;
   text-align: left;
-  padding: 0 0.15rem;
+  user-select: all;
+  border: 0;
+  outline: 0;
+  background-color: #fff;
+  color: #636363;
 }
-.jy-pop__gifts__cp--btn,
-.jy-pop__gifts__cp--btn:hover {
+.pops__btn__copy,
+.pops__btn__copy:hover {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -8,62 +8,64 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-.list_panel {
+.list__unit {
   // padding-top: 0rem;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   width: inherit;
-  .list_tit {
-    $tit-height: 0.38rem;
-
-    display: inline-block;
+  // color: #949494;
+  .list__title {
+    display: inline-flex;
     padding: 0 0.2rem;
+    height: 0.38rem;
+    line-height: normal;
+    border-radius: $tit-height;
     font-size: 0.24rem;
     // font-weight: bold;
-    @include lh($tit-height);
-    border-radius: $tit-height;
     color: #fff;
     background: #4872a8;
   }
-  .list_body {
+  .list__content {
+    margin-top: 0.6rem;
     position: relative;
-    line-height: 1.5;
-    // padding-left: 0.3rem;
+    // line-height: 1.5;
     li {
       $padding-left: 0.3rem;
+      $width: 0.3rem;
 
-      position: relative;
-      padding-left: $padding-left;
-      // padding-top: .1rem;
       // margin-top: 0.1rem;
+      padding: 0 0 0 $padding-left;
+      position: relative;
       list-style: none;
       // text-indent: .1rem;
-
-      $width: 0.3rem;
 
       @for $i from 1 through 10 {
         &:nth-of-type(#{$i}) {
           &::before {
-            content: '#{$i}.';
+            content: "#{$i}.";
             position: absolute;
-            top: 0.05rem;
+            top: 0.2em;
             left: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            line-height: normal;
             width: $width;
             height: $width;
-            line-height: normal;
-            text-align: center;
             // font-size: 0.24rem;
             // color: #fff;
             // background-color: #7491bc;
             // border-radius: 50%;
           }
         }
+      }
+
+      span {
       }
       // i {
       //   $width: 0.3rem;
@@ -82,11 +84,16 @@
   }
 }
 
-// <div class="list_panel">
-// <div class="list_tit">注意事項</div>
-// <ul class="list_body">
-//   <li><i>1</i>獎勵會在遊戲上線後通過手機簡訊的方式發放</li>
-//   <li><i>2</i>請輸入正確的手機門號，如輸入有誤，將不會獲得事前登錄獎勵。</li>
-//   <li><i>3</i>活動期間如果發生不可抗力因素，我方有保留更改或終止活動的權利。如有出現以上情況，我們將會在Facebook上宣布。</li>
-// </ul>
+// <div class="list__unit">
+//   <div class="list__title fb">活动规则：</div>
+//   <ul class="list__content lh-15">
+//     <li>
+//       <i>1</i>
+//       被邀玩家只能在每日新开的区服中创角才算成功参与活动。
+//     </li>
+//     <li>
+//       <i>2</i>
+//       参与活动需要登录账号并绑定手机号，一个手机号只能参与一次活动。
+//     </li>
+//   </ul>
 // </div>

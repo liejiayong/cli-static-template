@@ -8,99 +8,129 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-$input-width: 4.78rem;
-$input-height: 0.45rem;
-$input-gutter: 0.18rem;
-$input-indent: 0.12rem;
-$input-raduis: 0.06rem;
-$input-bg: #ffe8dd;
-$input-label: #dab791;
-$input-color: #dab791;
+.field__unit {
+  $input-width: 4.78rem;
+  $input-height: 0.45rem;
+  $input-raduis: 0.06rem;
 
-$textare-height: 2.1rem;
+  $input-bg: #ffe8dd;
+  $input-label: #dab791;
+  $input-color: #dab791;
 
-$fs: 0.24rem;
+  $textare-height: 2.1rem;
 
-.jy-input_cell {
   position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  // height: $input-height;
-  line-height: $input-height;
-  box-sizing: border-box;
+  font-size: 0.24rem;
   color: $input-color;
-  overflow: hidden;
-  &:not(:last-of-type) {
-    margin-bottom: $input-gutter;
+
+  .field__cells {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    // height: $input-height;
+    line-height: $input-height;
+    box-sizing: border-box;
+    overflow: hidden;
+    & + .field__cells {
+      margin-top: 0.18rem;
+    }
   }
-}
-.jy-input_cell-label {
-  -webkit-box-flex: 0;
-  -webkit-flex: none;
-  flex: none;
-  box-sizing: border-box;
-  width: 3.2em;
-  margin-right: 0.1rem;
-  color: $input-label;
-  text-align: left;
-  word-wrap: break-word;
-  &.flex-start {
-    align-self: flex-start;
+  .field__title {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    flex: none;
+    box-sizing: border-box;
+    width: 3.2em;
+    margin-right: 0.1rem;
+    color: $input-label;
+    text-align: left;
+    word-wrap: break-word;
+    &.flex-start {
+      align-self: flex-start;
+    }
   }
-}
-.jy-input_cell-val {
-  position: relative;
-  overflow: hidden;
-  text-align: right;
-  width: $input-width;
-  word-wrap: break-word;
-  input {
+  .field__content {
+    position: relative;
+    overflow: hidden;
+    text-align: right;
     width: $input-width;
     height: $input-height;
-    background-color: $input-bg;
-    @include inputcolor($input-color);
-    border-radius: $input-raduis;
-    font-size: $fs;
+    word-wrap: break-word;
+    input {
+      padding: 0 1em;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: $input-raduis;
+      appearance: none;
+      border: 0;
+      outline: 0;
+      @include inputbg($input-bg);
+      @include inputcolor($input-color);
+      // font-size: .26rem;
+    }
+
+    select {
+      padding: 0 1em;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: $input-raduis;
+      // appearance: none;
+      border: 0;
+      outline: 0;
+      @include inputbg($input-bg);
+      @include inputcolor($input-color);
+      // font-size: .26rem;
+    }
   }
-  textarea {
+  .field__textarea {
+    padding: 0.2rem;
+    position: relative;
+    overflow: hidden;
+    text-align: right;
     width: $input-width;
-    height: $textare-height;
+    height: 3em;
+    box-sizing: border-box;
     background-color: $input-bg;
-    @include inputcolor($input-color);
-    border-radius: $input-raduis;
-    font-size: $fs;
-  }
-  select {
-    width: $input-width;
-    height: $input-height;
-    background-color: $input-bg;
-    @include inputcolor($input-color);
-    border-radius: $input-raduis;
-    font-size: $fs;
+    textarea {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: $input-raduis;
+      appearance: none;
+      border: 0;
+      outline: 0;
+      background-color: transparent;
+      @include inputcolor($input-color);
+      // font-size: .26rem;
+    }
   }
 }
 
-// <div class="jy-input_cell">
-//   <div class="jy-input_cell-label">姓名</div>
-//   <div class="jy-input_cell-val">
-//     <input type="text" id="" placeholder="请输入" />
+// <div class="field__unit">
+//   <div class="field__cells">
+//     <div class="field__title">姓名</div>
+//     <div class="field__content">
+//       <input type="text" id="" placeholder="请输入" />
+//     </div>
 //   </div>
-// </div>
-// <div class="jy-input_cell">
-//   <div class="jy-input_cell-label">姓名</div>
-//   <div class="jy-input_cell-val">
-//     <textarea id="" placeholder="请输入"></textarea>
+//   <div class="field__cells">
+//     <div class="field__title">姓名</div>
+//     <div class="field__content">
+//       <select id="">
+//         <option value="">请选择</option>
+//       </select>
+//     </div>
 //   </div>
-// </div>
-// <div class="jy-input_cell">
-//   <div class="jy-input_cell-label">姓名</div>
-//   <div class="jy-input_cell-val">
-//     <select id="">
-//       <option value="">请选择</option>
-//     </select>
+//   <div class="field__cells">
+//     <div class="field__title">备注</div>
+//     <div class="field__textarea">
+//       <textarea id="" placeholder="请输入"></textarea>
+//     </div>
 //   </div>
 // </div>

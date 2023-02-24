@@ -3,14 +3,14 @@
  * @author: liejiayong(809206619@qq.com)
  * @Date: 2021-12-30 11:03:48
  */
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
 body {
   margin-left: auto;
   margin-right: auto;
   min-width: $main-width-pc;
-  font: #{$fs-primary-pc}/ 1.15 'Microsoft YaHei', '微软雅黑', sans-serif;
+  font: #{$fs-primary-pc}/ 1.15 "Microsoft YaHei", "微软雅黑", sans-serif;
   color: $color-primary;
   background: $color-theme-bg;
 }
@@ -55,7 +55,7 @@ body {
   .label {
     font-size: 28px;
     color: #ffffdd;
-    font-family: 'fcustom', Microsoft YaHei, '微软雅黑', sans-serif;
+    font-family: "fcustom", Microsoft YaHei, "微软雅黑", sans-serif;
   }
 }
 
@@ -69,12 +69,12 @@ body {
   justify-content: space-between;
   align-items: center;
   @include lh(87px);
-  background: url('../img/bg-nav-ny.png') no-repeat top center / contain;
+  background: url("../img/bg-nav-ny.png") no-repeat top center / contain;
 
   .label {
     font-size: 28px;
     color: #ffffdd;
-    font-family: 'fcustom', Microsoft YaHei, '微软雅黑', sans-serif;
+    font-family: "fcustom", Microsoft YaHei, "微软雅黑", sans-serif;
     &-sub {
       // font-family: Arial, Helvetica, sans-serif;
       text-transform: uppercase;

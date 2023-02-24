@@ -6,14 +6,18 @@
 //  * @FilePath:
 //  * swiper@v5.x
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-.jy-banner-container {
+.banner__unit {
   position: relative;
   @include flex-width(535px);
   height: 392px;
   overflow: hidden;
+  .swiper-container {
+  }
+  .swiper-slide {
+  }
   img {
     display: block;
     width: 100%;
@@ -55,7 +59,7 @@
       background-color: #fff;
       &::before {
         $width: 8px;
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         left: 50%;
@@ -76,12 +80,9 @@
 }
 
 // <!-- banner modules -->
-// <div class="jy-banner-container">
-//   <div class="swiper-container" id="psHBans">
+// <div class="banner__unit">
+//   <div class="swiper-container" id="spHBans">
 //     <div class="swiper-wrapper">
-//       <div class="swiper-slide">
-//         <img data-src="./img/535-393.jpg" class="swiper-lazy" alt="" />
-//       </div>
 //       <div class="swiper-slide">
 //         <img data-src="./img/535-393.jpg" class="swiper-lazy" alt="" />
 //       </div>
@@ -90,32 +91,36 @@
 //   <div class="swiper-pagination-com"></div>
 // </div>
 
-// // jy-banner-container
-// var psHBans = new Swiper('#psHBans', {
+// // banner__unit
+// var spHBans = new Swiper("#spHBans", {
 //   initialSlide: 0,
 //   autoplay: {
-//     delay: 2888,
+//     delay: 3888,
 //   },
 //   spaceBetween: 20,
-//   direction: 'horizontal', // horizontal|vertical
+//   direction: "horizontal",
 //   loop: true,
 //   speed: 666,
 //   autoplay: true,
-//   // effect: 'fade',
-//   // @>v3
 //   lazy: {
 //     loadPrevNext: true,
 //     loadPrevNextAmount: 2,
-//     elementClass: 'swiper-lazy',
+//     elementClass: "swiper-lazy",
 //   },
+//   navigation: {
+//     nextEl: ".ico-arrow-rt",
+//     prevEl: ".ico-arrow-lt",
+//   },
+//   // effect: 'fade',
+//   // swiper.js version > v3
 //   pagination: {
-//     el: '.swiper-pagination-com',
+//     el: ".swiper-pagination-com",
 //     clickable: true,
 //   },
-// // @v3
-// // lazyLoading: true,
-// // lazyLoadingInPrevNext: true,
-// // lazyLoadingInPrevNextAmount: 2,
-// // pagination: '.swiper-pagination-com',
-// // paginationClickable: true,
+//   // swiper.js version <= v3
+//   // lazyLoading: true,
+//   // lazyLoadingInPrevNext: true,
+//   // lazyLoadingInPrevNextAmount: 2,
+//   // pagination: '.swiper-pagination-com',
+//   // paginationClickable: true,
 // });

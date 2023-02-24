@@ -11,26 +11,7 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-// <!-- nav -->
-// <div class="jy-nav">
-//   <div class="jy-nav_wrapper">
-//     <a class="jy-nav_logo"><img src="./img/logo.png" alt="" /></a>
-//     <div class="jy-nav_profile">
-//       <div class="jy-nav_profile_name">最强王者</div>
-//       <div class="jy-nav_profile_subname">正版小说授权官方手游</div>
-//     </div>
-//     <div class="jy-nav_extra">
-//       <a href="javascript:;" class="jy-btn ico-btn-dl"></a>
-//       <div class="jy-nav_btn__menu" id="btnNavMenu">
-//         <div class="jy-nav_btn__menu--line"></div>
-//         <div class="jy-nav_btn__menu--line"></div>
-//         <div class="jy-nav_btn__menu--line"></div>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-.jy-nav {
+.navbar__unit {
   $nav-height: $nav-height;
 
   padding: 0 0.3rem;
@@ -41,9 +22,10 @@
   box-sizing: border-box;
   transform: translate3d(-50%, 0, 0);
   z-index: 10;
-  background-color: #071215;
   border-bottom: 0.02rem solid #1f2a2d;
-  .jy-nav_wrapper {
+  background-color: #071215;
+  color: #fff;
+  .navbar__content {
     position: relative;
     display: -webkit-box;
     display: flex;
@@ -51,15 +33,16 @@
     align-items: center;
     height: $nav-height;
   }
-  .jy-nav_logo {
+  .navbar__avatar {
     $width: 1.08rem;
-    position: relative;
+
     // margin-bottom: -0.12rem;
-    // border-radius: 0.3rem;
+    position: relative;
     -webkit-box-flex: 0;
     flex: 0 0 $width;
     width: $width;
     // height: $width;
+    // border-radius: 0.3rem;
     align-self: flex-end;
     img {
       width: 100%;
@@ -67,19 +50,19 @@
       object-fit: contain;
     }
   }
-  .jy-nav_profile {
+  .navbar__profile {
     flex: 1;
     margin-left: 0.18rem;
   }
-  .jy-nav_profile_name {
+  .name {
     color: #e1c688;
     font-size: 0.3rem;
   }
-  .jy-nav_profile_subname {
+  .subname {
     margin-top: 0.08rem;
     font-size: 0.22rem;
   }
-  .jy-nav_extra {
+  .navbar__extral {
     // flex: 1;
     justify-self: flex-end;
     display: -webkit-box;
@@ -89,12 +72,26 @@
   }
 }
 
-// <div class="jy-nav_btn__menu" id="btnNavMenu">
-// <div class="jy-nav_btn__menu--line"></div>
-// <div class="jy-nav_btn__menu--line"></div>
-// <div class="jy-nav_btn__menu--line"></div>
+// <!-- navbar -->
+// <div class="navbar__unit">
+//   <div class="navbar__content">
+//     <a class="navbar__avatar"><img src="./img/logo.png" alt="" /></a>
+//     <div class="navbar__profile">
+//       <div class="name">最强王者</div>
+//       <div class="subname">正版小说授权官方手游</div>
+//     </div>
+//     <div class="navbar__extral">
+//       <a href="javascript:;" class="jy-btn ico-btn-dl"></a>
+//       <div class="navbar__btn__menu" id="btnNavMenu">
+//         <div class="navbar__btn__menu--line"></div>
+//         <div class="navbar__btn__menu--line"></div>
+//         <div class="navbar__btn__menu--line"></div>
+//       </div>
+//     </div>
+//   </div>
 // </div>
-.jy-nav_btn__menu {
+
+.navbar__btn__menu {
   display: inline-block;
   cursor: pointer;
   transition: 0.3s;
@@ -107,7 +104,7 @@
   $height: 0.08rem;
   $gutter: 0.1rem;
 
-  .jy-nav_btn__menu--line {
+  .navbar__btn__menu--line {
     position: relative;
     display: block;
     width: 0.6rem;
@@ -132,7 +129,7 @@
     }
   }
   &.active {
-    .jy-nav_btn__menu--line {
+    .navbar__btn__menu--line {
       will-change: transform, opacity;
       &:nth-of-type(1) {
         -webkit-transform: translateY(#{$gutter + $height}) rotate(-45deg);
@@ -148,3 +145,9 @@
     }
   }
 }
+
+// <div class="navbar__btn__menu" id="btnNavMenu">
+// <div class="navbar__btn__menu--line"></div>
+// <div class="navbar__btn__menu--line"></div>
+// <div class="navbar__btn__menu--line"></div>
+// </div>

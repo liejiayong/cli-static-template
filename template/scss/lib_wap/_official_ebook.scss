@@ -1,0 +1,98 @@
+@import "../_const.scss";
+@import "../_mixin.scss";
+
+.ebook__unit {
+  padding: 0 0.2rem 2rem;
+  // height: 7.365rem;
+  // background-image: url('../img/bg3.jpg');
+  line-height: 1.5;
+
+  .ebook__header {
+    position: relative;
+    padding: 0.3rem 0;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #333;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: 0.018rem solid #f1f1f1;
+    }
+    .tsup {
+      margin: 0;
+      font-weight: bold;
+      color: #6b3d00;
+      span {
+        display: inline-block;
+        text-align: left;
+      }
+    }
+    .tsub {
+      margin-top: 0.28rem;
+      text-align: left;
+      font-size: 0.2rem;
+      color: #848484;
+    }
+  }
+  .ebook__profile {
+    padding: 0.1rem 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.22rem;
+    color: #999;
+    .avatar {
+      position: relative;
+      width: 0.4rem;
+      height: 0.4rem;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    span {
+      margin: 0 0.1rem;
+    }
+  }
+  .ebook__bodyer {
+    padding-top: 0.2rem;
+    > p,
+    > div {
+      margin-top: 0.1rem;
+    }
+    img {
+      padding: 0.1rem 0;
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// <div class="ebook__unit">
+//   <div class="ebook__header">
+//     <h3 class="tsup"><span>《原始传奇》200天庆典活动公告</span></h3>
+//     <p class="tsub">2021-07-23 10:19:26 / 《鸿图之下》攻略作者团</p>
+//   </div>
+//   <div class="ebook__profile">
+//     <div class="avatar"><img src="./img/logo.png" alt="" /></div>
+//     <span>JyLie</span>
+//     <span>2021-07-23 10:19:26 / 《鸿图之下》攻略作者团</span>
+//   </div>
+//   <div class="ebook__bodyer">
+//     <!-- CMS输出内容 -->
+//     <p>
+//       《大唐琉璃梦》是一款的古风官斗手游。游戏展现了古代尔虞我诈的官场智斗，颠覆传统的官斗玩法为你带来一场步步惊心的传奇。十年寒窗苦读，一朝金榜题名，官斗之余府邸小憩，娇妻相伴，金玉满堂，享田园轻趣时光；千古门客尽入门墙，谈笑间位极人臣；联盟争斗步步惊心，联盟战场一决高下。
+//     </p>
+
+//     <p><img src="./img/ban.jpg" alt="" /></p>
+
+//     <p>
+//       《大唐琉璃梦》是一款的古风官斗手游。游戏展现了古代尔虞我诈的官场智斗，颠覆传统的官斗玩法为你带来一场步步惊心的传奇。十年寒窗苦读，一朝金榜题名，官斗之余府邸小憩，娇妻相伴，金玉满堂，享田园轻趣时光；
+//     </p>
+//   </div>
+// </div>

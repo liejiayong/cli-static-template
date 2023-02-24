@@ -5,11 +5,13 @@
 //  * @LastEditTime: 2021-12-11 17:06:29
 //  * @FilePath:
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-.jy-role_ski {
-  &_param {
+.role__ski {
+  &__unit {
+  }
+  &__param {
     padding: 15px 20px 0;
     display: flex;
     align-items: center;
@@ -54,7 +56,7 @@
 }
 
 // <!-- 人物技能属性 -->
-// <div class="jy-role_ski_param">
+// <div class="role__ski__param">
 //   <div class="label">气血</div>
 //   <div class="progress"><i></i></div>
 //   <div class="value">100%</div>
