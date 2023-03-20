@@ -6,8 +6,9 @@
 //  * @LastEditTime: 2021-12-11 17:06:29
 //  * @FilePath:
 //  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
+
 //  <!-- bdshare -->
-//  <div class="share-content">
+//  <div class="share__unit">
 //    <div class="">分享到：</div>
 //    <div class="bdsharebuttonbox bdshare-button-style-20 clearfix" data-tag="share_1">
 //      <a class="bds_weixin" data-cmd="weixin" href="#" title="微信好友分享" class=""></a>
@@ -20,7 +21,7 @@
 //  </div>
 //  */
 
-.share-content {
+.share__unit {
   display: flex;
   justify-content: flex-end;
   align-items: center;

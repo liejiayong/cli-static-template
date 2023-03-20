@@ -8,10 +8,54 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-$ct-time: 15s;
+.countdown__unit {
+  $item-width: 0.9rem;
+  $item-height: 0.9rem;
 
-$ct-width: 4.98rem;
-$ct-height: 0.1rem;
+  margin-top: 22px;
+  width: 100%;
+  .countdown__header {
+    text-align: center;
+  }
+  .countdown__box {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 5rem;
+    @include lh($item-height);
+    // line-height: $item-height;
+  }
+  .countdown__label {
+    margin: 0 0.1rem;
+    font-size: 0.26rem;
+    font-weight: normal;
+    color: #000;
+  }
+  .countdown__num {
+    width: $item-width;
+    text-align: center;
+    font-weight: normal;
+    font-family: "Arial";
+    font-size: 0.32rem;
+    color: #140e05;
+  }
+}
+
+// <div class="countdown__unit">
+//   <div class="countdown__header">距离春哥一服开启倒计时：</div>
+//   <div class="countdown__box cls">
+//     <div id="thourl" class="countdown__num bg-rect-s">00</div>
+//     <div class="countdown__label">天</div>
+//     <div id="thourr" class="countdown__num bg-rect-s">00</div>
+//     <div class="countdown__label">时</div>
+//     <div id="tminl" class="countdown__num bg-rect-s">00</div>
+//     <div class="countdown__label">分</div>
+//     <div id="tminr" class="countdown__num bg-rect-s">00</div>
+//     <div class="countdown__label">秒</div>
+//   </div>
+// </div>

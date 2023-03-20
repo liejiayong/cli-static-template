@@ -8,18 +8,16 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-$width-padding: 33px;
-$width-label: 20px;
-
-.jy-list-msg {
+.list__unit {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   // width: 740px;
-  .tit {
+  // color: #949494;
+  .list__title {
     display: inline-block;
     padding: 0 0 0 6px;
     font-size: 16px;
@@ -33,60 +31,78 @@ $width-label: 20px;
     // background: #25272a;
     // padding-bottom: 10px;
   }
-  .msg-content {
-    margin-top: 14px;
+  .list__content {
+    margin-top: 16px;
     position: relative;
-    // color: #949494;
+    // line-height: 1.5;
     li {
-      position: relative;
+      $padding-left: 2em;
+      $width: 20px;
+
       // margin: 7px 0;
+      padding: 0 0 0 $padding-left;
+      position: relative;
       font-size: inherit;
+      list-style: none;
       color: inherit;
-      padding-left: $width-padding;
-      // line-height: 1.3;
-      &::before {
-        // content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        -webkit-transform: translateY(-50%) rotate(45deg);
-        transform: translateY(-50%) rotate(45deg);
-        @include lh($width-label);
-        width: $width-label;
-        text-align: center;
-        background-color: #b4a16a;
+
+      @for $i from 1 through 20 {
+        &:nth-of-type(#{$i}) {
+          &::before {
+            content: "#{$i}.";
+            display: block;
+            position: absolute;
+            top: 0.2em;
+            left: 0;
+            // transform: translateY(-50%) rotate(0deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: $width;
+            height: $width;
+            border-radius: 50%;
+            line-height: normal;
+            text-align: center;
+            font-size: inherit;
+            color: #fff;
+            background-color: #be0d0d;
+          }
+        }
       }
       i,
       span {
         display: inline-block;
         vertical-align: middle;
       }
-      i {
-        position: absolute;
-        left: 0;
-        top: 4px;
-        text-align: center;
-        width: $width-label;
-        height: $width-label;
-        line-height: $width-label;
-        font-size: 14px;
-        color: #ffcf97;
-        background: #831c16;
-        border-radius: 50%;
-      }
       span {
-        -webkit-box-flex: 1;
-        flex: 1;
       }
+      // i {
+      //   position: absolute;
+      //   left: 0;
+      //   top: 4px;
+      //   text-align: center;
+      //   width: $width;
+      //   height: $width;
+      //   line-height: $width;
+      //   font-size: 14px;
+      //   color: #ffcf97;
+      //   background: #831c16;
+      //   border-radius: 50%;
+      // }
     }
   }
 }
 
-// <div class="jy-list-msg">
-// <div class="tit fb">活动规则：	</div>
-// <ol class="msg-content">
-//   <li><i>1</i>被邀玩家只能在每日新开的区服中创角才算成功参与活动。</li>
-//   <li><i>2</i>参与活动需要登录账号并绑定手机号，一个手机号只能参与一次活动。	</li>
-// </ol>
+// <div class="list__unit">
+//   <div class="list__title fb">活动规则：</div>
+//   <ol class="list__content lh-15">
+//     <li>
+//       <i>1</i>
+//       被邀玩家只能在每日新开的区服中创角才算成功参与活动。
+//     </li>
+//     <li>
+//       <i>2</i>
+//       参与活动需要登录账号并绑定手机号，一个手机号只能参与一次活动。
+//     </li>
+//   </ol>
 // </div>

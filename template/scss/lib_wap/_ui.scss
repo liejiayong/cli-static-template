@@ -171,7 +171,8 @@ body {
   // min-height: calc(100vh + 2px);
   // overflow: hidden;
   box-sizing: border-box;
-  background: no-repeat top center / contain;
+  // background: no-repeat top center / contain;
+  background: no-repeat top center / 100% auto;
   &.active {
     display: block;
     -webkit-animation: fadeIn 0.3s ease-in;
@@ -187,7 +188,8 @@ body {
   // height: 100%;
   // overflow: hidden;
   // box-sizing: border-box;
-  background: no-repeat top center / contain;
+  // background: no-repeat top center / contain;
+  background: no-repeat top center / 100% auto;
 }
 .jy-sectionmain-auto {
   position: relative;
@@ -195,7 +197,8 @@ body {
   margin-right: auto;
   width: $main-width;
   box-sizing: border-box;
-  background: no-repeat top center / contain;
+  // background: no-repeat top center / contain;
+  background: no-repeat top center / 100% auto;
 }
 
 /* Screen rotation prompt pop-up window */

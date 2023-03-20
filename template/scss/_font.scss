@@ -8,20 +8,20 @@
 //  * @warning:
 //  */
 
-@font-face {
-  font-family: 'fcustom';
-  src: url('../media/fcustom.ttf');
-  src: url('../media/fcustom.eot?#font-spider') format('embedded-opentype'),
-    url('../media/fcustom.woff2') format('woff2'), url('../media/fcustom.woff') format('woff'),
-    url('../media/fcustom.ttf') format('truetype'), url('../media/fcustom.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'fcustom';
+//   src: url('../media/fcustom.ttf');
+//   src: url('../media/fcustom.eot?#font-spider') format('embedded-opentype'),
+//     url('../media/fcustom.woff2') format('woff2'), url('../media/fcustom.woff') format('woff'),
+//     url('../media/fcustom.ttf') format('truetype'), url('../media/fcustom.svg') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 @mixin font-custom {
-  font-family: 'fcustom', Microsoft YaHei, '微软雅黑', sans-serif;
+  font-family: "fcustom", Microsoft YaHei, "微软雅黑", sans-serif;
 }
 @mixin font-normal {
-  font-family: Microsoft YaHei, '微软雅黑', sans-serif;
+  font-family: Microsoft YaHei, "微软雅黑", sans-serif;
 }
 @mixin font-arial {
   font-family: Arial, Helvetica, sans-serif;
@@ -30,9 +30,9 @@
 //   font-family: 'fcustom', Microsoft YaHei, '微软雅黑', Arial, sans-serif;
 // }
 .ff-fcustom {
-  font-family: 'fcustom', Microsoft YaHei, '微软雅黑', sans-serif;
+  font-family: "fcustom", Microsoft YaHei, "微软雅黑", sans-serif;
 }
 
 .ff-normal {
-  font-family: initial, Microsoft YaHei, '微软雅黑', sans-serif;
+  font-family: initial, Microsoft YaHei, "微软雅黑", sans-serif;
 }

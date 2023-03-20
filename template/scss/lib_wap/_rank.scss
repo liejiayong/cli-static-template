@@ -11,7 +11,7 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-.rank__panel {
+.rule__unit {
   padding-top: 0.75rem;
   position: relative;
   @include mauto();
@@ -19,40 +19,40 @@
   text-align: center;
   font-size: 0.18rem;
   color: #b8a176;
-}
-.rank__panel__head {
-  line-height: 2;
-  font-size: 0.16rem;
-  font-weight: bold;
-  color: #ecc58c;
-}
-.rank__panel__body {
-  padding-top: 0.14rem;
-  line-height: 1;
-  overflow: auto;
-  max-height: 4.8rem;
-  .rank__panel__tr {
-    @include lh(0.44rem);
-    border-bottom: 0.018rem solid rgba(104, 41, 22, 0.3);
-    &:not(:last-of-type) {
-      border-top: 0.018rem solid rgba(72, 29, 15, 0.3);
-    }
-    .td {
-      @include nowrap();
-    }
-    &:nth-of-type(1),
-    &:nth-of-type(2),
-    &:nth-of-type(3) {
-      .td:first-of-type {
-        background: url("data:image/png;base64,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")
-          no-repeat center / 0.332rem auto;
+  .rule__head {
+    line-height: 2;
+    font-size: 0.16rem;
+    font-weight: bold;
+    color: #ecc58c;
+  }
+  .rule__body {
+    padding-top: 0.14rem;
+    line-height: 1;
+    overflow: auto;
+    max-height: 4.8rem;
+    .rule__tr {
+      @include lh(0.44rem);
+      border-bottom: 0.018rem solid rgba(104, 41, 22, 0.3);
+      &:not(:last-of-type) {
+        border-top: 0.018rem solid rgba(72, 29, 15, 0.3);
+      }
+      .rule__td {
+        @include nowrap();
+      }
+      &:nth-of-type(1),
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        .rule__td:first-of-type {
+          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAkCAYAAAAHKVPcAAAGaUlEQVRYha2Ye6zcVRHHP2fv9mXbAIoKFIoSbIVgpIXKK0BAiFJISYyorSCPAAlq5KGW6B8EQiBgA/xBASFatAa1ColEqlVqE58xUgqEEh5eoSAggYYCbW+59+5vvmTOmd92e3fLroRJzt3f7u+cmTnz+M7MTXphDd2UevyUyu+p4d8mA9OBLZBmAXcCfwRuBQloxil//hDgh17pIShTY3cv+tA5wE9CzsGg00EngSbFsaOBy4AzgR8DDwMnv39KyPyyhyMdXJ5tKF9ethHZWHnWdqRpSAuQhLQf0mnxrms1BxBb017A+aCbgZeAD4IWApcCY6AVsW8p4C76HfA/YD/gz8Af2m6e4O1+SjizUWAEWA5aUqwnd8c+wOridx0FfBSYA/p68J0N7ACWgdZkyW45327qq0TKJoSPkdK9oXdCNi/eL4vPm4DNwEPh+wOA3wNTIgZ+CZwE/Aa4B/R9VAEGlSJmCzUm+OcgpH+AloO9jGwY2Xxkf0NaE3ueRfoC0kakuUjXIR2H9COks5H2QVqIdHnsXYr0JaTVkKaVDNt1JT2/utMKnwPqnP028FPg08BMwGPh3xEDQ3HzFuAZsQH4BPA9YD6wb/Bw+68CVgJXhWsXYba10xJJmx7oVGIGcAewOL6/AGwL260gpbuBt4Bp4e9OmhmuPBT4IvBlYP94vyGw5AJgE/LYygESSgz/GoamRsTmP5ORnRL+/CTwRFGg8UwBrD6Uw8ndbKeH1T4bB54DPMaWFFDjxg4lfhVP7p8hSO1Y9SzwLxWkKiPl4ErUmfAp4AZgYbx9OpDzQKRFoMfZFawihWwUbDy4pLGixHumx5FdieyRALa5yD6ObF/QBaAh93QnYn4AmAtpz5xKrohaOxXMlhgQYOs6U9bGkkG2IxSZjWwKsgtDobYS3wH9E/Qg6H5SOrMoMhbKjEM1WtYgVMUZv0TGhuo+sPtLsrTXDNCCYglxLWIZZm9gdgBmJyDNLrcYCheNh0Jj726NFBarlc8XqGoMWonZCOb82msOpoafWAq2qlRBvpGDRbaumK6qC1Ysg9ZI77rnwt1S49u6z5S1AfRUyfb2mu7WaqLqwZKOyaP4u1GON/e8qZ+rWoX5pOk7M8EtMD4CrR0dMdFFrwLPBJjV5LVpVhNrXURqnJWLjMNrahwaB3ZP49uLRs3pZYt/91UHpNTrqKL61hSVmBObOSNkfwcOAX6G3DX05LILtd6GHa+VnZNnhhj1O7qtQ6F1peqypRml93jgw1ET+iOS+999ny0SJ7J76KfEHvHpML42epT9PSY2hWmOAY6KPqEJqdXNIxWBY1tLgDrCOnk8ePDV7umtiCPwrHi+D9ImkMs8o4nMTbQ4Gheng3IvIYa72OS8txKAtQK1Zfw3d0ejGe+6DPoRUq5F5GIn1pP4C/Bfd4c3ItdEmSXjenaPhnfaOshv74J6YYUL9hR1jJg0o1Pz+uEYSHPi+XLQi0iLSY1Rr3ZPYjaM2RTMhNkQZl9DNq0N3xl8RvtDd/2+BrY2WJlf9tyQ4SA1FXQb0rwC21aNoOq2srlK8XkCsosLyLTKcigelKrxneeKEudg1cLgXZZVb+UGWaWAOZA/ANragWQeRFcApxZ0TIOV8bZFdilgx4ICBDPvpwM570D2WLFE0ew/yJZ1QKyi2t0AOmVw6V10LLLrkR0SfF9F9jCyl0Grwiw5bWqUWQFaPwHb58eccXGMfYPSVODsclYnBi8vKqtBe4PWlh6juCbpsVs6+X6mDCnsGVrUPthKdhmrkCvqM2g7pdtOyDCc0oLoLxcFLBOZ91D0sBtJ6ZuQ3mwfnKCEp+DnQfcEA3UIqB8fBf4URe4N4HVg7+i2DwcdGcLouMj2Ysn0W+A8Go3XO1n2GH58WrKzgNtLp1Uz82hzP+YBx6eteSH4iB4umqi8u/KH0LgUGmMTN+8u6dchzkD6RYRHwuxbiK8gVYjDEFsQP0B8FfFzxEsd4ZRiuWWHkS5BXFJm1m56t1l0OLfnsvUx6NyKdDek88DuiuC7GvhrqQV59DstLOT0L+ARUloZXfZuqUdMRA9YV8R2b6BTY9JeErPEi9F33BlBujmm8PWlTKe1eVBq40v9D5YGNBJ9YqIHlWHJhXhEX1RALFvKWwAfjg4DXiMl/+352Dcw/T//n3gU5PPp9WHe5VkwyYcZb4reGwHvAJTwbZfTmmMZAAAAAElFTkSuQmCC")
+            no-repeat center / 0.332rem auto;
+        }
       }
     }
   }
-}
-.rank__panel__tr {
-  display: flex;
-  .td {
+  .rule__tr {
+    display: flex;
+  }
+  .rule__td {
     @include flex-width(1);
     &:nth-of-type(1) {
       @include flex-width(0.56rem);
@@ -70,75 +70,75 @@
 }
 
 // <div class="mauto mt-30 bg-flag">
-//   <div class="rank__panel">
-//     <div class="rank__panel__head">
-//       <div class="rank__panel__tr">
-//         <div class="td">排名</div>
-//         <div class="td">账号</div>
-//         <div class="td">角色名</div>
-//         <div class="td">充值金额</div>
+//   <div class="rule__unit">
+//     <div class="rule__head">
+//       <div class="rule__tr">
+//         <div class="rule__td">排名</div>
+//         <div class="rule__td">账号</div>
+//         <div class="rule__td">角色名</div>
+//         <div class="rule__td">充值金额</div>
 //       </div>
 //     </div>
-//     <div class="rank__panel__body">
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//     <div class="rule__body">
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">1</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">1</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
-//       <div class="rank__panel__tr">
-//         <div class="td">10</div>
-//         <div class="td">1******1</div>
-//         <div class="td">第三方啊大叔发</div>
-//         <div class="td">999999</div>
+//       <div class="rule__tr">
+//         <div class="rule__td">10</div>
+//         <div class="rule__td">1******1</div>
+//         <div class="rule__td">第三方啊大叔发</div>
+//         <div class="rule__td">999999</div>
 //       </div>
 //     </div>
 //   </div>

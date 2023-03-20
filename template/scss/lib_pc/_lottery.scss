@@ -1,14 +1,22 @@
-.lottery-container {
+.lottery__unit {
+  $top: 140px;
+  $left: 210px;
+  $gutter: 10px;
+
   position: relative;
   width: 620px;
   height: 410px;
   text-align: center;
 
-  $top: 140px;
-  $left: 210px;
+  .lottery__content {
+  }
 
-  .lottery-item {
+  .lottery__item {
     position: absolute;
+    width: $left - $gutter;
+    height: $top - $gutter;
+    text-align: center;
+    background-color: #e9e9e9;
     overflow: hidden;
     .avatar {
       padding-top: 20px;
@@ -18,7 +26,7 @@
       align-items: center;
       width: 100%;
       height: 70px;
-            img {
+      img {
         margin: 0 auto;
         display: block;
       }
@@ -61,66 +69,70 @@
       left: $left * 0;
     }
     &.active {
+      pointer-events: none;
       filter: brightness(1.2);
       transform: scale(1.05);
     }
   }
-  .lottery-btn {
+  .lottery__btn {
     position: absolute;
     top: $top * 1;
     left: $left * 1;
+    width: $left - $gutter;
+    height: $top - $gutter;
     box-sizing: border-box;
     overflow: hidden;
     color: #f3d58e;
-    .info {
-      display: block;
-      padding-top: 82px;
-      span {
-        font-size: 16px;
-        font-weight: bold;
-      }
+    background-color: #e9e9e9;
+  }
+  .lottery__status {
+    display: block;
+    padding-top: 82px;
+    span {
+      font-size: 16px;
+      font-weight: bold;
     }
   }
 }
 
-// <div class="lottery-container">
-//   <div class="lottery-content">
-//     <!-- (.lottery-item.ico-lottery-panel>((.avatar>i.ico-lottery-$)+.name))*8 -->
-//     <div class="lottery-item ico-lottery-panel">
+// <div class="lottery__unit">
+//   <div class="lottery__content">
+//     <!-- (.lottery__item.ico-lottery-item>((.avatar>i.ico-lottery-$)+.name))*8 -->
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-1"></i></div>
 //       <div class="name">1000灵符</div>
 //     </div>
-//     <div class="lottery-item ico-lottery-panel">
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-2"></i></div>
 //       <div class="name">2000灵符</div>
 //     </div>
-//     <div class="lottery-item ico-lottery-panel">
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-3"></i></div>
 //       <div class="name">谢谢参与</div>
 //     </div>
-//     <div class="lottery-item ico-lottery-panel">
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-4"></i></div>
 //       <div class="name">10000灵符</div>
 //     </div>
-//     <div class="lottery-item ico-lottery-panel">
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-5"></i></div>
 //       <div class="name">贪玩定制鼠标垫</div>
 //     </div>
-//     <div class="lottery-item ico-lottery-panel">
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-6"></i></div>
 //       <div class="name">5000灵符</div>
 //     </div>
-//     <div class="lottery-item ico-lottery-panel">
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-7"></i></div>
 //       <div class="name">贪玩定制键盘</div>
 //     </div>
-//     <div class="lottery-item ico-lottery-panel">
+//     <div class="lottery__item ico-lottery-item">
 //       <div class="avatar"><i class="ico-lottery-8"></i></div>
 //       <div class="name">价值100礼包</div>
 //     </div>
 //   </div>
-//   <a href="javascript:;" class="jy-btn-txt lottery-btn ico-btn-lottery jlottery-btn">
-//     <div class="info">
+//   <a href="javascript:;" class="jy-btn-txt lottery__btn ico-btn-lottery jlottery-btn">
+//     <div class="lottery__status">
 //       剩余抽奖次数
 //       <span>2</span>
 //       次

@@ -6,10 +6,10 @@
 //  * @FilePath:
 //  * swiper@v5.x
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-.jy-news__container {
+.news__unit {
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -18,15 +18,14 @@
   overflow: hidden;
   background-color: #191a22;
 }
-
-.jy-news__tabs {
+.news__tabs {
   // padding: 0 10px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   // background-color: #1d1f27;
-  &-content {
+  &__content {
     position: relative;
     display: flex;
     align-items: center;
@@ -34,17 +33,14 @@
     height: 100%;
     // font-size: 0;
     text-align: center;
-    z-index: 1;
     a {
       position: relative;
       display: inline-block;
       @include flex-width(110px);
       // @include lh();
       text-align: center;
-      font-size: 24px;
-      // font-weight: bold;
       color: #8695ac;
-      font-family: 'fcustom', Microsoft YaHei, '微软雅黑' sans-serif;
+      font: bold 20px "fcustom", Microsoft YaHei, "微软雅黑", sans-serif;
       // &::before {
       //   content: '';
       //   position: absolute;
@@ -68,111 +64,110 @@
       }
     }
   }
-  .ico-more {
+}
+.news__btn__more {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font: bold 2em Arial;
+  color: #bacfdf;
+  // i {
+  //   font-weight: 900;
+  // }
+  &.ico__more {
     // padding-right: 20px;
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex: none;
+    // flex: none;
     width: 80px;
     height: 100%;
-    text-transform: uppercase;
-    white-space: nowrap;
-    font-size: 12px;
-    color: #bacfdf;
-    // i {
-    //   font-weight: 900;
-    // }
   }
 }
-
-$color: #bacfdf;
 $color-active: #d1be89;
-.jy-news__content {
+.news__content {
   position: relative;
   padding: 12px 20px 0;
-  color: $color;
+  color: #bacfdf;
   overflow: hidden;
-  .topics {
-    position: relative;
-    margin: 0 auto;
-    display: flex;
-    width: 100%;
-    @include lh(30px);
-    // border: 1px solid #3d6484;
-    // font-weight: bold;
-    // color: $color-active;
-    // padding: 12px;
-    // min-height: 24px;
-    //     &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   display: block;
-    //   width: 11px;
-    //   height: 12px;
-    //   background: url('../img/ico-new-pad-lt.png') no-repeat top center / contain;
-    // }
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   right: 0;
-    //   display: block;
-    //   width: 11px;
-    //   height: 12px;
-    //   background: url('../img/ico-new-pad-rt.png') no-repeat top center / contain;
-    // }
-    a {
-      display: flex;
-      width: 100%;
-    }
-    .label {
-      display: inline-block;
-      text-align: center;
-      @include flex-width(60px);
-      // font-size: 18px;
-      // font-weight: bold;
-      color: #ffffdd;
-      background: #771d10;
-    }
-    .content {
-      display: inline-block;
-      padding: 0 10px;
-      flex: 1;
-      @include nowrap();
-      background: #262939;
-      a {
-        color: #fff9be;
-      }
-    }
-  }
+
   .bodys {
     position: relative;
     margin: 0 auto;
     padding: 8px 0 10px;
   }
-  .jy-news__link {
+  .news__link {
     margin-top: 20px;
   }
 }
-
-.jy-news__link {
-  $color: #d4d2c5;
+.news__topics {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  @include lh(30px);
+  // border: 1px solid #3d6484;
+  // font-weight: bold;
+  // color: $color-active;
+  // padding: 12px;
+  // min-height: 24px;
+  //     &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   display: block;
+  //   width: 11px;
+  //   height: 12px;
+  //   background: url('../img/ico-new-pad-lt.png') no-repeat top center / contain;
+  // }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   display: block;
+  //   width: 11px;
+  //   height: 12px;
+  //   background: url('../img/ico-new-pad-rt.png') no-repeat top center / contain;
+  // }
+  a {
+    display: flex;
+    width: 100%;
+  }
+  .label {
+    display: inline-block;
+    text-align: center;
+    @include flex-width(60px);
+    // font-size: 18px;
+    // font-weight: bold;
+    color: #ffffdd;
+    background: #771d10;
+  }
+  .content {
+    display: inline-block;
+    padding: 0 10px;
+    flex: 1;
+    @include nowrap();
+    background: #262939;
+    a {
+      color: inherit;
+    }
+  }
+}
+.news__link {
   // padding-left: 18px;
   position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box;
   width: 100%;
   // @include lh(50px);
   // line-height: 1.3;
-  box-sizing: border-box;
   // font-size: 0.2rem;
-  color: $color;
+  color: #d4d2c5;
   // border-bottom: 1px dashed #34526d;
   // &:not(:last-of-type) {
   //   border-bottom: 1px dashed #34526d;
@@ -197,7 +192,7 @@ $color-active: #d1be89;
   //   width: 5px;
   //   height: 5px;
   // }
-  .sign {
+  .tag {
     // color: #a4579d;
     // font-size: 0.22rem;
   }
@@ -207,7 +202,7 @@ $color-active: #d1be89;
     -webkit-box-flex: 1;
     flex: 1;
     @include nowrap();
-    color: $color;
+    color: inherit;
     // color: #555;
   }
   .time {
@@ -215,7 +210,7 @@ $color-active: #d1be89;
     color: #666;
   }
   &:hover {
-    .sign {
+    .tag {
       color: $color-active;
     }
     .content {
@@ -224,37 +219,36 @@ $color-active: #d1be89;
   }
 }
 
-// pc官网首页-新闻板块
-// <!-- news modules -->
-// <div class="jy-news__container">
-//   <div class="jy-news__tabs bg-news-header">
-//     <div class="jy-news__tabs-content" id="psNewsTabs">
+// // pc官网首页-新闻板块
+// <div class="news__unit">
+//   <div class="news__tabs bg-news-header">
+//     <div class="news__tabs__content" id="psNewsTabs">
 //       <a href="javascript:;" class="active"><span>最新</span></a>
 //       <a href="javascript:;" class=""><span>活动</span></a>
 //       <a href="javascript:;" class=""><span>公告</span></a>
 //       <a href="javascript:;" class=""><span>合服</span></a>
 //     </div>
-//     <a href="/news.html" class="jy-btn ico-more"></a>
+//     <a href="/news.html" class="jy-btn-txt news__btn__more ico__more">＋</a>
 //   </div>
-//   <div class="jy-news__content">
-//     <div class="swiper-container" id="psNewsContent">
+//   <div class="news__content">
+//     <div class="swiper-container" id="spNewsContent">
 //       <div class="swiper-wrapper">
 //         <div class="swiper-slide">
-//           <div class="topics">
+//           <div class="news__topics">
 //             <a href="">
 //               <div class="label">推荐</div>
 //               <div class="content">【最新】《八阵图》赛季问题答疑1</div>
 //             </a>
 //           </div>
 //           <div class="bodys">
-//             <a href="./detail.html" class="jy-news__link">
-//               <!-- <span class="sign"></span> -->
-//               <span class="content">《八阵图》赛季问题答疑......vvvvvvvvvvvvvv</span>
+//             <a href="./detail.html" class="news__link">
+//               <!-- <span class="tag"></span> -->
+//               <span class="content">《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</span>
 //               <span class="time">09-13</span>
 //             </a>
-//             <a href="./detail.html" class="jy-news__link">
-//               <!-- <span class="sign"></span> -->
-//               <span class="content">《八阵图》赛季问题答疑......vvvvvvvvvvvvvv</span>
+//             <a href="./detail.html" class="news__link">
+//               <!-- <span class="tag"></span> -->
+//               <span class="content">《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</span>
 //               <span class="time">09-13</span>
 //             </a>
 //           </div>
@@ -263,9 +257,8 @@ $color-active: #d1be89;
 //     </div>
 //   </div>
 // </div>
-
-// // jy-news__container
-// var psNewsContent = new Swiper('#psNewsContent', {
+// // news__unit
+// var spNewsContent = new Swiper('#spNewsContent', {
 //   initialSlide: 0,
 //   autoplay: {
 //     delay: 2888,
@@ -288,11 +281,11 @@ $color-active: #d1be89;
 // $('#psNewsTabs').on('click', 'a', function () {
 //   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
 //   var currIndex = $(this).index();
-//   psNewsContent.slideTo(currIndex);
+//   spNewsContent.slideTo(currIndex);
 // });
 
 // 内页container
-.jy-news__ny__container {
+.news__ny__unit {
   padding: 20px 0 60px;
   margin-left: auto;
   margin-right: auto;
@@ -301,32 +294,31 @@ $color-active: #d1be89;
   // background-color: #191a22;
 }
 // 内页tab
-.jy-news__ny__tabs {
+.news__ny__tabs {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   // background-color: #1d1f27;
   // padding: 0 10px;
-  &-content {
+  &__content {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
     height: 100%;
     // font-size: 0;
-    // text-align: center;
+    text-align: center;
     border-bottom: 1px solid #b8b8b8;
     a {
       position: relative;
       display: inline-block;
       @include flex-width(1);
-      @include lh(50px);
+      @include lh(50px!important);
       // text-align: center;
-      font-size: 18px;
       // font-weight: bold;
       color: #b8b8b8;
-      font-family: 'fcustom', Microsoft YaHei, '微软雅黑' sans-serif;
+      font: 18px "fcustom", Microsoft YaHei, "微软雅黑", sans-serif;
       span {
         position: relative;
         display: block;
@@ -334,7 +326,7 @@ $color-active: #d1be89;
         height: 100%;
         text-align: center;
         &::before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           bottom: -1px;
@@ -360,12 +352,12 @@ $color-active: #d1be89;
   }
 }
 // 内页content
-.jy-news__ny__content {
+.news__ny__content {
   position: relative;
   padding: 30px 0 0;
   color: #686b75;
   overflow: hidden;
-  .jy-news__link {
+  .news__link {
     @include lh(40px);
     border-bottom: 1px dashed #33323e;
     .content {
@@ -374,9 +366,9 @@ $color-active: #d1be89;
   }
 }
 
-// <div class="jy-news__ny__container">
-//   <div class="jy-news__ny__tabs">
-//     <div class="jy-news__ny__tabs-content" id="psNewsTabs">
+// <div class="news__ny__unit">
+//   <div class="news__ny__tabs">
+//     <div class="news__ny__tabs__content" id="psNewsTabs">
 //       <a href="javascript:;" class="active"><span>最新</span></a>
 //       <a href="javascript:;" class=""><span>活动</span></a>
 //       <a href="javascript:;" class=""><span>公告</span></a>
@@ -384,15 +376,15 @@ $color-active: #d1be89;
 //     </div>
 //   </div>
 
-//   <div class="jy-news__ny__content">
-//     <a href="./detail.html" class="jy-news__link">
-//       <!-- <span class="sign"></span> -->
-//       <span class="content">《八阵图》赛季问题答疑......vvvvvvvvvvvvvv</span>
+//   <div class="news__ny__content">
+//     <a href="./detail.html" class="news__link">
+//       <!-- <span class="tag"></span> -->
+//       <span class="content">《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</span>
 //       <span class="time">09/13</span>
 //     </a>
-//     <a href="./detail.html" class="jy-news__link">
-//       <!-- <span class="sign"></span> -->
-//       <span class="content">《八阵图》赛季问题答疑......vvvvvvvvvvvvvv</span>
+//     <a href="./detail.html" class="news__link">
+//       <!-- <span class="tag"></span> -->
+//       <span class="content">《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</span>
 //       <span class="time">09/13</span>
 //     </a>
 //   </div>

@@ -1,9 +1,9 @@
 // @charset "UTF-8";
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-// <div class="feture-container mt-50">
-//   <div class="swiper-container" id="psFeture">
+// <div class="feture__unit mt-50">
+//   <div class="swiper-container" id="spFeture">
 //     <div class="swiper-wrapper">
 //       <div class="swiper-slide"><img class="swiper-lazy" data-src="./img/f1.jpg" /></div>
 //       <div class="swiper-slide"><img class="swiper-lazy" data-src="./img/f2.jpg" /></div>
@@ -14,7 +14,7 @@
 // </div>
 
 // // 游戏特色
-// var psFeture = new Swiper('#psFeture', {
+// var spFeture = new Swiper('#spFeture', {
 //   loop: true,
 //   autoplay: { disableOnInteraction: false },
 //   initialSlide: 0,
@@ -41,7 +41,7 @@
 //   },
 // });
 
-.feture-container {
+.feture__unit {
   position: relative;
   .swiper-slide {
     position: relative;
@@ -82,7 +82,7 @@
     // transition: all 0.3s linear;
     // cursor: pointer;
     &::before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       // top: 50%;
@@ -93,7 +93,7 @@
       // background: #c2c2c3;
     }
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       // top: 50%;

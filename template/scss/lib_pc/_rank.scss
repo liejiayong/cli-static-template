@@ -8,95 +8,110 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-$color-txt-head: #e5be86;
-$color-txt-body: #e5be86;
+$color-txt-head: #000000;
+$color-txt-body: #303030;
 $fs-h: 20px;
 $fs-b: 16px;
 
-.jy-rule {
+.rule__unit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 490px;
   height: 530px;
   text-align: center;
-  .rule-head,
-  .rule-body {
+  .rule__head,
+  .rule__body {
     font-size: 0;
     line-height: 1;
   }
-  .rule-cells {
+  .rule__tr {
     display: inline-block;
-    @include lh(40px);
+    min-height: 50px;
+    line-height: 1.5;
+    // @include lh(40px);
+    width: 100%;
+    box-sizing: border-box;
   }
-  .rule-cell {
+  .rule__td {
     display: inline-block;
+    padding: 0.2em;
+    box-sizing: border-box;
+    vertical-align: top;
     &:nth-of-type(1) {
-      width: 110px;
+      // width: 110px;
+      @include flex-width(20%);
     }
     &:nth-of-type(2) {
-      width: 268px;
+      // width: 268px;
+      @include flex-width(50%);
     }
     &:nth-of-type(3) {
-      width: 110px;
+      // width: 110px;
+      @include flex-width(30%);
     }
   }
-  .rule-head {
+  .rule__head {
     color: $color-txt-head;
-    .rule-cells {
+    width: 100%;
+    box-sizing: border-box;
+    .rule__tr {
     }
-    .rule-cell {
+    .rule__td {
       font-size: $fs-h;
     }
   }
-  .rule-body {
+  .rule__body {
+    // max-height: 600px;
+    width: 100%;
+    box-sizing: border-box;
     color: $color-txt-body;
-    .rule-cells {
-      border-top: 1px dashed #373a3f;
+    overflow: auto;
+    .rule__tr {
+      + .rule__tr {
+        border-top: 1px dashed #373a3f;
+      }
       &:nth-of-type(-n + 3) {
         color: #fff33f;
       }
       // &:nth-of-type(1) {
-      //   .rule-cell:nth-of-type(1) {
+      //   .rule__td:nth-of-type(1) {
       //     background: url("../img/i-rank-1.png") no-repeat center;
       //   }
       // }
       // &:nth-of-type(2) {
-      //   .rule-cell:nth-of-type(1) {
+      //   .rule__td:nth-of-type(1) {
       //     background: url("../img/i-rank-2.png") no-repeat center;
       //   }
       // }
       // &:nth-of-type(3) {
-      //   .rule-cell:nth-of-type(1) {
+      //   .rule__td:nth-of-type(1) {
       //     background: url("../img/i-rank-3.png") no-repeat center;
       //   }
       // }
     }
-    .rule-cell {
+    .rule__td {
       font-size: $fs-b;
     }
   }
-  .jy-list-msg {
-    margin-left: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 }
 
-// <div class="jy-rule">
-// <div class="rule-head">
-//   <div class="rule-cells">
-//     <div class="rule-cell">名次</div>
-//     <div class="rule-cell">游戏账号</div>
-//     <div class="rule-cell">累计徽章</div>
+// <div class="rule__unit">
+//   <div class="rule__head">
+//     <div class="rule__tr">
+//       <div class="rule__td">名次</div>
+//       <div class="rule__td">游戏账号</div>
+//       <div class="rule__td">累计徽章</div>
+//     </div>
 //   </div>
-// </div>
-// <div class="rule-body">
-//   <div class="rule-cells">
-//     <div class="rule-cell">第一名</div>
-//     <div class="rule-cell">隔壁老王是秃头胖子</div>
-//     <div class="rule-cell">1234</div>
+//   <div class="rule__body">
+//     <div class="rule__tr">
+//       <div class="rule__td">第一名</div>
+//       <div class="rule__td">贪玩渣渣灰</div>
+//       <div class="rule__td">1234</div>
+//     </div>
 //   </div>
-// </div>
 // </div>

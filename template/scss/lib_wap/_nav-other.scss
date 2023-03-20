@@ -11,57 +11,77 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-// <div class="jy-navbar_other">
-//   <a onclick="history.back()" href="javascript:;" class="lt">返回首页</a>
-//   <span>新闻中心</span>
-// </div>
-
 // navbar
-.jy-navbar_other {
+.navbar__oth {
   // padding: 0 0.4rem;
   position: fixed;
   top: 0;
   left: 50%;
-  width: 7.5rem;
-  @include lh($nav-height-other);
-  z-index: 50;
+  width: 100%;
   box-sizing: border-box;
   transform: translate3d(-50%, 0, 0);
+  @include lh($nav-height-other);
+  z-index: 50;
   font-size: 0.26rem;
   text-align: center;
   font-weight: 700;
   color: #fff;
   background: #2f2f2f;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 0.02rem solid #1f2a2d;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .navbar__btn {
+    padding-left: 1em;
+    position: absolute;
+    top: 0;
+    left: $page-padding-lr;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-size: 0.2rem;
+    font-weight: lighter;
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 0.14rem;
+      width: 0.14rem;
+      border-width: 1px 1px 0 0;
+      border-color: rgb(201, 196, 196);
+      border-style: solid;
+      transform: translate3d(-100%, -58%, 0) matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
+      position: absolute;
+      top: 50%;
+    }
+  }
+  .navbar__extral {
+    // padding-right: 1em;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: $page-padding-lr;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: inherit;
+    font-size: 0.24rem;
+    font-weight: lighter;
+  }
+  span {
+    display: inline-block;
+    text-align: left;
+    max-width: 60%;
+    line-height: 1.5;
+  }
 }
-.jy-navbar_other .lt {
-  position: absolute;
-  padding-left: 0.1rem;
-  top: 0;
-  left: $page-padding-lr;
-  display: flex;
-  align-items: center;
-  color: inherit;
-  font-size: 0.2rem;
-  font-weight: lighter;
-}
-.jy-navbar_other .lt::before {
-  content: "";
-  display: inline-block;
-  height: 0.14rem;
-  width: 0.14rem;
-  border-width: 1px 1px 0 0;
-  border-color: rgb(201, 196, 196);
-  border-style: solid;
-  transform: translate3d(-100%, -58%, 0) matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
-  position: absolute;
-  top: 50%;
-}
-.jy-navbar_other::before {
-  content: "";
-  display: block;
-  width: 100%;
-  border-bottom: 0.02rem solid #1f2a2d;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
+
+// <div class="navbar__oth">
+//   <a onclick="history.back()" href="javascript:;" class="navbar__btn">返回首页</a>
+//   <span>新闻中心</span>
+//   <div class="navbar__extral"><button>☀</button></div>
+// </div>

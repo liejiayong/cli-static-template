@@ -8,69 +8,18 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
-
-// <div class="jy-wrapper" id="topWrapper">
-//   <div class="jy-section section-1 jpage" id="p1"></div>
-//   <div class="jy-section section-1 jpage" id="p2"></div>
-//   <div class="jy-section section-1 jpage" id="p3"></div>
-//   <div class="jy-section section-1 jpage" id="p4"></div>
-//   <div class="jy-section section-1 jpage" id="p5"></div>
-//   <div class="jy-section section-1 jpage" id="p6"></div>
-//   <!-- menu -->
-//   <div class="jy-menus">
-//     <ul class="jy-menus__wrapper">
-//       <li class="jy-menus__item active"><a href="#p1" class="jy-menus__item__link">首页</a></li>
-//       <li class="jy-menus__item"><a href="#p2" class="jy-menus__item__link">资讯</a></li>
-//       <li class="jy-menus__item"><a href="#p3" class="jy-menus__item__link">攻略</a></li>
-//       <li class="jy-menus__item"><a href="#p4" class="jy-menus__item__link">福利</a></li>
-//       <li class="jy-menus__item"><a href="#p5" class="jy-menus__item__link">社区</a></li>
-//       <li class="jy-menus__item"><a href="#p6" class="jy-menus__item__link">客服</a></li>
-//     </ul>
-//   </div>
-// </div>
-
-// js
-// $(".jy-menus").on("click", ".jy-menus__item", function () {
-//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-// });
-
-// $(window).scroll(
-//   jtool.debounce(function () {
-//     var pagePos = [];
-//     $(".jpage").each(function (i, el) {
-//       var pos = $(el).position(),
-//         height = $(el).height();
-//       pagePos.push([pos.top, pos.top + height]);
-//     });
-//     var top =
-//         document.documentElement.scrollTop /* 标准 */ ||
-//         window.pageYOffset /* Safari */ ||
-//         document.body.scrollTop,
-//       winHeight = $(window).height(),
-//       mainHeight = $(".jy-wrapper").height() - winHeight;
-//     pagePos.forEach(function (pos, i) {
-//       if (top >= pos[0] && top < pos[1]) {
-//         $(".jy-menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//       } else {
-//         if (top >= mainHeight - 150) {
-//           $(".jy-menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//         }
-//       }
-//     });
-//   }, 200)
-// );
+@import "../_const.scss";
+@import "../_mixin.scss";
 
 $color: #ffdca9;
 $color-active: #ee9b1e;
-.jy-menus {
+.menus__unit {
   position: relative;
   height: $menus-top;
   z-index: 10;
   overflow: hidden;
 }
-.jy-menus__wrapper {
+.menus__content {
   margin: 0 auto;
   position: fixed;
   left: 0;
@@ -84,7 +33,7 @@ $color-active: #ee9b1e;
   border-top: 0.03rem solid #930c16;
   background: linear-gradient(#6d0912, #791016, #972121, #ae2e29, #6d0912);
 }
-.jy-menus__item {
+.menus__item {
   $width: (100%/3);
   position: relative;
   -webkit-box-flex: 0;
@@ -96,7 +45,7 @@ $color-active: #ee9b1e;
   color: $color;
   &:not(:first-of-type) {
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 10%;
       bottom: 10%;
@@ -114,7 +63,7 @@ $color-active: #ee9b1e;
     // border-bottom: 0.04rem solid #cfb474;
   }
 }
-.jy-menus__item__link {
+.menus__link {
   position: relative;
   display: block;
   width: 100%;
@@ -122,3 +71,52 @@ $color-active: #ee9b1e;
   text-shadow: #ffdca9 0 0 1px;
   // @include text-gradient($color, linear-gradient(bottom, #fff3dc, #ffe9c6, #ffdca9));
 }
+
+// <div class="jy-wrapper" id="topWrapper">
+//   <div class="jy-section section-1 jpage" id="p1"></div>
+//   <div class="jy-section section-1 jpage" id="p2"></div>
+//   <div class="jy-section section-1 jpage" id="p3"></div>
+//   <div class="jy-section section-1 jpage" id="p4"></div>
+//   <div class="jy-section section-1 jpage" id="p5"></div>
+//   <div class="jy-section section-1 jpage" id="p6"></div>
+//   <div class="menus__unit" id="menus">
+//     <ul class="menus__content">
+//       <li class="menus__item active"><a href="#p1" class="menus__link">首页</a></li>
+//       <li class="menus__item"><a href="#p2" class="menus__link">资讯</a></li>
+//       <li class="menus__item"><a href="#p3" class="menus__link">攻略</a></li>
+//       <li class="menus__item"><a href="#p4" class="menus__link">福利</a></li>
+//       <li class="menus__item"><a href="#p5" class="menus__link">社区</a></li>
+//       <li class="menus__item"><a href="#p6" class="menus__link">客服</a></li>
+//     </ul>
+//   </div>
+// </div>
+
+// js
+// $("#menus").on("click", ".menus__item", function () {
+//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+// });
+// $(window).scroll(
+//   jtool.debounce(function () {
+//     var pagePos = [];
+//     $(".jpage").each(function (i, el) {
+//       var pos = $(el).position(),
+//         height = $(el).height();
+//       pagePos.push([pos.top, pos.top + height]);
+//     });
+//     var top =
+//         document.documentElement.scrollTop /* 标准 */ ||
+//         window.pageYOffset /* Safari */ ||
+//         document.body.scrollTop,
+//       winHeight = $(window).height(),
+//       mainHeight = $(".jy-wrapper").height() - winHeight;
+//     pagePos.forEach(function (pos, i) {
+//       if (top >= pos[0] && top < pos[1]) {
+//         $(".menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//       } else {
+//         if (top >= mainHeight - 150) {
+//           $(".menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//         }
+//       }
+//     });
+//   }, 200)
+// );

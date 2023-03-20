@@ -8,38 +8,8 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
-
-// /* layui v1 */
-// <div class="pagination-container mt-60">
-//   <div class="layui-laypage">
-//     <a href="#">上一页</a>
-//     <a href="#" class="cur">1</a>
-//     <a href="#">2</a>
-//     <a href="#">...</a>
-//     <a href="#">10</a>
-//     <a href="#">下一页</a>
-
-//     <span class="layui-laypage-count">共8页</span>
-//   </div>
-// </div>
-
-// /* layui v0 */
-//  <div class="pagination-container mt-60">
-//   <div class="layui-laypage">
-//     <a href="#">上一页</a>
-//     <a href="#" class="cur">1</a>
-//     <a href="#">2</a>
-//     <a href="#">...</a>
-//     <a href="#">10</a>
-//     <a href="#">下一页</a>
-//   </div>
-//   <div class="layout-extral">
-//     <span>第1页</span>
-//     <span>共8页</span>
-//   </div>
-// </div>
+@import "../_const.scss";
+@import "../_mixin.scss";
 
 .pagination-container {
   position: relative;
@@ -105,3 +75,33 @@
     }
   }
 }
+
+// /* layui v1 */
+// <div class="pagination-container mt-60">
+//   <div class="layui-laypage">
+//     <a href="#">上一页</a>
+//     <a href="#" class="cur">1</a>
+//     <a href="#">2</a>
+//     <a href="#">...</a>
+//     <a href="#">10</a>
+//     <a href="#">下一页</a>
+
+//     <span class="layui-laypage-count">共8页</span>
+//   </div>
+// </div>
+
+// /* layui v0 */
+//  <div class="pagination-container mt-60">
+//   <div class="layui-laypage">
+//     <a href="#">上一页</a>
+//     <a href="#" class="cur">1</a>
+//     <a href="#">2</a>
+//     <a href="#">...</a>
+//     <a href="#">10</a>
+//     <a href="#">下一页</a>
+//   </div>
+//   <div class="layout-extral">
+//     <span>第1页</span>
+//     <span>共8页</span>
+//   </div>
+// </div>

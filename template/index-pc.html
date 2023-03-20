@@ -57,7 +57,6 @@
 
   <body>
     <div class="jy-wrapper">
-      <!-- header -->
       <!-- logo -->
       <a href="#" class="c-logo"><img src="./img/logo.png" alt="logo" /></a>
       <!-- section- header -->
@@ -108,15 +107,6 @@
       <div class="jy-section section-4">
         <div class="jy-sectionmain"></div>
       </div>
-
-      <!-- 摇骰子 -->
-      <!-- <div class="jdot-content">
-        <i class="ico-jlottery"><a href="javascript:void(0);" class="jy-btn btn-dot-i i-dot-6"></a></i>
-        <a href="javascript:void(0);" class="jy-btn-txt btn-jdot active">
-          <i></i>
-          点击摇骰子
-        </a>
-      </div> -->
     </div>
 
     <!-- jtip -->
@@ -461,58 +451,58 @@
     <script type="text/javascript" src="./js/index.js"></script>
     <script type="text/javascript">
       $(function () {
-        $('.jy-pop_close,.jpop-cancel,.jy-pop_submit').on('click', function () {
-          $(this).parents('.jy-pop').fadeOut();
+        $(".jy-pop_close,.jpop-cancel,.jy-pop_submit").on("click", function () {
+          $(this).parents(".jy-pop").fadeOut();
         });
         // 复制激活码
-        jtool.elementCopy('.jbtnpopcode');
+        jtool.elementCopy(".jbtnpopcode");
 
         // 我的奖励 start
         // 礼包码
-        $('.btn-pop-code').on('click', function () {
-          $('#J_codePop').fadeIn();
+        $(".btn-pop-code").on("click", function () {
+          $("#J_codePop").fadeIn();
         });
         // 填写信息
-        $('.btn-pop-address').on('click', function () {
-          $('#J_addressPop').fadeIn();
+        $(".btn-pop-address").on("click", function () {
+          $("#J_addressPop").fadeIn();
         });
         // 待领取
-        $('.btn-pop-get').on('click', function () {
-          $('#J_regPop').fadeIn();
+        $(".btn-pop-get").on("click", function () {
+          $("#J_regPop").fadeIn();
         });
         // 我的奖励 end
 
         // pop 区服搜索 start
-        $('.jy-pop_select_seek-label').on('click', function () {
-          var $content = $('.jy-pop_select_seek-content');
-          if ($content.hasClass('active')) {
-            $content.fadeOut().removeClass('active');
+        $(".jy-pop_select_seek-label").on("click", function () {
+          var $content = $(".jy-pop_select_seek-content");
+          if ($content.hasClass("active")) {
+            $content.fadeOut().removeClass("active");
           } else {
-            $content.fadeIn().addClass('active');
+            $content.fadeIn().addClass("active");
           }
         });
-        $('.jy-pop_select_seek-val').on('click', function () {
-          $('.jy-pop_select_seek-content').fadeOut().removeClass('active');
+        $(".jy-pop_select_seek-val").on("click", function () {
+          $(".jy-pop_select_seek-content").fadeOut().removeClass("active");
         });
         // pop 区服搜索 end
 
-        $('.btn-get').on('click', function () {
+        $(".btn-get").on("click", function () {
           if ($(this).hasClass(jtool.activeCls)) {
-            jtool.showTip({ content: '<p>恭喜获得</p>' });
+            jtool.showTip({ content: "<p>恭喜获得</p>" });
             $(this).addClass(jtool.activeCls);
           }
         });
-        $('.btn-inter').on('click', function () {
-          jtool.showTip({ content: '<p>我的积分：0</p>' });
+        $(".btn-inter").on("click", function () {
+          jtool.showTip({ content: "<p>我的积分：0</p>" });
         });
-        $('.btn-record').on('click', function () {
-          $('#J_recordPop').fadeIn();
+        $(".btn-record").on("click", function () {
+          $("#J_recordPop").fadeIn();
         });
-        $('.btn-mygift').on('click', function () {
-          $('#J_mygiftPop').fadeIn();
+        $(".btn-mygift").on("click", function () {
+          $("#J_mygiftPop").fadeIn();
         });
-        $('.btn-info').on('click', function () {
-          $('#J_regPop').fadeIn();
+        $(".btn-info").on("click", function () {
+          $("#J_regPop").fadeIn();
         });
 
         // // 摇骰子
@@ -543,9 +533,9 @@
         // 	slidesPerGroup: 7,
         // 	observer: true,
         // 	observeParents: true,
-          //      autoplay: {
-          //   disableOnInteraction: false,
-          // },
+        //      autoplay: {
+        //   disableOnInteraction: false,
+        // },
         // });
         // function initSwiper() {
         // 	setTimeout(function () {

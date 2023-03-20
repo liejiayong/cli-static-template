@@ -1,5 +1,5 @@
 /**
- * @description:  wap navbar style
+ * @description:  wap dropdown style
  * @author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
@@ -8,72 +8,10 @@
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
 
-@import '../_const.scss';
-@import '../_mixin.scss';
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-// <!-- navbar -->
-// <div class="jy-navbar" id="navbar">
-//  <div class="jy-navbar--mask" id="navbarMask"></div>
-//   <ul class="jy-navbar_wrapper">
-//     <li class="jy-navbar__item"><a href="./index.html" class="jy-navbar__item--link">首 页</a></li>
-//     <li class="jy-navbar__item"><a href="./news.html" class="jy-navbar__item--link">新闻资讯</a></li>
-//     <li class="jy-navbar__item">
-//       <div class="jy-navbar__item__sub jnavbarSubTit">
-//         <a href="javascript:;" class="jy-navbar__item--link"><i>游戏资料</i></a>
-//       </div>
-//       <div class="jy-navbar__item__sub-content jnavbarSubBody">
-//         <a href="./psp-game.html" class="jy-navbar__item--link">游戏介绍</a>
-//         <a href="./psp-pic.html" class="jy-navbar__item--link">游戏图鉴</a>
-//       </div>
-//     </li>
-//     <li class="jy-navbar__item">
-//       <a href="./psp.html" class="jy-navbar__item--link">游戏攻略</a>
-//     </li>
-//     <li class="jy-navbar__item">
-//       <div class="jy-navbar__item__sub jnavbarSubTit">
-//         <a href="javascript:;" class="jy-navbar__item--link"><i>玩家社区</i></a>
-//       </div>
-//       <div class="jy-navbar__item__sub-content jnavbarSubBody">
-//         <a href="./story.html" class="jy-navbar__item--link">玩家故事</a>
-//         <a href="./video.html" class="jy-navbar__item--link">精彩视频</a>
-//       </div>
-//     </li>
-//     <li class="jy-navbar__item"><a href="./gifts.html" class="jy-navbar__item--link">礼包中心</a></li>
-//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">客服中心</a></li>
-//   </ul>
-// </div>
-
-// /* menubar button */
-// if ($('#btnNavMenu').length) {
-//   function changeStatus(flag) {
-//     if (flag) {
-//       $('#btnNavMenu').removeClass(jtool.activeCls);
-//       $('#navbar').removeClass(jtool.activeCls);
-//     } else {
-//       $('#btnNavMenu').addClass(jtool.activeCls);
-//       $('#navbar').addClass(jtool.activeCls);
-//     }
-//   }
-//   $('#btnNavMenu').on('click', function () {
-//     changeStatus($(this).hasClass(jtool.activeCls));
-//   });
-//   $('#navbarMask').on('click', function () {
-//     changeStatus(true);
-//   });
-//   if ($('.jnavbarSubTit').length) {
-//     $('.jnavbarSubTit').on('click', function () {
-//       if ($(this).hasClass(jtool.activeCls)) {
-//         $(this).removeClass(jtool.activeCls);
-//         $(this).siblings('.jnavbarSubBody').removeClass(jtool.activeCls);
-//       } else {
-//         $(this).addClass(jtool.activeCls);
-//         $(this).siblings('.jnavbarSubBody').addClass(jtool.activeCls);
-//       }
-//     });
-//   }
-// }
-$width: 100%;
-.jy-navbar {
+.dropdown__unit {
   display: none;
   position: fixed;
   top: 0;
@@ -90,13 +28,13 @@ $width: 100%;
     display: block;
     height: auto;
     transition: height 0.4s linear;
-    // .jy-navbar__item {
+    // .dropdown__item {
     //   -webkit-transform: translate3d(0, 0, 0);
     //      -moz-transform: translate3d(0, 0, 0);
     //           transform: translate3d(0, 0, 0);
     // }
   }
-  &--mask {
+  &__mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -104,22 +42,21 @@ $width: 100%;
     height: 100%;
   }
 }
-.jy-navbar_wrapper {
+.dropdown__content {
   position: absolute;
   top: $nav-height;
   left: 0;
   right: 0;
   padding: 0.3rem 0.3rem 0.2rem;
-  // width: $width;
   background-color: rgba(58, 61, 67, 0.94);
   overflow: hidden;
 }
-.jy-navbar__item {
+.dropdown__item {
   // $bg: #5f2309 linear-gradient(#431909, #5f2309, #7c2d08);
   margin-bottom: 0.02rem;
   padding: 0.14rem 0;
   position: relative;
-  width: $width;
+  width: 100%;
   line-height: 1.5;
   // @include lh(0.66rem);
   border: 0.02rem solid #fff;
@@ -179,13 +116,13 @@ $width: 100%;
   //   animation-delay: 1.6s;
   // }
 }
-.jy-navbar__item__sub {
-  .jy-navbar__item--link {
+.dropdown__item__sub {
+  .dropdown__link {
     i {
       display: inline-block;
       position: relative;
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         right: 0;
@@ -203,7 +140,7 @@ $width: 100%;
     }
   }
   &.active {
-    .jy-navbar__item--link {
+    .dropdown__link {
       i {
         &::before {
           transform: translate3d(120%, 43%, 0) rotate(180deg);
@@ -212,13 +149,13 @@ $width: 100%;
     }
   }
 }
-.jy-navbar__item__sub-content {
+.dropdown__item__sub-content {
   display: none;
   &.active {
     display: block;
   }
 }
-.jy-navbar__item--link {
+.dropdown__link {
   position: relative;
   display: block;
   width: 100%;
@@ -247,3 +184,64 @@ $width: 100%;
     transform: translate3d(0, 0, 0);
   }
 }
+
+// <div class="dropdown__unit" id="dropdown">
+//   <div class="dropdown__mask" id="dropdownMask"></div>
+//   <ul class="dropdown__content">
+//     <li class="dropdown__item"><a href="./index.html" class="dropdown__link">首 页</a></li>
+//     <li class="dropdown__item"><a href="./news.html" class="dropdown__link">新闻资讯</a></li>
+//     <li class="dropdown__item">
+//       <div class="dropdown__item__sub jdropdownSubTit">
+//         <a href="javascript:;" class="dropdown__link"><i>游戏资料</i></a>
+//       </div>
+//       <div class="dropdown__item__sub-content jdropdownSubBody">
+//         <a href="./psp-game.html" class="dropdown__link">游戏介绍</a>
+//         <a href="./psp-pic.html" class="dropdown__link">游戏图鉴</a>
+//       </div>
+//     </li>
+//     <li class="dropdown__item">
+//       <a href="./psp.html" class="dropdown__link">游戏攻略</a>
+//     </li>
+//     <li class="dropdown__item">
+//       <div class="dropdown__item__sub jdropdownSubTit">
+//         <a href="javascript:;" class="dropdown__link"><i>玩家社区</i></a>
+//       </div>
+//       <div class="dropdown__item__sub-content jdropdownSubBody">
+//         <a href="./story.html" class="dropdown__link">玩家故事</a>
+//         <a href="./video.html" class="dropdown__link">精彩视频</a>
+//       </div>
+//     </li>
+//     <li class="dropdown__item"><a href="./gifts.html" class="dropdown__link">礼包中心</a></li>
+//     <li class="dropdown__item"><a href="" class="dropdown__link">客服中心</a></li>
+//   </ul>
+// </div>
+
+// /* menubar button */
+// if ($('#btnNavMenu').length) {
+//   function changeStatus(flag) {
+//     if (flag) {
+//       $('#btnNavMenu').removeClass(jtool.activeCls);
+//       $('#dropdown').removeClass(jtool.activeCls);
+//     } else {
+//       $('#btnNavMenu').addClass(jtool.activeCls);
+//       $('#dropdown').addClass(jtool.activeCls);
+//     }
+//   }
+//   $('#btnNavMenu').on('click', function () {
+//     changeStatus($(this).hasClass(jtool.activeCls));
+//   });
+//   $('#dropdownMask').on('click', function () {
+//     changeStatus(true);
+//   });
+//   if ($('.jdropdownSubTit').length) {
+//     $('.jdropdownSubTit').on('click', function () {
+//       if ($(this).hasClass(jtool.activeCls)) {
+//         $(this).removeClass(jtool.activeCls);
+//         $(this).siblings('.jdropdownSubBody').removeClass(jtool.activeCls);
+//       } else {
+//         $(this).addClass(jtool.activeCls);
+//         $(this).siblings('.jdropdownSubBody').addClass(jtool.activeCls);
+//       }
+//     });
+//   }
+// }
