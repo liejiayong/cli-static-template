@@ -11,7 +11,6 @@
 
 /* Here is the Business Logic style */
 
-// /* logo */
 .logo {
   // position: fixed;
   position: absolute;
@@ -28,7 +27,6 @@
   }
 }
 
-/* auth status */
 .jy-auth {
   // position: fixed;
   position: absolute;
@@ -72,7 +70,6 @@
   // }
 }
 
-/* button style */
 // .ico-btn-com {
 //   display: inline-flex;
 //   justify-content: center;
@@ -133,7 +130,6 @@
 //   }
 // }
 
-// section-1
 .section-1 {
   height: 7.365rem;
   background-image: url('../img/bg1.jpg');
@@ -152,10 +148,31 @@
     font-size: 0.24rem;
     color: #f8d596;
     @include text-gradient(linear-gradient(#ffc400, #f8d596));
+    // span{
+    //       &::before {
+    //   content: '★';
+    //   display: block;
+    //   position: absolute;
+    //   top: 0;
+    //   left: -($width + 0.06rem);
+    //   width: $width;
+    //   height: $height;
+    //   z-index: 1;
+    // }
+    // &::after {
+    //   content: '★';
+    //   display: block;
+    //   position: absolute;
+    //   top: 0;
+    //   right: -($width + 0.06rem);
+    //   width: $width;
+    //   height: $height;
+    //   z-index: 1;
+    // }
+    // }
   }
 }
 
-// section-2
 .section-2 {
   // height: 7.365rem;
   background-image: url('../img/bg2.jpg');
@@ -164,7 +181,6 @@
   }
 }
 
-// section-3
 .section-3 {
   // height: 7.365rem;
   background-image: url('../img/bg3.jpg');

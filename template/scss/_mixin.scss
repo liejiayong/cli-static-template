@@ -7,6 +7,16 @@
 //   * @FilePath:
 //   * @warning:
 //   */
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #4f2d25;
+    border-radius: 4px;
+  }
+}
 
 @mixin bgimg($width, $url) {
   background: url(#{$url}) no-repeat top center / #{$width} auto;

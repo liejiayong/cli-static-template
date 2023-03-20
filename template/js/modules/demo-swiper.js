@@ -1,3 +1,26 @@
+// 轮播图或滚动公告使用
+var mySwiper = new Swiper('#rankls', {
+  loop: true,
+  autoplay: true,
+  initialSlide: 0,
+  direction: 'vertical',
+  slidesPerView: 7,
+  slidesPerGroup: 7,
+  observer: true,
+  observeParents: true,
+  autoplay: {
+    disableOnInteraction: false,
+  },
+});
+
+function initSwiper() {
+  setTimeout(function() {
+    mySwiper.update();
+  }, 100);
+}
+initSwiper();
+
+/* 全部滚动业务逻辑 */
 jtool = {
   /**
    * swiper.js 滚动页面
@@ -41,3 +64,4 @@ jtool = {
 };
 
 jtool.swiper('#psw');
+
