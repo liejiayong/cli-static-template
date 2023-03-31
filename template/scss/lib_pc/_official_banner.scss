@@ -77,6 +77,30 @@
       }
     }
   }
+  .banner__tabs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    @include lh(50px);
+    text-align: center;
+    border-top: 1px solid #43527d;
+    background: #343943 url("../img/banner-tabs.png") no-repeat center;
+    color: #ae9666;
+    z-index: 1;
+    .item {
+      display: inline-block;
+      flex: 1;
+      cursor: pointer;
+      &.active,
+      &:hover {
+        color: #c0c0c0;
+        background: url("../img/banner-tab.active.png") no-repeat top center;
+      }
+    }
+  }
 }
 
 // <!-- banner modules -->
@@ -89,6 +113,12 @@
 //     </div>
 //   </div>
 //   <div class="swiper-pagination-com"></div>
+// <div class="banner__tabs" id="banTabs">
+//   <a href="javascript:;" class="jy-btn-txt item">传奇世界网页版</a>
+//   <a href="javascript:;" class="jy-btn-txt item">举报第三方软件</a>
+//   <a href="javascript:;" class="jy-btn-txt item">易时代聚宝坊</a>
+//   <a href="javascript:;" class="jy-btn-txt item">超级大活动</a>
+// </div>
 // </div>
 
 // // banner__unit
@@ -96,12 +126,12 @@
 //   initialSlide: 0,
 //   autoplay: {
 //     delay: 3888,
+//     disableOnInteraction: false
 //   },
 //   spaceBetween: 20,
 //   direction: "horizontal",
 //   loop: true,
 //   speed: 666,
-//   autoplay: true,
 //   lazy: {
 //     loadPrevNext: true,
 //     loadPrevNextAmount: 2,
@@ -123,4 +153,15 @@
 //   // lazyLoadingInPrevNextAmount: 2,
 //   // pagination: '.swiper-pagination-com',
 //   // paginationClickable: true,
+// });
+
+// $("#banTabs").on("click", ".item", function () {
+//   var index = $(this).index();
+//   spHBans.slideTo(index);
+// $(this).addClass("active").siblings().removeClass("active");
+// });
+// $("#banTabs .item").hover(function () {
+  //   var index = $(this).index();
+  //   spHBans.slideTo(index);
+  // $(this).addClass("active").siblings().removeClass("active");
 // });

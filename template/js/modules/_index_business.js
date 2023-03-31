@@ -91,15 +91,15 @@ var jtool = {
           cbProcess(this);
         });
         loader.start();
-        jtool.$window.winFixed();
+        JTool.window.fixed();
       };
     },
     open: function () {
-      jtool.$window.winFixed();
+      JTool.window.fixed();
       $('#pagePreload').fadeIn();
     },
     close: function () {
-      jtool.$window.winReset();
+      JTool.window.reset();
       $('#pagePreload').fadeOut();
     },
   },

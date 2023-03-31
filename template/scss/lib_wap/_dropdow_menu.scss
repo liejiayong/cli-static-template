@@ -220,27 +220,27 @@
 // if ($('#btnNavMenu').length) {
 //   function changeStatus(flag) {
 //     if (flag) {
-//       $('#btnNavMenu').removeClass(jtool.activeCls);
-//       $('#dropdown').removeClass(jtool.activeCls);
+//       $('#btnNavMenu').removeClass('active');
+//       $('#dropdown').removeClass('active');
 //     } else {
-//       $('#btnNavMenu').addClass(jtool.activeCls);
-//       $('#dropdown').addClass(jtool.activeCls);
+//       $('#btnNavMenu').addClass('active');
+//       $('#dropdown').addClass('active');
 //     }
 //   }
 //   $('#btnNavMenu').on('click', function () {
-//     changeStatus($(this).hasClass(jtool.activeCls));
+//     changeStatus($(this).hasClass('active'));
 //   });
 //   $('#dropdownMask').on('click', function () {
 //     changeStatus(true);
 //   });
 //   if ($('.jdropdownSubTit').length) {
 //     $('.jdropdownSubTit').on('click', function () {
-//       if ($(this).hasClass(jtool.activeCls)) {
-//         $(this).removeClass(jtool.activeCls);
-//         $(this).siblings('.jdropdownSubBody').removeClass(jtool.activeCls);
+//       if ($(this).hasClass('active')) {
+//         $(this).removeClass('active');
+//         $(this).siblings('.jdropdownSubBody').removeClass('active');
 //       } else {
-//         $(this).addClass(jtool.activeCls);
-//         $(this).siblings('.jdropdownSubBody').addClass(jtool.activeCls);
+//         $(this).addClass('active');
+//         $(this).siblings('.jdropdownSubBody').addClass('active');
 //       }
 //     });
 //   }

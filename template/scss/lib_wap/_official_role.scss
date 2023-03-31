@@ -232,21 +232,21 @@
 //     slideChange: function () {
 //       $('.role__tabs .item')
 //         .eq(this.activeIndex)
-//         .addClass(jtool.activeCls)
+//         .addClass('active')
 //         .siblings()
-//         .removeClass(jtool.activeCls);
+//         .removeClass('active');
 //       $('#spRole .swiper-slide-active .role__avatar>img').eq(0).show().siblings().hide();
-//       $('.role__switch a').eq(0).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//       $('.role__switch a').eq(0).addClass('active').siblings().removeClass('active');
 //     },
 //   },
 // });
 // $('.role__tabs').on('click', '.item', function () {
 //   var index = $(this).index();
-//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//   $(this).addClass('active').siblings().removeClass('active');
 //   spRole.slideTo(index);
 // });
 // $('.role__switch').on('click', 'a', function () {
 //   var index = $(this).index();
-//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//   $(this).addClass('active').siblings().removeClass('active');
 //   $('#spRole .swiper-slide.swiper-slide-active .role__avatar>img').eq(index).fadeIn().siblings().hide();
 // });

@@ -363,7 +363,7 @@ $color-active: #e8d2a3;
 //   on: {
 //     slideChange: function () {
 //       var currIndex = this.activeIndex;
-//       $psNewsTabs.children().eq(currIndex).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//       $psNewsTabs.children().eq(currIndex).addClass('active').siblings().removeClass('active');
 //     },
 //   },
 // });

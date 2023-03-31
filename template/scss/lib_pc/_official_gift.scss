@@ -12,6 +12,7 @@
   // padding: 60px 30px 0;
   display: flex;
   flex-wrap: wrap;
+  width: 1104px;
   // justify-gifts__desc: flex-start;
   .gifts__item {
     // float: left;
@@ -22,10 +23,10 @@
     height: 160px;
     // border: 1px solid #252932;
     font-size: 14px;
-    background: #273c54;
-    color: #fff;
+    background: #373e44;
+    color: #cec9bf;
     h3 {
-      padding-top: 12px;
+      padding-top: 16px;
       font-size: 18px;
       font-weight: bold;
       // color: #c9af6d;
@@ -45,7 +46,7 @@
     .total {
       margin-top: 20px;
       font-size: 12px;
-      color: #cf1212;
+      color: #ffd576;
     }
     .ico__btn {
       position: absolute;
@@ -223,4 +224,5 @@
 //       alert('浏览器不支持点击复制，请长按链接复制！');
 //     });
 //   });
+
 // </script>

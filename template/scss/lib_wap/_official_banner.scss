@@ -99,14 +99,14 @@
 //     slideChange: function () {
 //       $('.banner__tabs .item')
 //         .eq(this.activeIndex)
-//         .addClass(jtool.activeCls)
+//         .addClass('active')
 //         .siblings()
-//         .removeClass(jtool.activeCls);
+//         .removeClass('active');
 //     },
 //   },
 // });
 // $('.banner__tabs').on('click', '.item', function () {
 //   var index = $(this).index();
-//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//   $(this).addClass('active').siblings().removeClass('active');
 //   spHBans.slideTo(index);
 // });

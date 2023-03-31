@@ -209,14 +209,16 @@ html {
     .ebook__header {
       display: block;
     }
-    .jy-header,
+    #cyou-top,
+    #cyou_bottom,
+    .header__unit,
     .user-container,
     .aside-oth,
     .header-oth,
     .jy-title__ny__container {
       display: none;
     }
-    .main-oth {
+    .jy-main__ny {
       padding-top: $ebook_header;
       width: 100%;
       min-height: calc(100vh - 0.9rem);

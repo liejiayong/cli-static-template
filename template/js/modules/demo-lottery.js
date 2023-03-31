@@ -1,7 +1,7 @@
 
 /* 圆盘抽奖 */
 $(".ico-lottery-btn").click(function () {
-  $(".ico-lottery-btn").addClass(jtool.disableCls);
+  $(".ico-lottery-btn").addClass('disable');
   var DEG = 360 / 6;
   var count = jtool.getRandom(0, 5);
   $(".jlottery-btn").rotate({
@@ -10,7 +10,7 @@ $(".ico-lottery-btn").click(function () {
     duration: 3500,
     center: ["50%", "1.12rem"],
     callback: function () {
-      $(".ico-lottery-btn").removeClass(jtool.disableCls);
+      $(".ico-lottery-btn").removeClass('disable');
       jtool.showTip({
         content: '<div class="tc"><div>恭喜您获得X积分</div><div>请前往【积分商城】兑换奖励</div></div>',
       });
@@ -26,7 +26,7 @@ $(".ico-lottery-btn").click(function () {
 
 /* 方形抽奖 */
 $(".jlottery-btn").on("click", function () {
-  $(".jlottery-btn").addClass(jtool.disableCls);
+  $(".jlottery-btn").addClass('disable');
   var index = jtool.getRandom(0, 7);
   jtool.lottery(
     index,
@@ -37,7 +37,7 @@ $(".jlottery-btn").on("click", function () {
     function (index) {
       $(".lottery-item").eq(index).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
       jtool.showTip({ content: "<p>恭喜获得" + index + "</p>" });
-      $(".jlottery-btn").removeClass(jtool.disableCls);
+      $(".jlottery-btn").removeClass('disable');
     }
   );
 });

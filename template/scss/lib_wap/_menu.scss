@@ -7,7 +7,7 @@
  * @FilePath: 
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
-
+@use "sass:math";
 @import "../_const.scss";
 @import "../_mixin.scss";
 
@@ -34,7 +34,7 @@ $color-active: #ee9b1e;
   background: linear-gradient(#6d0912, #791016, #972121, #ae2e29, #6d0912);
 }
 .menus__item {
-  $width: (100%/3);
+  $width: math.div(100%,3);
   position: relative;
   -webkit-box-flex: 0;
   flex: 0 0 $width;
@@ -93,30 +93,32 @@ $color-active: #ee9b1e;
 
 // js
 // $("#menus").on("click", ".menus__item", function () {
-//   $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
+//   $(this).addClass('active').siblings().removeClass('active');
 // });
 // $(window).scroll(
-//   jtool.debounce(function () {
+//   JTool.utils.debounce(function () {
 //     var pagePos = [];
 //     $(".jpage").each(function (i, el) {
 //       var pos = $(el).position(),
-//         height = $(el).height();
-//       pagePos.push([pos.top, pos.top + height]);
+//         height = Math.floor($(el).outerHeight()),
+//         top = Math.floor(pos.top),
+//         bottom = top + height;
+//       pagePos.push([top, bottom]);
 //     });
 //     var top =
-//         document.documentElement.scrollTop /* 标准 */ ||
-//         window.pageYOffset /* Safari */ ||
-//         document.body.scrollTop,
-//       winHeight = $(window).height(),
-//       mainHeight = $(".jy-wrapper").height() - winHeight;
+//         document.documentElement.scrollTop /* 标准 */ || window.pageYOffset /* Safari */ || document.body.scrollTop,
+//       isShow = false,
+//       showIndex = -1;
 //     pagePos.forEach(function (pos, i) {
 //       if (top >= pos[0] && top < pos[1]) {
-//         $(".menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//       } else {
-//         if (top >= mainHeight - 150) {
-//           $(".menus__item").eq(i).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
-//         }
+//         isShow = true;
+//         showIndex = i;
 //       }
 //     });
+//     if (isShow) {
+//       $(".menus__item").eq(showIndex).addClass("active").siblings().removeClass("active");
+//     } else {
+//       $(".menus__item").eq(0).removeClass("active").siblings().removeClass("active");
+//     }
 //   }, 200)
 // );
