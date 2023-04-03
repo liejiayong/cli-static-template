@@ -1,0 +1,1268 @@
+@import "./_mixin.scss";
+
+$prefix: ".";
+$width: 500px;
+$widthWap: 95%;
+$animateDuration: 0.3s;
+
+$input-height: 32px;
+$input-bg: rgba(0, 0, 0, 0.1);
+$input-placeholder: #959595;
+
+#{$prefix}pops {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  &.active {
+    display: block;
+    -webkit-animation: fadeIn #{$animateDuration} linear both;
+    animation: fadeIn #{$animateDuration} linear both;
+  }
+  [role="button"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: inherit;
+    &:active,
+    &:hover {
+      -webkit-filter: brightness(1.12);
+      filter: brightness(1.12);
+    }
+  }
+  &__mask {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // background: rgba(0, 0, 0, 0.3);
+  }
+  &__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+  &__main {
+    -webkit-animation: zoomIn 0.3s linear both;
+    animation: zoomIn 0.3s linear both;
+    box-sizing: border-box;
+    width: $width;
+    font-size: 14px;
+    @extend %ui__main;
+
+    @media screen and (max-width: 750px) {
+      width: $widthWap;
+      width: 95vw;
+    }
+  }
+  &__header {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 20px;
+    @extend %ui__header;
+
+    &--fix {
+      position: relative;
+      display: inline-block;
+      text-align: left;
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        // width: 20%;
+        height: inherit;
+        transform: translate(-120%, -50%);
+      }
+      &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        // width: 20%;
+        height: inherit;
+        transform: translate(120%, -50%);
+      }
+      @extend %ui__header--fix;
+    }
+  }
+  &__body {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 20px 30px;
+    color: inherit;
+    box-sizing: border-box;
+    @extend %ui__body;
+  }
+  &__btn {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: inherit;
+    &:active,
+    &:hover {
+      -webkit-filter: brightness(1.12);
+      filter: brightness(1.12);
+    }
+    &__icon {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      display: block;
+      width: 20px;
+      height: 20px;
+      text-indent: -9999px;
+      overflow: hidden;
+      z-index: 1;
+      transition: #{$animateDuration} ease;
+      background: url("data:image/png;base64,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")
+        no-repeat center/100% 100%;
+      &:hover {
+        transform: rotate(180deg);
+        // will-change: transform;
+      }
+      @extend %ui__btn__icon;
+    }
+    &__ok {
+      padding: 0.3em 0.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: normal;
+      text-align: center;
+      box-sizing: border-box;
+      min-width: 6em;
+      max-width: 10em;
+      white-space: nowrap;
+      font-size: 16px;
+      @extend %ui__btn__ok;
+    }
+    &__ac {
+      height: $input-height;
+      background: green;
+      color: #fff !important;
+    }
+    &__select {
+      padding: 0;
+      background: transparent;
+      -webkit-user-select: all;
+      -moz-user-select: all;
+      -ms-user-select: all;
+      user-select: all;
+      option {
+        color: #333;
+      }
+    }
+  }
+  &__code {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.2em 1em;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: normal;
+    overflow-x: auto;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+    box-sizing: border-box;
+    height: $input-height;
+    @extend %ui__code;
+  }
+
+  &__scrollbar {
+    max-height: 80vh;
+    max-height: 300px;
+    overflow: auto;
+    @include scrollbar();
+  }
+  &__prefix {
+    margin: 0 auto 20px;
+    text-align: center;
+    width: 80%;
+  }
+  &__suffix {
+    margin: 20px auto 0;
+    text-align: center;
+    width: 80%;
+  }
+  &__footer {
+    @include mauto();
+    text-align: center;
+    width: 80%;
+    font-size: 12px;
+    // color: #ff6651;
+  }
+  &__text {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.6;
+    list-style: none;
+  }
+  &__cell {
+    position: relative;
+    display: flex;
+    line-height: normal;
+    align-items: center;
+    // line-height: 1.5;
+    // font-size: 16px;
+    // color: rgba(0, 0, 0, 0.9);
+    &__hd {
+      padding-right: 16px;
+    }
+    &__bd {
+      position: relative;
+      display: flex;
+      flex: 1;
+      line-height: normal;
+      min-width: 0;
+    }
+  }
+  &__control {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    @media screen and (max-width: 750px) {
+      width: 100%;
+    }
+    &__cells + &__cells {
+      margin-top: 10px;
+    }
+    &--label {
+      display: block;
+      word-wrap: break-word;
+      word-break: break-all;
+      min-width: 0;
+      text-align: right;
+      width: 4.15em;
+      max-width: 5em;
+    }
+    &--input {
+      padding: 0 0.8em;
+      flex: 1;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: $input-height;
+      line-height: $input-height;
+      box-sizing: border-box;
+      overflow: hidden;
+      font-size: inherit;
+      // background-color: transparent;
+      // color: inherit;
+      @extend %ui__control__input;
+    }
+    &--select {
+      padding: 0 0.8em;
+      flex: 1;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      // appearance: none;
+      height: $input-height;
+      line-height: $input-height;
+      box-sizing: border-box;
+      overflow: hidden;
+      font-size: inherit;
+      // background-color: transparent;
+      // color: inherit;
+      @extend %ui__control__select;
+      option {
+        color: #333;
+      }
+      + .select2-container {
+        .select2-selection--single {
+          padding: 0 0.8em;
+          height: #{$input-height} !important ;
+          line-height: #{$input-height} !important ;
+          background-color: #{$input-bg} !important;
+          border: none !important;
+          border-radius: 0 !important;
+          .select2-selection__rendered {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+          .select2-selection__rendered {
+            height: inherit !important;
+            line-height: inherit !important;
+            color: inherit !important;
+          }
+          .select2-selection__placeholder {
+            color: #{$input-placeholder} !important;
+          }
+          .select2-selection__clear {
+            cursor: pointer;
+            display: flex;
+            line-height: normal;
+            align-items: center;
+            height: 100% !important;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            transform: translate(0, 5%);
+            // line-height: 1.15;
+          }
+          .select2-selection__arrow {
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+    &--clear {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 0.5em;
+      transform: translate(0, -50%);
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      background-color: #b2b2b2;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 20%;
+        bottom: 20%;
+        left: 50%;
+        width: 1px;
+        background: #fff;
+        transform: translate(-50%, 0) rotate(45deg);
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 20%;
+        bottom: 20%;
+        left: 50%;
+        width: 1px;
+        background: #fff;
+        transform: translate(-50%, 0) rotate(-45deg);
+      }
+    }
+  }
+  &__link {
+    padding: 0;
+    background: transparent;
+    text-decoration: underline;
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__grid {
+    $height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 100%;
+    // line-height: 1.5;
+    overflow: hidden;
+    @extend %pops__grid;
+    &__tr {
+      display: flex;
+      overflow: hidden;
+      @extend %pops__grid__tr;
+    }
+    &__td {
+      // display: table-cell;
+      // vertical-align: middle;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0.5em 0.6em;
+      text-align: center;
+      overflow-x: auto;
+      overflow-y: hidden;
+      word-break: break-word;
+      @extend %pops__grid__td;
+      span {
+        display: inline-block;
+        text-align: left;
+      }
+      &:nth-of-type(1) {
+        width: 50%;
+        flex-shrink: 0;
+      }
+      &:nth-of-type(2) {
+        width: 50%;
+        flex-shrink: 0;
+      }
+    }
+    &__thead {
+      width: 100%;
+      font-weight: bold;
+
+      @extend %pops__grid__thead;
+    }
+    &__tbody {
+      width: 100%;
+      max-height: 600px;
+      max-height: 30vh;
+      overflow: auto;
+      @include scrollbar();
+      @extend %pops__grid__tbody;
+    }
+
+    &--line {
+      @extend %pops__grid--line;
+
+      //   // %pops__grid__thead {
+      //   // %pops__grid__td {
+      //   //   &:not(:last-of-type) {
+      //   //     border-bottom: $border;
+      //   //     border-right: $border;
+      //   //   }
+      //   //   &:last-of-type {
+      //   //     border-bottom: $border;
+      //   //   }
+      //   // }
+      //   // }
+      //   %pops__grid__tbody {
+      //     border: $border;
+      //     %pops__grid__td {
+      //       &:not(:last-of-type) {
+      //         border-bottom: $border;
+      //         border-right: $border;
+      //       }
+      //       &:last-of-type {
+      //         border-bottom: $border;
+      //       }
+      //     }
+      //   }
+    }
+    &--stripes {
+      %pops__grid__thead {
+        background: transparent;
+      }
+      %pops__grid__tbody {
+        %pops__grid__tr {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  &__mt {
+    margin-top: 20px;
+    text-align: center;
+  }
+  &__mb {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &__table {
+    //
+    //   <div class="pops__scrollbar">
+    //   <table class="pops__table">
+    //     <thead>
+    //       <tr>
+    //         <td>奖品名称</td>
+    //         <td>奖品内容</td>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       <tr>
+    //         <td>一代宗师称号</td>
+    //         <td><button class="pops__btn pops__link">查看</button></td>
+    //       </tr>
+    //       <tr>
+    //         <td>华为fold手机</td>
+    //         <td><button class="pops__btn pops__link">填写地址</button></td>
+    //       </tr>
+    //       <tr>
+    //         <td>怦然心动游戏礼包</td>
+    //         <td><button class="pops__btn pops__link">待领取</button></td>
+    //       </tr>
+    //       <tr>
+    //         <td>游戏币大礼包礼包</td>
+    //         <td><button class="pops__btn pops__btn__select">QER6 S6BH 6WHH F5W3</button></td>
+    //       </tr>
+    //     </tbody>
+    //   </table>
+    // </div>
+    position: relative;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    td {
+      padding: 0 1em;
+      line-height: 30px;
+      // font-size: 14px;
+      // color: inherits;
+      // text-align: left;
+      &:nth-of-type(1) {
+        width: 60%;
+      }
+      &:nth-of-type(2) {
+        width: 40%;
+      }
+    }
+
+    // table-line
+    // &--line {
+    background: $input-bg;
+
+    &,
+    & tr th,
+    & tr td {
+      border: 1px solid #{$input-bg};
+    }
+
+    thead {
+      background: $input-bg;
+    }
+    // }
+  }
+
+  // UI Theme: pops-default
+  &--default {
+    $input-bg: rgba(0, 0, 0, 0.1);
+    $input-placeholder: #959595;
+    $grid-border: 1px solid $input-bg;
+    %ui__main {
+      border-radius: 12px;
+      font-size: 17px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      // border: 8px solid #7a3333;
+      color: rgba(0, 0, 0, 0.5);
+      // background: #8e0d0d linear-gradient(#8e0d0d, #950e0e);
+
+      background: #fff;
+    }
+    %ui__header {
+      padding: 32px 24px 16px;
+      color: rgba(0, 0, 0, 0.9);
+    }
+    %ui__header--fix {
+      &::before {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+      &::after {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+    }
+    %ui__body {
+      padding: 0 24px 32px;
+      // width: ($width - 60px);
+      // padding: 0 0 50px;
+      // background: #fff0d6;
+      // border-radius: 0 0 0.3rem 0.3rem;
+    }
+    %ui__btn__icon {
+    }
+    %ui__btn__ok {
+      // @include lh(60px);
+      line-height: normal;
+      box-shadow: 0 1px 2px #3d3d3d;
+      // border: 0.02rem solid #d67029;
+      // border-radius: 30px;
+      // font-weight: bold;
+      color: rgba(255, 255, 255, 0.75);
+      opacity: 0.7;
+      background-color: #bdc3c7;
+    }
+    %ui__code {
+      background: $input-bg;
+    }
+    %ui__control__input {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %ui__control__select {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %pops__grid {
+      %pops__grid__thead {
+        z-index: 1;
+        background: $input-bg;
+      }
+      %pops__grid__tbody {
+      }
+
+      %pops__grid__td {
+        background: $input-bg;
+      }
+    }
+    %pops__grid--line {
+      %pops__grid__tbody {
+        border: $grid-border;
+        %pops__grid__td {
+          &:not(:last-of-type) {
+            border-bottom: $grid-border;
+            border-right: $grid-border;
+          }
+          &:last-of-type {
+            border-bottom: $grid-border;
+          }
+        }
+      }
+    }
+  }
+
+  // UI Theme: pops-red
+  &--red {
+    $input-bg: rgba(0, 0, 0, 0.1);
+    $input-placeholder: #959595;
+    $grid-border: 1px solid $input-bg;
+    %ui__main {
+      border: 8px solid #7a3333;
+      color: #fdf1ae;
+      // background: #8e0d0d linear-gradient(#8e0d0d, #950e0e);
+      background: #8e0d0d;
+    }
+    %ui__header {
+      padding: 20px 0 0;
+      color: #fdf1ae;
+    }
+    %ui__header--fix {
+      &::before {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+      &::after {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+    }
+    %ui__body {
+      // width: ($width - 60px);
+      // padding: 0 0 50px;
+      // background: #fff0d6;
+      // border-radius: 0 0 0.3rem 0.3rem;
+    }
+    %ui__btn__icon {
+    }
+    %ui__btn__ok {
+      // @include lh(60px);
+      line-height: normal;
+      box-shadow: 0 1px 2px #f06868;
+      // border: 0.02rem solid #d67029;
+      // border-radius: 30px;
+      // font-weight: bold;
+      color: #cc6e24;
+      background: #fcce4a linear-gradient(#fede7d, #fcce4a);
+    }
+    %ui__code {
+      background: $input-bg;
+    }
+    %ui__control__input {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %ui__control__select {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %pops__grid {
+      %pops__grid__thead {
+        z-index: 1;
+        background: $input-bg;
+      }
+      %pops__grid__tbody {
+      }
+
+      %pops__grid__td {
+        background: $input-bg;
+      }
+    }
+    %pops__grid--line {
+      %pops__grid__tbody {
+        border: $grid-border;
+        %pops__grid__td {
+          &:not(:last-of-type) {
+            border-bottom: $grid-border;
+            border-right: $grid-border;
+          }
+          &:last-of-type {
+            border-bottom: $grid-border;
+          }
+        }
+      }
+    }
+  }
+
+  // UI Theme: pops-brown
+  &--brown {
+    $input-bg: rgba(255, 255, 255, 0.12);
+    $input-placeholder: #959595;
+    $grid-border: 1px solid $input-bg;
+    %ui__main {
+      border: 8px solid #3e1c05;
+      color: #ffd49b;
+      // background: #8e0d0d linear-gradient(#8e0d0d, #950e0e);
+      background: #230d0b;
+    }
+    %ui__header {
+      padding: 20px 0 0;
+      color: #ffd49b;
+    }
+    %ui__header--fix {
+      &::before {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+      &::after {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+    }
+    %ui__body {
+      // width: ($width - 60px);
+      // padding: 0 0 50px;
+      // background: #fff0d6;
+      // border-radius: 0 0 0.3rem 0.3rem;
+    }
+    %ui__btn__icon {
+    }
+    %ui__btn__ok {
+      // @include lh(60px);
+      line-height: normal;
+      box-shadow: 0 1px 2px #f06868;
+      // border: 0.02rem solid #d67029;
+      // border-radius: 30px;
+      // font-weight: bold;
+      color: #cc6e24;
+      background: #fcce4a linear-gradient(#fede7d, #fcce4a);
+    }
+    %ui__code {
+      background: $input-bg;
+    }
+    %ui__control__input {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %ui__control__select {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %pops__grid {
+      %pops__grid__thead {
+        z-index: 1;
+        background: $input-bg;
+      }
+      %pops__grid__tbody {
+      }
+
+      %pops__grid__td {
+        background: $input-bg;
+      }
+    }
+    %pops__grid--line {
+      %pops__grid__tbody {
+        border: $grid-border;
+        %pops__grid__td {
+          &:not(:last-of-type) {
+            border-bottom: $grid-border;
+            border-right: $grid-border;
+          }
+          &:last-of-type {
+            border-bottom: $grid-border;
+          }
+        }
+      }
+    }
+  }
+
+  // UI Theme: pops-green
+  &--green {
+    $input-bg: rgba(0, 0, 0, 0.25);
+    $input-placeholder: #e6f5d4;
+    $grid-border: 1px solid $input-bg;
+    %ui__main {
+      border: 8px solid #628544;
+      color: #c1df9a;
+      // background: #8e0d0d linear-gradient(#8e0d0d, #950e0e);
+      background: #296845;
+    }
+    %ui__header {
+      padding: 20px 0 0;
+      color: #c1df9a;
+    }
+    %ui__header--fix {
+      &::before {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+      &::after {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+    }
+    %ui__body {
+      // width: ($width - 60px);
+      // padding: 0 0 50px;
+      // background: #fff0d6;
+      // border-radius: 0 0 0.3rem 0.3rem;
+    }
+    %ui__btn__icon {
+    }
+    %ui__btn__ok {
+      // @include lh(60px);
+      line-height: normal;
+      box-shadow: 0 1px 2px #f06868;
+      // border: 0.02rem solid #d67029;
+      // border-radius: 30px;
+      // font-weight: bold;
+      color: #cc6e24;
+      background: #fcce4a linear-gradient(#fede7d, #fcce4a);
+    }
+    %ui__code {
+      background: $input-bg;
+    }
+    %ui__control__input {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %ui__control__select {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %pops__grid {
+      %pops__grid__thead {
+        z-index: 1;
+        background: $input-bg;
+      }
+      %pops__grid__tbody {
+      }
+
+      %pops__grid__td {
+        background: $input-bg;
+      }
+    }
+    %pops__grid--line {
+      %pops__grid__tbody {
+        border: $grid-border;
+        %pops__grid__td {
+          &:not(:last-of-type) {
+            border-bottom: $grid-border;
+            border-right: $grid-border;
+          }
+          &:last-of-type {
+            border-bottom: $grid-border;
+          }
+        }
+      }
+    }
+  }
+
+  // UI Theme: pops-purple
+  &--purple {
+    $input-bg: rgba(255, 255, 255, 0.12);
+    $input-placeholder: #aaaaaa;
+    $grid-border: 1px solid $input-bg;
+    %ui__main {
+      border: 8px solid #553099;
+      color: #b38dc4;
+      // background: #8e0d0d linear-gradient(#8e0d0d, #950e0e);
+      background: #3d226f;
+    }
+    %ui__header {
+      padding: 20px 0 0;
+      color: #b38dc4;
+    }
+    %ui__header--fix {
+      &::before {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+      &::after {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+    }
+    %ui__body {
+      // width: ($width - 60px);
+      // padding: 0 0 50px;
+      // background: #fff0d6;
+      // border-radius: 0 0 0.3rem 0.3rem;
+    }
+    %ui__btn__icon {
+    }
+    %ui__btn__ok {
+      // @include lh(60px);
+      line-height: normal;
+      box-shadow: 0 1px 2px #f06868;
+      // border: 0.02rem solid #d67029;
+      // border-radius: 30px;
+      // font-weight: bold;
+      color: #cc6e24;
+      background: #fcce4a linear-gradient(#fede7d, #fcce4a);
+    }
+    %ui__code {
+      background: $input-bg;
+    }
+    %ui__control__input {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %ui__control__select {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %pops__grid {
+      %pops__grid__thead {
+        z-index: 1;
+        background: $input-bg;
+      }
+      %pops__grid__tbody {
+      }
+
+      %pops__grid__td {
+        background: $input-bg;
+      }
+    }
+    %pops__grid--line {
+      %pops__grid__tbody {
+        border: $grid-border;
+        %pops__grid__td {
+          &:not(:last-of-type) {
+            border-bottom: $grid-border;
+            border-right: $grid-border;
+          }
+          &:last-of-type {
+            border-bottom: $grid-border;
+          }
+        }
+      }
+    }
+  }
+
+  // UI Theme: pops-blue
+  &--blue {
+    $input-bg: rgba(255, 255, 255, 0.12);
+    $input-placeholder: #aaaaaa;
+    $grid-border: 1px solid $input-bg;
+    %ui__main {
+      border: 8px solid #2464ea;
+      color: #a6e6ed;
+      // background: #8e0d0d linear-gradient(#8e0d0d, #950e0e);
+      background: #1340b3;
+    }
+    %ui__header {
+      padding: 20px 0 0;
+      color: #a6e6ed;
+    }
+    %ui__header--fix {
+      &::before {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+      &::after {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+    }
+    %ui__body {
+      // width: ($width - 60px);
+      // padding: 0 0 50px;
+      // background: #fff0d6;
+      // border-radius: 0 0 0.3rem 0.3rem;
+    }
+    %ui__btn__icon {
+    }
+    %ui__btn__ok {
+      // @include lh(60px);
+      line-height: normal;
+      box-shadow: 0 1px 2px #f06868;
+      // border: 0.02rem solid #d67029;
+      // border-radius: 30px;
+      // font-weight: bold;
+      color: #cc6e24;
+      background: #fcce4a linear-gradient(#fede7d, #fcce4a);
+    }
+    %ui__code {
+      background: $input-bg;
+    }
+    %ui__control__input {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %ui__control__select {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %pops__grid {
+      %pops__grid__thead {
+        z-index: 1;
+        background: $input-bg;
+      }
+      %pops__grid__tbody {
+      }
+
+      %pops__grid__td {
+        background: $input-bg;
+      }
+    }
+    %pops__grid--line {
+      %pops__grid__tbody {
+        border: $grid-border;
+        %pops__grid__td {
+          &:not(:last-of-type) {
+            border-bottom: $grid-border;
+            border-right: $grid-border;
+          }
+          &:last-of-type {
+            border-bottom: $grid-border;
+          }
+        }
+      }
+    }
+  }
+
+  // UI Theme: pops-black
+  &--black {
+    $input-bg: rgba(255, 255, 255, 0.12);
+    $input-placeholder: #aaaaaa;
+    $grid-border: 1px solid $input-bg;
+    %ui__main {
+      border: 8px solid #645649;
+      color: #c5af97;
+      // background: #8e0d0d linear-gradient(#8e0d0d, #950e0e);
+      background: #171925;
+    }
+    %ui__header {
+      padding: 20px 0 0;
+      color: #c5af97;
+    }
+    %ui__header--fix {
+      &::before {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+      &::after {
+        // content: "★";
+        // width: inherit;
+        // height: inherit;
+      }
+    }
+    %ui__body {
+      // width: ($width - 60px);
+      // padding: 0 0 50px;
+      // background: #fff0d6;
+      // border-radius: 0 0 0.3rem 0.3rem;
+    }
+    %ui__btn__icon {
+    }
+    %ui__btn__ok {
+      // @include lh(60px);
+      line-height: normal;
+      box-shadow: 0 1px 2px #f06868;
+      // border: 0.02rem solid #d67029;
+      // border-radius: 30px;
+      // font-weight: bold;
+      color: #cc6e24;
+      background: #fcce4a linear-gradient(#fede7d, #fcce4a);
+    }
+    %ui__code {
+      background: $input-bg;
+    }
+    %ui__control__input {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %ui__control__select {
+      @include inputbg($input-bg);
+      @include inputcolor(inherit, $input-placeholder);
+    }
+    %pops__grid {
+      %pops__grid__thead {
+        z-index: 1;
+        background: $input-bg;
+      }
+      %pops__grid__tbody {
+      }
+
+      %pops__grid__td {
+        background: $input-bg;
+      }
+    }
+    %pops__grid--line {
+      %pops__grid__tbody {
+        border: $grid-border;
+        %pops__grid__td {
+          &:not(:last-of-type) {
+            border-bottom: $grid-border;
+            border-right: $grid-border;
+          }
+          &:last-of-type {
+            border-bottom: $grid-border;
+          }
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes zoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+// // showToast style tempplate
+// // and create by javascript
+// @keyframes bounceIn {
+//   0% {
+//     opacity: 0;
+//     -webkit-transform: scale(0.5);
+//     -ms-transform: scale(0.5);
+//     transform: scale(0.5);
+//   }
+//   100% {
+//     opacity: 1;
+//     -webkit-transform: scale(1);
+//     -ms-transform: scale(1);
+//     transform: scale(1);
+//   }
+// }
+// @keyframes bounceOut {
+//   100% {
+//     opacity: 0;
+//     -webkit-transform: scale(0.7);
+//     -ms-transform: scale(0.7);
+//     transform: scale(0.7);
+//   }
+//   30% {
+//     -webkit-transform: scale(1.05);
+//     -ms-transform: scale(1.05);
+//     transform: scale(1.05);
+//   }
+//   0% {
+//     -webkit-transform: scale(1);
+//     -ms-transform: scale(1);
+//     transform: scale(1);
+//   }
+// }
+
+// .u-toasts__box {
+//   display: none;
+//   position: fixed;
+//   top: 30%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   white-space: nowrap;
+//   z-index: 1000;
+//   .u-toasts__text {
+//     display: inline-block;
+//     padding: 0.8em 1.2em;
+//     font-size: 18px;
+//     box-shadow: rgb(0, 0, 0) 0px 0px 2px;
+//     background-color: rgb(0, 0, 0);
+//     filter: alpha(opacity=60);
+//     background-color: rgba(0, 0, 0, 0.6);
+//     color: rgb(255, 255, 255);
+//   }
+//   &.is-open {
+//     display: block;
+//     .u-toasts__text {
+//       animation: bounceIn 0.2s ease-in both;
+//     }
+//   }
+//   &.is-close {
+//     display: block;
+//     .u-toasts__text {
+//       animation: bounceOut 0.2s ease-in both;
+//     }
+//   }
+// }
