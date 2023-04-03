@@ -13,7 +13,7 @@
       display: inline-block;
       @include flex-width(160px);
       img {
-        width: contain;
+        width: 100%;
       }
     }
   }
