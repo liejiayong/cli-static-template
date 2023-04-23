@@ -1,5 +1,12 @@
 JTool.onClipboard(".jBtnPopCode");
 JTool.dialog.setConfig("namespace", { uiClass: "pops--green" });
+function bindMockDelay(flag, done) {
+  JTool.utils.delay(function () {
+    done(flag);
+    var msg = flag ? "提交成功" : "提交失败，请稍后再试~";
+    JTool.showToast(msg);
+  }, 1000);
+}
 
 /**
   个人信息
