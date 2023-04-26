@@ -197,56 +197,6 @@
   }
 }
 
-.section-header {
-  position: relative;
-  height: 1088px;
-  background-image: url("../img/bgh.jpg");
-  .jy-headermain {
-    position: relative;
-    padding-top: 10px;
-    height: 100%;
-    background: url("../img/bghm.jpg") no-repeat center top;
-
-    .time {
-      position: absolute;
-      top: 300px;
-      left: 300px;
-      // margin: 276px 0 0 515px;
-      // width: 523px;
-      // @include lh(50px);
-      // line-height: 50px;
-      text-align: center;
-      color: #ff0000;
-      font-size: 16px;
-      // @include bgimgc('../img/bg-time.png');
-      z-index: 1;
-      span {
-        position: relative;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: -30px;
-          display: block;
-          width: 24px;
-        }
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          right: -30px;
-          display: block;
-          width: 24px;
-        }
-      }
-    }
-    .btn-rule {
-      display: block;
-      margin: 15px auto 0;
-    }
-  }
-}
-
 .section-1 {
   position: relative;
   height: 0px;
@@ -254,6 +204,43 @@
   .jy-sectionmain {
     padding-top: 0px;
   }
+  .time {
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  // margin: 276px 0 0 515px;
+  // width: 523px;
+  // @include lh(50px);
+  // line-height: 50px;
+  text-align: center;
+  color: #ff0000;
+  font-size: 16px;
+  // @include bgimgc('../img/bg-time.png');
+  z-index: 1;
+  span {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      display: block;
+      width: 24px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -30px;
+      display: block;
+      width: 24px;
+    }
+  }
+}
+.btn-rule {
+  display: block;
+  margin: 15px auto 0;
+}
 }
 
 .section-2 {

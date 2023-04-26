@@ -15,6 +15,7 @@
     color: #f8dbae;
     background-color: #ffc8ba;
     overflow: hidden;
+    z-index: 5;
   }
   .danmu_item,
   .mydanmu {
@@ -23,6 +24,7 @@
     border-radius: 20px;
     font-size: inherit;
     background-color: #c64b2e;
+    // z-index: 1 !important;
   }
   .danmu__send {
     margin-top: 28px;

@@ -9,9 +9,9 @@ function bindMockDelay(flag, done) {
 }
 
 /**
-  个人信息
-  dialogUinfo.open();
-  dialogUinfo.destroy();
+  个人信息  
+  打开：dialogBind.open();
+  销毁：dialogBind.destroy();
 **/
 var dialogUinfo = DialogJS.uinfo({
   async: true,
@@ -181,19 +181,16 @@ var recordData = [
   {
     name: "实物奖品",
     content: "华为fold手机",
-    keyType: "buttonUserinfo" /* 为实物奖品且需要填写个人信息时设置keyType:'buttonUserinfo' */,
+  },
+  {
+    name: "绑定",
+    content: "原始传奇神级套餐",
   },
   {
     name: "礼品",
     content: "原始传奇神级套餐",
-    keyType: "buttonBind" /* 为奖励需要绑定游戏信息时设置keyType:'buttonBind' */,
   },
-  {
-    name: "礼品",
-    content: "原始传奇神级套餐",
-    keyType: "buttonCode" /* 为需要打开兑换码弹窗时设置keyType:'buttonCode' */,
-  },
-  { name: "兑换码", content: "AAAA BBBB CCCC DDDD", keyType: "copy" /* 为兑换码时设置keyType:'copy' */ },
+  { name: "兑换码", content: "AAAA BBBB CCCC DDDD" },
   { name: "京东礼金卡", content: "100元" },
 ];
 var dialogRecord = DialogJS.record({
@@ -209,18 +206,35 @@ var dialogRecord = DialogJS.record({
     {
       label: "奖品内容",
       prop: "content",
-      /* 
-        action 和 render 均为渲染模式二选一。
-        优先级：render > action。
-
-        action：为内置模板渲染
-        render：为根据实际情况渲染，其中render函数接受参数为当前字段数据params，数据下标index
-      */
-      action: "keyType",
-      // render: function (params, index) {
-      //   console.log(params, index);
-      //   return index + "-" + JSON.stringify(params);
-      // },
+      // 设置奖品内容 或 按钮类型
+      render: function (params, index) {
+        var retStr = params.content;
+        switch (params.name) {
+          case "实物奖品":
+            retStr = '<button role="button" class="ico-btn-reset pops__link jpopBtnCallUinfo">填写信息</button>';
+            break;
+          case "绑定":
+            retStr = '<button role="button" class="ico-btn-reset pops__link jpopBtnCallBind">去绑定</button>';
+            break;
+          case "兑换码":
+            retStr = JTool.utils.tagString(
+              "div",
+              {
+                class: ["pops__link", "jBtnPopCode"],
+                attr: {
+                  role: "button",
+                  "data-clipboard-text": JTool.utils.trimAll(params.content),
+                },
+              },
+              params.content
+            );
+            break;
+          default:
+            retStr = params.content;
+            break;
+        }
+        return retStr;
+      },
     },
   ],
   data: recordData,
@@ -234,23 +248,14 @@ var dialogRecord = DialogJS.record({
     }
   },
 });
-/* 模态框--我的奖励-礼品查看 */
-$(".jpopRecord").on("click", ".jpopBtnCallCode", function () {
-  DialogJS.code({
-    direction: "vertical",
-    title: "温馨提示",
-    prefix: "恭喜获得礼包码",
-    message: "FLFDSFDSFDFFS",
-    // prefix: "恭喜获得华为手机",
+// 我的奖励
+$(".btn-record").on("click", function () {
+  recordData.push({ name: "兑换码", content: Date.now() + "" });
+  dialogRecord.open({
+    title: "我的奖励",
+    data: recordData,
+    // prefix: "",
     // suffix: "",
-    footer: "福利-激活码-输入礼包码-兑换",
-    // done(true)时弹窗关闭
-    onBeforeClose: function (action, done) {
-      /* 点击确认按钮逻辑 */
-      if (action == "button") {
-      }
-      done(true);
-    },
   });
 });
 /* 模态框--我的奖励-待领取绑定游戏信息 */
@@ -261,16 +266,7 @@ $(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
 $(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
   dialogUinfo.open({ prefix: "" });
 });
-$(".jbtnMyPrize").on("click", function () {
-  recordData.push({ name: "兑换码", content: Date.now() + "", keyType: "copy" });
-  dialogRecord.open({
-    title: "我的奖励",
-    data: recordData,
-    // prefix: "",
-    // suffix: "",
-  });
-});
-/* 我的奖励——默认模式 end */
+/* 我的奖励——默认模式 */
 
 /* 我的奖励——diy模式 */
 var dialogDiyRecord = DialogJS.diy({

@@ -12,6 +12,7 @@
       position: relative;
       display: inline-block;
       @include flex-width(160px);
+      vertical-align: top;
       img {
         width: 100%;
       }
@@ -29,6 +30,7 @@
     zoom: 1;
   }
   &__links {
+    display: inline-block;
     display: flex;
     justify-content: center;
     align-items: left;

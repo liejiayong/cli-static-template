@@ -74,23 +74,27 @@
       transform: scale(1.05);
     }
   }
-  .lottery__btn {
+  .lottery__extra {
     position: absolute;
     top: $top * 1;
     left: $left * 1;
-    width: $left - $gutter;
-    height: $top - $gutter;
+    width: (2 * $left - $gutter);
+    height: (2 * $top - $gutter);
+    text-align: center;
     box-sizing: border-box;
-    overflow: hidden;
-    color: #f3d58e;
-    background-color: #e9e9e9;
+  }
+  .lottery__btn {
+    font-size: 24px;
+    color: #603209;
+    // background-color: #e9e9e9;
   }
   .lottery__status {
     display: block;
-    padding-top: 82px;
+    padding-top: 102px;
+    box-sizing: border-box;
     span {
-      font-size: 16px;
-      font-weight: bold;
+      // font-size: 16px;
+      // font-weight: bold;
     }
   }
 }
@@ -131,11 +135,17 @@
 //       <div class="name">价值100礼包</div>
 //     </div>
 //   </div>
-//   <a href="javascript:;" class="jy-btn-txt lottery__btn ico-btn-lottery jlottery-btn">
+// <div class="lottery__extra pt-5">
+//   <a href="javascript:;" class="jy-btn-txt lottery__btn ico-lottery-btn jlottery-btn">
 //     <div class="lottery__status">
 //       剩余抽奖次数
 //       <span>2</span>
 //       次
 //     </div>
 //   </a>
+//   <div class="mt-0">
+//     <a href="javascript:;" class="jy-btn btn-reg"></a>
+//     <a href="javascript:;" class="jy-btn btn-record ml-10"></a>
+//   </div>
+// </div>
 // </div>

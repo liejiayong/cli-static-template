@@ -24,6 +24,29 @@
     height: 100%;
     object-fit: cover;
   }
+    .banner__txt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 18px;
+    color: rgba(255, 255, 255,.82);
+    background: rgba(0, 0, 0, 0.35);
+    a,
+    span {
+      flex: 1;
+      cursor: pointer;
+      &.active {
+        color: rgba(255, 255, 255,.82);
+        background-color: rgba(0, 0, 0, 0.45);
+      }
+    }
+  }
   .swiper-pagination-com {
     padding: 4px 8px;
     position: absolute;

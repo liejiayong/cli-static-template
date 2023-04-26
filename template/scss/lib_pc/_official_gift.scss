@@ -210,7 +210,7 @@
 // <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
 // <script type="text/javascript">
 //   $(function () {
-//     $('.gifts__unit').on('click', 'a[data-suid="BTNGET"]' function () {
+//     $('.gifts__unit').on('click', 'a[data-suid="BTNGET"]', function () {
 //       $('#popGift').fadeIn();
 //     });
 //     $('.pops__btn-close').on('click', function () {
