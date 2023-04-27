@@ -48,6 +48,9 @@ JTool.define("lottery", function () {
         $(".lottery__item").eq(index).addClass("active").siblings().removeClass("active");
         JTool.showToast({ message: "<p>恭喜获得" + index + "</p>" });
         _this.removeClass("disable");
+        setTimeout(function () {
+          $(".lottery__item").eq(index).removeClass("active");
+        }, 500);
       }
     );
   });

@@ -8,8 +8,8 @@ $gutter: 0.1rem;
 .lottery__unit {
   margin: 0 auto;
   position: relative;
-  height: 3 * $top - 2 * $gutter;
-  width: 4 * $left - 3 * $gutter;
+  height: 3 * $top - 1 * $gutter;
+  width: 4 * $left - 1 * $gutter;
 }
 .lottery__content {
   margin: 0 auto;
@@ -93,6 +93,13 @@ $gutter: 0.1rem;
     top: 1 * $top;
     left: 0 * $left;
   }
+
+  &.active {
+    pointer-events: none;
+    filter: brightness(1.2);
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
 }
 .lottery__btn {
   box-sizing: border-box;
@@ -102,20 +109,21 @@ $gutter: 0.1rem;
 }
 .lottery__status {
   display: block;
-  padding-top: 0.1rem;
-  font-size: 16px;
+  padding-top: 1rem;
+  font-size: 0.24rem;
+  color: #603209;
   span {
-    font-weight: bold;
+    // font-weight: bold;
   }
 }
 
-.lottery__extral {
+.lottery__extra {
   // margin: 0 auto;
   position: absolute;
   top: 1 * $top;
   left: 1 * $left;
-  width: 3.39rem;
-  height: 1.15rem;
+  width: 2 * $left - $gutter;
+  height: 2 * $top -$gutter;
   text-align: center;
   // .swiper-container {
   //   width: 3.04rem;
@@ -188,7 +196,7 @@ $gutter: 0.1rem;
 //     </div>
 //   </div>
 
-//   <div class="lottery__extral">
+//   <div class="lottery__extra">
 //     <div class="swiper-container mauto mt-10 tl" id="spLottery">
 //       <div class="swiper-wrapper">
 //         <div class="swiper-slide">恭喜不是耗子就是猫获得玛雅卷轴</div>
