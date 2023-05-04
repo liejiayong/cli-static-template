@@ -90,9 +90,5 @@ css
 src
 spritesmith/
 **/font/media
-**/**/*.ttf
-*.eot
-*.svg
-*.woff
-*.woff2
+fonts/
 .font-spider
