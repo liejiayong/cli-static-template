@@ -2,7 +2,7 @@
 $(".ico-lottery-btn").click(function () {
   $(".ico-lottery-btn").addClass("disable");
   var DEG = 360 / 6;
-  var count = jtool.getRandom(0, 5);
+  var count = JTool.utils.getRandom(0, 5);
   $(".jlottery-btn").rotate({
     angle: 0,
     animateTo: 360 * 8 + count * DEG - DEG / 2,
@@ -10,7 +10,7 @@ $(".ico-lottery-btn").click(function () {
     center: ["50%", "1.12rem"],
     callback: function () {
       $(".ico-lottery-btn").removeClass("disable");
-      jtool.showTip({
+      JTool.showToast({
         content: '<div class="tc"><div>恭喜您获得X积分</div><div>请前往【积分商城】兑换奖励</div></div>',
       });
     },
