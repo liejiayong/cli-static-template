@@ -7,6 +7,92 @@ function bindMockDelay(flag, done) {
     JTool.showToast(msg);
   }, 1000);
 }
+JTool.define("tpl", function () {
+  return {
+    entity: function (item) {
+      return JTool.utils.tagString("div", { class: "pops__grid__tr" }, [
+        {
+          type: "div",
+          props: {
+            class: "pops__grid__td",
+          },
+          children: item.name,
+        },
+        {
+          type: "div",
+          props: {
+            class: "pops__grid__td",
+          },
+          children: item.content,
+        },
+        {
+          type: "div",
+          props: {
+            class: "pops__grid__td",
+          },
+          children: {
+            type: "button",
+            props: {
+              class: ["pops__btn", "ico-btn-reset", "ico-pop-btn-ok", "jbtnUinfo"],
+            },
+            children: "填写地址",
+          },
+        },
+      ]);
+    },
+    title: function (item) {
+      return JTool.utils.tagString("div", { class: "pops__grid__tr" }, [
+        {
+          type: "div",
+          props: {
+            class: "pops__grid__td",
+          },
+          children: item.name,
+        },
+        {
+          type: "div",
+          props: {
+            class: "pops__grid__td",
+          },
+          children: item.content,
+        },
+      ]);
+    },
+    code: function (item) {
+      return JTool.utils.tagString("div", { class: "pops__grid__tr" }, [
+        {
+          type: "div",
+          props: {
+            class: "pops__grid__td",
+          },
+          children: item.name,
+        },
+        {
+          type: "div",
+          props: {
+            class: ["pops__grid__td", "jBtnPopCode"],
+            attr: { "data-clipboard-text": JTool.utils.trimAll(item.content || "") },
+          },
+          children: item.content,
+        },
+        {
+          type: "div",
+          props: {
+            class: "pops__grid__td",
+          },
+          children: {
+            type: "button",
+            props: {
+              class: ["pops__btn", "ico-btn-reset", "ico-pop-btn-ok", "jBtnPopCode"],
+              attr: { "data-clipboard-text": JTool.utils.trimAll(item.content || "") },
+            },
+            children: "复制",
+          },
+        },
+      ]);
+    },
+  };
+});
 
 /**
   个人信息  
@@ -166,16 +252,6 @@ var dialogBind = DialogJS.bind({
 });
 /* 绑定游戏 end */
 
-// 填写个人信息
-$(".jbtnUinfo").on("click", function () {
-  dialogUinfo.open({ prefix: "个人信息" });
-});
-
-// 绑定游戏信息
-$(".jbtnBind").on("click", function () {
-  dialogBind.open({ prefix: "绑定游戏" });
-});
-
 /* 我的奖励——默认模式 */
 var recordData = [
   {
@@ -238,6 +314,16 @@ var dialogRecord = DialogJS.record({
     },
   ],
   data: recordData,
+  onMounted: function () {
+    /* 模态框--我的奖励-待领取绑定游戏信息 */
+    $(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
+      dialogBind.open({ prefix: "" });
+    });
+    /* 模态框--我的奖励-填写个人信息 */
+    $(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
+      dialogUinfo.open({ prefix: "" });
+    });
+  },
   // done(true)时弹窗关闭
   onBeforeClose: function (action, done) {
     /* 点击确认按钮逻辑 */
@@ -258,14 +344,7 @@ $(".btn-record").on("click", function () {
     // suffix: "",
   });
 });
-/* 模态框--我的奖励-待领取绑定游戏信息 */
-$(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
-  dialogBind.open({ prefix: "" });
-});
-/* 模态框--我的奖励-填写个人信息 */
-$(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
-  dialogUinfo.open({ prefix: "" });
-});
+
 /* 我的奖励——默认模式 */
 
 /* 我的奖励——diy模式 */
@@ -278,6 +357,20 @@ var dialogDiyRecord = DialogJS.diy({
   suffix:
     '<div class="tc"><img style="width:2rem" src="https://image.tanwan.com/huodong/sy/2022nzhd/img/3029.png"/></div>',
   footer: "",
+  onMounted: function () {
+    // 关闭
+    $(".jpopRecord").on("click", ".jpopClose", function () {
+      dialogDiyRecord.$el.fadeOut();
+    });
+    /* 模态框--我的奖励-待领取绑定游戏信息 */
+    $(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
+      dialogBind.open({ prefix: "" });
+    });
+    /* 模态框--我的奖励-填写个人信息 */
+    $(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
+      dialogUinfo.open({ prefix: "" });
+    });
+  },
   onBeforeClose: function (action, done) {
     /* 点击确认按钮逻辑 */
     if (action == "button") {
@@ -306,30 +399,23 @@ $(".jbtnMyPrize1").on("click", function () {
     "</div>",
   ].join("");
   var data = [
-    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
-    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
-    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
-    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
+    { name: "分享礼包", content: "AAAA BBBB CCCC DDDD" },
+    { name: "开局礼包", content: "AAAA BBBB CCCC DDDD" },
+    { name: "热战礼包", content: "AAAA BBBB CCCC DDDD" },
+    { name: "称号礼包", content: "15个工作日内发放，游戏邮箱查收。" },
+    { name: "实物礼包", content: "华为手机" },
+    // { name: "绑定游戏", content: "" },
   ];
   var messageHTML = "";
   data.forEach(function (item) {
-    messageHTML += JTool.utils.tagString("div", { class: "pops__grid__tr" }, [
-      {
-        type: "div",
-        props: {
-          class: "pops__grid__td",
-        },
-        children: item.name,
-      },
-      {
-        type: "div",
-        props: {
-          class: ["pops__grid__td", "jBtnPopCode"],
-          attr: { "data-clipboard-text": JTool.utils.trimAll(item.content || "") },
-        },
-        children: item.content,
-      },
-    ]);
+    /* 实物礼包 */
+    if (item.name == "实物礼包") {
+      messageHTML += JTool.tpl.entity(item);
+    } else if (/* 称号礼包 */ item.name == "称号礼包") {
+      messageHTML += JTool.tpl.title(item);
+    } /* 礼包码 */ else {
+      messageHTML += JTool.tpl.code(item);
+    }
   });
   messageHTML = JTool.utils.tplFormat(recordTpl, { children: messageHTML });
   dialogDiyRecord.open({
@@ -338,13 +424,6 @@ $(".jbtnMyPrize1").on("click", function () {
     suffix: "",
     message: messageHTML,
     footer: "温馨提示：请尽快兑换奖品以免失效~",
-    // done(true)时弹窗关闭
-    onBeforeClose: function (action, done) {
-      /* 点击确认按钮逻辑 */
-      if (action == "button") {
-      }
-      done(true);
-    },
   });
 });
 /* 我的奖励——diy模式 end */
