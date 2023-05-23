@@ -15,7 +15,7 @@ body {
   background: $color-theme-bg;
 }
 
-.jy-wrapper {
+.wrapper__cont {
   position: relative;
   width: 100%;
   margin-left: auto;
@@ -23,7 +23,8 @@ body {
   overflow: hidden;
   // background: url('../img/bg.jpg') no-repeat top center;
 }
-.jy-main {
+
+.main__cont {
   padding: 440px 0 100px;
   margin-left: auto;
   margin-right: auto;
@@ -32,7 +33,7 @@ body {
   width: $main-width-pc;
 }
 
-.jy-main__ny {
+.main__cont__ny {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -42,11 +43,18 @@ body {
   background: #201f2a;
 }
 
-// <div class="jy-title__container">
+.main__box{ 
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: $main-width-pc;
+}
+
+// <div class="title__cont">
 //   <div class="label">职业介绍</div>
 //   <a href="" class="jy-btn ico-more"></a>
 // </div>
-.jy-title__container {
+.title__cont {
   padding: 0 24px 0 32px;
   display: flex;
   justify-content: space-between;
@@ -59,11 +67,11 @@ body {
   }
 }
 
-// <div class="jy-title__ny__container">
+// <div class="title__cont__ny">
 //   <div class="label">职业介绍</div>
 //   <a href="" class="jy-btn ico-more"></a>
 // </div>
-.jy-title__ny__container {
+.title__cont__ny {
   padding: 0 30px;
   display: flex;
   justify-content: space-between;
@@ -88,7 +96,7 @@ body {
   }
 }
 
-.jy-section {
+.sec__cont {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -96,7 +104,7 @@ body {
   box-sizing: border-box;
   /* overflow: hidden; */
 }
-.jy-sectionmain {
+.sec__main {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -106,7 +114,7 @@ body {
   background: no-repeat top center;
   box-sizing: border-box;
 }
-.jy-sectionmain-x {
+.sec__main-x {
   position: relative;
   margin-left: auto;
   margin-right: auto;

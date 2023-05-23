@@ -7,7 +7,7 @@ logic.hillInstall = new TimerController({
   DEFAULT_TIME: 20,
   eachTime: function (install) {
     beatGame.setTime(install.current);
-    $('.section-2 .countdown span').text(install.current + 's');
+    $('.sec2 .countdown span').text(install.current + 's');
   },
   stop: function () {
     beatGame.stop();
@@ -24,8 +24,8 @@ function BeatGame(opts) {
   this.playing = false;
   this.clickCount = 0; /* 砸开数量 */
 
-  this.mainCls = opts.mainClass || '';
-  this.activeCls = opts.activeCls || 'active';
+  this.mainCls = opts.mainClass || "";
+  this.activeCls = opts.activeCls || "active";
 
   this.curSpeed = 0; /* 当前展示间隔速度，单位 ms */
   this.SPEED = opts.speed || 1500; /* 展示间隔速度，单位 ms */
@@ -123,13 +123,13 @@ BeatGame.prototype._run = function () {
       if (Date.now() - item.time > duration) {
         item.time = -1;
         item.loading = false;
-        arr[item.index]['el'].classList.remove(self.activeCls);
+        arr[item.index]["el"].classList.remove(self.activeCls);
       }
       // 未砸蛋
       else {
         // 设置新蛋
         if (!item.loading) {
-          arr[item.index]['el'].classList.add(self.activeCls);
+          arr[item.index]["el"].classList.add(self.activeCls);
         }
       }
     }
@@ -137,7 +137,7 @@ BeatGame.prototype._run = function () {
     else {
       item.time = -1;
       item.loading = false;
-      arr[item.index]['el'].classList.remove(self.activeCls);
+      arr[item.index]["el"].classList.remove(self.activeCls);
     }
   });
 

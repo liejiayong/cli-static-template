@@ -213,7 +213,7 @@
 //     $('.gifts__unit').on('click', 'a[data-suid="BTNGET"]', function () {
 //       $('#popGift').fadeIn();
 //     });
-//     $('.pops__btn-close').on('click', function () {
+//     $('#popGift').on('click', '.pops__btn-close', function () {
 //       $('#popGift').fadeOut();
 //     });
 //     var clipboard = new ClipboardJS('.jpopcopy');

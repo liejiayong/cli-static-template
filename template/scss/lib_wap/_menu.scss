@@ -72,13 +72,13 @@ $color-active: #ee9b1e;
   // @include text-gradient($color, linear-gradient(bottom, #fff3dc, #ffe9c6, #ffdca9));
 }
 
-// <div class="jy-wrapper" id="topWrapper">
-//   <div class="jy-section section-1 jpage" id="p1"></div>
-//   <div class="jy-section section-1 jpage" id="p2"></div>
-//   <div class="jy-section section-1 jpage" id="p3"></div>
-//   <div class="jy-section section-1 jpage" id="p4"></div>
-//   <div class="jy-section section-1 jpage" id="p5"></div>
-//   <div class="jy-section section-1 jpage" id="p6"></div>
+// <div class="wrapper" id="topWrapper">
+//   <div class="sec__cont sec1 jpage" id="p1"></div>
+//   <div class="sec__cont sec2 jpage" id="p2"></div>
+//   <div class="sec__cont sec3 jpage" id="p3"></div>
+//   <div class="sec__cont sec4 jpage" id="p4"></div>
+//   <div class="sec__cont sec5 jpage" id="p5"></div>
+//   <div class="sec__cont sec6 jpage" id="p6"></div>
 //   <div class="menus__unit" id="menus">
 //     <ul class="menus__content">
 //       <li class="menus__item active"><a href="#p1" class="menus__link">首页</a></li>

@@ -15,6 +15,8 @@ const NODE_ENV_MAP = {
   wap: 'wap',
   pc: 'pc',
 };
+const whitelist = ['_util_size'].concat(Object.values(NODE_ENV_MAP))
+
 let NODE_ENV = '';
 function SET_ENV(type) {
   NODE_ENV = process.env.NODE_ENV = type;
@@ -49,7 +51,7 @@ async function exceSpriteAfter(cb) {
 
 async function genScss(cb) {
   await cpFiles({
-    inputPath: `./template/scss/_!(_)*.scss`,
+    inputPath: `./template/scss/!(${whitelist.join('|')})*.scss`,
     outputPath: './src/scss/',
     renameOpts: { prefix: '' },
     isAutoprefixer: false,
@@ -65,23 +67,22 @@ async function genScss(cb) {
     isSass: false,
   });
   await cpFiles({
-    inputPath: `./template/scss/index-${NODE_ENV}*.scss`,
+    inputPath: `./template/scss/${NODE_ENV}.scss`,
     outputPath: './src/scss/',
     renameOpts: { prefix: '' },
     isAutoprefixer: false,
     isPxtorem: false,
     isSass: false,
   });
-  cb();
-}
-function genScssUtil(cb) {
-  concatFiles({
-    files: ['./template/scss/__util.scss'],
-    toName: '__util.scss',
+  await concatFiles({
+    files: ['./template/scss/complier/_util_size.scss'],
     toPath: './src/scss/',
-    isAutoprefixer: true,
+    toName: '_util_size.scss',
+    renameOpts: { basename: '_util_size' },
+    isAutoprefixer: NODE_ENV === NODE_ENV_MAP['wap'],
     isPxtorem: NODE_ENV === NODE_ENV_MAP['wap'],
-  });
+    isSass: false,
+   });
   cb();
 }
 
@@ -97,7 +98,8 @@ async function genHTML() {
 }
 
 async function genMedia() {
-  const imgExp = NODE_ENV === NODE_ENV_MAP['pc'] ? '**' : '!(ico-dice*)*';
+  // const imgExp = NODE_ENV === NODE_ENV_MAP['pc'] ? '**' : '!(ico-dice*)*';
+  const imgExp = '!(ico-dice*)*';
   await cpFiles({
     inputPath: `./template/img/${imgExp}`,
     outputPath: './src/img/',
@@ -134,9 +136,9 @@ async function initDir() {
 }
 
 /* 生成wap端模板 */
-exports.wap = series(exceBefore, setEnvWap, genScss, genScssUtil, genHTML, genMedia, genJS, exceAfter);
+exports.wap = series(exceBefore, setEnvWap, genScss, genHTML, genMedia, genJS, exceAfter);
 /* 生成pc端模板 */
-exports.pc = series(exceBefore, setEnvPc, genScss, genScssUtil, genHTML, genMedia, genJS, exceAfter);
+exports.pc = series(exceBefore, setEnvPc, genScss, genHTML, genMedia, genJS, exceAfter);
 
 async function concatSpriteFile(cb) {
   // scss

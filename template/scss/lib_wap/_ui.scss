@@ -104,7 +104,7 @@ body {
 }
 
 /* app container wrapper */
-.jy-wrapper {
+.wrapper {
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -120,7 +120,7 @@ body {
 }
 
 // /* main wrapper, Usually used when there is a main menubar switch  */
-// .main-wrapper {
+// .main__wrapper {
 //   margin-left: auto;
 //   margin-right: auto;
 //   position: absolute;
@@ -136,31 +136,54 @@ body {
 // }
 
 /* content wrapper, usually used when is a new content */
-.jy-content_fill {
+.content__fill {
   margin-left: auto;
   margin-right: auto;
   position: relative;
   width: 100%;
   height: 100vh;
+  flex:1;
   overflow-y: auto;
   box-sizing: border-box;
-}
-.jy-content_scroll {
-  padding: $nav-height 0 $page-padding-bottom;
   -webkit-overflow-scrolling: touch;
-  box-sizing: border-box;
-  // background-color: #fff;
 }
-.jy-content_scroll-com {
-  padding: $nav-height $page-padding-lr $page-padding-bottom;
-  min-height: 100vh;
-  -webkit-overflow-scrolling: touch;
+.content__scroll {
+  // padding: $nav-height 0 $page-padding-bottom;
+  flex:1;
+  overflow-y: auto;
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
   // background-color: #fff;
 }
 
+.main__cont {
+  // padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 100vh;
+  width: $main-width-pc;
+}
+
+.main__cont__ny {
+  // margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: $main-width-pc;
+  // border: 1px solid #403e54;
+  // background: #201f2a;
+}
+
+.main__box{ 
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: $main-width-pc;
+}
+
 /* for a section block */
-.jy-section {
+.sec__cont {
   // display: none;
   position: relative;
   width: 100%;
@@ -179,7 +202,7 @@ body {
     animation: fadeIn 0.3s ease-in;
   }
 }
-.jy-sectionmain {
+.sec__main {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -191,7 +214,7 @@ body {
   // background: no-repeat top center / contain;
   background: no-repeat top center / 100% auto;
 }
-.jy-sectionmain-auto {
+.sec__main-auto {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -303,7 +326,7 @@ body {
     no-repeat right 10px center/ 8px auto;
 }
 
-.jy-qrcode-gen {
+.qrcode__gen {
   $width: 2.9rem;
 
   position: relative;

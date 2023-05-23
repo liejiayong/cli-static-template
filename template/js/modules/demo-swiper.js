@@ -1,9 +1,9 @@
 // 轮播图或滚动公告使用
-var mySwiper = new Swiper('#rankls', {
+var mySwiper = new Swiper("#rankls", {
   loop: true,
   autoplay: true,
   initialSlide: 0,
-  direction: 'vertical',
+  direction: "vertical",
   slidesPerView: 7,
   slidesPerGroup: 7,
   observer: true,
@@ -14,29 +14,25 @@ var mySwiper = new Swiper('#rankls', {
 });
 
 function initSwiper() {
-  setTimeout(function() {
+  setTimeout(function () {
     mySwiper.update();
   }, 100);
 }
 initSwiper();
 
 /* 全部滚动业务逻辑 */
-jtool = {
-  /**
-   * swiper.js 滚动页面
-   * @param {Element} el
-   */
-  swiper: function (el) {
+JTool.define("swiper", function (exports) {
+  return function (el) {
     var psw = new Swiper(el, {
       initialSlide: 0,
-      direction: 'vertical',
+      direction: "vertical",
       height: $(window).height(),
       autoHeight: true,
     });
     this.psw = psw;
     var startScroll, touchStart, touchCurrent;
     psw.slides.on(
-      'touchstart',
+      "touchstart",
       function (e) {
         startScroll = Math.ceil(this.scrollTop);
         touchStart = e.targetTouches[0].pageY;
@@ -44,7 +40,7 @@ jtool = {
       true
     );
     psw.slides.on(
-      'touchmove',
+      "touchmove",
       function (e) {
         touchCurrent = e.targetTouches[0].pageY;
         var touchesDiff = touchCurrent - touchStart;
@@ -60,8 +56,7 @@ jtool = {
       },
       true
     );
-  },
-};
+  };
+});
 
-jtool.swiper('#psw');
-
+JTool.swiper("#psw");

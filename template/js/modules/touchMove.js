@@ -3,15 +3,15 @@ const jtool = {
   touchMove 设置阻止指定原素页面默认滚动效果
 
   // test touchMove
-  jtool.touchMove.addListener('.section-1')
-  // jtool.touchMove.addListener('.section-2')
+  jtool.touchMove.addListener('.sec1')
+  // jtool.touchMove.addListener('.sec2')
   setTimeout(() => {
-    jtool.touchMove.prevent('.section-1', function (e) {
+    jtool.touchMove.prevent('.sec1', function (e) {
       console.log('0000000000', e)
     })
   }, 3000);
   setTimeout(() => {
-    jtool.touchMove.reset('.section-1', function (e) {
+    jtool.touchMove.reset('.sec1', function (e) {
       console.log('111111111', e)
     })
   }, 6000);  
@@ -53,7 +53,7 @@ const jtool = {
       self.$doms[clsStat.index].stat = true;
       // console.log('prevent', this.has(cls), clsStat.dom, self.preventFn)
       // clsStat.dom.addEventListener('touchmove', function (e) { self.preventFn(e, callback) }, {
-      clsStat.dom.addEventListener('touchmove', self.preventFn, {
+      clsStat.dom.addEventListener("touchmove", self.preventFn, {
         passive: false,
       });
     },
@@ -65,7 +65,7 @@ const jtool = {
       self.$doms[clsStat.index].stat = false;
       // console.log('reset', this.has(cls), clsStat.dom, self.preventFn)
       // clsStat.dom.removeEventListener('touchmove', function (e) { self.preventFn(e, callback) }, {
-      clsStat.dom.removeEventListener('touchmove', self.preventFn, {
+      clsStat.dom.removeEventListener("touchmove", self.preventFn, {
         passive: false,
       });
     },

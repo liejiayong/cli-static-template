@@ -41,7 +41,7 @@ exports.cpFiles = function (opts) {
     .pipe(gulpif(isAutoprefixer, autoprefixer()))
     .pipe(gulpif(!!renameOpts, rename(renameOpts)))
     .pipe(gulpif(isSourceMap, sourcemaps.write('.')))
-    .pipe(gulp.dest(`${outputPath}`));
+    .pipe(gulp.dest(`${outputPath}`))
 };
 
 exports.concatFiles = function concatFiles(opts) {

@@ -1,5 +1,5 @@
 /* 圆盘抽奖 */
-$(".ico-lottery-btn").click(function () {
+$(".ico-lottery-btn").on("click", function () {
   $(".ico-lottery-btn").addClass("disable");
   var DEG = 360 / 6;
   var count = JTool.utils.getRandom(0, 5);

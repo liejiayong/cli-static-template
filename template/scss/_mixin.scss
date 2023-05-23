@@ -304,3 +304,29 @@
   -webkit-overflow-scrolling: touch;
   -ms-scroll-chaining: none;
 }
+
+/* 
+  Generate a series of gutter utils
+  @include initGutter(5px)
+  @include initGutter(.05rem)
+*/
+@mixin initGutter($mixin-gutter: 5px) {
+  @each $type in ml, mt, pl, pt {
+    @for $i from 1 through 12 {
+      $size: 5 * $i;
+      .#{$type}-#{$size} {
+        width: $i * $mixin-gutter;
+      }
+    }
+  }
+}
+
+@mixin createContent($el: before) {
+  &::#{$el} {
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0
+  }
+}

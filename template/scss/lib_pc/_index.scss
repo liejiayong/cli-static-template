@@ -1,31 +1,22 @@
 @charset "UTF-8";
 @import "../_const.scss";
 @import "../_mixin.scss";
-@import "../_reset.scss";
-@import "../_font.scss";
-@import "../_sprite.scss";
-@import "../__util.scss";
-@import "../_dialog.scss";
 
-@import '../_animate.scss';
-// @import '../_swiper.scss';
-// @import '../_share_bd.scss';
+@import "./_list.scss";
+@import "./_rank.scss";
+@import "./_dice.scss";
+@import "./_counttime.scss";
+@import "./_lottery.scss";
+@import "./_danmu.scss";
 
-// @import "../lib_pc/_list.scss";
-// @import "../lib_pc/_rank.scss";
-// @import "../lib_pc/_dice.scss";
-// @import "../lib_pc/_counttime.scss";
-// @import "../lib_pc/_lottery.scss";
-// @import "./_danmu.scss";
-
-// @import "../lib_pc/_official_banner.scss";
-// @import "../lib_pc/_official_news.scss";
-// @import "../lib_pc/_official_ebook.scss";
-// @import "../lib_pc/_official_gift.scss";
-// @import "../lib_pc/_official_quick_entery.scss";
-// @import "../lib_pc/_official_role_ski_param.scss";
-// @import "../lib_pc/_pagination.scss";
-// @import "../lib_pc/_header.scss";
+@import "./_official_banner.scss";
+@import "./_official_news.scss";
+@import "./_official_ebook.scss";
+@import "./_official_gift.scss";
+@import "./_official_quick_entery.scss";
+@import "./_official_role_ski_param.scss";
+@import "./_pagination.scss";
+@import "./_header.scss";
 
 // @import "./_pop.scss";
 @import "./_ui.scss";

@@ -139,10 +139,10 @@
 //     alert('当前浏览器不支持此功能，请手动复制。');
 //   });
 
-//   $('.btn-get').on('click', function () {
+//   $('.gifts__unit').on('click', '.btn-get', function () {
 //     $('#popGift').fadeIn();
 //   });
-//   $('.jpopclose').on('click', function () {
+//   $('#popGift').on('click', '.jpopclose', function () {
 //     $(this).parents('.pops').fadeOut();
 //   });
 // });
