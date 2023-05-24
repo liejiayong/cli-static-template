@@ -7,6 +7,10 @@ function bindMockDelay(flag, done) {
     JTool.showToast(msg);
   }, 1000);
 }
+function requestJSON(done) {
+  var isFlag = [true, false][JTool.utils.getRandom(0, 1)];
+  bindMockDelay(isFlag, done);
+}
 JTool.define("tpl", function () {
   return {
     entity: function (item) {
@@ -94,11 +98,7 @@ JTool.define("tpl", function () {
   };
 });
 
-/**
-  个人信息  
-  打开：dialogBind.open();
-  销毁：dialogBind.destroy();
-**/
+/* 个人信息 */
 var dialogUinfo = DialogJS.uinfo({
   async: true,
   title: "个人信息",
@@ -107,7 +107,7 @@ var dialogUinfo = DialogJS.uinfo({
   footer: "活动结束后会有专员联系您确认信息，请留意来自“江西-南昌”的来电~",
   buttonText: "确认按钮文本",
   // button:
-  //   '<button role="button" aria-label="dialog confirm button" onclick="callFnTest()" class="pops__btn pops__btn__ok pops__mt jpopClose">自定义确认按钮</button>',
+  //   '<button role="button" onclick="callFnTest()" class="pops__btn pops__btn__ok pops__mt jpopClose">自定义确认按钮</button>',
   data: [
     { label: "姓名", value: "贪玩游戏", key: "nickname", placeholder: "请输入姓名", type: "input" },
     { label: "手机", value: "", key: "tel", placeholder: "请输入手机号", type: "input" },
@@ -125,15 +125,21 @@ var dialogUinfo = DialogJS.uinfo({
   // done(true)时弹窗关闭
   onBeforeClose: function (action, done) {
     /* 点击确认按钮逻辑 */
-    if (action == "button") {
-      // mock status
-      var isFlag = [true, false][JTool.utils.getRandom(0, 1)];
-      bindMockDelay(isFlag, done);
-    } else {
-      done(true);
+    switch (action) {
+      case "button":
+        requestJSON(done);
+        break;
+      default:
+        done(true);
+        break;
     }
   },
+  onBeforeMount: function () {
+    console.log("-------dialog onBeforeMount-------");
+  },
   onMounted: function () {
+    console.log("-------dialog onMounted-------");
+
     /* 初始化获取验证码按钮 */
     JTool.button.verify({
       target: ".pops__btn__ac",
@@ -145,6 +151,11 @@ var dialogUinfo = DialogJS.uinfo({
         JTool.showToast("可以重新获取短息啦~");
       },
     });
+
+    // 填写个人信息
+    $(".jbtnUinfo").on("click", function () {
+      dialogUinfo.open({ prefix: "恭喜你!" });
+    });
   },
   onClose: function () {
     console.log("-------dialog onClose-------");
@@ -155,11 +166,7 @@ var dialogUinfo = DialogJS.uinfo({
 });
 /* 个人信息 end */
 
-/*
-  绑定游戏
-  打开：dialogBind.open();
-  销毁：dialogBind.destroy();
-*/
+/* 绑定游戏 */
 var dialogBind = DialogJS.bind({
   async: true,
   title: "绑定游戏",
@@ -198,10 +205,13 @@ var dialogBind = DialogJS.bind({
   // done(true)时弹窗关闭
   onBeforeClose: function (action, done) {
     /* 点击确认按钮逻辑 */
-    if (action == "button") {
-      bindMockDelay(true, done);
-    } else {
-      done(true);
+    switch (action) {
+      case "button":
+        requestJSON(done);
+        break;
+      default:
+        done(true);
+        break;
     }
   },
   onMounted: function () {
@@ -210,12 +220,7 @@ var dialogBind = DialogJS.bind({
       placeholder: "选择区服",
       allowClear: true,
       width: "100%",
-      data: [
-        { text: "王城争霸", id: 1 },
-        { text: "原始传奇", id: 2 },
-        { text: "蓝月传奇", id: 3 },
-        { text: "热血封神", id: 4 },
-      ],
+      // data: [],
     });
     // 若区服已选择过，则可初始化
     js_select1.val(2).trigger("change");
@@ -224,168 +229,28 @@ var dialogBind = DialogJS.bind({
       placeholder: "选择角色",
       allowClear: true,
       width: "100%",
-      data: [
-        { text: "爱因斯坦", id: 1 },
-        { text: "维特更斯坦", id: 2 },
-      ],
+      // data: [],
     });
     // 若角色已选择过，则可初始化
     js_select2.val(2).trigger("change");
 
     $("#selectServer").change(function () {
       var val = $(this).val();
-
+      console.log("select", val);
       // request 数据并初始化
-      var js_select2 = $("#selectRole").select2({
-        placeholder: "选择角色",
-        allowClear: true,
-        width: "100%",
-        data: [
-          { text: "爱因斯坦", id: 1 },
-          { text: "维特更斯坦", id: 2 },
-        ],
-      });
-      // 若角色已选择过，则可初始化
-      js_select2.val(2).trigger("change");
+      js_select2.val(1).trigger("change");
+    });
+
+    // 绑定游戏信息
+    $(".jbtnBind").on("click", function () {
+      dialogBind.open({ prefix: "绑定游戏" });
     });
   },
 });
 /* 绑定游戏 end */
 
-/* 我的奖励——默认模式 */
-var recordData = [
-  {
-    name: "实物奖品",
-    content: "华为fold手机",
-  },
-  {
-    name: "绑定",
-    content: "原始传奇神级套餐",
-  },
-  {
-    name: "礼品",
-    content: "原始传奇神级套餐",
-  },
-  { name: "兑换码", content: "AAAA BBBB CCCC DDDD" },
-  { name: "京东礼金卡", content: "100元" },
-];
-var dialogRecord = DialogJS.record({
-  async: true,
-  title: "我的奖励",
-  prefix: "",
-  suffix: "",
-  footer: "温馨提示：请尽快兑换奖品以免失效~",
-  showColumn: true,
-  // column字段中action的键值指定data数据中keyType的类型
-  column: [
-    { label: "奖品名称", prop: "name" },
-    {
-      label: "奖品内容",
-      prop: "content",
-      // 设置奖品内容 或 按钮类型
-      render: function (params, index) {
-        var retStr = params.content;
-        switch (params.name) {
-          case "实物奖品":
-            retStr = '<button role="button" class="ico-btn-reset pops__link jpopBtnCallUinfo">填写信息</button>';
-            break;
-          case "绑定":
-            retStr = '<button role="button" class="ico-btn-reset pops__link jpopBtnCallBind">去绑定</button>';
-            break;
-          case "兑换码":
-            retStr = JTool.utils.tagString(
-              "div",
-              {
-                class: ["pops__link", "jBtnPopCode"],
-                attr: {
-                  role: "button",
-                  "data-clipboard-text": JTool.utils.trimAll(params.content),
-                },
-              },
-              params.content
-            );
-            break;
-          default:
-            retStr = params.content;
-            break;
-        }
-        return retStr;
-      },
-    },
-  ],
-  data: recordData,
-  onMounted: function () {
-    /* 模态框--我的奖励-待领取绑定游戏信息 */
-    $(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
-      dialogBind.open({ prefix: "" });
-    });
-    /* 模态框--我的奖励-填写个人信息 */
-    $(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
-      dialogUinfo.open({ prefix: "" });
-    });
-  },
-  // done(true)时弹窗关闭
-  onBeforeClose: function (action, done) {
-    /* 点击确认按钮逻辑 */
-    if (action == "button") {
-      bindMockDelay(true, done);
-    } else {
-      done(true);
-    }
-  },
-});
-// 我的奖励
-$(".btn-record").on("click", function () {
-  recordData.push({ name: "兑换码", content: Date.now() + "" });
-  dialogRecord.open({
-    title: "我的奖励",
-    data: recordData,
-    // prefix: "",
-    // suffix: "",
-  });
-});
-
-/* 我的奖励——默认模式 */
-
 /* 我的奖励——diy模式 */
-var dialogDiyRecord = DialogJS.diy({
-  async: true,
-  scrollable: false,
-  title: "我的奖励",
-  message: "",
-  prefix: "",
-  suffix:
-    '<div class="tc"><img style="width:2rem" src="https://image.tanwan.com/huodong/sy/2022nzhd/img/3029.png"/></div>',
-  footer: "",
-  onMounted: function () {
-    // 关闭
-    $(".jpopRecord").on("click", ".jpopClose", function () {
-      dialogDiyRecord.$el.fadeOut();
-    });
-    /* 模态框--我的奖励-待领取绑定游戏信息 */
-    $(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
-      dialogBind.open({ prefix: "" });
-    });
-    /* 模态框--我的奖励-填写个人信息 */
-    $(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
-      dialogUinfo.open({ prefix: "" });
-    });
-  },
-  onBeforeClose: function (action, done) {
-    /* 点击确认按钮逻辑 */
-    if (action == "button") {
-      var Loading = JTool.Loading();
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(true);
-          Loading.stop();
-          JTool.showToast("点击确认");
-        }, 0);
-      });
-    }
-  },
-});
-$(".jbtnMyPrize1").on("click", function () {
+$(".jbtnMyPrize0").on("click", function () {
   var recordTpl = [
     '<div class="pops__grid pops__grid--line">',
     '<div class="pops__grid__thead">',
@@ -399,116 +264,280 @@ $(".jbtnMyPrize1").on("click", function () {
     "</div>",
   ].join("");
   var data = [
-    { name: "分享礼包", content: "AAAA BBBB CCCC DDDD" },
-    { name: "开局礼包", content: "AAAA BBBB CCCC DDDD" },
-    { name: "热战礼包", content: "AAAA BBBB CCCC DDDD" },
-    { name: "称号礼包", content: "15个工作日内发放，游戏邮箱查收。" },
-    { name: "实物礼包", content: "华为手机" },
-    // { name: "绑定游戏", content: "" },
+    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
+    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
+    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
+    { name: "荣耀传奇礼包", content: "AAAA BBBB CCCC DDDD" },
   ];
   var messageHTML = "";
   data.forEach(function (item) {
-    /* 实物礼包 */
-    if (item.name == "实物礼包") {
-      messageHTML += JTool.tpl.entity(item);
-    } else if (/* 称号礼包 */ item.name == "称号礼包") {
-      messageHTML += JTool.tpl.title(item);
-    } /* 礼包码 */ else {
-      messageHTML += JTool.tpl.code(item);
-    }
+    messageHTML += JTool.utils.tagString("div", { class: "pops__grid__tr" }, [
+      {
+        type: "div",
+        props: {
+          class: "pops__grid__td",
+        },
+        children: item.name,
+      },
+      {
+        type: "div",
+        props: {
+          class: ["pops__grid__td", "jBtnPopCode"],
+          attr: { "data-clipboard-text": JTool.utils.trimAll(item.content || "") },
+        },
+        children: item.content,
+      },
+    ]);
   });
   messageHTML = JTool.utils.tplFormat(recordTpl, { children: messageHTML });
-  dialogDiyRecord.open({
+
+  var dialogDiyRecord = DialogJS.diy({
+    async: false,
+    scrollable: false,
+    maskClickable: true,
+    target: ".jpopRecord",
     title: "我的奖励",
-    prefix: "",
-    suffix: "",
     message: messageHTML,
-    footer: "温馨提示：请尽快兑换奖品以免失效~",
+    prefix: "",
+    suffix:
+      '<div class="tc"><img style="width:2rem" src="http://rsj.gz.gov.cn/global/qrcode_yst.jpg"/></div>',
+    footer: "温馨提示：请尽快兑换奖品以免失效",
   });
 });
 /* 我的奖励——diy模式 end */
 
-/* 礼包码 */
-// 礼包码-自定义 DialogJS.diy
+/* 我的奖励-组件_action渲染模式 */
+$(".jbtnMyPrize1").on("click", function () {
+  var recordData = [
+    {
+      name: "实物奖品",
+      content: "华为fold手机",
+      keyType: "buttonUserinfo" /* 为实物奖品且需要填写个人信息时设置keyType:'buttonUserinfo' */,
+    },
+    {
+      name: "礼品-需绑定游戏",
+      content: "原始传奇神级套餐",
+      keyType: "buttonBind" /* 为奖励需要绑定游戏信息时设置keyType:'buttonBind' */,
+    },
+    {
+      name: "礼品-需弹窗打开",
+      content: "原始传奇神级套餐",
+      keyType: "buttonCode" /* 为需要打开兑换码弹窗时设置keyType:'buttonCode' */,
+    },
+    { name: "兑换码", content: "AAAA BBBB CCCC DDDD", keyType: "copy" /* 为兑换码时设置keyType:'copy' */ },
+    { name: "京东礼金卡", content: "100元" },
+  ];
+  var dialogRecord_actionMode = DialogJS.record({
+    async: false,
+    scrollable: false,
+    maskClickable: true,
+    target: ".jpopRecord",
+    title: "我的奖励",
+    prefix: "",
+    suffix: "",
+    footer: "温馨提示：请尽快兑换奖品以免失效~",
+    showColumn: true,
+    // column字段中action的键值指定data数据中keyType的类型
+    column: [
+      { label: "奖品名称", prop: "name" },
+      {
+        label: "奖品内容",
+        prop: "content",
+        action: "keyType",
+      },
+    ],
+    data: recordData,
+    onMounted: function () {
+      /* 模态框--我的奖励-礼品查看 */
+      $(".jpopRecord").on("click", ".jpopBtnCallCode", function () {
+        DialogJS.code({
+          direction: "vertical",
+          title: "温馨提示",
+          prefix: "恭喜获得华为手机",
+          message: "FLFDSFDSFDFFS",
+          // suffix: "",
+          footer: "福利-激活码-输入礼包码-兑换",
+        });
+      });
+      /* 模态框--我的奖励-待领取绑定游戏信息 */
+      $(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
+        dialogBind.open({ prefix: "恭喜获得xxx" });
+      });
+      /* 模态框--我的奖励-填写个人信息 */
+      $(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
+        dialogUinfo.open({ prefix: "恭喜获得xxx" });
+      });
+    },
+  });
+});
+/* 我的奖励-组件_action渲染模式 end */
+
+/* 我的奖励-我的奖励-组件_render渲染模式 */
+$(".jbtnMyPrize2").on("click", function () {
+  var recordData = [
+    {
+      name: "实物奖品",
+      content: "华为fold手机",
+    },
+    {
+      name: "礼品-需绑定游戏",
+      content: "原始传奇神级套餐",
+    },
+    {
+      name: "礼品-需弹窗打开",
+      content: "原始传奇神级套餐",
+    },
+    { name: "兑换码", content: "AAAA BBBB CCCC DDDD" },
+    { name: "京东礼金卡", content: "100元" },
+  ];
+  var dialogRecord_renderMode = DialogJS.record({
+    async: false,
+    scrollable: false,
+    maskClickable: true,
+    target: ".jpopRecord",
+    title: "我的奖励",
+    prefix: "",
+    suffix: "",
+    footer: "温馨提示：请尽快兑换奖品以免失效~",
+    showColumn: true,
+    // column字段中action的键值指定data数据中keyType的类型
+    column: [
+      { label: "奖品名称", prop: "name" },
+      {
+        label: "奖品内容",
+        prop: "content",
+        // 设置奖品内容 或 按钮类型
+        render: function (params, index) {
+          var retStr = params.content;
+          switch (params.name) {
+            case "实物奖品":
+              retStr =
+                '<button role="button" class="ico-btn-reset pops__link jpopBtnCallUinfo">填写信息</button>';
+              break;
+            case "礼品-需绑定游戏":
+              retStr =
+                '<button role="button" class="ico-btn-reset pops__link jpopBtnCallBind">去绑定</button>';
+              break;
+            case "礼品-需弹窗打开":
+              retStr =
+                '<button role="button" class="ico-btn-reset pops__link jpopBtnCallCode">去领取</button>';
+              break;
+            case "兑换码":
+              retStr = JTool.utils.tagString(
+                "div",
+                {
+                  class: ["pops__link", "jBtnPopCode"],
+                  attr: {
+                    role: "button",
+                    "data-clipboard-text": JTool.utils.trimAll(params.content),
+                  },
+                },
+                params.content
+              );
+              break;
+            default:
+              retStr = params.content;
+              break;
+          }
+          return retStr;
+        },
+      },
+    ],
+    data: recordData,
+    onMounted: function () {
+      /* 模态框--我的奖励-礼品查看 */
+      $(".jpopRecord").on("click", ".jpopBtnCallCode", function () {
+        DialogJS.code({
+          direction: "vertical",
+          title: "温馨提示",
+          prefix: "恭喜获得华为手机",
+          message: "FLFDSFDSFDFFS",
+          // suffix: "",
+          footer: "福利-激活码-输入礼包码-兑换",
+        });
+      });
+      /* 模态框--我的奖励-待领取绑定游戏信息 */
+      $(".jpopRecord").on("click", ".jpopBtnCallBind", function () {
+        dialogBind.open({ prefix: "恭喜获得xxx" });
+      });
+      /* 模态框--我的奖励-填写个人信息 */
+      $(".jpopRecord").on("click", ".jpopBtnCallUinfo", function () {
+        dialogUinfo.open({ prefix: "恭喜获得xxx" });
+      });
+    },
+  });
+});
+/* 我的奖励-我的奖励-组件_render渲染模式 end */
+
+
+/* 礼包码-自定义 DialogJS.diy */
 $(".jbtnCode0").on("click", function () {
   var messageHTML = "<div class=''>恭喜获得XXXX礼包码</div>";
   messageHTML += '<div class="ico-inp mauto pops__mt">请收下礼包码：AAABBBCCCDDD</div>';
   var dialogCode = DialogJS.diy({
     // showHeader: false,
+    maskClickable: true,
     title: "恭喜获得礼包码",
     prefix: "恭喜获得华为手机",
-    suffix: "福利-激活码-输入礼包码-兑换",
     message: messageHTML,
-    button:
-      '<button data-clipboard-text="AAABBBCCCDDD" class="pops__mt jy-btn-txt ico-btn-reset pops__btn pops__btn__ok jBtnPopCode jpopClose">自定义复制按钮</button>',
+    suffix: "福利-激活码-输入礼包码-兑换",
     footer: "请前往游戏内兑换礼包码",
-    // done(true)时弹窗关闭
-    onBeforeClose: function (action, done) {
-      /* 点击确认按钮逻辑 */
-      if (action == "button") {
-      }
-      done(true);
-    },
   });
 });
-// 礼包码-组件_vertical模式(默认模式) DialogJS.code
+/* 礼包码-自定义 DialogJS.diy end */
+
+/* 礼包码-组件_vertical模式(默认模式) DialogJS.code */
 $(".jbtnCode1").on("click", function () {
+  var code = "code1" + Date.now();
   var dialogCode = DialogJS.code({
+    maskClickable: true,
     direction: "vertical",
     title: "温馨提示",
     prefix: "恭喜获得礼包码",
-    message: "code1" + Date.now(),
+    message: code,
     // suffix: "温馨提示：请尽快兑换礼包码，避免失效",
     footer: "福利-激活码-输入礼包码-兑换",
-    // button:
-    //   '<button role="button" aria-label="dialog confirm button" class="pops__btn pops__btn__ok pops__mt jpopClose jBtnPopCode">自定义按钮</button>',
-    // done(true)时弹窗关闭
-    onBeforeClose: function (action, done) {
-      /* 点击确认按钮逻辑 */
-      if (action == "button") {
-      }
-      done(true);
-    },
   });
 });
-// 礼包码-组件_horizontal模式 DialogJS.code
+/* 礼包码-组件_vertical模式(默认模式) DialogJS.code end */
+
+/* 礼包码-组件_horizontal模式 DialogJS.code */
 $(".jbtnCode2").on("click", function () {
+  var code = "code1" + Date.now();
   var dialogCode = DialogJS.code({
+    maskClickable: true,
     direction: "horizontal",
     title: "温馨提示",
     prefix: "恭喜获得礼包码",
-    message: "code1" + Date.now(),
+    message: code,
     // suffix: "温馨提示：请尽快兑换礼包码，避免失效",
     footer: "福利-激活码-输入礼包码-兑换",
-    // button:
-    //   '<button role="button" aria-label="dialog confirm button" class="pops__btn pops__btn__ok pops__mt jpopClose">自定义按钮</button>',
-    // done(true)时弹窗关闭
-    onBeforeClose: function (action, done) {
-      /* 点击确认按钮逻辑 */
-      if (action == "button") {
-      }
-      done(true);
-    },
   });
 });
-/* 礼包码 end */
+/* 礼包码-组件_horizontal模式 DialogJS.code end */
 
 /* 温馨提示 */
 $(".btn-rule").on("click", function () {
   var dialogDiy = DialogJS.diy({
+    maskClickable: true,
     title: "title",
     prefix: "前缀" + Date.now(),
     message: "hello world<div style='background:white;padding:1em'>温馨提示</div>",
     suffix: "后缀" + Date.now(),
     footer: "<div>页脚</div>",
-    button:
-      '<button role="button" aria-label="dialog confirm button" class="pops__btn pops__btn__ok pops__mt jpopClose">自定义按钮</button>',
-    // done(true)时弹窗关闭
-    onBeforeClose: function (action, done) {
-      /* 点击确认按钮逻辑 */
-      if (action == "button") {
-      }
-      done(true);
+    button: '<button role="button" class="pops__btn pops__btn__ok pops__mt jpopClose">自定义按钮</button>',
+    // // done(true)时弹窗关闭
+    onBeforeClose: function (action) {
+      return new Promise(function (resolve) {
+        switch (action) {
+          case "button":
+            requestJSON(resolve);
+            break;
+          default:
+            resolve(true);
+            break;
+        }
+      });
     },
   });
 });
