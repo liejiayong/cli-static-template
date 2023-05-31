@@ -312,10 +312,20 @@
 */
 @mixin initGutter($mixin-gutter: 5px) {
   @each $type in ml, mt, pl, pt {
+    $props: margin-top;
+    @if $type == ml {
+      $props: margin-left;
+    } @else if $type == mt {
+      $props: margin-top;
+    } @else if $type == pt {
+      $props: padding-top;
+    } @else if $type == pl {
+      $props: padding-left;
+    }
     @for $i from 1 through 12 {
       $size: 5 * $i;
       .#{$type}-#{$size} {
-        width: $i * $mixin-gutter;
+        #{$props}: $i * $mixin-gutter;
       }
     }
   }

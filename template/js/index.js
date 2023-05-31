@@ -603,7 +603,7 @@ function bind() {
 $(".btn-bind").on("click", function () {bind()})
 
 $(".btn-myprize").on("click", function () {
-  var tpl = '<li><span>礼包码:{{code}}</span><span data-clipboard-text="{{code}}" class="copy">复制</span></li>'
+  var tpl = '<li><span>礼包码:{{code}}</span><span data-clipboard-text="{{code}}" class="copy jBtnPopCode">复制</span></li>'
   var codeArr = [{ code: "FFSDFDS" }, { code: "ERRSDFDS" }, { code: "GRGDGFD" }];
   var _html = '<ul class="gift">';
   codeArr.forEach((item) => {
@@ -647,14 +647,14 @@ $(".btn-sign").on("click", function () {
 });
 // 领取
 $(".btn-get").on("click", function () {
-  if (!$(this).hasClass(jtool.activeCls)) return twpop.msg("抱歉，您的签到次数暂时不够");
+  if ($(this).hasClass('active')) return twpop.msg("抱歉，您的签到次数暂时不够");
   var code = "FLFDSFDSFDFFS";
   twpop.alert("<div class='mt-20 lh-20'><p>恭喜获得礼包码</p>" + code + "</div>", {
     title: "温馨提示",
     close: false, //去掉右上角关闭按钮
     btns: {
       复制: {
-        class: "copy",
+        class: "copy jBtnPopCode",
         target: "data-clipboard-text=" + code,
         back: function () {
           twpop.close("alert");

@@ -1,8 +1,12 @@
-// .twpop-main {
+.twpop-mask {
+  z-index: 100;
+}
+.twpop-main {
 //   background-color: #141b35;
 //   font-size: 0.24rem;
 //   color: #b1b6c3;
-// }
+    z-index: 100;
+}
 // .twpop-title {
 //   padding: 20px 20px 0;
 //   border-bottom: none;

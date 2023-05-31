@@ -300,7 +300,7 @@
 }
 .jy-btn {
   cursor: pointer;
-  z-index: 5;
+  // z-index: 5;
   text-indent: -9999px;
   font-size: 0;
   line-height: 1;
@@ -322,7 +322,7 @@
 }
 .jy-btn-txt {
   cursor: pointer;
-  z-index: 5;
+  // z-index: 5;
   &:active {
     filter: brightness(1.1);
   }
