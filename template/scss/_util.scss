@@ -255,6 +255,9 @@
   flex: none;
 }
 
+.text-nowrap {
+  white-space: nowrap;
+}
 .nowrap {
   overflow: hidden;
   text-overflow: ellipsis;
