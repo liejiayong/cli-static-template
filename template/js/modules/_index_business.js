@@ -4,11 +4,11 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2023-03-16 09:20:02
+ * @LastEditTime: 2023-06-06 10:42:34
  * @FilePath: \tool-library\business-logic\template\js\modules\_index_business.js
  * @warning: 本页所有内容，后端同学不需要修改，谢谢~
  */
-/* prettier-ignore */ var logic={extend:function(name,fn){var t=this;if(fn&&typeof fn=='function'){if(!t[fn]){return TypeError(JSON.stringify(fn)+'is existed')}else{t[name]=fn}}else if(Object.prototype.toString.call(name)==='[object Object]'){for(var key in name){t[key]=name[key]}}},$readyPop:function(){var $pop='<!-- pop game ready count --><div class="jy-pop " id="J_gameReadyPop"><div class="jy-pop_mask"></div><div class="jy-pop_ready"> <span id="gameReadyCount">3</span></div></div>';$pop=$($pop);$('body').append($pop)},};
+/* prettier-ignore */ var logic={extend:function(name,fn){var t=this;if(fn&&typeof fn=="function"){if(!t[fn]){return TypeError(JSON.stringify(fn)+"is existed")}else{t[name]=fn}}else if(Object.prototype.toString.call(name)==="[object Object]"){for(var key in name){t[key]=name[key]}}},$readyPop:function(){var $pop='<div class="pops" id="J_gameReadyPop"><div class="pops__mask"></div><div class="pops__wrapper" style="font-size: 2rem"><span  class="text-white" id="gameReadyCount">3</span></div></div>';$pop=$($pop);$("body").append($pop)},readyGame:function(opts){var _this=this,duration=(opts&&opts.duration)||3,onBeforeReady=(opts&&opts.onBeforeReady)||function(){},onReady=(opts&&opts.onReady)||function(){},onStep=(opts&&opts.onStep)||function(){},$popReady=$("#J_gameReadyPop"),$count=$popReady.find("#gameReadyCount");$popReady.fadeIn();$count.text(duration);onBeforeReady();var timer=setInterval(function(){--duration;onStep(duration);if(duration===0){$count.text("GO!");$popReady.fadeOut();clearInterval(timer);setTimeout(function(){onReady()},100)}else{$count.text(duration)}},1000)}};
 var jtool = {
   imgPath: "./img/", // 默认图片地址，后端请勿修改，需要修改请到index.html修改
   imgCrossPath: "./img/", // 默认跨域图片地址，后端请勿修改，需要修改请到index.html修改
@@ -141,28 +141,6 @@ $(function () {
       var $gTime = $("#gTime"),
         time = t.time.current;
       $gTime.text(time + "S");
-    },
-    loadGame: function (opts) {
-      var self = this,
-        count = (opts && opts.count) || 3,
-        onReady = (opts && opts.onReady) || function () {},
-        $popReady = $("#J_gameReadyPop"),
-        $count = $popReady.find("#gameReadyCount");
-      $popReady.fadeIn();
-      $count.text(count);
-      var timer = setInterval(function () {
-        --count;
-        if (count === 0) {
-          $count.text("GO!");
-          $popReady.fadeOut();
-          clearInterval(timer);
-          setTimeout(function () {
-            onReady();
-          }, 100);
-        } else {
-          $count.text(count);
-        }
-      }, 1000);
     },
     init: function () {
       this.$readyPop();
