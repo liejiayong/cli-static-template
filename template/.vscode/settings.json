@@ -1,3 +1,54 @@
 {
-  "liveServer.settings.port": 5502
+	"liveServer.settings.port": 5502,
+	"prettier.enable": true,
+	"prettier.prettierPath": ".",
+	"prettier.configPath": "F:\\tanwan-file\\tool-library\\IDE\\prettier.config.js",
+	"editor.formatOnSave": true, // 保存格式化
+	"editor.formatOnType": false, // 在键入一行后是否自动化格式
+	"editor.formatOnPaste": true, // 在粘贴时自动格式化
+	"editor.tabSize": 2, // 一个tab强制转换为2个空格
+	"editor.fontSize": 16,
+	"editor.lineHeight": 20,
+	"editor.renderLineHighlight": "all", // 空白字符显示方式
+	"editor.wordWrapColumn": 120,
+	"editor.wordWrap": "on", // 在视区宽度处换行,
+	"editor.smoothScrolling": true, // 滚动时启用动画
+	"editor.bracketPairColorization.enabled": true, // 彩虹🌈括号
+	"editor.renderWhitespace": "none",
+	"editor.cursorBlinking": "smooth",
+	"editor.multiCursorModifier": "ctrlCmd",
+	"editor.snippetSuggestions": "top",
+	"editor.codeActionsOnSave": {
+		// For ESLint
+		"source.fixAll.eslint": true,
+		// For TSLint
+		"source.fixAll.tslint": true,
+		// For Stylelint
+		"source.fixAll.stylelint": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

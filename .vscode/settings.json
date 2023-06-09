@@ -289,7 +289,7 @@
   /* prettier */
   "prettier.enable": true,
   "prettier.prettierPath": ".",
-  // "prettier.configPath": "E:\\tanwan-file\\tool-library\\IDE\\prettier.config.js" /* tanwanpc-desk */,
+  "prettier.configPath": "E:\\tanwan-file\\tool-library\\IDE\\prettier.config.js" /* tanwanpc-desk */,
 
   /* stylusSupremacy */
   "stylusSupremacy.insertColons": false, // 是否插入冒号
