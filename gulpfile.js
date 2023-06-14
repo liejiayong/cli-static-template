@@ -88,6 +88,13 @@ async function genScss(cb) {
 
 async function genHTML() {
   await cpFiles({
+    inputPath: `./template/.vscode/**`,
+    outputPath: './src/.vscode/',
+    isAutoprefixer: false,
+    isPxtorem: false,
+    isSass: false,
+  });
+  await cpFiles({
     inputPath: `./template/index-${NODE_ENV}*.html`,
     outputPath: './src/',
     renameOpts: { basename: 'index' },
