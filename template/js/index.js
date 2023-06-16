@@ -294,6 +294,7 @@ function DialogJS_DEMO () {
     });
     messageHTML = JTool.utils.tplFormat(recordTpl, { children: messageHTML });
   
+
     var dialogDiyRecord = DialogJS.diy({
       async: false,
       scrollable: false,

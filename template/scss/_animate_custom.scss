@@ -62,7 +62,7 @@
     transform: translate3d(0, 0px, 0);
   }
 }
-.jy-animate-floating {
+.anim__floating {
   -webkit-animation: floating 3s infinite alternate;
   -moz-animation: floating 3s infinite alternate;
   animation: floating 3s infinite alternate;
@@ -154,7 +154,7 @@
     transition-property: left;
   }
 }
-.ani__shine {
+.anim__shine {
   position: relative;
   &::after {
     content: "";
